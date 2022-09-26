@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e">
+    <diagram id="p05ze6_Xi2QFhJk6sP51" name="第 1 页">
+        <mxGraphModel dx="1163" dy="537" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="13" value="Home" style="swimlane;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="175" y="230" width="547" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="I am a...." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=15;" vertex="1" parent="13">
+                    <mxGeometry x="387" y="59" width="68" height="22" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Designer" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="13">
+                    <mxGeometry x="327" y="107" width="180" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Learner" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="13">
+                    <mxGeometry x="327" y="154" width="180" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Writter" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="13">
+                    <mxGeometry x="327" y="201" width="180" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Photographer" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="13">
+                    <mxGeometry x="327" y="252" width="180" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Individual Developer&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="13">
+                    <mxGeometry x="327" y="297" width="180" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="Video" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="13">
+                    <mxGeometry x="26" y="46" width="274" height="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="Home" style="swimlane;fontSize=15;" vertex="1" parent="1">
+                    <mxGeometry x="175" y="646" width="547" height="360" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="Designer" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
+                    <mxGeometry x="441.5" y="99" width="50" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" value="Learner" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
+                    <mxGeometry x="441.5" y="142" width="50" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="Writter" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
+                    <mxGeometry x="441.5" y="274" width="50" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Individual Developer&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
+                    <mxGeometry x="441.5" y="227" width="50" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="ArchZ" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
+                    <mxGeometry x="426" y="30" width="81" height="55" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Photographer" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
+                    <mxGeometry x="441.5" y="182" width="50" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Elements" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
+                    <mxGeometry x="94" y="44" width="270" height="281" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
