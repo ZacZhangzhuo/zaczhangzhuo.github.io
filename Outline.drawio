@@ -29,7 +29,7 @@
                     <mxGeometry x="26" y="46" width="274" height="290" as="geometry"/>
                 </mxCell>
                 <mxCell id="22" value="Home" style="swimlane;fontSize=15;" vertex="1" parent="1">
-                    <mxGeometry x="175" y="646" width="547" height="360" as="geometry"/>
+                    <mxGeometry x="175" y="646" width="547" height="521" as="geometry"/>
                 </mxCell>
                 <mxCell id="24" value="Designer" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
                     <mxGeometry x="441.5" y="99" width="50" height="31" as="geometry"/>
@@ -51,6 +51,18 @@
                 </mxCell>
                 <mxCell id="30" value="Elements" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
                     <mxGeometry x="94" y="44" width="270" height="281" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="My profile" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
+                    <mxGeometry x="441.5" y="312" width="50" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="My skill tree" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
+                    <mxGeometry x="441.5" y="355" width="50" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="Contact" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
+                    <mxGeometry x="441.5" y="393" width="50" height="31" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="Icons" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" vertex="1" parent="22">
+                    <mxGeometry x="441.5" y="435" width="50" height="31" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
