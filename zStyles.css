@@ -90,3 +90,7 @@ img.items {
   /* border-width: 5px; */
   /* border-color: blue; */
 }
+
+pre, code{
+  background-color: antiquewhite;
+}
