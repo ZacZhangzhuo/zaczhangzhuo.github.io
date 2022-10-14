@@ -29,6 +29,7 @@ div.window {
 
 div.mainMenu {
   vertical-align: top;
+  text-align: center;
 
   /* border-style: solid;
   border-width: 5px;
@@ -38,7 +39,7 @@ div.mainMenu {
 img.logo {
   width: 60%;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 50px;
   display: flex;
 
   /* border-style: solid;
@@ -49,21 +50,25 @@ img.logo {
 p.IAMA {
   text-align: center;
   font-size: 30px;
+    /* border-style: solid;
+  border-width: 5px;
+  border-color: red; */
 }
+
 a.textWithLink {
   text-align: center;
   display: block;
   margin-top: 25px;
   margin-bottom: 25px;
-  font-size: 30px;
   text-decoration: underline;
   font-family: Source Sans Pro;
+  font-size: 25px;
   color: white;
-  font-size: 30px;
   font-style: italic;
 }
 
 img.media {
+  text-align: center;
   width: 25px;
   margin: 10px 10px 10px 10px;
 }
@@ -91,6 +96,14 @@ img.items {
   /* border-color: blue; */
 }
 
-pre, code{
-  background-color: antiquewhite;
+div.endnotes {
+  
+  width: 1fr;
+  text-align: center;
+}
+p.endnotes {
+  color: rgb(127, 127, 127);
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
 }
