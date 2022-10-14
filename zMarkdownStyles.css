@@ -303,3 +303,8 @@ pre[data-line] .line-highlight[data-end]:after {
   top: auto;
   bottom: 0.4em;
 }
+
+
+element.style {
+    background-color: rgb(36, 36, 36);
+}
