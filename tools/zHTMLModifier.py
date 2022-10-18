@@ -1,4 +1,6 @@
-file_path = r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zDesigner\2020-10-30 Campus+ ——课程设计\Campus+ ——课程设计.html"
+file_path = (
+    r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zDesigner\2022-05-01 Section Clipper —— 课程设计\Section Clipper —— 课程设计.html"
+)
 
 html = open(file_path, "r", encoding="utf-8")
 htmlTexts = html.read()
@@ -41,8 +43,12 @@ htmlTexts = htmlTexts.replace("提供的爬取软件来源于：i.ijrou.com 免�
 
 # Replace the style sheet link
 htmlTexts = htmlTexts.split("<style>")
-tempTexts = htmlTexts[-1].split("</style>")[-1]
-htmlTexts = htmlTexts[0] + '<link rel="stylesheet" href="../../zMarkdownStyles.css" />' + tempTexts
+if len(htmlTexts) != 1:
+    tempTexts = htmlTexts[-1].split("</style>")[-1]
+    htmlTexts = (
+        htmlTexts[0] + '<link rel="stylesheet" href="../../zMarkdownStyles.css" />' + tempTexts
+    )
+else : htmlTexts = htmlTexts[0]
 
 
 # Replace the styles
