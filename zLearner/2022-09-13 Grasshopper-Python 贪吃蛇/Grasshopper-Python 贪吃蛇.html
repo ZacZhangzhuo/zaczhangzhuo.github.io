@@ -1,333 +1,155 @@
 <!DOCTYPE html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
-  />
-  <title>Grasshopper-Python 贪吃蛇</title>
-  <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-  <link rel="stylesheet" href="../../zMarkdownStyles.css" />
-</head>
-<body>
-  <!-- Menu Bar -->
-  <div class="menuBar">
-    <a href="../../zHome.html" class="menuBar"> <p>zHome</p></a>
-    <a href="../../zDesigner/zDesigner.html" class="menuBar"
-      ><p>zDesigner</p></a
-    >
-    <a href="..//zLearner.html" class="menuBar"><p>zLearner</p></a>
-    <a href="../../zWriter/zWriter.html" class="menuBar"><p>zWriter</p></a>
-    <a href="../../zPhotographer/zPhotographer.html" class="menuBar"
-      ><p>zPhotographer</p></a
-    >
-    <a
-      href="../../zIndividualDeveloper/zIndividualDeveloper.html"
-      class="menuBar"
-      ><p>zIndividualDeveloper</p></a
-    >
-    <a href="../../zCV.html" class="menuBar"><p>zCV</p></a>
-    <a href="../../zSkills.html" class="menuBar"><p>zSkills</p></a>
-    <a href="../../zContact.html" class="menuBar"><p>zContact</p></a>
-  </div>
-  <!-- End of Menu Bar -->
-  <div class="rich_media_area_primary">
-    <!--<div style='display:none;'>Designer by ArchZ</div>-->
-    <div id="js_article" class="rich_media">
-      <div id="img-content" class="rich_media_wrp">
-        <h1 class="rich_media_title" id="activity-name">
-          Grasshopper-Python 贪吃蛇
-        </h1>
-        <div id="meta_content" class="rich_media_meta_list">
-          <span
-            id="copyright_logo"
-            class="wx_tap_link js_wx_tap_highlight rich_media_meta icon_appmsg_tag appmsg_title_tag weui-wa-hotarea"
-            >原创</span
-          >
-          <span class="rich_media_meta rich_media_meta_text"> 小zz </span>
-
-          <span class="rich_media_meta rich_media_meta_nickname" id="profileBt"
-            ><a href="javascript:void(0);">Arch Z</a>
-            <div
-              id="js_profile_qrcode"
-              aria-hidden="true"
-              class="profile_container"
-            >
-              <div class="profile_inner">
-                <strong class="profile_nickname">Arch Z</strong>
-                <img
-                  class="profile_avatar"
-                  id="js_profile_qrcode_img"
-                  src=""
-                  alt=""
-                />
-
-                <p class="profile_meta">
-                  <label class="profile_meta_label">微信号</label>
-                  <span class="profile_meta_value">Arch--Z</span>
-                </p>
-
-                <p class="profile_meta">
-                  <label class="profile_meta_label">功能介绍</label>
-                  <span class="profile_meta_value"
-                    >小zz的建筑学习笔记，乐于与你分享。</span
-                  >
-                </p>
-              </div>
-              <span class="profile_arrow_wrp" id="js_profile_arrow_wrp">
-                <i class="profile_arrow arrow_out"></i>
-                <i class="profile_arrow arrow_in"></i>
-              </span>
-            </div>
-          </span>
-          <span id="publish_time" class="rich_media_meta rich_media_meta_text"
-            >2022-09-13</span
-          ><span class="rich_media_meta rich_media_meta_text"
-            ><a
-              href="https://mp.weixin.qq.com/s?__biz=MzA5MjQzMDc3NA==&mid=2247484135&idx=1&sn=e61ece3ac1943b8f2773130dd115b7cd&chksm=906c0a3ea71b83286d3ff3b26ee2fffcc7c9370de7d37290016087148c0670eaa87fca5c1e83&scene=126&sessionid=1665771854&subscene=227&key=a09d7274fc2e24206366444a5d07971ff3cbbd59e6779208e5e7bf515a3b02f439166a028cdf80e3c14b30dca00f8874b746256ac3468e0703bb451c4e9b302f9e9cf9333375d6e430483fa19bfe9a205fbbc1b4d8de9639802bc2c27f29b31abbd5d0d5a4abd5588c377228100fb4f0ab40b37e5a1b6604685b7bb33fac786f&ascene=7&uin=MTQ4MTI3MzcxMA==&devicetype=Windows"
-              target="_blank"
-              >原文</a
-            ></span
-          >
-          <em
-            id="js_ip_wording_wrp"
-            class="rich_media_meta rich_media_meta_text"
-            role="option"
-            >发表于<span id="js_ip_wording"></span
-          ></em>
-        </div>
-
-        <div id="js_tags" class="article-tag__list" data-len="5">
-          <div class="article-tag-card__title">收录于合集</div>
-          <div class="article-tags">
-            <div
-              class="article-tag__item-wrp js_tag weui-wa-hotarea js_wx_tap_highlight wx_tap_link"
-              data-url="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA5MjQzMDc3NA==&amp;action=getalbum&amp;album_id=2573507854381645824#wechat_redirect"
-              data-tag_id=""
-              data-album_id="2573507854381645824"
-              data-tag_source="3"
-              role="link"
-              tabindex="0"
-              aria-labelledby="js_article_tag_name__2573507854381645824 js_a11y_comma js_article_tag_num__2573507854381645824 js_article_tag_tips__2573507854381645824"
-            >
-              <span
-                aria-hidden="true"
-                id="js_article_tag_name__2573507854381645824"
-                class="article-tag__item"
-                >#贪吃蛇</span
-              >
-              <span aria-hidden="true" class="article-tag__item-num">
-                <span id="js_article_tag_num__2573507854381645824">1</span>
-                <span
-                  id="js_article_tag_tips__2573507854381645824"
-                  class="weui-hidden_abs"
-                  >个</span
-                >
-              </span>
-            </div>
-            <div
-              class="article-tag__item-wrp js_tag weui-wa-hotarea js_wx_tap_highlight wx_tap_link"
-              data-url="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA5MjQzMDc3NA==&amp;action=getalbum&amp;album_id=2573389094660374529#wechat_redirect"
-              data-tag_id=""
-              data-album_id="2573389094660374529"
-              data-tag_source="4"
-              role="link"
-              tabindex="0"
-              aria-labelledby="js_article_tag_name__2573389094660374529 js_a11y_comma js_article_tag_num__2573389094660374529 js_article_tag_tips__2573389094660374529"
-            >
-              <span
-                aria-hidden="true"
-                id="js_article_tag_name__2573389094660374529"
-                class="article-tag__item"
-                >#建筑</span
-              >
-              <span aria-hidden="true" class="article-tag__item-num">
-                <span id="js_article_tag_num__2573389094660374529">2</span>
-                <span
-                  id="js_article_tag_tips__2573389094660374529"
-                  class="weui-hidden_abs"
-                  >个</span
-                >
-              </span>
-            </div>
-            <div
-              class="article-tag__item-wrp js_tag weui-wa-hotarea js_wx_tap_highlight wx_tap_link"
-              data-url="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA5MjQzMDc3NA==&amp;action=getalbum&amp;album_id=2082947356785721350#wechat_redirect"
-              data-tag_id=""
-              data-album_id="2082947356785721350"
-              data-tag_source="4"
-              role="link"
-              tabindex="0"
-              aria-labelledby="js_article_tag_name__2082947356785721350 js_a11y_comma js_article_tag_num__2082947356785721350 js_article_tag_tips__2082947356785721350"
-            >
-              <span
-                aria-hidden="true"
-                id="js_article_tag_name__2082947356785721350"
-                class="article-tag__item"
-                >#参数化</span
-              >
-              <span aria-hidden="true" class="article-tag__item-num">
-                <span id="js_article_tag_num__2082947356785721350">5</span>
-                <span
-                  id="js_article_tag_tips__2082947356785721350"
-                  class="weui-hidden_abs"
-                  >个</span
-                >
-              </span>
-            </div>
-            <div
-              class="article-tag__item-wrp js_tag weui-wa-hotarea js_wx_tap_highlight wx_tap_link"
-              data-url="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA5MjQzMDc3NA==&amp;action=getalbum&amp;album_id=2002354995534315522#wechat_redirect"
-              data-tag_id=""
-              data-album_id="2002354995534315522"
-              data-tag_source="4"
-              role="link"
-              tabindex="0"
-              aria-labelledby="js_article_tag_name__2002354995534315522 js_a11y_comma js_article_tag_num__2002354995534315522 js_article_tag_tips__2002354995534315522"
-            >
-              <span
-                aria-hidden="true"
-                id="js_article_tag_name__2002354995534315522"
-                class="article-tag__item"
-                >#编程</span
-              >
-              <span aria-hidden="true" class="article-tag__item-num">
-                <span id="js_article_tag_num__2002354995534315522">5</span>
-                <span
-                  id="js_article_tag_tips__2002354995534315522"
-                  class="weui-hidden_abs"
-                  >个</span
-                >
-              </span>
-            </div>
-            <div
-              class="article-tag__item-wrp js_tag weui-wa-hotarea js_wx_tap_highlight wx_tap_link"
-              data-url="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA5MjQzMDc3NA==&amp;action=getalbum&amp;album_id=2082947358010458112#wechat_redirect"
-              data-tag_id=""
-              data-album_id="2082947358010458112"
-              data-tag_source="4"
-              role="link"
-              tabindex="0"
-              aria-labelledby="js_article_tag_name__2082947358010458112 js_a11y_comma js_article_tag_num__2082947358010458112 js_article_tag_tips__2082947358010458112"
-            >
-              <span
-                aria-hidden="true"
-                id="js_article_tag_name__2082947358010458112"
-                class="article-tag__item"
-                >#GrassHopper</span
-              >
-              <span aria-hidden="true" class="article-tag__item-num">
-                <span id="js_article_tag_num__2082947358010458112">3</span>
-                <span
-                  id="js_article_tag_tips__2082947358010458112"
-                  class="weui-hidden_abs"
-                  >个</span
-                >
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="rich_media_content autoTypeSetting24psection"
-          id="js_content"
-        >
-          <section><br /></section>
-          <section>
-            <img
-              class="rich_pages wxw-img"
-              data-backh="201"
-              data-backw="363"
-              data-croporisrc="https://mmbiz.qpic.cn/mmbiz_jpg/otibBYe9u1ibmoa3l2Eq98ia4mqDcsE6RiasAcaePog2RctNdH7RQP0Dfkq9ApmTZzC2bSic1xy5VlBnYrUFTFQdNgQ/0?wx_fmt=jpeg"
-              data-cropx1="44.29065743944637"
-              data-cropx2="848.166089965398"
-              data-cropy1="48.71972318339101"
-              data-cropy2="493.840830449827"
-              data-galleryid=""
-              data-ratio="0.5534825870646766"
-              data-s="300,640"
-              src="images\0002.jpg"
-              data-type="jpeg"
-              data-w="804"
-            />
-          </section>
-          <section><br /></section>
-          <hr />
-          <section><br /></section>
-          <section>
-            <iframe
-              class="video_iframe rich_pages"
-              data-vidtype="2"
-              data-mpvid="wxv_2573457656599052289"
-              data-cover="http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FotibBYe9u1ibmQxjticCp2n26e3wvkibrJHDJCKXNyct7WlficWRjULAp0mpAeicPZ9epYPBF9Aj2z9O25fH3kKNVbLQ%2F0%3Fwx_fmt%3Djpeg"
-              allowfullscreen=""
-              frameborder="0"
-              data-ratio="1.889763779527559"
-              data-w="1920"
-              src="https://mp.weixin.qq.com/mp/readtemplate?t=pages/video_player_tmpl&amp;action=mpvideo&amp;auto=0&amp;vid=wxv_2573457656599052289"
-            ></iframe>
-          </section>
-          <section><br /></section>
-          <hr />
-          <section>
-            <span><br /></span>
-          </section>
-          <section><span>代码如下：</span></section>
-          <section class="code-snippet__fix code-snippet__js">
-
-            <pre
-              class="code-snippet__js"
-              data-lang="python"
-            ><section ><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">import</span> scriptcontext <span class="code-snippet__keyword">as</span> sc</span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">import</span> rhinoscriptsyntax <span class="code-snippet__keyword">as</span> rs</span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">import</span> random</span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">import</span> Rhino.Geometry <span class="code-snippet__keyword">as</span> rg</span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">import</span> copy</span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">import</span> math</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__function"><span class="code-snippet__keyword">def</span> <span class="code-snippet__title">UnitizePoint</span><span class="code-snippet__params">(point)</span>:</span></span></code><code><span class="code-snippet_outer">        point = rg.Vector3d(point.X,point.Y,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        rg.Vector3d.Unitize(point)</span></code><code><span class="code-snippet_outer">        point = rg.Point3d(point.X,point.Y,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">return</span> point</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__function"><span class="code-snippet__keyword">def</span> <span class="code-snippet__title">DirectionalMove</span> <span class="code-snippet__params">(Direction)</span>:</span></span></code><code><span class="code-snippet_outer">        DirectionVec = rg.Vector3d(Direction.X<span class="code-snippet__number">-0.5</span>, Direction.Y<span class="code-snippet__number">-0.5</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        rg.Vector3d.Unitize(DirectionVec)</span></code><code><span class="code-snippet_outer">        VecX = rg.Vector3d.XAxis</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">if</span> DirectionVec.Y &gt;= <span class="code-snippet__number">0</span>:</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">if</span> DirectionVec*VecX &gt; math.cos(math.pi/<span class="code-snippet__number">8</span>):</span></code><code><span class="code-snippet_outer">            DirectionVec = rg.Vector3d(<span class="code-snippet__number">1</span>,<span class="code-snippet__number">0</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi/<span class="code-snippet__number">8</span>) <span class="code-snippet__keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="code-snippet__number">3</span>/<span class="code-snippet__number">8</span>):</span></code><code><span class="code-snippet_outer">            DirectionVec = rg.Vector3d(<span class="code-snippet__number">1</span>,<span class="code-snippet__number">1</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="code-snippet__number">3</span>/<span class="code-snippet__number">8</span>) <span class="code-snippet__keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="code-snippet__number">5</span>/<span class="code-snippet__number">8</span>):</span></code><code><span class="code-snippet_outer">            DirectionVec = rg.Vector3d(<span class="code-snippet__number">0</span>,<span class="code-snippet__number">1</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="code-snippet__number">5</span>/<span class="code-snippet__number">8</span>) <span class="code-snippet__keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="code-snippet__number">7</span>/<span class="code-snippet__number">8</span>):</span></code><code><span class="code-snippet_outer">            DirectionVec = rg.Vector3d(<span class="code-snippet__number">-1</span>,<span class="code-snippet__number">1</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="code-snippet__number">7</span>/<span class="code-snippet__number">8</span>):</span></code><code><span class="code-snippet_outer">            DirectionVec = rg.Vector3d(<span class="code-snippet__number">-1</span>,<span class="code-snippet__number">0</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">else</span>:</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">if</span> DirectionVec*VecX &gt; math.cos(math.pi/<span class="code-snippet__number">8</span>):</span></code><code><span class="code-snippet_outer">            DirectionVec = rg.Vector3d(<span class="code-snippet__number">1</span>,<span class="code-snippet__number">0</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi/<span class="code-snippet__number">8</span>) <span class="code-snippet__keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="code-snippet__number">3</span>/<span class="code-snippet__number">8</span>):</span></code><code><span class="code-snippet_outer">            DirectionVec = rg.Vector3d(<span class="code-snippet__number">1</span>,<span class="code-snippet__number">-1</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="code-snippet__number">3</span>/<span class="code-snippet__number">8</span>) <span class="code-snippet__keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="code-snippet__number">5</span>/<span class="code-snippet__number">8</span>):</span></code><code><span class="code-snippet_outer">            DirectionVec = rg.Vector3d(<span class="code-snippet__number">0</span>,<span class="code-snippet__number">-1</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="code-snippet__number">5</span>/<span class="code-snippet__number">8</span>) <span class="code-snippet__keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="code-snippet__number">7</span>/<span class="code-snippet__number">8</span>):</span></code><code><span class="code-snippet_outer">            DirectionVec = rg.Vector3d(<span class="code-snippet__number">-1</span>,<span class="code-snippet__number">-1</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="code-snippet__number">7</span>/<span class="code-snippet__number">8</span>):</span></code><code><span class="code-snippet_outer">            DirectionVec = rg.Vector3d(<span class="code-snippet__number">-1</span>,<span class="code-snippet__number">0</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">        rg.Vector3d.Unitize(DirectionVec)</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">return</span> DirectionVec</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">    scale = <span class="code-snippet__number">0.03</span></span></code><code><span class="code-snippet_outer">    tailLength = <span class="code-snippet__number">20</span></span></code><code><span class="code-snippet_outer">    dotRange = <span class="code-snippet__number">50</span></span></code><code><span class="code-snippet_outer">    Direction = DirectionalMove(Direction)</span></code><code><span class="code-snippet_outer">    snakeCircles = []</span></code><code><span class="code-snippet_outer">    tailCircles = []</span></code><code><span class="code-snippet_outer">    dots = []</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__comment"># Add the variables to the sticky dict</span></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">if</span> <span class="code-snippet__string">"snakeLocations"</span> <span class="code-snippet__keyword">not</span> <span class="code-snippet__keyword">in</span> sc.sticky:</span></code><code><span class="code-snippet_outer">        sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>] = []</span></code><code><span class="code-snippet_outer">        sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>].append(rg.Point3d(<span class="code-snippet__number">0</span>,<span class="code-snippet__number">0</span>,<span class="code-snippet__number">0</span>))</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">if</span> <span class="code-snippet__string">"foodLocation"</span> <span class="code-snippet__keyword">not</span> <span class="code-snippet__keyword">in</span> sc.sticky:</span></code><code><span class="code-snippet_outer">        sc.sticky[<span class="code-snippet__string">"foodLocation"</span>] = rg.Point3d(<span class="code-snippet__number">0</span>,<span class="code-snippet__number">0</span>,<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        </span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">if</span> <span class="code-snippet__string">"score"</span> <span class="code-snippet__keyword">not</span> <span class="code-snippet__keyword">in</span> sc.sticky:</span></code><code><span class="code-snippet_outer">        sc.sticky[<span class="code-snippet__string">"score"</span>] = <span class="code-snippet__number">0</span></span></code><code><span class="code-snippet_outer">        </span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">if</span> <span class="code-snippet__string">"Tails"</span> <span class="code-snippet__keyword">not</span> <span class="code-snippet__keyword">in</span> sc.sticky:</span></code><code><span class="code-snippet_outer">        sc.sticky[<span class="code-snippet__string">"Tails"</span>] = []</span></code><code><span class="code-snippet_outer">        </span></code><code><span class="code-snippet_outer">    <span class="code-snippet__comment">#Die</span></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">if</span> sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">0</span>].X &gt; FoodRange <span class="code-snippet__keyword">or</span> sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">0</span>].X &lt; -FoodRange <span class="code-snippet__keyword">or</span> sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">0</span>].Y &gt; FoodRange <span class="code-snippet__keyword">or</span> sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">0</span>].Y &lt; -FoodRange:</span></code><code><span class="code-snippet_outer">        Run = <span class="code-snippet__keyword">False</span></span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__comment"># Run</span></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">if</span> Reset:</span></code><code><span class="code-snippet_outer">        sc.sticky[<span class="code-snippet__string">"score"</span>] = <span class="code-snippet__number">0</span></span></code><code><span class="code-snippet_outer">        sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>] = []</span></code><code><span class="code-snippet_outer">        sc.sticky[<span class="code-snippet__string">"Tails"</span>] = []</span></code><code><span class="code-snippet_outer">        sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>].append(rg.Point3d(<span class="code-snippet__number">0</span>,<span class="code-snippet__number">0</span>,<span class="code-snippet__number">0</span>))</span></code><code><span class="code-snippet_outer">        random.seed(<span class="code-snippet__number">1</span>)</span></code><code><span class="code-snippet_outer">        sc.sticky[<span class="code-snippet__string">"foodLocation"</span>] = rg.Point3d(random.uniform(-FoodRange,FoodRange),random.uniform(-FoodRange,FoodRange),<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer">        </span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">elif</span> <span class="code-snippet__keyword">not</span> Run:</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">print</span> <span class="code-snippet__string">'NOT Runing'</span></span></code><code><span class="code-snippet_outer">        </span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">else</span>:</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__comment">#With trigger</span></span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">if</span> len(sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>]) &lt;= <span class="code-snippet__number">1</span>:</span></code><code><span class="code-snippet_outer">            sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">0</span>].X += Direction.X</span></code><code><span class="code-snippet_outer">            sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">0</span>].Y += Direction.Y</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">else</span>:</span></code><code><span class="code-snippet_outer">            tempSnake = copy.deepcopy(sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>])</span></code><code><span class="code-snippet_outer">            <span class="code-snippet__keyword">for</span> i <span class="code-snippet__keyword">in</span> range(len(sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>])):</span></code><code><span class="code-snippet_outer">                sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][i].X = tempSnake[i<span class="code-snippet__number">-1</span>].X</span></code><code><span class="code-snippet_outer">                sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][i].Y = tempSnake[i<span class="code-snippet__number">-1</span>].Y</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">            sc.sticky[<span class="code-snippet__string">"Tails"</span>].append(copy.deepcopy(sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">0</span>]))</span></code><code><span class="code-snippet_outer">            <span class="code-snippet__keyword">if</span> len(sc.sticky[<span class="code-snippet__string">"Tails"</span>]) &gt;= tailLength:</span></code><code><span class="code-snippet_outer">                sc.sticky[<span class="code-snippet__string">"Tails"</span>].pop(<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">            sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">0</span>].X = sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">1</span>].X+Direction.X</span></code><code><span class="code-snippet_outer">            sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">0</span>].Y = sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">1</span>].Y+Direction.Y</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">if</span> rg.Point3d.DistanceTo(sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">0</span>], sc.sticky[<span class="code-snippet__string">"foodLocation"</span>]) &lt; scale*FoodRange :</span></code><code><span class="code-snippet_outer">            sc.sticky[<span class="code-snippet__string">"score"</span>] += <span class="code-snippet__number">1</span></span></code><code><span class="code-snippet_outer">            sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>].append(rg.Point3d(sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">-1</span>].X-Direction.X,sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>][<span class="code-snippet__number">-1</span>].Y-Direction.Y,<span class="code-snippet__number">0</span>))</span></code><code><span class="code-snippet_outer">            sc.sticky[<span class="code-snippet__string">"foodLocation"</span>] = rg.Point3d(random.uniform(-FoodRange,FoodRange),random.uniform(-FoodRange,FoodRange),<span class="code-snippet__number">0</span>)</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__comment"># Return value</span></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">for</span> snakeLocations <span class="code-snippet__keyword">in</span> sc.sticky[<span class="code-snippet__string">"snakeLocations"</span>]:</span></code><code><span class="code-snippet_outer">        snakeCircles.append(rg.Circle(rg.Plane(snakeLocations,rg.Vector3d.ZAxis), <span class="code-snippet__number">1</span>))</span></code><code><span class="code-snippet_outer">    Score = <span class="code-snippet__string">'Score: '</span> + str(sc.sticky[<span class="code-snippet__string">"score"</span>])</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">    Snake = snakeCircles</span></code><code><span class="code-snippet_outer">    Foods = rg.Circle(rg.Plane(sc.sticky[<span class="code-snippet__string">"foodLocation"</span>],rg.Vector3d.ZAxis), scale*FoodRange)</span></code><code><span class="code-snippet_outer">    Bound = rg.Rectangle3d(rg.Plane(rg.Point3d(-FoodRange,-FoodRange,<span class="code-snippet__number">0</span>),rg.Vector3d.ZAxis),<span class="code-snippet__number">2</span>*FoodRange,<span class="code-snippet__number">2</span>*FoodRange)</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">for</span> Tails <span class="code-snippet__keyword">in</span> sc.sticky[<span class="code-snippet__string">"Tails"</span>]:</span></code><code><span class="code-snippet_outer">        tailCircles.append(rg.Circle(rg.Plane(Tails,rg.Vector3d.ZAxis), <span class="code-snippet__number">1</span>))</span></code><code><span class="code-snippet_outer">    Tails = tailCircles</span></code><code><span class="code-snippet_outer"><br  /></span></code><code><span class="code-snippet_outer">    <span class="code-snippet__keyword">for</span> i <span class="code-snippet__keyword">in</span> range(dotRange):</span></code><code><span class="code-snippet_outer">        <span class="code-snippet__keyword">for</span> j <span class="code-snippet__keyword">in</span> range(dotRange):</span></code><code><span class="code-snippet_outer">            dots.append(rg.Point3d(FoodRange/dotRange+i*(<span class="code-snippet__number">2</span>*FoodRange/dotRange)-FoodRange, FoodRange/dotRange+j*(<span class="code-snippet__number">2</span>*FoodRange/dotRange)-FoodRange, <span class="code-snippet__number">0</span>))</span></code><code><span class="code-snippet_outer">            </span></code><code><span class="code-snippet_outer">    Dots = dots</span></code></section></pre>
-          </section>
-          <section><br /></section>
-          <hr />
-          <section><span></span></section>
-          <section>
-            <span><br /></span>
-          </section>
-          <section>
-            <span>点击</span><span>原</span
-            ><span>文链接即可跳转到我的Github页面找到.gh源文件。</span><br />
-          </section>
-          <section><br /></section>
-          <section><span>希望能给你带来点启发。</span></section>
-          <section><br /></section>
-          <hr />
-          <section><br /></section>
-          <p style="text-align: center">
-            <img
-              class="rich_pages wxw-img"
-              data-galleryid=""
-              data-ratio="0.346875"
-              data-s="300,640"
-              src="images\0003.jpg"
-              data-type="jpeg"
-              data-w="1280"
-            />
-          </p>
-          <section><br /></section>
-        </div>
-      </div>
-      <p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Grasshopper-Python &#x8d2a;&#x5403;&#x86c7;</title>
+        <link rel="stylesheet" href="../../zMarkdownStyles.css" />
+    </head>
+    <body><!-- Menu Bar -->
+    <div class="menuBar">
+      <a href="../../zHome.html" class="menuBar"> <p>zHome</p></a>
+      <a href="../../zDesigner/zDesigner.html"class="menuBar"><p>zDesigner</p></a>
+      <a href="../zLearner.html"class="menuBar"><p>zLearner</p></a>
+      <a href="../../zWriter/zWriter.html"class="menuBar"><p>zWriter</p></a>
+      <a href="../../zPhotographer/zPhotographer.html"class="menuBar"><p>zPhotographer</p></a>
+      <a href="../../zIndividualDeveloper/zIndividualDeveloper.html"class="menuBar"><p>zIndividualDeveloper</p></a>
+      <a href="../../zCV.html" class="menuBar"><p>zCV</p></a>
+      <a href="../../zSkills.html" class="menuBar"><p>zSkills</p></a>
+      <a href="../../zContact.html" class="menuBar"><p>zContact</p></a>
     </div>
-    <div class="dy_all">
-      <a
-        target="_blank"
-        href="https://github.com/ZacZhangzhuo/Notes/tree/main/Rhino%20-%20GrassHopper%20-%20Python%20Studies%20-%20Notes"
-      >
-      </a>
-    </div>
-  </div>
-</body>
-<script>
-  $(function () {
-    var wX_contentArray = document.getElementsByClassName("rich_media_content");
-    for (let i = 0; i < wX_contentArray.length; i++) {
-      wX_contentArray[i].style.visibility = "";
-    }
-    if (document.getElementById("js_content")) {
-      document.getElementById("js_content").style.visibility = "";
-    }
-  });
-</script>
+    <!-- End of Menu Bar -->
+        <h1 id="grasshopper-python-贪吃蛇">Grasshopper-Python 贪吃蛇</h1>
+<p><img src="file:///c:\Zac\19 Github\ZacZhangzhuo.github.io\zLearner\2022-09-13 Grasshopper-Python 贪吃蛇\%5Cimages%5C0001.jpg" alt=""></p>
+<p>代码如下：</p>
+<pre><code class="language-Python"><div>     <span class="hljs-keyword">import</span> scriptcontext <span class="hljs-keyword">as</span> sc
+    <span class="hljs-keyword">import</span> rhinoscriptsyntax <span class="hljs-keyword">as</span> rs
+    <span class="hljs-keyword">import</span> random
+    <span class="hljs-keyword">import</span> Rhino.Geometry <span class="hljs-keyword">as</span> rg
+    <span class="hljs-keyword">import</span> copy
+    <span class="hljs-keyword">import</span> math
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">UnitizePoint</span>(<span class="hljs-params">point</span>):</span>
+        point = rg.Vector3d(point.X,point.Y,<span class="hljs-number">0</span>)
+        rg.Vector3d.Unitize(point)
+        point = rg.Point3d(point.X,point.Y,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> point
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">DirectionalMove</span> (<span class="hljs-params">Direction</span>):</span>
+        DirectionVec = rg.Vector3d(Direction.X-<span class="hljs-number">0.5</span>, Direction.Y-<span class="hljs-number">0.5</span>,<span class="hljs-number">0</span>)
+        rg.Vector3d.Unitize(DirectionVec)
+        VecX = rg.Vector3d.XAxis
+
+        <span class="hljs-keyword">if</span> DirectionVec.Y &gt;= <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">if</span> DirectionVec*VecX &gt; math.cos(math.pi/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">3</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">3</span>/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">5</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">5</span>/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">7</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">7</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">if</span> DirectionVec*VecX &gt; math.cos(math.pi/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">3</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">3</span>/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">5</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">0</span>,-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">5</span>/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">7</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">7</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
+
+        rg.Vector3d.Unitize(DirectionVec)
+        <span class="hljs-keyword">return</span> DirectionVec
+
+    scale = <span class="hljs-number">0.03</span>
+    tailLength = <span class="hljs-number">20</span>
+    dotRange = <span class="hljs-number">50</span>
+    Direction = DirectionalMove(Direction)
+    snakeCircles = []
+    tailCircles = []
+    dots = []
+
+    <span class="hljs-comment"># Add the variables to the sticky dict</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;snakeLocations&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> sc.sticky:
+        sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>] = []
+        sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>].append(rg.Point3d(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>))
+
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;foodLocation&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> sc.sticky:
+        sc.sticky[<span class="hljs-string">&quot;foodLocation&quot;</span>] = rg.Point3d(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
+        
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;score&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> sc.sticky:
+        sc.sticky[<span class="hljs-string">&quot;score&quot;</span>] = <span class="hljs-number">0</span>
+        
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;Tails&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> sc.sticky:
+        sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>] = []
+        
+    <span class="hljs-comment">#Die</span>
+    <span class="hljs-keyword">if</span> sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].X &gt; FoodRange <span class="hljs-keyword">or</span> sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].X &lt; -FoodRange <span class="hljs-keyword">or</span> sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].Y &gt; FoodRange <span class="hljs-keyword">or</span> sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].Y &lt; -FoodRange:
+        Run = <span class="hljs-literal">False</span>
+
+    <span class="hljs-comment"># Run</span>
+    <span class="hljs-keyword">if</span> Reset:
+        sc.sticky[<span class="hljs-string">&quot;score&quot;</span>] = <span class="hljs-number">0</span>
+        sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>] = []
+        sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>] = []
+        sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>].append(rg.Point3d(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>))
+        random.seed(<span class="hljs-number">1</span>)
+        sc.sticky[<span class="hljs-string">&quot;foodLocation&quot;</span>] = rg.Point3d(random.uniform(-FoodRange,FoodRange),random.uniform(-FoodRange,FoodRange),<span class="hljs-number">0</span>)
+        
+    <span class="hljs-keyword">elif</span> <span class="hljs-keyword">not</span> Run:
+        <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;NOT Runing&#x27;</span>
+        
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-comment">#With trigger</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>]) &lt;= <span class="hljs-number">1</span>:
+            sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].X += Direction.X
+            sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].Y += Direction.Y
+        <span class="hljs-keyword">else</span>:
+            tempSnake = copy.deepcopy(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>])
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>])):
+                sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][i].X = tempSnake[i-<span class="hljs-number">1</span>].X
+                sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][i].Y = tempSnake[i-<span class="hljs-number">1</span>].Y
+
+            sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>].append(copy.deepcopy(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>]))
+            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>]) &gt;= tailLength:
+                sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>].pop(<span class="hljs-number">0</span>)
+
+            sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].X = sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">1</span>].X+Direction.X
+            sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].Y = sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">1</span>].Y+Direction.Y
+
+        <span class="hljs-keyword">if</span> rg.Point3d.DistanceTo(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>], sc.sticky[<span class="hljs-string">&quot;foodLocation&quot;</span>]) &lt; scale*FoodRange :
+            sc.sticky[<span class="hljs-string">&quot;score&quot;</span>] += <span class="hljs-number">1</span>
+            sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>].append(rg.Point3d(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][-<span class="hljs-number">1</span>].X-Direction.X,sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][-<span class="hljs-number">1</span>].Y-Direction.Y,<span class="hljs-number">0</span>))
+            sc.sticky[<span class="hljs-string">&quot;foodLocation&quot;</span>] = rg.Point3d(random.uniform(-FoodRange,FoodRange),random.uniform(-FoodRange,FoodRange),<span class="hljs-number">0</span>)
+
+    <span class="hljs-comment"># Return value</span>
+    <span class="hljs-keyword">for</span> snakeLocations <span class="hljs-keyword">in</span> sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>]:
+        snakeCircles.append(rg.Circle(rg.Plane(snakeLocations,rg.Vector3d.ZAxis), <span class="hljs-number">1</span>))
+    Score = <span class="hljs-string">&#x27;Score: &#x27;</span> + <span class="hljs-built_in">str</span>(sc.sticky[<span class="hljs-string">&quot;score&quot;</span>])
+
+    Snake = snakeCircles
+    Foods = rg.Circle(rg.Plane(sc.sticky[<span class="hljs-string">&quot;foodLocation&quot;</span>],rg.Vector3d.ZAxis), scale*FoodRange)
+    Bound = rg.Rectangle3d(rg.Plane(rg.Point3d(-FoodRange,-FoodRange,<span class="hljs-number">0</span>),rg.Vector3d.ZAxis),<span class="hljs-number">2</span>*FoodRange,<span class="hljs-number">2</span>*FoodRange)
+
+    <span class="hljs-keyword">for</span> Tails <span class="hljs-keyword">in</span> sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>]:
+        tailCircles.append(rg.Circle(rg.Plane(Tails,rg.Vector3d.ZAxis), <span class="hljs-number">1</span>))
+    Tails = tailCircles
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(dotRange):
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(dotRange):
+            dots.append(rg.Point3d(FoodRange/dotRange+i*(<span class="hljs-number">2</span>*FoodRange/dotRange)-FoodRange, FoodRange/dotRange+j*(<span class="hljs-number">2</span>*FoodRange/dotRange)-FoodRange, <span class="hljs-number">0</span>))
+            
+    Dots = dots
+</div></code></pre>
+<hr>
+<p>希望能给你带来点启发。</p>
+<hr>
+
+       <p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p> 
+        
+    </body>
+    </html>

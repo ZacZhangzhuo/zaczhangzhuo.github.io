@@ -1,5 +1,5 @@
 file_path = (
-    r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zDesigner\2022-05-01 Section Clipper —— 课程设计\Section Clipper —— 课程设计.html"
+    r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zIndividualDeveloper\Zorse\zorse.html"
 )
 
 html = open(file_path, "r", encoding="utf-8")
@@ -37,6 +37,11 @@ elif file_path.find("zContact") != -1:
     menuBar = menuBar.replace("/../zContact/", "/")
 
 htmlTexts = htmlTexts.replace("<body class='appmsg_skin_default'>", "<body>" + menuBar)
+htmlTexts = htmlTexts.replace('<body class="vscode-body vscode-light">',"<body>" + menuBar)
+htmlTexts = htmlTexts.replace('<body for="html-export">',"<body>" + menuBar)
+
+
+
 
 # Replace the comment
 htmlTexts = htmlTexts.replace("提供的爬取软件来源于：i.ijrou.com 免费下载使用", "Designer by ArchZ")
