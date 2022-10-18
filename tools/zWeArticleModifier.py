@@ -1,5 +1,5 @@
 file_path = (
-    r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zIndividualDeveloper\Zorse\zorse.html"
+    r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zCV.html"
 )
 
 html = open(file_path, "r", encoding="utf-8")
