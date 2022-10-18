@@ -1,11 +1,13 @@
-html,
 body {
+  margin-left: 25%;
+  margin-right: 25%;
+  font-size: 16px;
   background-color: black;
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   height: 100%;
   width: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 p {
@@ -107,18 +109,16 @@ p.endnotes {
   text-align: center;
 }
 
-
 /* Menu Bar */
 div.menuBar {
   font-family: Source Sans Pro;
   color: white;
   font-size: 18px;
   font-style: italic;
-
   position: fixed;
   margin-left: 76%;
+  margin-top: 4px;
   line-height: 0.5;
-
   /* border-style: solid;
   border-width: 5px;
   border-color: red; */

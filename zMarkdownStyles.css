@@ -1,19 +1,20 @@
-html {
+body {
   margin-left: 25%;
   margin-right: 25%;
-  font-size: 16px;
-}
-
-body {
   font-family: "source sans pro", Arial;
   font-style: italic;
   background-color: black;
   scroll-behavior: smooth;
   color: white;
+  font-size: 16px;
+
+  /* margin: 0 0 0 0; */
+  /* padding: 0 0 0 0; */
+  /* height: 100%; */
+  /* width: 100%; */
 }
 
 div.endnotes {
-  
   width: 1fr;
   text-align: center;
 }
@@ -83,11 +84,10 @@ div.menuBar {
   color: white;
   font-size: 18px;
   font-style: italic;
-
   position: fixed;
-  margin-left: 50%;
+  margin-left: 51.8%;
+  margin-top: 10px;
   line-height: 0.5;
-
   /* border-style: solid;
   border-width: 5px;
   border-color: red; */
@@ -154,8 +154,8 @@ pre[class*="language-"] {
   color: #16c1d9;
 }
 
-.token.builtin{
-  color: #0097a7
+.token.builtin {
+  color: #0097a7;
 }
 
 .token.operator,
@@ -337,7 +337,6 @@ pre[data-line] .line-highlight[data-end]:after {
   bottom: 0.4em;
 }
 
-
 element.style {
-    background-color: rgb(36, 36, 36);
+  background-color: rgb(36, 36, 36);
 }
