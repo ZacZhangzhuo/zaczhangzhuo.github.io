@@ -1,2 +1,2 @@
 # ZacZhangzhuo.github.io
-This is the 1.0v ArchZ personal website 
+This is the 2.0v ArchZ personal website 
