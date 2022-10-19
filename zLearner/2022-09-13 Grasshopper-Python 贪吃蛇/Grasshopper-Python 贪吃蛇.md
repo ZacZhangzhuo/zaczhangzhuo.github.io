@@ -1,7 +1,7 @@
 # Grasshopper-Python 贪吃蛇
 
 
-![](\images\0001.jpg)
+![image](\images\0001.jpg)
 
 代码如下：
 
