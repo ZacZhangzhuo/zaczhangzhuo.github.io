@@ -1,3 +1,4 @@
+**Zac Zhuo ZHANG**
 
 **Professional Interests:** Generative Design, Digital Fabrication, Visualization
 

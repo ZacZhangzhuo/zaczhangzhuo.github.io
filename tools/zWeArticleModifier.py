@@ -1,6 +1,4 @@
-file_path = (
-    r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zCV.html"
-)
+file_path = r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zCV.html"
 
 html = open(file_path, "r", encoding="utf-8")
 htmlTexts = html.read()
@@ -35,12 +33,12 @@ elif file_path.find("zSkills") != -1:
     menuBar = menuBar.replace("/../zSkills/", "/")
 elif file_path.find("zContact") != -1:
     menuBar = menuBar.replace("/../zContact/", "/")
+else:
+    menuBar = menuBar.replace("../../z", "/z")
 
 htmlTexts = htmlTexts.replace("<body class='appmsg_skin_default'>", "<body>" + menuBar)
-htmlTexts = htmlTexts.replace('<body class="vscode-body vscode-light">',"<body>" + menuBar)
-htmlTexts = htmlTexts.replace('<body for="html-export">',"<body>" + menuBar)
-
-
+htmlTexts = htmlTexts.replace('<body class="vscode-body vscode-light">', "<body>" + menuBar)
+htmlTexts = htmlTexts.replace('<body for="html-export">', "<body>" + menuBar)
 
 
 # Replace the comment
@@ -53,7 +51,8 @@ if len(htmlTexts) != 1:
     htmlTexts = (
         htmlTexts[0] + '<link rel="stylesheet" href="../../zMarkdownStyles.css" />' + tempTexts
     )
-else : htmlTexts = htmlTexts[0]
+else:
+    htmlTexts = htmlTexts[0]
 
 
 # Replace the styles
@@ -74,17 +73,22 @@ beReplaced = """<div class="comment">
 				<h3 style="margin:26px 0;font-weight:100;padding-bottom:4px;border-bottom:1px solid #ccc;">精选留言</h3>
 				用户设置不下载评论
 			</div>"""
-htmlTexts = htmlTexts.replace(
-    beReplaced, '<p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p>'
-)
+htmlTexts = htmlTexts.replace(beReplaced, " ")
 
 beReplaced = """<div class="comment">
 				<h3 >精选留言</h3>
 				用户设置不下载评论
 			</div>"""
+htmlTexts = htmlTexts.replace(beReplaced, " ")
+
+beReplaced = '<p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p>'
+htmlTexts = htmlTexts.replace(beReplaced, " ")
+
+beReplaced = "</body>"
 htmlTexts = htmlTexts.replace(
-    beReplaced, '<p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p>'
+    beReplaced, '<p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p></body>'
 )
+
 
 html = open(file_path, "w", encoding="utf-8")
 # print (index)
