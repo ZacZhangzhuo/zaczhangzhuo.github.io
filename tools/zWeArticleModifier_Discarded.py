@@ -4,18 +4,15 @@ from zRecentFileModification import ModifyRecentFile
 
 
 #!PATH
-IsModifyRecentFile = True
+IsModifyRecentFile = False
 #!Debug path
 debugPath = r"C:\Zac\Github\ZacZhangzhuo.github.io\tools"
 #!Modification folder path
 modificationPath = r"C:\Zac\Github\ZacZhangzhuo.github.io"
-#! Modification  path
-modificationPath = r"C:\Zac\Github\ZacZhangzhuo.github.io\zDesigner\2020-01-12 PARASITE�����γ����\PARASITE�����γ����.html"
 #! END file path
 
 
-file_paths = []
-file_paths.extend(modificationPath)
+file_paths = modificationPath
 file_paths = ModifyRecentFile(IsModifyRecentFile, debugPath)
 
 for file_path in file_paths:
@@ -61,7 +58,7 @@ for file_path in file_paths:
     htmlTexts = htmlTexts.replace('<body for="html-export">', "<body>" + menuBar)
 
     # Replace the comment
-    htmlTexts = htmlTexts.replace("�ṩ����ȡ������Դ�ڣ�i.ijrou.com �������ʹ��", "Designer by ArchZ")
+    htmlTexts = htmlTexts.replace("提供的爬取软件来源于：i.ijrou.com 免费下载使用", "Designer by ArchZ")
 
     # Replace the style sheet link
     htmlTexts = htmlTexts.split("<style>")
@@ -83,19 +80,17 @@ for file_path in file_paths:
             htmlTexts = htmlTexts + 'style="text-align: center;"' + i.split('"', 1)[1]
 
     # Replace read the article
-    htmlTexts = htmlTexts.replace("�Ķ�ȫ��", " ")
+    htmlTexts = htmlTexts.replace("阅读原文", " ")
 
     # Replace user comments
-    beReplaced = """<div class="comment">
-                    <h3 style="margin:26px 0;font-weight:100;padding-bottom:4px;border-bottom:1px solid #ccc;">��ѡ����</h3>
-                    �û����ò���������
-                </div>"""
+    beReplaced = """
+    用户设置不下载评论
+    """
     htmlTexts = htmlTexts.replace(beReplaced, " ")
 
-    beReplaced = """<div class="comment">
-                    <h3 >��ѡ����</h3>
-                    �û����ò���������
-                </div>"""
+    beReplaced = """
+    精选留言
+    """
     htmlTexts = htmlTexts.replace(beReplaced, " ")
 
     beReplaced = '<p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p>'
