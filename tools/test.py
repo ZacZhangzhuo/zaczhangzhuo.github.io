@@ -1,7 +1,7 @@
 import re
 
-file_path1 = r"C:\Zac\19 Github\ZacZhangzhuo.github.io\tools\t1.html"
-file_path2 = r"C:\Zac\19 Github\ZacZhangzhuo.github.io\tools\t2.html"
+file_path1 = r"C:\Zac\Github\ZacZhangzhuo.github.io\tools\t1.html"
+file_path2 = r"C:\Zac\Github\ZacZhangzhuo.github.io\tools\t2.html"
 # file_paths.extend(modificationPath)
 # file_paths = ModifyRecentFile(IsModifyRecentFile, debugPath)
 

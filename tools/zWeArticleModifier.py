@@ -6,11 +6,11 @@ from zRecentFileModification import ModifyRecentFile
 #!PATH
 IsModifyRecentFile = True
 #!Debug path
-debugPath = r"C:\Zac\19 Github\ZacZhangzhuo.github.io\tools"
+debugPath = r"C:\Zac\Github\ZacZhangzhuo.github.io\tools"
 #!Modification folder path
-modificationPath = r"C:\Zac\19 Github\ZacZhangzhuo.github.io"
+modificationPath = r"C:\Zac\Github\ZacZhangzhuo.github.io"
 #! Modification  path
-modificationPath = r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zDesigner\2020-01-12 PARASITE�����γ����\PARASITE�����γ����.html"
+modificationPath = r"C:\Zac\Github\ZacZhangzhuo.github.io\zDesigner\2020-01-12 PARASITE�����γ����\PARASITE�����γ����.html"
 #! END file path
 
 

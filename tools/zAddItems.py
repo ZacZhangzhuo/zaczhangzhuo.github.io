@@ -13,11 +13,11 @@ import datetime
 
 
 IsModifyRecentFile = True
-target1 = r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zDesigner"
-target2 = r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zIndividualDeveloper"
-target3 = r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zLearner"
-target4 = r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zWriter"
-target5 = r"C:\Zac\19 Github\ZacZhangzhuo.github.io\zPhotographer"
+target1 = r"C:\Zac\Github\ZacZhangzhuo.github.io\zDesigner"
+target2 = r"C:\Zac\Github\ZacZhangzhuo.github.io\zIndividualDeveloper"
+target3 = r"C:\Zac\Github\ZacZhangzhuo.github.io\zLearner"
+target4 = r"C:\Zac\Github\ZacZhangzhuo.github.io\zWriter"
+target5 = r"C:\Zac\Github\ZacZhangzhuo.github.io\zPhotographer"
 deleteTheFirstOne = True  # This tells if you wanna delete the html like zWriter
 targets = [target1, target2, target3, target4, target5]
 
@@ -33,7 +33,8 @@ for target in targets:
 
     # print(filePaths)
     # print(fileNames)
-    if not IsOnTime(str(fileNames[0]), str(datetime.datetime.now().replace(microsecond=0))):
+    # print (target + fileNames[0])
+    if not IsOnTime(str( modification_date(target +'\\'+fileNames[0])), str(datetime.datetime.now().replace(microsecond=0))):
 
         # print(htmlNames)
         if deleteTheFirstOne:
