@@ -45,7 +45,12 @@ for target in targets:
     for i in range(len(fileNames)):
         if fileNames[i].endswith("html"):
             htmlNames.append(fileNames[i])
-            imageNames.append(fileNames[i + 1])
+            for j in range(i, len(fileNames)):
+                if fileNames[j].endswith('jpg') or fileNames[j].endswith('png') or fileNames[j].endswith('jpeg'):
+                    imageNames.append(fileNames[j])
+                    break
+            
+    # print (imageNames)
 
     #  Discard -------------------------------
     # # Only keep recent files
