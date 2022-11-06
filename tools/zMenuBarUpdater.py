@@ -1,6 +1,7 @@
 import os
+
 MenuBarDir = [
-    "index.html",
+    "zHome.html",
     "zDesigner\zDesigner.html",
     "zLearner\zLearner.html",
     "zWriter\zWriter.html",
@@ -11,53 +12,63 @@ MenuBarDir = [
     "zContact.html",
 ]
 
-# p = "index.html"
-# x= os.path.relpath(MenuBarDir[3], p)[3:]
-# fileNames = []
-# filePaths = []
-# itemNames = []
-# # Get all the files
-# for i, j, k in os.walk("."):
-#     filePaths.append(i)
-#     fileNames.append(j)
-#     itemNames.append(k)
 
-# # Get all the html files and the location
-# htmlPaths = []
-# htmlNames = []
-# for i in range(len(filePaths)):
-#     if ''.join(itemNames).find(".html") != -1:
-#         htmlPaths.append(filePaths[i])
-#         htmlNames.append(itemNames[i])
+allHtmlPaths = []
 
-# menuBar = """<!-- Menu Bar -->
-#         <div class="menuBar">
-#         <a href="../../zHome.html" class="menuBar"> <p>zHome</p></a>
-#         <a href="../../zDesigner/zDesigner.html"class="menuBar"><p>zDesigner</p></a>
-#         <a href="../../zLearner/zLearner.html"class="menuBar"><p>zLearner</p></a>
-#         <a href="../../zWriter/zWriter.html"class="menuBar"><p>zWriter</p></a>
-#         <a href="../../zPhotographer/zPhotographer.html"class="menuBar"><p>zPhotographer</p></a>
-#         <a href="../../zIndividualDeveloper/zIndividualDeveloper.html"class="menuBar"><p>zIndividualDeveloper</p></a>
-#         <a href="../../zCV.html" class="menuBar"><p>zCV</p></a>
-#         <a href="../../zSkills.html" class="menuBar"><p>zSkills</p></a>
-#         <a href="../../zContact.html" class="menuBar"><p>zContact</p></a>
-#         </div>
-#         <!-- End of Menu Bar -->"""
-#     if file_path.find("zDesigner") != -1:
-#         menuBar = menuBar.replace("/../zDesigner/", "/")
-#     elif file_path.find("zLearner") != -1:
-#         menuBar = menuBar.replace("/../zLearner/", "/")
-#     elif file_path.find("zWriter") != -1:
-#         menuBar = menuBar.replace("/../zWriter/", "/")
-#     elif file_path.find("zPhotographer") != -1:
-#         menuBar = menuBar.replace("/../zPhotographer/", "/")
-#     elif file_path.find("zIndividualDeveloper") != -1:
-#         menuBar = menuBar.replace("/../zIndividualDeveloper/", "/")
-#     elif file_path.find("zCV") != -1:
-#         menuBar = menuBar.replace("/../zCV/", "/")
-#     elif file_path.find("zSkills") != -1:
-#         menuBar = menuBar.replace("/../zSkills/", "/")
-#     elif file_path.find("zContact") != -1:
-#         menuBar = menuBar.replace("/../zContact/", "/")
-#     else:
-#         menuBar = menuBar.replace("../../z", "/z")
+# Get all folder (only 3 layers)
+# 1st sub folder
+fileNames1 = os.listdir(".")
+temp = []
+for fileName in fileNames1:
+    if os.path.isdir(fileName):
+        temp.append(fileName)
+fileNames1 = temp
+
+# 2nd sub folder
+fileNames2 = []
+for fileName in fileNames1:
+    temp = os.listdir(fileName)
+    for t in temp:
+        if os.path.isdir(fileName + "//" + t):
+            fileNames2.append(fileName + "//" + t)
+
+Paths = ["."]
+Paths.extend(fileNames1)
+Paths.extend(fileNames2)
+
+# Get html folders
+for Path in Paths:
+    allHtmlPaths.extend([os.path.join(Path, i) for i in os.listdir(Path) if i[-5:] == ".html"])
+
+# Operation
+for htmlPath in allHtmlPaths:
+    # Generating menu bar html
+    barText = '<!-- Menu Bar --><div class="menuBar">'
+
+    for MenuBar in MenuBarDir:
+        barText = (
+            barText
+            + '<a href="'
+            + os.path.relpath(MenuBar, htmlPath)[3:]
+            + ' "class="menuBar"> <p>'
+            + MenuBar.split("\\")[-1].replace(".html", "")
+            + "</p></a>"
+        )
+
+    barText = barText + "</div><!-- End of Menu Bar -->"
+
+    # Modifying the file
+    html = open(htmlPath, "r", encoding="utf-8")
+    htmlTexts = html.read()
+    temp = htmlTexts.split("<!-- Menu Bar -->")
+    
+    if len(temp) == 2:
+        temp1 = temp[0]
+        temp2 = temp[1]
+        temp3 = temp2.split("<!-- End of Menu Bar -->")[1]
+
+        htmlTexts = temp1 + barText + temp3
+
+        html = open(htmlPath, "w", encoding="utf-8")
+        html.write(htmlTexts)
+        print("z: MENU BAR OF THIS FILE HAS BEEN MODIFIED:" + htmlPath)

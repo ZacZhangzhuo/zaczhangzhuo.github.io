@@ -6,7 +6,7 @@ ArchZ file naming rule:
 - Possible to add multiple items in the main folder of the article, but only one .html can exist.
 - Possible to create as many sub-files as you wish under the folder of the article for storing resources.
 - Under the folder of the article, a 'image' file most be created, and the first image of the file will be the profile of the article in the menu.
-
+- Bar updater only read the first three layers of the files
 """
 
 
