@@ -1,9 +1,5 @@
 
 import markdown
-import os
-import sys
-# reload(sys)
-# sys.setdefaultencoding('utf8')
 
 def md2html(mdstr):
     exts = ['markdown.extensions.extra', 'markdown.extensions.codehilite','markdown.extensions.tables','markdown.extensions.toc']
