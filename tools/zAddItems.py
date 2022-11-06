@@ -25,39 +25,31 @@ targets = [target1, target2, target3, target4, target5]
 # targets = [target1]
 
 for target in targets:
-    fileNames = []
-    filePaths = []
-    itemNames = []
 
-    # Get all the files
-    for i, j, k in os.walk(target):
-        filePaths.append(i)
-        fileNames.extend(j)
-        itemNames.extend(k)
-
-    # print(filePaths)
-    # print (fileNames)
-    # print (itemNames)
-
-    # This tells if you wanna delete the html like zWriter
-    if deleteTheFirstOne:
-        itemNames = itemNames[1:]
-        filePaths = filePaths[1:]
-
-    # Only keep .html files and the first image
     htmlNames = []
     imageNames = []
-    for i in range(len(itemNames)):
-        if itemNames[i].endswith("html"):
-            htmlNames.append(itemNames[i])
-            for j in range(i, len(itemNames)):
-                if (
-                    itemNames[j].endswith("jpg")
-                    or itemNames[j].endswith("png")
-                    or itemNames[j].endswith("jpeg")
-                ):
-                    imageNames.append(itemNames[j])
-                    break
+
+    fileNames = os.listdir(target)
+
+    # Remove the first like zDesigner.html
+    temp = []
+    for fileName in fileNames:
+        if os.path.isdir(target + '\\'+fileName):
+            temp.append(fileName)
+    fileNames = temp
+    
+    # Get the .html names
+    for fileName in fileNames:
+        temp = os.listdir(target+'\\'+fileName )
+        
+        for t in temp:
+            if t.find(".html") != -1:
+                htmlNames.append(t)
+                break
+
+    # Get the images
+    for fileName in fileNames:
+        imageNames.append(os.listdir(target + "//" + fileName + "//images")[0])
 
     # Modify recent files only
     isChange = False
@@ -70,14 +62,13 @@ for target in targets:
     else:
         isChange = True
 
-    # print(filePaths)
-    # print(htmlNames)
 
+    # String
     if isChange:
         outString = "<!--! ADD NEW ARTICLE HERE -->"
         for i in range(len(htmlNames) - 1, -1, -1):
             str1 = '<a href="'
-            str2 = fileNames[i]+'\\' + htmlNames[i]
+            str2 = fileNames[i] + "\\" + htmlNames[i]
             str3 = '">'
             str4 = '<img  class="items" src="'
             str5 = fileNames[i]

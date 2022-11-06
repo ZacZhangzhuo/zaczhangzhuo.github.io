@@ -2,7 +2,8 @@
 ArchZ file naming rule:
 - Use hump nomenclature rule (eg. 'zDesign') for file names, code variables, compunctions tec.
 - Avoid using space in any name.
-- Create a folder for each article. The name of the folder can be different from the .html file which is a sub-item of the file. 
+- Create a folder for each article. The name of the folder can be different from the .html file. the .html which is a sub-item of the file. 
+- Possible to add multiple items in the main folder of the article, but only one .html can exist.
 - Possible to create as many sub-files as you wish under the folder of the article for storing resources.
 - Under the folder of the article, a 'image' file most be created, and the first image of the file will be the profile of the article in the menu.
 
