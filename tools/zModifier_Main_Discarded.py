@@ -8,20 +8,24 @@ ArchZ file naming rule:
 - Under the folder of the article, a 'image' file most be created, and the first image of the file will be the profile of the article in the menu.
 - Bar updater only read the first three layers of the files
 """
-
-
+    
 import os
 
 #! ModificationPanel
 IsAddingItemsInTheMenu = True
 IsChangingTheCV = True
+IsChangingTheMenuBar = False
 #! END modification panel
 
 zAddItems = r'"tools\zAddItems.py"'
 zCVToHtml = r"tools\zCVToHtml.py"
+zMenuBarUpdater = r"tools\zMenuBarUpdater"
 
 if IsAddingItemsInTheMenu:
     os.system("python %s" % zAddItems)
 
 if IsChangingTheCV:
     os.system("python %s" % zCVToHtml)
+
+if IsChangingTheMenuBar:
+    os.system("python %s" % zMenuBarUpdater)
