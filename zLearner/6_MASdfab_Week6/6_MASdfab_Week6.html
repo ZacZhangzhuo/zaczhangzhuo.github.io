@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>MAS dfab - Week 6 - Compas and Endless Wall</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension vscode.markdown-math */
+@font-face{font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url(fonts/KaTeX_AMS-Regular.woff2) format("woff2"),url(fonts/KaTeX_AMS-Regular.woff) format("woff"),url(fonts/KaTeX_AMS-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Caligraphic-Bold.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Bold.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Caligraphic-Regular.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Regular.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Fraktur-Bold.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Bold.woff) format("woff"),url(fonts/KaTeX_Fraktur-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Fraktur-Regular.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Regular.woff) format("woff"),url(fonts/KaTeX_Fraktur-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Main-Bold.woff2) format("woff2"),url(fonts/KaTeX_Main-Bold.woff) format("woff"),url(fonts/KaTeX_Main-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Main-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Main-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Main-BoldItalic.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Main-Italic.woff2) format("woff2"),url(fonts/KaTeX_Main-Italic.woff) format("woff"),url(fonts/KaTeX_Main-Italic.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Main-Regular.woff2) format("woff2"),url(fonts/KaTeX_Main-Regular.woff) format("woff"),url(fonts/KaTeX_Main-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Math-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Math-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Math-BoldItalic.ttf) format("truetype")}@font-face{font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Math-Italic.woff2) format("woff2"),url(fonts/KaTeX_Math-Italic.woff) format("woff"),url(fonts/KaTeX_Math-Italic.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:normal;font-weight:700;src:url(fonts/KaTeX_SansSerif-Bold.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Bold.woff) format("woff"),url(fonts/KaTeX_SansSerif-Bold.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:italic;font-weight:400;src:url(fonts/KaTeX_SansSerif-Italic.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Italic.woff) format("woff"),url(fonts/KaTeX_SansSerif-Italic.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:normal;font-weight:400;src:url(fonts/KaTeX_SansSerif-Regular.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Regular.woff) format("woff"),url(fonts/KaTeX_SansSerif-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Script-Regular.woff2) format("woff2"),url(fonts/KaTeX_Script-Regular.woff) format("woff"),url(fonts/KaTeX_Script-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size1-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size1-Regular.woff) format("woff"),url(fonts/KaTeX_Size1-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size2-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size2-Regular.woff) format("woff"),url(fonts/KaTeX_Size2-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size3-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size3-Regular.woff) format("woff"),url(fonts/KaTeX_Size3-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size4-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size4-Regular.woff) format("woff"),url(fonts/KaTeX_Size4-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Typewriter-Regular.woff2) format("woff2"),url(fonts/KaTeX_Typewriter-Regular.woff) format("woff"),url(fonts/KaTeX_Typewriter-Regular.ttf) format("truetype")}.katex{text-rendering:auto;font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2;text-indent:0}.katex *{-ms-high-contrast-adjust:none!important;border-color:currentColor}.katex .katex-version:after{content:"0.13.24"}.katex .katex-mathml{clip:rect(1px,1px,1px,1px);border:0;height:1px;overflow:hidden;padding:0;position:absolute;width:1px}.katex .katex-html>.newline{display:block}.katex .base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .base,.katex .strut{display:inline-block}.katex .textbf{font-weight:700}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:700}.katex .boldsymbol{font-family:KaTeX_Math;font-style:italic;font-weight:700}.katex .amsrm,.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}.katex .mathitsf,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{border-collapse:collapse;display:inline-table;table-layout:fixed}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;position:relative;vertical-align:bottom}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;font-size:1px;min-width:2px;vertical-align:bottom;width:2px}.katex .vbox{align-items:baseline;display:inline-flex;flex-direction:column}.katex .hbox{width:100%}.katex .hbox,.katex .thinbox{display:inline-flex;flex-direction:row}.katex .thinbox{max-width:0;width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline,.katex .hline,.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .rule,.katex .underline .underline-line{min-height:1px}.katex .mspace{display:inline-block}.katex .clap,.katex .llap,.katex .rlap{position:relative;width:0}.katex .clap>.inner,.katex .llap>.inner,.katex .rlap>.inner{position:absolute}.katex .clap>.fix,.katex .llap>.fix,.katex .rlap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .clap>.inner,.katex .rlap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{border:0 solid;display:inline-block;position:relative}.katex .hline,.katex .overline .overline-line,.katex .underline .underline-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline{border-bottom-style:dashed;display:inline-block;width:100%}.katex .sqrt>.root{margin-left:.27777778em;margin-right:-.55555556em}.katex .fontsize-ensurer.reset-size1.size1,.katex .sizing.reset-size1.size1{font-size:1em}.katex .fontsize-ensurer.reset-size1.size2,.katex .sizing.reset-size1.size2{font-size:1.2em}.katex .fontsize-ensurer.reset-size1.size3,.katex .sizing.reset-size1.size3{font-size:1.4em}.katex .fontsize-ensurer.reset-size1.size4,.katex .sizing.reset-size1.size4{font-size:1.6em}.katex .fontsize-ensurer.reset-size1.size5,.katex .sizing.reset-size1.size5{font-size:1.8em}.katex .fontsize-ensurer.reset-size1.size6,.katex .sizing.reset-size1.size6{font-size:2em}.katex .fontsize-ensurer.reset-size1.size7,.katex .sizing.reset-size1.size7{font-size:2.4em}.katex .fontsize-ensurer.reset-size1.size8,.katex .sizing.reset-size1.size8{font-size:2.88em}.katex .fontsize-ensurer.reset-size1.size9,.katex .sizing.reset-size1.size9{font-size:3.456em}.katex .fontsize-ensurer.reset-size1.size10,.katex .sizing.reset-size1.size10{font-size:4.148em}.katex .fontsize-ensurer.reset-size1.size11,.katex .sizing.reset-size1.size11{font-size:4.976em}.katex .fontsize-ensurer.reset-size2.size1,.katex .sizing.reset-size2.size1{font-size:.83333333em}.katex .fontsize-ensurer.reset-size2.size2,.katex .sizing.reset-size2.size2{font-size:1em}.katex .fontsize-ensurer.reset-size2.size3,.katex .sizing.reset-size2.size3{font-size:1.16666667em}.katex .fontsize-ensurer.reset-size2.size4,.katex .sizing.reset-size2.size4{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size2.size5,.katex .sizing.reset-size2.size5{font-size:1.5em}.katex .fontsize-ensurer.reset-size2.size6,.katex .sizing.reset-size2.size6{font-size:1.66666667em}.katex .fontsize-ensurer.reset-size2.size7,.katex .sizing.reset-size2.size7{font-size:2em}.katex .fontsize-ensurer.reset-size2.size8,.katex .sizing.reset-size2.size8{font-size:2.4em}.katex .fontsize-ensurer.reset-size2.size9,.katex .sizing.reset-size2.size9{font-size:2.88em}.katex .fontsize-ensurer.reset-size2.size10,.katex .sizing.reset-size2.size10{font-size:3.45666667em}.katex .fontsize-ensurer.reset-size2.size11,.katex .sizing.reset-size2.size11{font-size:4.14666667em}.katex .fontsize-ensurer.reset-size3.size1,.katex .sizing.reset-size3.size1{font-size:.71428571em}.katex .fontsize-ensurer.reset-size3.size2,.katex .sizing.reset-size3.size2{font-size:.85714286em}.katex .fontsize-ensurer.reset-size3.size3,.katex .sizing.reset-size3.size3{font-size:1em}.katex .fontsize-ensurer.reset-size3.size4,.katex .sizing.reset-size3.size4{font-size:1.14285714em}.katex .fontsize-ensurer.reset-size3.size5,.katex .sizing.reset-size3.size5{font-size:1.28571429em}.katex .fontsize-ensurer.reset-size3.size6,.katex .sizing.reset-size3.size6{font-size:1.42857143em}.katex .fontsize-ensurer.reset-size3.size7,.katex .sizing.reset-size3.size7{font-size:1.71428571em}.katex .fontsize-ensurer.reset-size3.size8,.katex .sizing.reset-size3.size8{font-size:2.05714286em}.katex .fontsize-ensurer.reset-size3.size9,.katex .sizing.reset-size3.size9{font-size:2.46857143em}.katex .fontsize-ensurer.reset-size3.size10,.katex .sizing.reset-size3.size10{font-size:2.96285714em}.katex .fontsize-ensurer.reset-size3.size11,.katex .sizing.reset-size3.size11{font-size:3.55428571em}.katex .fontsize-ensurer.reset-size4.size1,.katex .sizing.reset-size4.size1{font-size:.625em}.katex .fontsize-ensurer.reset-size4.size2,.katex .sizing.reset-size4.size2{font-size:.75em}.katex .fontsize-ensurer.reset-size4.size3,.katex .sizing.reset-size4.size3{font-size:.875em}.katex .fontsize-ensurer.reset-size4.size4,.katex .sizing.reset-size4.size4{font-size:1em}.katex .fontsize-ensurer.reset-size4.size5,.katex .sizing.reset-size4.size5{font-size:1.125em}.katex .fontsize-ensurer.reset-size4.size6,.katex .sizing.reset-size4.size6{font-size:1.25em}.katex .fontsize-ensurer.reset-size4.size7,.katex .sizing.reset-size4.size7{font-size:1.5em}.katex .fontsize-ensurer.reset-size4.size8,.katex .sizing.reset-size4.size8{font-size:1.8em}.katex .fontsize-ensurer.reset-size4.size9,.katex .sizing.reset-size4.size9{font-size:2.16em}.katex .fontsize-ensurer.reset-size4.size10,.katex .sizing.reset-size4.size10{font-size:2.5925em}.katex .fontsize-ensurer.reset-size4.size11,.katex .sizing.reset-size4.size11{font-size:3.11em}.katex .fontsize-ensurer.reset-size5.size1,.katex .sizing.reset-size5.size1{font-size:.55555556em}.katex .fontsize-ensurer.reset-size5.size2,.katex .sizing.reset-size5.size2{font-size:.66666667em}.katex .fontsize-ensurer.reset-size5.size3,.katex .sizing.reset-size5.size3{font-size:.77777778em}.katex .fontsize-ensurer.reset-size5.size4,.katex .sizing.reset-size5.size4{font-size:.88888889em}.katex .fontsize-ensurer.reset-size5.size5,.katex .sizing.reset-size5.size5{font-size:1em}.katex .fontsize-ensurer.reset-size5.size6,.katex .sizing.reset-size5.size6{font-size:1.11111111em}.katex .fontsize-ensurer.reset-size5.size7,.katex .sizing.reset-size5.size7{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size5.size8,.katex .sizing.reset-size5.size8{font-size:1.6em}.katex .fontsize-ensurer.reset-size5.size9,.katex .sizing.reset-size5.size9{font-size:1.92em}.katex .fontsize-ensurer.reset-size5.size10,.katex .sizing.reset-size5.size10{font-size:2.30444444em}.katex .fontsize-ensurer.reset-size5.size11,.katex .sizing.reset-size5.size11{font-size:2.76444444em}.katex .fontsize-ensurer.reset-size6.size1,.katex .sizing.reset-size6.size1{font-size:.5em}.katex .fontsize-ensurer.reset-size6.size2,.katex .sizing.reset-size6.size2{font-size:.6em}.katex .fontsize-ensurer.reset-size6.size3,.katex .sizing.reset-size6.size3{font-size:.7em}.katex .fontsize-ensurer.reset-size6.size4,.katex .sizing.reset-size6.size4{font-size:.8em}.katex .fontsize-ensurer.reset-size6.size5,.katex .sizing.reset-size6.size5{font-size:.9em}.katex .fontsize-ensurer.reset-size6.size6,.katex .sizing.reset-size6.size6{font-size:1em}.katex .fontsize-ensurer.reset-size6.size7,.katex .sizing.reset-size6.size7{font-size:1.2em}.katex .fontsize-ensurer.reset-size6.size8,.katex .sizing.reset-size6.size8{font-size:1.44em}.katex .fontsize-ensurer.reset-size6.size9,.katex .sizing.reset-size6.size9{font-size:1.728em}.katex .fontsize-ensurer.reset-size6.size10,.katex .sizing.reset-size6.size10{font-size:2.074em}.katex .fontsize-ensurer.reset-size6.size11,.katex .sizing.reset-size6.size11{font-size:2.488em}.katex .fontsize-ensurer.reset-size7.size1,.katex .sizing.reset-size7.size1{font-size:.41666667em}.katex .fontsize-ensurer.reset-size7.size2,.katex .sizing.reset-size7.size2{font-size:.5em}.katex .fontsize-ensurer.reset-size7.size3,.katex .sizing.reset-size7.size3{font-size:.58333333em}.katex .fontsize-ensurer.reset-size7.size4,.katex .sizing.reset-size7.size4{font-size:.66666667em}.katex .fontsize-ensurer.reset-size7.size5,.katex .sizing.reset-size7.size5{font-size:.75em}.katex .fontsize-ensurer.reset-size7.size6,.katex .sizing.reset-size7.size6{font-size:.83333333em}.katex .fontsize-ensurer.reset-size7.size7,.katex .sizing.reset-size7.size7{font-size:1em}.katex .fontsize-ensurer.reset-size7.size8,.katex .sizing.reset-size7.size8{font-size:1.2em}.katex .fontsize-ensurer.reset-size7.size9,.katex .sizing.reset-size7.size9{font-size:1.44em}.katex .fontsize-ensurer.reset-size7.size10,.katex .sizing.reset-size7.size10{font-size:1.72833333em}.katex .fontsize-ensurer.reset-size7.size11,.katex .sizing.reset-size7.size11{font-size:2.07333333em}.katex .fontsize-ensurer.reset-size8.size1,.katex .sizing.reset-size8.size1{font-size:.34722222em}.katex .fontsize-ensurer.reset-size8.size2,.katex .sizing.reset-size8.size2{font-size:.41666667em}.katex .fontsize-ensurer.reset-size8.size3,.katex .sizing.reset-size8.size3{font-size:.48611111em}.katex .fontsize-ensurer.reset-size8.size4,.katex .sizing.reset-size8.size4{font-size:.55555556em}.katex .fontsize-ensurer.reset-size8.size5,.katex .sizing.reset-size8.size5{font-size:.625em}.katex .fontsize-ensurer.reset-size8.size6,.katex .sizing.reset-size8.size6{font-size:.69444444em}.katex .fontsize-ensurer.reset-size8.size7,.katex .sizing.reset-size8.size7{font-size:.83333333em}.katex .fontsize-ensurer.reset-size8.size8,.katex .sizing.reset-size8.size8{font-size:1em}.katex .fontsize-ensurer.reset-size8.size9,.katex .sizing.reset-size8.size9{font-size:1.2em}.katex .fontsize-ensurer.reset-size8.size10,.katex .sizing.reset-size8.size10{font-size:1.44027778em}.katex .fontsize-ensurer.reset-size8.size11,.katex .sizing.reset-size8.size11{font-size:1.72777778em}.katex .fontsize-ensurer.reset-size9.size1,.katex .sizing.reset-size9.size1{font-size:.28935185em}.katex .fontsize-ensurer.reset-size9.size2,.katex .sizing.reset-size9.size2{font-size:.34722222em}.katex .fontsize-ensurer.reset-size9.size3,.katex .sizing.reset-size9.size3{font-size:.40509259em}.katex .fontsize-ensurer.reset-size9.size4,.katex .sizing.reset-size9.size4{font-size:.46296296em}.katex .fontsize-ensurer.reset-size9.size5,.katex .sizing.reset-size9.size5{font-size:.52083333em}.katex .fontsize-ensurer.reset-size9.size6,.katex .sizing.reset-size9.size6{font-size:.5787037em}.katex .fontsize-ensurer.reset-size9.size7,.katex .sizing.reset-size9.size7{font-size:.69444444em}.katex .fontsize-ensurer.reset-size9.size8,.katex .sizing.reset-size9.size8{font-size:.83333333em}.katex .fontsize-ensurer.reset-size9.size9,.katex .sizing.reset-size9.size9{font-size:1em}.katex .fontsize-ensurer.reset-size9.size10,.katex .sizing.reset-size9.size10{font-size:1.20023148em}.katex .fontsize-ensurer.reset-size9.size11,.katex .sizing.reset-size9.size11{font-size:1.43981481em}.katex .fontsize-ensurer.reset-size10.size1,.katex .sizing.reset-size10.size1{font-size:.24108004em}.katex .fontsize-ensurer.reset-size10.size2,.katex .sizing.reset-size10.size2{font-size:.28929605em}.katex .fontsize-ensurer.reset-size10.size3,.katex .sizing.reset-size10.size3{font-size:.33751205em}.katex .fontsize-ensurer.reset-size10.size4,.katex .sizing.reset-size10.size4{font-size:.38572806em}.katex .fontsize-ensurer.reset-size10.size5,.katex .sizing.reset-size10.size5{font-size:.43394407em}.katex .fontsize-ensurer.reset-size10.size6,.katex .sizing.reset-size10.size6{font-size:.48216008em}.katex .fontsize-ensurer.reset-size10.size7,.katex .sizing.reset-size10.size7{font-size:.57859209em}.katex .fontsize-ensurer.reset-size10.size8,.katex .sizing.reset-size10.size8{font-size:.69431051em}.katex .fontsize-ensurer.reset-size10.size9,.katex .sizing.reset-size10.size9{font-size:.83317261em}.katex .fontsize-ensurer.reset-size10.size10,.katex .sizing.reset-size10.size10{font-size:1em}.katex .fontsize-ensurer.reset-size10.size11,.katex .sizing.reset-size10.size11{font-size:1.19961427em}.katex .fontsize-ensurer.reset-size11.size1,.katex .sizing.reset-size11.size1{font-size:.20096463em}.katex .fontsize-ensurer.reset-size11.size2,.katex .sizing.reset-size11.size2{font-size:.24115756em}.katex .fontsize-ensurer.reset-size11.size3,.katex .sizing.reset-size11.size3{font-size:.28135048em}.katex .fontsize-ensurer.reset-size11.size4,.katex .sizing.reset-size11.size4{font-size:.32154341em}.katex .fontsize-ensurer.reset-size11.size5,.katex .sizing.reset-size11.size5{font-size:.36173633em}.katex .fontsize-ensurer.reset-size11.size6,.katex .sizing.reset-size11.size6{font-size:.40192926em}.katex .fontsize-ensurer.reset-size11.size7,.katex .sizing.reset-size11.size7{font-size:.48231511em}.katex .fontsize-ensurer.reset-size11.size8,.katex .sizing.reset-size11.size8{font-size:.57877814em}.katex .fontsize-ensurer.reset-size11.size9,.katex .sizing.reset-size11.size9{font-size:.69453376em}.katex .fontsize-ensurer.reset-size11.size10,.katex .sizing.reset-size11.size10{font-size:.83360129em}.katex .fontsize-ensurer.reset-size11.size11,.katex .sizing.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:.12em}.katex .delimcenter,.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .accent>.vlist-t,.katex .op-limits>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{fill:currentColor;stroke:currentColor;fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;display:block;height:inherit;position:absolute;width:100%}.katex svg path{stroke:none}.katex img{border-style:none;max-height:none;max-width:none;min-height:0;min-width:0}.katex .stretchy{display:block;overflow:hidden;position:relative;width:100%}.katex .stretchy:after,.katex .stretchy:before{content:""}.katex .hide-tail{overflow:hidden;position:relative;width:100%}.katex .halfarrow-left{left:0;overflow:hidden;position:absolute;width:50.2%}.katex .halfarrow-right{overflow:hidden;position:absolute;right:0;width:50.2%}.katex .brace-left{left:0;overflow:hidden;position:absolute;width:25.1%}.katex .brace-center{left:25%;overflow:hidden;position:absolute;width:50%}.katex .brace-right{overflow:hidden;position:absolute;right:0;width:25.1%}.katex .x-arrow-pad{padding:0 .5em}.katex .cd-arrow-pad{padding:0 .55556em 0 .27778em}.katex .mover,.katex .munder,.katex .x-arrow{text-align:center}.katex .boxpad{padding:0 .3em}.katex .fbox,.katex .fcolorbox{border:.04em solid;box-sizing:border-box}.katex .cancel-pad{padding:0 .2em}.katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:.08em}.katex .angl{border-right:.049em solid;border-top:.049em solid;box-sizing:border-box;margin-right:.03889em}.katex .anglpad{padding:0 .03889em}.katex .eqn-num:before{content:"(" counter(katexEqnNo) ")";counter-increment:katexEqnNo}.katex .mml-eqn-num:before{content:"(" counter(mmlEqnNo) ")";counter-increment:mmlEqnNo}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + .3em);text-align:left}.katex .cd-label-right{display:inline-block;left:calc(50% + .3em);position:absolute;text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{padding-left:2em;text-align:left}body{counter-reset:katexEqnNo mmlEqnNo}
+
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.katex-error {
+	color: var(--vscode-editorError-foreground);
+}
+
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+body { margin-left: 25%; margin-right: 25%; font-family: "source sans pro", Arial; font-style: italic; background-color: black; scroll-behavior: smooth; color: white; font-size: 16px; /* margin: 0 0 0 0; */ /* padding: 0 0 0 0; */ /* height: 100%; */ /* width: 100%; */ } div.endnotes { width: 1fr; text-align: center; } p.endnotes { color: rgb(127, 127, 127); font-size: 16px; font-style: italic; text-align: center; } img { width: 100%; } h1, h2, h3, h4, h5, h6 { color: white; position: relative; font-weight: bold; font-style: italic; } h1 { font-size: 2.25em; } h2 { font-size: 1.75em; } h3 { font-size: 1.5em; } h4 { font-size: 1.25em; } h5 { font-size: 1em; } h6 { font-size: 1em; } p, blockquote, ul, ol, dl, table { text-align: left; } hr { background-color: white; height: 1px; border-style: none; } a { color: white; text-decoration: underline; } /* Menu Bar */ div.menuBar { font-family: Source Sans Pro; color: white; font-size: 18px; font-style: italic; position: fixed; margin-left: 51.8%; margin-top: 10px; line-height: 0.5; /* border-style: solid; border-width: 5px; border-color: red; */ } img.portraits { width: 60%; margin: auto; margin-top: 10%; display: flex; /* border-style: solid; border-width: 5px; border-color: red; */ } a.menuBar { color: white; font-size: 18px; font-style: italic; } code[class*="language-"], pre[class*="language-"] { color: #0097a7; background: none; font-family: "source sans pro", Arial; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; word-wrap: normal; line-height: 1.4; -moz-tab-size: 8; -o-tab-size: 8; tab-size: 8; -webkit-hyphens: none; -moz-hyphens: none; -ms-hyphens: none; hyphens: none; } /* Code blocks */ pre[class*="language-"] { padding: 0.8em; overflow: auto; /* border: 1px solid #ddd; */ border-radius: 3px; /* background: #fff; */ background: #0a0a0a; } /* Inline code */ :not(pre) > code[class*="language-"] { padding: 0.1em; border-radius: 0.3em; white-space: normal; background: #0a0a0a; } .token.comment, .token.blockquote { color: #095b67; } .token.cdata { color: #095b67; } .token.doctype, .token.punctuation, .token.variable, .token.macro.property { color: #16c1d9; } .token.builtin { color: #0097a7; } .token.operator, .token.important, .token.keyword, .token.rule { color: #b3ebf2; } .token.string, .token.url, .token.regex, .token.attr-value { color: #b3ebf2; } .token.property, .token.number, .token.boolean, .token.entity, .token.atrule, .token.constant, .token.symbol, .token.command, .token.code { color: #0097a7; } .token.tag, .token.selector, .token.prolog { color: #4dd0e1; } .token.function, .token.namespace, .token.pseudo-element, .token.class, .token.class-name, .token.pseudo-class, .token.id, .token.url-reference .token.variable, .token.attr-name { color: #80deea; } .token.entity { cursor: help; } .token.title, .token.title .token.punctuation { font-weight: bold; color: #b3ebf2; } .token.list { color: #16c1d9; } .token.inserted { background-color: #0a0a0a; color: #095b67; } .token.deleted { background-color: #0a0a0a; color: #095b67; } .token.bold { font-weight: bold; } .token.italic { font-style: italic; } /* JSON */ .language-json .token.property { color: #16c1d9; } .language-markup .token.tag .token.punctuation { color: #16c1d9; } /* CSS */ code.language-css, .language-css .token.function { color: #0086b3; } /* YAML */ .language-yaml .token.atrule { color: #16c1d9; } code.language-yaml { color: #16c1d9; } /* Ruby */ .language-ruby .token.function { color: #16c1d9; } /* Markdown */ .language-markdown .token.url { color: #16c1d9; } /* Makefile */ .language-makefile .token.symbol { color: #16c1d9; } .language-makefile .token.variable { color: #16c1d9; } .language-makefile .token.builtin { color: #16c1d9; } /* Bash */ .language-bash .token.keyword { color: #16c1d9; } /* highlight */ pre[data-line] { position: relative; padding: 1em 0 1em 3em; } pre[data-line] .line-highlight-wrapper { position: absolute; top: 0; left: 0; background-color: transparent; display: block; width: 100%; } pre[data-line] .line-highlight { position: absolute; left: 0; right: 0; padding: inherit 0; margin-top: 1em; background: #0a0a0a; background: #0a0a0a; pointer-events: none; line-height: inherit; white-space: pre; } pre[data-line] .line-highlight:before, pre[data-line] .line-highlight[data-end]:after { content: attr(data-start); position: absolute; top: 0.4em; left: 0.6em; min-width: 1em; padding: 0 0.5em; background-color: #0a0a0a; color: #16c1d9; font: bold 65%/1.5 sans-serif; text-align: center; vertical-align: 0.3em; border-radius: 999px; text-shadow: none; box-shadow: 0 1px #16c1d9; } pre[data-line] .line-highlight[data-end]:after { content: attr(data-end); top: auto; bottom: 0.4em; } element.style { background-color: rgb(36, 36, 36); } 
+</style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="mas-dfab---week-6---compas-and-endless-wall">MAS dfab - Week 6 - Compas and Endless Wall</h1>
+<hr>
+<p>Contents</p>
+<ul>
+<li><a href="#tip-quick-loop-variable-assign">Tip: quick loop variable assign</a></li>
+<li><a href="#print-grasshopper-file-location">Print grasshopper file location</a></li>
+<li><a href="#load-json-file">Load json file</a></li>
+<li><a href="#write-json-file">Write json file</a></li>
+<li><a href="#python-dictionary">Python dictionary</a></li>
+<li><a href="#python-dictionary-tip">Python dictionary tip</a></li>
+<li><a href="#compas-installation">Compas installation</a></li>
+<li><a href="#initialize-environment">Initialize environment</a></li>
+<li><a href="#json-loadloads">JSON load/loads</a></li>
+<li><a href="#robotics">Robotics</a></li>
+</ul>
+<hr>
+<h2 id="tip-quick-loop-variable-assign">Tip: quick loop variable assign</h2>
+<pre><code class="language-python"><div>    originFrames =[c.plane_to_compas_frame(p) <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> ps]
+</div></code></pre>
+<h2 id="print-grasshopper-file-location">Print grasshopper file location</h2>
+<pre><code class="language-Python"><div>    ghCanvas = ghenv.Component.OnPingDocument()
+    folder = os.path.dirname(ghCanvas.FilePath)
+</div></code></pre>
+<h2 id="load-json-file">Load json file</h2>
+<pre><code class="language-python"><div>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(os.path.join(folder, <span class="hljs-string">&#x27;simple_spheres.json&#x27;</span>)) <span class="hljs-keyword">as</span> file :
+    myD = json.load(file)
+</div></code></pre>
+<h2 id="write-json-file">Write json file</h2>
+<pre><code class="language-python"><div>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(os.path.join(folder, <span class="hljs-string">&quot;myFistItem&quot;</span>), <span class="hljs-string">&quot;w&quot;</span>) <span class="hljs-keyword">as</span> file:
+    myJ = json.dump(myJson, file, indent=<span class="hljs-number">2</span>)
+</div></code></pre>
+<h2 id="python-dictionary">Python dictionary</h2>
+<pre><code class="language-python"><div>    myList = []
+
+    myDict = {}
+    myDict = <span class="hljs-built_in">dict</span>()
+
+
+    <span class="hljs-comment"># print(type(myDict))</span>
+
+    myList = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
+
+    myD = {<span class="hljs-string">&quot;students&quot;</span>: [], <span class="hljs-string">&quot;robots&quot;</span>: [], <span class="hljs-string">&quot;chairs&quot;</span>: []}
+    <span class="hljs-comment"># myD[&quot;laptops&quot;] = True</span>
+
+    myD[<span class="hljs-string">&quot;robots&quot;</span>] = <span class="hljs-literal">True</span>, <span class="hljs-string">&quot;abb&quot;</span>, <span class="hljs-number">6</span>  <span class="hljs-comment"># type: ignore</span>
+    myD[<span class="hljs-string">&quot;students&quot;</span>] = <span class="hljs-string">&quot;XX&quot;</span>, <span class="hljs-string">&quot;YY&quot;</span>, <span class="hljs-string">&quot;ZZ&quot;</span>  <span class="hljs-comment"># type: ignore</span>
+
+
+    <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> myD.items():
+        <span class="hljs-built_in">print</span>(key)
+        <span class="hljs-built_in">print</span>(value)
+    <span class="hljs-comment"># print(myD)</span>
+</div></code></pre>
+<h2 id="python-dictionary-tip">Python dictionary tip</h2>
+<p>You can only output Dictionary keys, basically.</p>
+<pre><code class="language-python"><div>   myD = {<span class="hljs-string">&quot;students&quot;</span>: [], <span class="hljs-string">&quot;robots&quot;</span>: [], <span class="hljs-string">&quot;chairs&quot;</span>: []}
+   outTemp = myD
+   <span class="hljs-comment"># The output is [chairs, students, robots]</span>
+</div></code></pre>
+<h2 id="compas-installation">Compas installation</h2>
+<pre><code><code><div>    Windows PowerShell
+    版权所有（C） Microsoft Corporation。保留所有权利。
+
+    安装最新的 PowerShell，了解新功能和改进！https://aka.ms/PSWindows
+
+    PS C:\Users\Zac&gt; pip install cython --install-option=&quot;--no-cython-compile&quot;
+    WARNING: Disabling all use of wheels due to the use of --build-option / --global-option / --install-option.
+    Collecting cython
+    Downloading Cython-0.29.32.tar.gz (2.1 MB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 6.0 MB/s eta 0:00:00
+    Preparing metadata (setup.py) ... done
+    Skipping wheel build for cython, due to binaries being disabled for it.
+    Installing collected packages: cython
+    Running setup.py install for cython ... done
+    Successfully installed cython-0.29.32
+
+    [notice] A new release of pip available: 22.2.2 -&gt; 22.3
+    [notice] To update, run: C:\Users\Zac\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip
+    PS C:\Users\Zac&gt; pip install compas
+    Collecting compas
+    Downloading COMPAS-1.17.0-py2.py3-none-any.whl (5.2 MB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.2/5.2 MB 4.9 MB/s eta 0:00:00
+    Collecting matplotlib&gt;=3.1
+    Downloading matplotlib-3.6.1-cp310-cp310-win_amd64.whl (7.2 MB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.2/7.2 MB 10.0 MB/s eta 0:00:00
+    Collecting scipy&gt;=1.1
+    Downloading scipy-1.9.3-cp310-cp310-win_amd64.whl (40.1 MB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.1/40.1 MB 14.5 MB/s eta 0:00:00
+    Collecting pycollada
+    Downloading pycollada-0.7.2.tar.gz (107 kB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 107.6/107.6 kB ? eta 0:00:00
+    Preparing metadata (setup.py) ... done
+    Collecting typing-extensions
+    Downloading typing_extensions-4.4.0-py3-none-any.whl (26 kB)
+    Requirement already satisfied: cython in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas) (0.29.32)
+    Collecting watchdog
+    Downloading watchdog-2.1.9-py3-none-win_amd64.whl (78 kB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.4/78.4 kB ? eta 0:00:00
+    Collecting networkx
+    Downloading networkx-2.8.7-py3-none-any.whl (2.0 MB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 18.5 MB/s eta 0:00:00
+    Collecting sympy
+    Downloading sympy-1.11.1-py3-none-any.whl (6.5 MB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.5/6.5 MB 15.3 MB/s eta 0:00:00
+    Collecting imageio&gt;=2.7
+    Downloading imageio-2.22.2-py3-none-any.whl (3.4 MB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 21.5 MB/s eta 0:00:00
+    Requirement already satisfied: pillow in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas) (9.2.0)
+    Collecting schema
+    Downloading schema-0.7.5-py2.py3-none-any.whl (17 kB)
+    Requirement already satisfied: numpy&gt;=1.15.4 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas) (1.23.4)
+    Collecting jsonschema
+    Downloading jsonschema-4.16.0-py3-none-any.whl (83 kB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 83.1/83.1 kB 4.9 MB/s eta 0:00:00
+    Collecting contourpy&gt;=1.0.1
+    Downloading contourpy-1.0.5-cp310-cp310-win_amd64.whl (164 kB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 164.1/164.1 kB 9.6 MB/s eta 0:00:00
+    Collecting cycler&gt;=0.10
+    Downloading cycler-0.11.0-py3-none-any.whl (6.4 kB)
+    Collecting kiwisolver&gt;=1.0.1
+    Downloading kiwisolver-1.4.4-cp310-cp310-win_amd64.whl (55 kB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 55.3/55.3 kB 2.8 MB/s eta 0:00:00
+    Collecting packaging&gt;=20.0
+    Using cached packaging-21.3-py3-none-any.whl (40 kB)
+    Collecting fonttools&gt;=4.22.0
+    Downloading fonttools-4.38.0-py3-none-any.whl (965 kB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 965.4/965.4 kB 20.3 MB/s eta 0:00:00
+    Collecting pyparsing&gt;=2.2.1
+    Using cached pyparsing-3.0.9-py3-none-any.whl (98 kB)
+    Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from matplotlib&gt;=3.1-&gt;compas) (2.8.2)
+    Collecting attrs&gt;=17.4.0
+    Using cached attrs-22.1.0-py2.py3-none-any.whl (58 kB)
+    Collecting pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,&gt;=0.14.0
+    Downloading pyrsistent-0.18.1-cp310-cp310-win_amd64.whl (61 kB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.6/61.6 kB ? eta 0:00:00
+    Collecting contextlib2&gt;=0.5.5
+    Downloading contextlib2-21.6.0-py2.py3-none-any.whl (13 kB)
+    Collecting mpmath&gt;=0.19
+    Downloading mpmath-1.2.1-py3-none-any.whl (532 kB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 532.6/532.6 kB 32.6 MB/s eta 0:00:00
+    Requirement already satisfied: six&gt;=1.5 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=3.1-&gt;compas) (1.16.0)
+    Using legacy 'setup.py install' for pycollada, since package 'wheel' is not installed.
+    Installing collected packages: mpmath, watchdog, typing-extensions, sympy, scipy, pyrsistent, pyparsing, networkx, kiwisolver, imageio, fonttools, cycler, contourpy, contextlib2, attrs, schema, pycollada, packaging, jsonschema, matplotlib, compas
+    WARNING: The script watchmedo.exe is installed in 'C:\Users\Zac\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts' which is not on PATH.
+    Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+    WARNING: The script isympy.exe is installed in 'C:\Users\Zac\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts' which is not on PATH.
+    Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+    WARNING: The scripts imageio_download_bin.exe and imageio_remove_bin.exe are installed in 'C:\Users\Zac\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts' which is not on PATH.
+    Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+    WARNING: The scripts fonttools.exe, pyftmerge.exe, pyftsubset.exe and ttx.exe are installed in 'C:\Users\Zac\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts' which is not on PATH.
+    Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+    Running setup.py install for pycollada ... done
+    WARNING: The script jsonschema.exe is installed in 'C:\Users\Zac\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts' which is not on PATH.
+    Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+    WARNING: The script compas_rpc.exe is installed in 'C:\Users\Zac\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\Scripts' which is not on PATH.
+    Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
+    Successfully installed attrs-22.1.0 compas-1.17.0 contextlib2-21.6.0 contourpy-1.0.5 cycler-0.11.0 fonttools-4.38.0 imageio-2.22.2 jsonschema-4.16.0 kiwisolver-1.4.4 matplotlib-3.6.1 mpmath-1.2.1 networkx-2.8.7 packaging-21.3 pycollada-0.7.2 pyparsing-3.0.9 pyrsistent-0.18.1 schema-0.7.5 scipy-1.9.3 sympy-1.11.1 typing-extensions-4.4.0 watchdog-2.1.9
+
+    [notice] A new release of pip available: 22.2.2 -&gt; 22.3
+    [notice] To update, run: C:\Users\Zac\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip
+    PS C:\Users\Zac&gt;
+    PS C:\Users\Zac&gt;
+    PS C:\Users\Zac&gt; cd path/to/compas
+    cd : 找不到路径“C:\Users\Zac\path\to\compas”，因为该路径不存在。
+    所在位置 行:1 字符: 1
+    + cd path/to/compas
+    + ~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : ObjectNotFound: (C:\Users\Zac\path\to\compas:String) [Set-Location], ItemNotFoundException
+        + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.SetLocationCommand
+
+    PS C:\Users\Zac&gt; pip install -e .
+    Obtaining file:///C:/Users/Zac
+    ERROR: file:///C:/Users/Zac does not appear to be a Python project: neither 'setup.py' nor 'pyproject.toml' found.
+
+    [notice] A new release of pip available: 22.2.2 -&gt; 22.3
+    [notice] To update, run: C:\Users\Zac\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip
+    PS C:\Users\Zac&gt; pip install compas[planarity]
+    Requirement already satisfied: compas[planarity] in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (1.17.0)
+    Requirement already satisfied: jsonschema in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (4.16.0)
+    Requirement already satisfied: watchdog in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (2.1.9)
+    Requirement already satisfied: imageio&gt;=2.7 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (2.22.2)
+    Requirement already satisfied: networkx in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (2.8.7)
+    Requirement already satisfied: scipy&gt;=1.1 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (1.9.3)
+    Requirement already satisfied: schema in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (0.7.5)
+    Requirement already satisfied: typing-extensions in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (4.4.0)
+    Requirement already satisfied: pillow in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (9.2.0)
+    Requirement already satisfied: cython in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (0.29.32)
+    Requirement already satisfied: sympy in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (1.11.1)
+    Requirement already satisfied: pycollada in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (0.7.2)
+    Requirement already satisfied: matplotlib&gt;=3.1 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (3.6.1)
+    Requirement already satisfied: numpy&gt;=1.15.4 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from compas[planarity]) (1.23.4)
+    Collecting planarity
+    Downloading planarity-0.4.1.zip (193 kB)
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.2/193.2 kB 1.7 MB/s eta 0:00:00
+    Preparing metadata (setup.py) ... done
+    Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from matplotlib&gt;=3.1-&gt;compas[planarity]) (2.8.2)
+    Requirement already satisfied: pyparsing&gt;=2.2.1 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from matplotlib&gt;=3.1-&gt;compas[planarity]) (3.0.9)
+    Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from matplotlib&gt;=3.1-&gt;compas[planarity]) (4.38.0)
+    Requirement already satisfied: kiwisolver&gt;=1.0.1 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from matplotlib&gt;=3.1-&gt;compas[planarity]) (1.4.4)
+    Requirement already satisfied: packaging&gt;=20.0 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from matplotlib&gt;=3.1-&gt;compas[planarity]) (21.3)
+    Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from matplotlib&gt;=3.1-&gt;compas[planarity]) (1.0.5)
+    Requirement already satisfied: cycler&gt;=0.10 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from matplotlib&gt;=3.1-&gt;compas[planarity]) (0.11.0)
+    Requirement already satisfied: attrs&gt;=17.4.0 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from jsonschema-&gt;compas[planarity]) (22.1.0)
+    Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,&gt;=0.14.0 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from jsonschema-&gt;compas[planarity]) (0.18.1)
+    Requirement already satisfied: setuptools in c:\program files\windowsapps\pythonsoftwarefoundation.python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\lib\site-packages (from planarity-&gt;compas[planarity]) (63.2.0)
+    Requirement already satisfied: contextlib2&gt;=0.5.5 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from schema-&gt;compas[planarity]) (21.6.0)
+    Requirement already satisfied: mpmath&gt;=0.19 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from sympy-&gt;compas[planarity]) (1.2.1)
+    Requirement already satisfied: six&gt;=1.5 in c:\users\zac\appdata\local\packages\pythonsoftwarefoundation.python.3.10_qbz5n2kfra8p0\localcache\local-packages\python310\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib&gt;=3.1-&gt;compas[planarity]) (1.16.0)
+    Using legacy 'setup.py install' for planarity, since package 'wheel' is not installed.
+    Installing collected packages: planarity
+    Running setup.py install for planarity ... error
+    error: subprocess-exited-with-error
+
+    × Running setup.py install for planarity did not run successfully.
+    │ exit code: 1
+    ╰─&gt; [22 lines of output]
+        running install
+        C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.10_3.10.2288.0_x64__qbz5n2kfra8p0\lib\site-packages\setuptools\command\install.py:34: SetuptoolsDeprecationWarning: setup.py install is deprecated. Use build and pip and other standards-based tools.
+            warnings.warn(
+        running build
+        running build_py
+        creating build
+        creating build\lib.win-amd64-cpython-310
+        creating build\lib.win-amd64-cpython-310\planarity
+        copying planarity\planarity_functions.py -&gt; build\lib.win-amd64-cpython-310\planarity
+        copying planarity\planarity_networkx.py -&gt; build\lib.win-amd64-cpython-310\planarity
+        copying planarity\__init__.py -&gt; build\lib.win-amd64-cpython-310\planarity
+        creating build\lib.win-amd64-cpython-310\planarity\tests
+        copying planarity\tests\test.py -&gt; build\lib.win-amd64-cpython-310\planarity\tests
+        copying planarity\tests\test_planarity.py -&gt; build\lib.win-amd64-cpython-310\planarity\tests
+        copying planarity\tests\test_planarity_networkx.py -&gt; build\lib.win-amd64-cpython-310\planarity\tests
+        copying planarity\tests\__init__.py -&gt; build\lib.win-amd64-cpython-310\planarity\tests
+        running build_ext
+        cythoning planarity/planarity.pyx to planarity\planarity.c
+        C:\Users\Zac\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\LocalCache\local-packages\Python310\site-packages\Cython\Compiler\Main.py:369: FutureWarning: Cython directive 'language_level' not set, using 2 for now (Py2). This will change in a later release! File: C:\Users\Zac\AppData\Local\Temp\pip-install-lka9qw6g\planarity_72c595de180445349a28375597ae64d9\planarity\planarity.pyx
+            tree = Parsing.p_module(s, pxd, full_module_name)
+        building 'planarity.planarity' extension
+        error: Microsoft Visual C++ 14.0 or greater is required. Get it with &quot;Microsoft C++ Build Tools&quot;: https://visualstudio.microsoft.com/visual-cpp-build-tools/
+        [end of output]
+
+    note: This error originates from a subprocess, and is likely not a problem with pip.
+    error: legacy-install-failure
+
+    × Encountered error while trying to install package.
+    ╰─&gt; planarity
+
+    note: This is an issue with the package mentioned above, not pip.
+    hint: See above for output from the failure.
+
+    [notice] A new release of pip available: 22.2.2 -&gt; 22.3
+    [notice] To update, run: C:\Users\Zac\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip
+    PS C:\Users\Zac&gt; pip install -e .[planarity]
+    Obtaining file:///C:/Users/Zac
+    ERROR: file:///C:/Users/Zac does not appear to be a Python project: neither 'setup.py' nor 'pyproject.toml' found.
+
+    [notice] A new release of pip available: 22.2.2 -&gt; 22.3
+    [notice] To update, run: C:\Users\Zac\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.10_qbz5n2kfra8p0\python.exe -m pip install --upgrade pip
+    PS C:\Users\Zac&gt;
+</div></code></code></pre>
+<h2 id="initialize-environment">Initialize environment</h2>
+<pre><code><code><div>    Windows PowerShell
+    版权所有（C） Microsoft Corporation。保留所有权利。
+
+    安装最新的 PowerShell，了解新功能和改进！https://aka.ms/PSWindows
+
+    PS C:\Users\Zac&gt; conda env active
+    usage: conda-env-script.py [-h] {create,export,list,remove,update,config} ...
+    conda-env-script.py: error: argument {create,export,list,remove,update,config}: invalid choice: 'active' (choose from 'create', 'export', 'list', 'remove', 'update', 'config')
+    PS C:\Users\Zac&gt; conda env list
+    # conda environments:
+    #
+    base                     C:\Users\Zac\anaconda3
+
+    PS C:\Users\Zac&gt; conda config --add channels conda-forge
+    PS C:\Users\Zac&gt; conda env create -f https://dfab.link/intro22.yml
+    Collecting package metadata (repodata.json): \
+    PS C:\Users\Zacdone
+    Solving environment: done
+
+    Downloading and Extracting Packages
+    importlib_resources- | 29 KB     | ############################################################################ | 100%
+    packaging-21.3       | 36 KB     | ############################################################################ | 100%
+    krb5-1.19.3          | 847 KB    | ############################################################################ | 100%
+    zipp-3.9.0           | 13 KB     | ############################################################################ | 100%
+    glib-2.74.0          | 452 KB    | ############################################################################ | 100%
+    pyopengl-3.1.6       | 867 KB    | ############################################################################ | 100%
+    svgwrite-1.4.3       | 52 KB     | ############################################################################ | 100%
+    constantly-15.1.0    | 9 KB      | ############################################################################ | 100%
+    pthread-stubs-0.4    | 6 KB      | ############################################################################ | 100%
+    font-ttf-ubuntu-0.83 | 1.9 MB    | ############################################################################ | 100%
+    libxml2-2.10.3       | 3.6 MB    | ############################################################################ | 100%
+    vs2015_runtime-14.29 | 1.2 MB    | ############################################################################ | 100%
+    fonttools-4.38.0     | 1.7 MB    | ############################################################################ | 100%
+    compas_fab-0.27.0    | 2.9 MB    | ############################################################################ | 100%
+    libwebp-1.2.4        | 76 KB     | ############################################################################ | 100%
+    openssl-1.1.1q       | 6.0 MB    | ############################################################################ | 100%
+    jsoncpp-1.9.5        | 532 KB    | ############################################################################ | 100%
+    tk-8.6.12            | 3.5 MB    | ############################################################################ | 100%
+    typing_extensions-4. | 29 KB     | ############################################################################ | 100%
+    pycparser-2.21       | 100 KB    | ############################################################################ | 100%
+    gstreamer-1.20.3     | 2.2 MB    | ############################################################################ | 100%
+    libssh2-1.10.0       | 228 KB    | ############################################################################ | 100%
+    colorama-0.4.5       | 18 KB     | ############################################################################ | 100%
+    vc-14.2              | 14 KB     | ############################################################################ | 100%
+    lz4-c-1.9.3          | 135 KB    | ############################################################################ | 100%
+    compas_occ-0.6.0     | 32 KB     | ############################################################################ | 100%
+    tbb-devel-2021.6.0   | 1.1 MB    | ############################################################################ | 100%
+    bcrypt-3.2.2         | 41 KB     | ############################################################################ | 100%
+    zstd-1.5.2           | 401 KB    | ############################################################################ | 100%
+    hdf5-1.12.2          | 24.0 MB   | ############################################################################ | 100%
+    appdirs-1.4.4        | 13 KB     | ############################################################################ | 100%
+    brotli-1.0.9         | 18 KB     | ############################################################################ | 100%
+    python-3.9.13        | 17.9 MB   | ############################################################################ | 100%
+    libtiff-4.4.0        | 1.1 MB    | ############################################################################ | 100%
+    pkgutil-resolve-name | 9 KB      | ############################################################################ | 100%
+    font-ttf-source-code | 684 KB    | ############################################################################ | 100%
+    m2w64-gcc-libgfortra | 342 KB    | ############################################################################ | 100%
+    pip-22.3             | 1.5 MB    | ############################################################################ | 100%
+    pyparsing-3.0.9      | 79 KB     | ############################################################################ | 100%
+    icu-70.1             | 17.0 MB   | ############################################################################ | 100%
+    mpmath-1.2.1         | 437 KB    | ############################################################################ | 100%
+    freeimage-3.18.0     | 689 KB    | ############################################################################ | 100%
+    lcms2-2.12           | 882 KB    | ############################################################################ | 100%
+    win32_setctime-1.1.0 | 7 KB      | ############################################################################ | 100%
+    fonts-conda-ecosyste | 4 KB      | ############################################################################ | 100%
+    imageio-2.22.0       | 3.2 MB    | ############################################################################ | 100%
+    libiconv-1.17        | 698 KB    | ############################################################################ | 100%
+    python_abi-3.9       | 4 KB      | ############################################################################ | 100%
+    cython-0.29.32       | 1.9 MB    | ############################################################################ | 100%
+    pugixml-1.11.4       | 211 KB    | ############################################################################ | 100%
+    font-ttf-dejavu-sans | 388 KB    | ############################################################################ | 100%
+    x265-3.5             | 5.3 MB    | ############################################################################ | 100%
+    unicodedata2-14.0.0  | 492 KB    | ############################################################################ | 100%
+    libpng-1.6.38        | 773 KB    | ############################################################################ | 100%
+    autobahn-22.7.1      | 381 KB    | ############################################################################ | 100%
+    libraw-0.20.2        | 1.0 MB    | ############################################################################ | 100%
+    zope.interface-5.5.0 | 319 KB    | ############################################################################ | 100%
+    pythonocc-core-7.6.2 | 38.5 MB   | ############################################################################ | 100%
+    m2w64-gmp-6.1.0      | 726 KB    | ############################################################################ | 100%
+    contourpy-1.0.5      | 173 KB    | ############################################################################ | 100%
+    munkres-1.1.4        | 12 KB     | ############################################################################ | 100%
+    libvorbis-1.3.7      | 267 KB    | ############################################################################ | 100%
+    ffmpeg-4.4.2         | 12.7 MB   | ############################################################################ | 100%
+    expat-2.4.9          | 387 KB    | ############################################################################ | 100%
+    mpfr-4.1.0           | 450 KB    | ############################################################################ | 100%
+    twisted-iocpsupport- | 44 KB     | ############################################################################ | 100%
+    zlib-1.2.13          | 113 KB    | ############################################################################ | 100%
+    bzip2-1.0.8          | 149 KB    | ############################################################################ | 100%
+    compas_rrc-1.1.0     | 17 KB     | ############################################################################ | 100%
+    msys2-conda-epoch-20 | 3 KB      | ############################################################################ | 100%
+    aom-3.5.0            | 11.7 MB   | ############################################################################ | 100%
+    kiwisolver-1.4.4     | 61 KB     | ############################################################################ | 100%
+    cffi-1.15.1          | 229 KB    | ############################################################################ | 100%
+    qt-webengine-5.15.4  | 60.1 MB   | ############################################################################ | 100%
+    gettext-0.21.1       | 5.3 MB    | ################################################################################################################ | 100%
+    nptyping-2.3.1       | 21 KB     | ################################################################################################################ | 100%
+    pycollada-0.7.2      | 84 KB     | ################################################################################################################ | 100%
+    pyasn1-modules-0.2.7 | 60 KB     | ################################################################################################################ | 100%
+    tzdata-2022e         | 118 KB    | ################################################################################################################ | 100%
+    hyperlink-21.0.0     | 71 KB     | ################################################################################################################ | 100%
+    openh264-2.3.1       | 727 KB    | ################################################################################################################ | 100%
+    pyyaml-6.0           | 154 KB    | ################################################################################################################ | 100%
+    certifi-2022.9.24    | 155 KB    | ################################################################################################################ | 100%
+    pyopenssl-22.1.0     | 122 KB    | ################################################################################################################ | 100%
+    utfcpp-3.2.1         | 11 KB     | ################################################################################################################ | 100%
+    ucrt-10.0.20348.0    | 1.2 MB    | ################################################################################################################ | 100%
+    jpeg-9e              | 366 KB    | ################################################################################################################ | 100%
+    roslibpy-1.3.0       | 32 KB     | ################################################################################################################ | 100%
+    boost-cpp-1.78.0     | 17.1 MB   | ################################################################################################################ | 100%
+    libsqlite-3.39.4     | 642 KB    | ################################################################################################################ | 100%
+    m2w64-gcc-libs-5.3.0 | 520 KB    | ################################################################################################################ | 100%
+    lerc-4.0.0           | 190 KB    | ################################################################################################################ | 100%
+    pyserial-3.5         | 64 KB     | ################################################################################################################ | 100%
+    typing-extensions-4. | 8 KB      | ################################################################################################################ | 100%
+    rapidjson-1.1.0      | 104 KB    | ################################################################################################################ | 100%
+    intel-openmp-2022.1. | 3.7 MB    | ################################################################################################################ | 100%
+    qtpy-2.2.1           | 49 KB     | ################################################################################################################ | 100%
+    m2w64-gcc-libs-core- | 214 KB    | ################################################################################################################ | 100%
+    libwebp-base-1.2.4   | 328 KB    | ################################################################################################################ | 100%
+    libbrotlienc-1.0.9   | 716 KB    | ################################################################################################################ | 100%
+    ca-certificates-2022 | 189 KB    | ################################################################################################################ | 100%
+    liblapack-3.9.0      | 5.6 MB    | ################################################################################################################ | 100%
+    networkx-2.8.7       | 1.6 MB    | ################################################################################################################ | 100%
+    pillow-9.2.0         | 45.2 MB   | ################################################################################################################ | 100%
+    glew-2.1.0           | 941 KB    | ################################################################################################################ | 100%
+    libblas-3.9.0        | 5.6 MB    | ################################################################################################################ | 100%
+    pcre2-10.37          | 942 KB    | ################################################################################################################ | 100%
+    importlib-metadata-4 | 33 KB     | ################################################################################################################ | 100%
+    git-2.38.1           | 105.9 MB  | ################################################################################################################ | 100%
+    service_identity-18. | 12 KB     | ################################################################################################################ | 100%
+    libxcb-1.13          | 1.3 MB    | ################################################################################################################ | 100%
+    libogg-1.3.4         | 34 KB     | ################################################################################################################ | 100%
+    qt-main-5.15.6       | 68.8 MB   | ################################################################################################################ | 100%
+    idna-3.4             | 55 KB     | ################################################################################################################ | 100%
+    freetype-py-2.3.0    | 58 KB     | ################################################################################################################ | 100%
+    textdistance-4.5.0   | 28 KB     | ################################################################################################################ | 100%
+    occt-7.6.2           | 27.5 MB   | ################################################################################################################ | 100%
+    bullet-cpp-3.21      | 20.7 MB   | ################################################################################################################ | 100%
+    openexr-3.1.5        | 1.4 MB    | ################################################################################################################ | 100%
+    mpir-3.0.0           | 3.0 MB    | ################################################################################################################ | 100%
+    watchdog-2.1.9       | 116 KB    | ################################################################################################################ | 100%
+    xz-5.2.6             | 213 KB    | ################################################################################################################ | 100%
+    imath-3.1.5          | 178 KB    | ################################################################################################################ | 100%
+    libbrotlicommon-1.0. | 67 KB     | ################################################################################################################ | 100%
+    attrs-22.1.0         | 48 KB     | ################################################################################################################ | 100%
+    brotli-bin-1.0.9     | 21 KB     | ################################################################################################################ | 100%
+    xorg-libxau-1.0.9    | 57 KB     | ################################################################################################################ | 100%
+    cryptography-38.0.2  | 1.1 MB    | ################################################################################################################ | 100%
+    m2w64-libwinpthread- | 31 KB     | ################################################################################################################ | 100%
+    gst-plugins-base-1.2 | 2.4 MB    | ################################################################################################################ | 100%
+    pyrsistent-0.18.1    | 85 KB     | ################################################################################################################ | 100%
+    compas_cgal-0.5.0    | 596 KB    | ################################################################################################################ | 100%
+    wheel-0.37.1         | 31 KB     | ################################################################################################################ | 100%
+    vtk-9.1.0            | 33.2 MB   | ################################################################################################################ | 100%
+    libcblas-3.9.0       | 5.6 MB    | ################################################################################################################ | 100%
+    double-conversion-3. | 72 KB     | ################################################################################################################ | 100%
+    compas-1.17.0        | 4.9 MB    | ################################################################################################################ | 100%
+    jxrlib-1.1           | 620 KB    | ################################################################################################################ | 100%
+    scipy-1.9.3          | 28.3 MB   | ################################################################################################################ | 100%
+    mkl-2022.1.0         | 182.7 MB  | ################################################################################################################ | 100%
+    incremental-22.10.0  | 18 KB     | ################################################################################################################ | 100%
+    pyside2-5.15.6       | 10.1 MB   | ################################################################################################################ | 100%
+    libtheora-1.1.1      | 201 KB    | ################################################################################################################ | 100%
+    fontconfig-2.14.1    | 208 KB    | ################################################################################################################ | 100%
+    txaio-21.2.1         | 21 KB     | ################################################################################################################ | 100%
+    openjpeg-2.5.0       | 256 KB    | ################################################################################################################ | 100%
+    jsonschema-4.16.0    | 65 KB     | ################################################################################################################ | 100%
+    schema-0.7.5         | 19 KB     | ################################################################################################################ | 100%
+    sqlite-3.39.4        | 658 KB    | ################################################################################################################ | 100%
+    libzip-1.9.2         | 145 KB    | ################################################################################################################ | 100%
+    svt-av1-1.3.0        | 3.1 MB    | ################################################################################################################ | 100%
+    twisted-22.8.0       | 5.2 MB    | ################################################################################################################ | 100%
+    tbb-2021.6.0         | 174 KB    | ################################################################################################################ | 100%
+    numpy-1.23.4         | 6.3 MB    | ################################################################################################################ | 100%
+    pyasn1-0.4.8         | 53 KB     | ################################################################################################################ | 100%
+    six-1.16.0           | 14 KB     | ################################################################################################################ | 100%
+    done
+    Installing pip dependencies: | Ran pip subprocess with arguments:
+    ['C:\\Users\\Zac\\anaconda3\\envs\\intro22\\python.exe', '-m', 'pip', 'install', '-U', '-r', 'C:\\Users\\Zac\\AppData\\Local\\Temp\\condaenv.kx68zg2y.requirements.txt']
+    Pip subprocess output:
+    Collecting black
+      Downloading black-22.10.0-cp39-cp39-win_amd64.whl (1.2 MB)
+         ---------------------------------------- 1.2/1.2 MB 5.8 MB/s eta 0:00:00
+    Collecting mypy-extensions&gt;=0.4.3
+      Using cached mypy_extensions-0.4.3-py2.py3-none-any.whl (4.5 kB)
+    Collecting platformdirs&gt;=2
+      Using cached platformdirs-2.5.2-py3-none-any.whl (14 kB)
+    Collecting pathspec&gt;=0.9.0
+      Using cached pathspec-0.10.1-py3-none-any.whl (27 kB)
+    Collecting click&gt;=8.0.0
+      Using cached click-8.1.3-py3-none-any.whl (96 kB)
+    Requirement already satisfied: typing-extensions&gt;=3.10.0.0 in c:\users\zac\anaconda3\envs\intro22\lib\site-packages (from black-&gt;-r C:\Users\Zac\AppData\Local\Temp\condaenv.kx68zg2y.requirements.txt (line 1)) (4.4.0)
+    Collecting tomli&gt;=1.1.0
+      Using cached tomli-2.0.1-py3-none-any.whl (12 kB)
+    Requirement already satisfied: colorama in c:\users\zac\anaconda3\envs\intro22\lib\site-packages (from click&gt;=8.0.0-&gt;black-&gt;-r C:\Users\Zac\AppData\Local\Temp\condaenv.kx68zg2y.requirements.txt (line 1)) (0.4.5)
+    Installing collected packages: mypy-extensions, tomli, platformdirs, pathspec, click, black
+    Successfully installed black-22.10.0 click-8.1.3 mypy-extensions-0.4.3 pathspec-0.10.1 platformdirs-2.5.2 tomli-2.0.1
+
+    done
+    #
+    # To activate this environment, use
+    #
+    #     $ conda activate intro22
+    #
+    # To deactivate an active environment, use
+    #
+    #     $ conda deactivate
+
+    Retrieving notices: ...working... done
+</div></code></code></pre>
+<h2 id="json-loadloads">JSON load/loads</h2>
+<ul>
+<li>json.loads(): Deserialize s (a str or unicode instance containing a JSON document) to a Python object.</li>
+<li>json.load(): Deserialize fp (a .read()-supporting file-like object containing a JSON document) to a Python object.</li>
+</ul>
+<h2 id="robotics">Robotics</h2>
+<p><img src="file:///c:\Zac\GitHub\Notes\MASdfab-Week6\MASdfab-Week6_2022-10-26-09-17-52.png" alt="">
+<img src="file:///c:\Zac\GitHub\Notes\MASdfab-Week6\MASdfab-Week6_2022-10-26-09-21-28.png" alt="">
+<img src="file:///c:\Zac\GitHub\Notes\MASdfab-Week6\MASdfab-Week6_2022-10-26-09-25-48.png" alt="">
+<img src="file:///c:\Zac\GitHub\Notes\MASdfab-Week6\MASdfab-Week6_2022-10-26-09-55-18.png" alt=""></p>
+
+        <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </body>
+    </html>

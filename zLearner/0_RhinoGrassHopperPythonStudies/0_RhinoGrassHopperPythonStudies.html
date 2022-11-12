@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Rhino - GrassHopper - Python Studies - Notes</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension vscode.markdown-math */
+@font-face{font-family:KaTeX_AMS;font-style:normal;font-weight:400;src:url(fonts/KaTeX_AMS-Regular.woff2) format("woff2"),url(fonts/KaTeX_AMS-Regular.woff) format("woff"),url(fonts/KaTeX_AMS-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Caligraphic;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Caligraphic-Bold.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Bold.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Caligraphic;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Caligraphic-Regular.woff2) format("woff2"),url(fonts/KaTeX_Caligraphic-Regular.woff) format("woff"),url(fonts/KaTeX_Caligraphic-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Fraktur;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Fraktur-Bold.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Bold.woff) format("woff"),url(fonts/KaTeX_Fraktur-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Fraktur;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Fraktur-Regular.woff2) format("woff2"),url(fonts/KaTeX_Fraktur-Regular.woff) format("woff"),url(fonts/KaTeX_Fraktur-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:normal;font-weight:700;src:url(fonts/KaTeX_Main-Bold.woff2) format("woff2"),url(fonts/KaTeX_Main-Bold.woff) format("woff"),url(fonts/KaTeX_Main-Bold.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Main-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Main-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Main-BoldItalic.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Main-Italic.woff2) format("woff2"),url(fonts/KaTeX_Main-Italic.woff) format("woff"),url(fonts/KaTeX_Main-Italic.ttf) format("truetype")}@font-face{font-family:KaTeX_Main;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Main-Regular.woff2) format("woff2"),url(fonts/KaTeX_Main-Regular.woff) format("woff"),url(fonts/KaTeX_Main-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Math;font-style:italic;font-weight:700;src:url(fonts/KaTeX_Math-BoldItalic.woff2) format("woff2"),url(fonts/KaTeX_Math-BoldItalic.woff) format("woff"),url(fonts/KaTeX_Math-BoldItalic.ttf) format("truetype")}@font-face{font-family:KaTeX_Math;font-style:italic;font-weight:400;src:url(fonts/KaTeX_Math-Italic.woff2) format("woff2"),url(fonts/KaTeX_Math-Italic.woff) format("woff"),url(fonts/KaTeX_Math-Italic.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:normal;font-weight:700;src:url(fonts/KaTeX_SansSerif-Bold.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Bold.woff) format("woff"),url(fonts/KaTeX_SansSerif-Bold.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:italic;font-weight:400;src:url(fonts/KaTeX_SansSerif-Italic.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Italic.woff) format("woff"),url(fonts/KaTeX_SansSerif-Italic.ttf) format("truetype")}@font-face{font-family:"KaTeX_SansSerif";font-style:normal;font-weight:400;src:url(fonts/KaTeX_SansSerif-Regular.woff2) format("woff2"),url(fonts/KaTeX_SansSerif-Regular.woff) format("woff"),url(fonts/KaTeX_SansSerif-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Script;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Script-Regular.woff2) format("woff2"),url(fonts/KaTeX_Script-Regular.woff) format("woff"),url(fonts/KaTeX_Script-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size1;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size1-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size1-Regular.woff) format("woff"),url(fonts/KaTeX_Size1-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size2;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size2-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size2-Regular.woff) format("woff"),url(fonts/KaTeX_Size2-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size3;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size3-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size3-Regular.woff) format("woff"),url(fonts/KaTeX_Size3-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Size4;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Size4-Regular.woff2) format("woff2"),url(fonts/KaTeX_Size4-Regular.woff) format("woff"),url(fonts/KaTeX_Size4-Regular.ttf) format("truetype")}@font-face{font-family:KaTeX_Typewriter;font-style:normal;font-weight:400;src:url(fonts/KaTeX_Typewriter-Regular.woff2) format("woff2"),url(fonts/KaTeX_Typewriter-Regular.woff) format("woff"),url(fonts/KaTeX_Typewriter-Regular.ttf) format("truetype")}.katex{text-rendering:auto;font:normal 1.21em KaTeX_Main,Times New Roman,serif;line-height:1.2;text-indent:0}.katex *{-ms-high-contrast-adjust:none!important;border-color:currentColor}.katex .katex-version:after{content:"0.13.24"}.katex .katex-mathml{clip:rect(1px,1px,1px,1px);border:0;height:1px;overflow:hidden;padding:0;position:absolute;width:1px}.katex .katex-html>.newline{display:block}.katex .base{position:relative;white-space:nowrap;width:-webkit-min-content;width:-moz-min-content;width:min-content}.katex .base,.katex .strut{display:inline-block}.katex .textbf{font-weight:700}.katex .textit{font-style:italic}.katex .textrm{font-family:KaTeX_Main}.katex .textsf{font-family:KaTeX_SansSerif}.katex .texttt{font-family:KaTeX_Typewriter}.katex .mathnormal{font-family:KaTeX_Math;font-style:italic}.katex .mathit{font-family:KaTeX_Main;font-style:italic}.katex .mathrm{font-style:normal}.katex .mathbf{font-family:KaTeX_Main;font-weight:700}.katex .boldsymbol{font-family:KaTeX_Math;font-style:italic;font-weight:700}.katex .amsrm,.katex .mathbb,.katex .textbb{font-family:KaTeX_AMS}.katex .mathcal{font-family:KaTeX_Caligraphic}.katex .mathfrak,.katex .textfrak{font-family:KaTeX_Fraktur}.katex .mathtt{font-family:KaTeX_Typewriter}.katex .mathscr,.katex .textscr{font-family:KaTeX_Script}.katex .mathsf,.katex .textsf{font-family:KaTeX_SansSerif}.katex .mathboldsf,.katex .textboldsf{font-family:KaTeX_SansSerif;font-weight:700}.katex .mathitsf,.katex .textitsf{font-family:KaTeX_SansSerif;font-style:italic}.katex .mainrm{font-family:KaTeX_Main;font-style:normal}.katex .vlist-t{border-collapse:collapse;display:inline-table;table-layout:fixed}.katex .vlist-r{display:table-row}.katex .vlist{display:table-cell;position:relative;vertical-align:bottom}.katex .vlist>span{display:block;height:0;position:relative}.katex .vlist>span>span{display:inline-block}.katex .vlist>span>.pstrut{overflow:hidden;width:0}.katex .vlist-t2{margin-right:-2px}.katex .vlist-s{display:table-cell;font-size:1px;min-width:2px;vertical-align:bottom;width:2px}.katex .vbox{align-items:baseline;display:inline-flex;flex-direction:column}.katex .hbox{width:100%}.katex .hbox,.katex .thinbox{display:inline-flex;flex-direction:row}.katex .thinbox{max-width:0;width:0}.katex .msupsub{text-align:left}.katex .mfrac>span>span{text-align:center}.katex .mfrac .frac-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline,.katex .hline,.katex .mfrac .frac-line,.katex .overline .overline-line,.katex .rule,.katex .underline .underline-line{min-height:1px}.katex .mspace{display:inline-block}.katex .clap,.katex .llap,.katex .rlap{position:relative;width:0}.katex .clap>.inner,.katex .llap>.inner,.katex .rlap>.inner{position:absolute}.katex .clap>.fix,.katex .llap>.fix,.katex .rlap>.fix{display:inline-block}.katex .llap>.inner{right:0}.katex .clap>.inner,.katex .rlap>.inner{left:0}.katex .clap>.inner>span{margin-left:-50%;margin-right:50%}.katex .rule{border:0 solid;display:inline-block;position:relative}.katex .hline,.katex .overline .overline-line,.katex .underline .underline-line{border-bottom-style:solid;display:inline-block;width:100%}.katex .hdashline{border-bottom-style:dashed;display:inline-block;width:100%}.katex .sqrt>.root{margin-left:.27777778em;margin-right:-.55555556em}.katex .fontsize-ensurer.reset-size1.size1,.katex .sizing.reset-size1.size1{font-size:1em}.katex .fontsize-ensurer.reset-size1.size2,.katex .sizing.reset-size1.size2{font-size:1.2em}.katex .fontsize-ensurer.reset-size1.size3,.katex .sizing.reset-size1.size3{font-size:1.4em}.katex .fontsize-ensurer.reset-size1.size4,.katex .sizing.reset-size1.size4{font-size:1.6em}.katex .fontsize-ensurer.reset-size1.size5,.katex .sizing.reset-size1.size5{font-size:1.8em}.katex .fontsize-ensurer.reset-size1.size6,.katex .sizing.reset-size1.size6{font-size:2em}.katex .fontsize-ensurer.reset-size1.size7,.katex .sizing.reset-size1.size7{font-size:2.4em}.katex .fontsize-ensurer.reset-size1.size8,.katex .sizing.reset-size1.size8{font-size:2.88em}.katex .fontsize-ensurer.reset-size1.size9,.katex .sizing.reset-size1.size9{font-size:3.456em}.katex .fontsize-ensurer.reset-size1.size10,.katex .sizing.reset-size1.size10{font-size:4.148em}.katex .fontsize-ensurer.reset-size1.size11,.katex .sizing.reset-size1.size11{font-size:4.976em}.katex .fontsize-ensurer.reset-size2.size1,.katex .sizing.reset-size2.size1{font-size:.83333333em}.katex .fontsize-ensurer.reset-size2.size2,.katex .sizing.reset-size2.size2{font-size:1em}.katex .fontsize-ensurer.reset-size2.size3,.katex .sizing.reset-size2.size3{font-size:1.16666667em}.katex .fontsize-ensurer.reset-size2.size4,.katex .sizing.reset-size2.size4{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size2.size5,.katex .sizing.reset-size2.size5{font-size:1.5em}.katex .fontsize-ensurer.reset-size2.size6,.katex .sizing.reset-size2.size6{font-size:1.66666667em}.katex .fontsize-ensurer.reset-size2.size7,.katex .sizing.reset-size2.size7{font-size:2em}.katex .fontsize-ensurer.reset-size2.size8,.katex .sizing.reset-size2.size8{font-size:2.4em}.katex .fontsize-ensurer.reset-size2.size9,.katex .sizing.reset-size2.size9{font-size:2.88em}.katex .fontsize-ensurer.reset-size2.size10,.katex .sizing.reset-size2.size10{font-size:3.45666667em}.katex .fontsize-ensurer.reset-size2.size11,.katex .sizing.reset-size2.size11{font-size:4.14666667em}.katex .fontsize-ensurer.reset-size3.size1,.katex .sizing.reset-size3.size1{font-size:.71428571em}.katex .fontsize-ensurer.reset-size3.size2,.katex .sizing.reset-size3.size2{font-size:.85714286em}.katex .fontsize-ensurer.reset-size3.size3,.katex .sizing.reset-size3.size3{font-size:1em}.katex .fontsize-ensurer.reset-size3.size4,.katex .sizing.reset-size3.size4{font-size:1.14285714em}.katex .fontsize-ensurer.reset-size3.size5,.katex .sizing.reset-size3.size5{font-size:1.28571429em}.katex .fontsize-ensurer.reset-size3.size6,.katex .sizing.reset-size3.size6{font-size:1.42857143em}.katex .fontsize-ensurer.reset-size3.size7,.katex .sizing.reset-size3.size7{font-size:1.71428571em}.katex .fontsize-ensurer.reset-size3.size8,.katex .sizing.reset-size3.size8{font-size:2.05714286em}.katex .fontsize-ensurer.reset-size3.size9,.katex .sizing.reset-size3.size9{font-size:2.46857143em}.katex .fontsize-ensurer.reset-size3.size10,.katex .sizing.reset-size3.size10{font-size:2.96285714em}.katex .fontsize-ensurer.reset-size3.size11,.katex .sizing.reset-size3.size11{font-size:3.55428571em}.katex .fontsize-ensurer.reset-size4.size1,.katex .sizing.reset-size4.size1{font-size:.625em}.katex .fontsize-ensurer.reset-size4.size2,.katex .sizing.reset-size4.size2{font-size:.75em}.katex .fontsize-ensurer.reset-size4.size3,.katex .sizing.reset-size4.size3{font-size:.875em}.katex .fontsize-ensurer.reset-size4.size4,.katex .sizing.reset-size4.size4{font-size:1em}.katex .fontsize-ensurer.reset-size4.size5,.katex .sizing.reset-size4.size5{font-size:1.125em}.katex .fontsize-ensurer.reset-size4.size6,.katex .sizing.reset-size4.size6{font-size:1.25em}.katex .fontsize-ensurer.reset-size4.size7,.katex .sizing.reset-size4.size7{font-size:1.5em}.katex .fontsize-ensurer.reset-size4.size8,.katex .sizing.reset-size4.size8{font-size:1.8em}.katex .fontsize-ensurer.reset-size4.size9,.katex .sizing.reset-size4.size9{font-size:2.16em}.katex .fontsize-ensurer.reset-size4.size10,.katex .sizing.reset-size4.size10{font-size:2.5925em}.katex .fontsize-ensurer.reset-size4.size11,.katex .sizing.reset-size4.size11{font-size:3.11em}.katex .fontsize-ensurer.reset-size5.size1,.katex .sizing.reset-size5.size1{font-size:.55555556em}.katex .fontsize-ensurer.reset-size5.size2,.katex .sizing.reset-size5.size2{font-size:.66666667em}.katex .fontsize-ensurer.reset-size5.size3,.katex .sizing.reset-size5.size3{font-size:.77777778em}.katex .fontsize-ensurer.reset-size5.size4,.katex .sizing.reset-size5.size4{font-size:.88888889em}.katex .fontsize-ensurer.reset-size5.size5,.katex .sizing.reset-size5.size5{font-size:1em}.katex .fontsize-ensurer.reset-size5.size6,.katex .sizing.reset-size5.size6{font-size:1.11111111em}.katex .fontsize-ensurer.reset-size5.size7,.katex .sizing.reset-size5.size7{font-size:1.33333333em}.katex .fontsize-ensurer.reset-size5.size8,.katex .sizing.reset-size5.size8{font-size:1.6em}.katex .fontsize-ensurer.reset-size5.size9,.katex .sizing.reset-size5.size9{font-size:1.92em}.katex .fontsize-ensurer.reset-size5.size10,.katex .sizing.reset-size5.size10{font-size:2.30444444em}.katex .fontsize-ensurer.reset-size5.size11,.katex .sizing.reset-size5.size11{font-size:2.76444444em}.katex .fontsize-ensurer.reset-size6.size1,.katex .sizing.reset-size6.size1{font-size:.5em}.katex .fontsize-ensurer.reset-size6.size2,.katex .sizing.reset-size6.size2{font-size:.6em}.katex .fontsize-ensurer.reset-size6.size3,.katex .sizing.reset-size6.size3{font-size:.7em}.katex .fontsize-ensurer.reset-size6.size4,.katex .sizing.reset-size6.size4{font-size:.8em}.katex .fontsize-ensurer.reset-size6.size5,.katex .sizing.reset-size6.size5{font-size:.9em}.katex .fontsize-ensurer.reset-size6.size6,.katex .sizing.reset-size6.size6{font-size:1em}.katex .fontsize-ensurer.reset-size6.size7,.katex .sizing.reset-size6.size7{font-size:1.2em}.katex .fontsize-ensurer.reset-size6.size8,.katex .sizing.reset-size6.size8{font-size:1.44em}.katex .fontsize-ensurer.reset-size6.size9,.katex .sizing.reset-size6.size9{font-size:1.728em}.katex .fontsize-ensurer.reset-size6.size10,.katex .sizing.reset-size6.size10{font-size:2.074em}.katex .fontsize-ensurer.reset-size6.size11,.katex .sizing.reset-size6.size11{font-size:2.488em}.katex .fontsize-ensurer.reset-size7.size1,.katex .sizing.reset-size7.size1{font-size:.41666667em}.katex .fontsize-ensurer.reset-size7.size2,.katex .sizing.reset-size7.size2{font-size:.5em}.katex .fontsize-ensurer.reset-size7.size3,.katex .sizing.reset-size7.size3{font-size:.58333333em}.katex .fontsize-ensurer.reset-size7.size4,.katex .sizing.reset-size7.size4{font-size:.66666667em}.katex .fontsize-ensurer.reset-size7.size5,.katex .sizing.reset-size7.size5{font-size:.75em}.katex .fontsize-ensurer.reset-size7.size6,.katex .sizing.reset-size7.size6{font-size:.83333333em}.katex .fontsize-ensurer.reset-size7.size7,.katex .sizing.reset-size7.size7{font-size:1em}.katex .fontsize-ensurer.reset-size7.size8,.katex .sizing.reset-size7.size8{font-size:1.2em}.katex .fontsize-ensurer.reset-size7.size9,.katex .sizing.reset-size7.size9{font-size:1.44em}.katex .fontsize-ensurer.reset-size7.size10,.katex .sizing.reset-size7.size10{font-size:1.72833333em}.katex .fontsize-ensurer.reset-size7.size11,.katex .sizing.reset-size7.size11{font-size:2.07333333em}.katex .fontsize-ensurer.reset-size8.size1,.katex .sizing.reset-size8.size1{font-size:.34722222em}.katex .fontsize-ensurer.reset-size8.size2,.katex .sizing.reset-size8.size2{font-size:.41666667em}.katex .fontsize-ensurer.reset-size8.size3,.katex .sizing.reset-size8.size3{font-size:.48611111em}.katex .fontsize-ensurer.reset-size8.size4,.katex .sizing.reset-size8.size4{font-size:.55555556em}.katex .fontsize-ensurer.reset-size8.size5,.katex .sizing.reset-size8.size5{font-size:.625em}.katex .fontsize-ensurer.reset-size8.size6,.katex .sizing.reset-size8.size6{font-size:.69444444em}.katex .fontsize-ensurer.reset-size8.size7,.katex .sizing.reset-size8.size7{font-size:.83333333em}.katex .fontsize-ensurer.reset-size8.size8,.katex .sizing.reset-size8.size8{font-size:1em}.katex .fontsize-ensurer.reset-size8.size9,.katex .sizing.reset-size8.size9{font-size:1.2em}.katex .fontsize-ensurer.reset-size8.size10,.katex .sizing.reset-size8.size10{font-size:1.44027778em}.katex .fontsize-ensurer.reset-size8.size11,.katex .sizing.reset-size8.size11{font-size:1.72777778em}.katex .fontsize-ensurer.reset-size9.size1,.katex .sizing.reset-size9.size1{font-size:.28935185em}.katex .fontsize-ensurer.reset-size9.size2,.katex .sizing.reset-size9.size2{font-size:.34722222em}.katex .fontsize-ensurer.reset-size9.size3,.katex .sizing.reset-size9.size3{font-size:.40509259em}.katex .fontsize-ensurer.reset-size9.size4,.katex .sizing.reset-size9.size4{font-size:.46296296em}.katex .fontsize-ensurer.reset-size9.size5,.katex .sizing.reset-size9.size5{font-size:.52083333em}.katex .fontsize-ensurer.reset-size9.size6,.katex .sizing.reset-size9.size6{font-size:.5787037em}.katex .fontsize-ensurer.reset-size9.size7,.katex .sizing.reset-size9.size7{font-size:.69444444em}.katex .fontsize-ensurer.reset-size9.size8,.katex .sizing.reset-size9.size8{font-size:.83333333em}.katex .fontsize-ensurer.reset-size9.size9,.katex .sizing.reset-size9.size9{font-size:1em}.katex .fontsize-ensurer.reset-size9.size10,.katex .sizing.reset-size9.size10{font-size:1.20023148em}.katex .fontsize-ensurer.reset-size9.size11,.katex .sizing.reset-size9.size11{font-size:1.43981481em}.katex .fontsize-ensurer.reset-size10.size1,.katex .sizing.reset-size10.size1{font-size:.24108004em}.katex .fontsize-ensurer.reset-size10.size2,.katex .sizing.reset-size10.size2{font-size:.28929605em}.katex .fontsize-ensurer.reset-size10.size3,.katex .sizing.reset-size10.size3{font-size:.33751205em}.katex .fontsize-ensurer.reset-size10.size4,.katex .sizing.reset-size10.size4{font-size:.38572806em}.katex .fontsize-ensurer.reset-size10.size5,.katex .sizing.reset-size10.size5{font-size:.43394407em}.katex .fontsize-ensurer.reset-size10.size6,.katex .sizing.reset-size10.size6{font-size:.48216008em}.katex .fontsize-ensurer.reset-size10.size7,.katex .sizing.reset-size10.size7{font-size:.57859209em}.katex .fontsize-ensurer.reset-size10.size8,.katex .sizing.reset-size10.size8{font-size:.69431051em}.katex .fontsize-ensurer.reset-size10.size9,.katex .sizing.reset-size10.size9{font-size:.83317261em}.katex .fontsize-ensurer.reset-size10.size10,.katex .sizing.reset-size10.size10{font-size:1em}.katex .fontsize-ensurer.reset-size10.size11,.katex .sizing.reset-size10.size11{font-size:1.19961427em}.katex .fontsize-ensurer.reset-size11.size1,.katex .sizing.reset-size11.size1{font-size:.20096463em}.katex .fontsize-ensurer.reset-size11.size2,.katex .sizing.reset-size11.size2{font-size:.24115756em}.katex .fontsize-ensurer.reset-size11.size3,.katex .sizing.reset-size11.size3{font-size:.28135048em}.katex .fontsize-ensurer.reset-size11.size4,.katex .sizing.reset-size11.size4{font-size:.32154341em}.katex .fontsize-ensurer.reset-size11.size5,.katex .sizing.reset-size11.size5{font-size:.36173633em}.katex .fontsize-ensurer.reset-size11.size6,.katex .sizing.reset-size11.size6{font-size:.40192926em}.katex .fontsize-ensurer.reset-size11.size7,.katex .sizing.reset-size11.size7{font-size:.48231511em}.katex .fontsize-ensurer.reset-size11.size8,.katex .sizing.reset-size11.size8{font-size:.57877814em}.katex .fontsize-ensurer.reset-size11.size9,.katex .sizing.reset-size11.size9{font-size:.69453376em}.katex .fontsize-ensurer.reset-size11.size10,.katex .sizing.reset-size11.size10{font-size:.83360129em}.katex .fontsize-ensurer.reset-size11.size11,.katex .sizing.reset-size11.size11{font-size:1em}.katex .delimsizing.size1{font-family:KaTeX_Size1}.katex .delimsizing.size2{font-family:KaTeX_Size2}.katex .delimsizing.size3{font-family:KaTeX_Size3}.katex .delimsizing.size4{font-family:KaTeX_Size4}.katex .delimsizing.mult .delim-size1>span{font-family:KaTeX_Size1}.katex .delimsizing.mult .delim-size4>span{font-family:KaTeX_Size4}.katex .nulldelimiter{display:inline-block;width:.12em}.katex .delimcenter,.katex .op-symbol{position:relative}.katex .op-symbol.small-op{font-family:KaTeX_Size1}.katex .op-symbol.large-op{font-family:KaTeX_Size2}.katex .accent>.vlist-t,.katex .op-limits>.vlist-t{text-align:center}.katex .accent .accent-body{position:relative}.katex .accent .accent-body:not(.accent-full){width:0}.katex .overlay{display:block}.katex .mtable .vertical-separator{display:inline-block;min-width:1px}.katex .mtable .arraycolsep{display:inline-block}.katex .mtable .col-align-c>.vlist-t{text-align:center}.katex .mtable .col-align-l>.vlist-t{text-align:left}.katex .mtable .col-align-r>.vlist-t{text-align:right}.katex .svg-align{text-align:left}.katex svg{fill:currentColor;stroke:currentColor;fill-rule:nonzero;fill-opacity:1;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;display:block;height:inherit;position:absolute;width:100%}.katex svg path{stroke:none}.katex img{border-style:none;max-height:none;max-width:none;min-height:0;min-width:0}.katex .stretchy{display:block;overflow:hidden;position:relative;width:100%}.katex .stretchy:after,.katex .stretchy:before{content:""}.katex .hide-tail{overflow:hidden;position:relative;width:100%}.katex .halfarrow-left{left:0;overflow:hidden;position:absolute;width:50.2%}.katex .halfarrow-right{overflow:hidden;position:absolute;right:0;width:50.2%}.katex .brace-left{left:0;overflow:hidden;position:absolute;width:25.1%}.katex .brace-center{left:25%;overflow:hidden;position:absolute;width:50%}.katex .brace-right{overflow:hidden;position:absolute;right:0;width:25.1%}.katex .x-arrow-pad{padding:0 .5em}.katex .cd-arrow-pad{padding:0 .55556em 0 .27778em}.katex .mover,.katex .munder,.katex .x-arrow{text-align:center}.katex .boxpad{padding:0 .3em}.katex .fbox,.katex .fcolorbox{border:.04em solid;box-sizing:border-box}.katex .cancel-pad{padding:0 .2em}.katex .cancel-lap{margin-left:-.2em;margin-right:-.2em}.katex .sout{border-bottom-style:solid;border-bottom-width:.08em}.katex .angl{border-right:.049em solid;border-top:.049em solid;box-sizing:border-box;margin-right:.03889em}.katex .anglpad{padding:0 .03889em}.katex .eqn-num:before{content:"(" counter(katexEqnNo) ")";counter-increment:katexEqnNo}.katex .mml-eqn-num:before{content:"(" counter(mmlEqnNo) ")";counter-increment:mmlEqnNo}.katex .mtr-glue{width:50%}.katex .cd-vert-arrow{display:inline-block;position:relative}.katex .cd-label-left{display:inline-block;position:absolute;right:calc(50% + .3em);text-align:left}.katex .cd-label-right{display:inline-block;left:calc(50% + .3em);position:absolute;text-align:right}.katex-display{display:block;margin:1em 0;text-align:center}.katex-display>.katex{display:block;text-align:center;white-space:nowrap}.katex-display>.katex>.katex-html{display:block;position:relative}.katex-display>.katex>.katex-html>.tag{position:absolute;right:0}.katex-display.leqno>.katex>.katex-html>.tag{left:0;right:auto}.katex-display.fleqn>.katex{padding-left:2em;text-align:left}body{counter-reset:katexEqnNo mmlEqnNo}
+
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.katex-error {
+	color: var(--vscode-editorError-foreground);
+}
+
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
+</style>
+        
+        
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+body { margin-left: 25%; margin-right: 25%; font-family: "source sans pro", Arial; font-style: italic; background-color: black; scroll-behavior: smooth; color: white; font-size: 16px; /* margin: 0 0 0 0; */ /* padding: 0 0 0 0; */ /* height: 100%; */ /* width: 100%; */ } div.endnotes { width: 1fr; text-align: center; } p.endnotes { color: rgb(127, 127, 127); font-size: 16px; font-style: italic; text-align: center; } img { width: 100%; } h1, h2, h3, h4, h5, h6 { color: white; position: relative; font-weight: bold; font-style: italic; } h1 { font-size: 2.25em; } h2 { font-size: 1.75em; } h3 { font-size: 1.5em; } h4 { font-size: 1.25em; } h5 { font-size: 1em; } h6 { font-size: 1em; } p, blockquote, ul, ol, dl, table { text-align: left; } hr { background-color: white; height: 1px; border-style: none; } a { color: white; text-decoration: underline; } /* Menu Bar */ div.menuBar { font-family: Source Sans Pro; color: white; font-size: 18px; font-style: italic; position: fixed; margin-left: 51.8%; margin-top: 10px; line-height: 0.5; /* border-style: solid; border-width: 5px; border-color: red; */ } img.portraits { width: 60%; margin: auto; margin-top: 10%; display: flex; /* border-style: solid; border-width: 5px; border-color: red; */ } a.menuBar { color: white; font-size: 18px; font-style: italic; } code[class*="language-"], pre[class*="language-"] { color: #0097a7; background: none; font-family: "source sans pro", Arial; text-align: left; white-space: pre; word-spacing: normal; word-break: normal; word-wrap: normal; line-height: 1.4; -moz-tab-size: 8; -o-tab-size: 8; tab-size: 8; -webkit-hyphens: none; -moz-hyphens: none; -ms-hyphens: none; hyphens: none; } /* Code blocks */ pre[class*="language-"] { padding: 0.8em; overflow: auto; /* border: 1px solid #ddd; */ border-radius: 3px; /* background: #fff; */ background: #0a0a0a; } /* Inline code */ :not(pre) > code[class*="language-"] { padding: 0.1em; border-radius: 0.3em; white-space: normal; background: #0a0a0a; } .token.comment, .token.blockquote { color: #095b67; } .token.cdata { color: #095b67; } .token.doctype, .token.punctuation, .token.variable, .token.macro.property { color: #16c1d9; } .token.builtin { color: #0097a7; } .token.operator, .token.important, .token.keyword, .token.rule { color: #b3ebf2; } .token.string, .token.url, .token.regex, .token.attr-value { color: #b3ebf2; } .token.property, .token.number, .token.boolean, .token.entity, .token.atrule, .token.constant, .token.symbol, .token.command, .token.code { color: #0097a7; } .token.tag, .token.selector, .token.prolog { color: #4dd0e1; } .token.function, .token.namespace, .token.pseudo-element, .token.class, .token.class-name, .token.pseudo-class, .token.id, .token.url-reference .token.variable, .token.attr-name { color: #80deea; } .token.entity { cursor: help; } .token.title, .token.title .token.punctuation { font-weight: bold; color: #b3ebf2; } .token.list { color: #16c1d9; } .token.inserted { background-color: #0a0a0a; color: #095b67; } .token.deleted { background-color: #0a0a0a; color: #095b67; } .token.bold { font-weight: bold; } .token.italic { font-style: italic; } /* JSON */ .language-json .token.property { color: #16c1d9; } .language-markup .token.tag .token.punctuation { color: #16c1d9; } /* CSS */ code.language-css, .language-css .token.function { color: #0086b3; } /* YAML */ .language-yaml .token.atrule { color: #16c1d9; } code.language-yaml { color: #16c1d9; } /* Ruby */ .language-ruby .token.function { color: #16c1d9; } /* Markdown */ .language-markdown .token.url { color: #16c1d9; } /* Makefile */ .language-makefile .token.symbol { color: #16c1d9; } .language-makefile .token.variable { color: #16c1d9; } .language-makefile .token.builtin { color: #16c1d9; } /* Bash */ .language-bash .token.keyword { color: #16c1d9; } /* highlight */ pre[data-line] { position: relative; padding: 1em 0 1em 3em; } pre[data-line] .line-highlight-wrapper { position: absolute; top: 0; left: 0; background-color: transparent; display: block; width: 100%; } pre[data-line] .line-highlight { position: absolute; left: 0; right: 0; padding: inherit 0; margin-top: 1em; background: #0a0a0a; background: #0a0a0a; pointer-events: none; line-height: inherit; white-space: pre; } pre[data-line] .line-highlight:before, pre[data-line] .line-highlight[data-end]:after { content: attr(data-start); position: absolute; top: 0.4em; left: 0.6em; min-width: 1em; padding: 0 0.5em; background-color: #0a0a0a; color: #16c1d9; font: bold 65%/1.5 sans-serif; text-align: center; vertical-align: 0.3em; border-radius: 999px; text-shadow: none; box-shadow: 0 1px #16c1d9; } pre[data-line] .line-highlight[data-end]:after { content: attr(data-end); top: auto; bottom: 0.4em; } element.style { background-color: rgb(36, 36, 36); } 
+</style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="rhino---grasshopper---python-studies---notes">Rhino - GrassHopper - Python Studies - Notes</h1>
+<p><em>ETH MAS dfab | Zac Zhuo Zhang</em></p>
+<hr>
+<p>Contents</p>
+<ul>
+<li><a href="#essential-mathematics-for-computational-design">Essential Mathematics for Computational Design</a> <!--Finished--></li>
+<li><a href="#basic-gitHub-information">Basic GitHub Information</a><!--Finished--></li>
+<li><a href="#the-grasshopper-primer">The Grasshopper Primer</a><!--TODO--></li>
+<li><a href="#grasshopper-getting-started">Grasshopper Getting Started</a><!--Finished--></li>
+<li><a href="#python-for-rhinoceros">Python for Rhinoceros</a><!--Finished--></li>
+<li><a href="#what-is-rhino-python-and-python-basics">What is Rhino Python and Python Basics</a><!--Finished--></li>
+<li><a href="#ghpython-component-and-python-script">GhPython Component and Python Script</a><!--Finished--></li>
+<li><a href="#ghpython-exercise-snake-game">GhPython Exercise: Snake Game</a></li>
+</ul>
+<hr>
+<h1 id="essential-mathematics-for-computational-design">Essential Mathematics for Computational Design</h1>
+<blockquote>
+<p><strong>LINK</strong> <a href="https://wiki.mcneel.com/rhino/home/essentialmathematics">https://wiki.mcneel.com/rhino/home/essentialmathematics</a></p>
+</blockquote>
+<blockquote>
+<p><strong>LINK</strong> <a href="https://developer.rhino3d.com/guides/general/essential-mathematics/">https://developer.rhino3d.com/guides/general/essential-mathematics/</a></p>
+</blockquote>
+<blockquote>
+<p><strong>BOOK</strong> <a href="https://www.rhino3d.com/download/rhino/6/essentialmathematics">https://www.rhino3d.com/download/rhino/6/essentialmathematics</a></p>
+</blockquote>
+<p>⚪◯◯◯◯</p>
+<ul>
+<li>
+<p>A unit vector is a vector whose length is equal to one unit</p>
+<pre><code class="language-Csharp"><div>    <span class="hljs-comment">// In GH C#, unit vector can be assigned in this way:</span>
+    Vector3d a = <span class="hljs-keyword">new</span> Vector3d ();
+    a = Vector3d.XAxis;
+    a = Vector3d.YAxis;
+    a = Vector3d.ZAxis;
+    <span class="hljs-comment">// In addition, zero vector is in this way:</span>
+    a = Vector3d.Zero;
+</div></code></pre>
+</li>
+<li>
+<p>Dot Product and Cross Product: The dot product of two non-zero unit vectors equals the cosine of the angle between them. The cross product takes two vectors and produces a third vector that is orthogonal to both.</p>
+<p><img src="file:///c:\Zac\GitHub\Notes\Rhino-GrassHopper-PythonStudies\2022-09-11-13-00-14.png" alt="image"></p>
+<p><img src="file:///c:\Zac\GitHub\Notes\Rhino-GrassHopper-PythonStudies\2022-09-11-13-00-33.png" alt="image"></p>
+<pre><code class="language-Csharp"><div><span class="hljs-comment">// In Csharp, it is like:</span>
+Vector3d a,b;
+c= a*b; <span class="hljs-comment">//Dot Production;</span>
+c=a×b; <span class="hljs-comment">//Cross Production;</span>
+</div></code></pre>
+</li>
+<li>
+<blockquote>
+<p>Vector Mathematics: <a href="https://developer.rhino3d.com/guides/general/essential-mathematics/vector-mathematics/#15-tutorials">https://developer.rhino3d.com/guides/general/essential-mathematics/vector-mathematics/#15-tutorials</a></p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Parametric Curves and Surfaces: <a href="https://developer.rhino3d.com/guides/general/essential-mathematics/parametric-curves-surfaces/#31-parametric-curves">https://developer.rhino3d.com/guides/general/essential-mathematics/parametric-curves-surfaces/#31-parametric-curves</a></p>
+</blockquote>
+</li>
+<li>
+<p>Hermite and Bézier curves are two examples of cubic polynomial curves that are determined by four parameters. A Hermite curve is determined by two end points and two tangent vectors at these points, while a Bézier curve is defined by four points. While they differ mathematically, they share similar characteristics and limitations.</p>
+</li>
+<li>
+<p>Curve degree is a whole positive number. Rhino allows working with any degree curve starting with 1. Degrees 1, 2, 3, and 5 are the most useful but the degrees 4 and those above 5 are not used much in the real world.</p>
+</li>
+</ul>
+<h1 id="basic-github-information">Basic GitHub Information</h1>
+<blockquote>
+<p><strong>LINK</strong> <a href="https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners">https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners</a></p>
+</blockquote>
+<p>⚪⚪⚪⚪◯</p>
+<ul>
+<li>
+<p>A quick aside: git and GitHub are not the same thing. Git is an open-source, version control tool created in 2005 by developers working on the Linux operating system; GitHub is a company founded in 2008 that makes tools which integrate with git.</p>
+</li>
+<li>
+<p>You do not need GitHub to use git, but you cannot use GitHub without using git.</p>
+</li>
+<li>
+<p>If you leave a clear explanation of your changes it can be extremely helpful for future programmers (perhaps future you.</p>
+</li>
+<li>
+<p>‘A branch in Git is simply a lightweight movable pointer to one of these commits.’</p>
+</li>
+<li>
+<p>By default, every git repository’s first branch is named <strong>master</strong> (and is typically used as the primary branch in the project).</p>
+</li>
+<li>
+<p>As part of the tech industry’s general anti-racism work, some groups have begun to use alternate names for the default branch (we are using <strong>primary</strong> in this tutorial, for example).</p>
+</li>
+<li>
+<p>A pull request (or PR) is a way to alert a repo's owners that you want to make some changes to their code. It allows them to review the code and make sure it looks good before putting your changes on the primary branch.</p>
+</li>
+<li>
+<blockquote>
+<p>Learn the concept of Branch System of Git: <a href="https://learngitbranching.js.org/?locale=zh_CN">https://learngitbranching.js.org/?locale=zh_CN</a> or <a href="https://git-school.github.io/visualizing-git">https://git-school.github.io/visualizing-git</a> .</p>
+</blockquote>
+</li>
+<li>
+<blockquote>
+<p>Additional, using git with VSCode: <a href="https://youtu.be/i_23KUAEtUM">https://youtu.be/i_23KUAEtUM</a> .</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="the-grasshopper-primer">The Grasshopper Primer</h1>
+<blockquote>
+<p><strong>LINK</strong> <a href="https://www.modelab.is/grasshopper-primer">https://www.modelab.is/grasshopper-primer</a></p>
+</blockquote>
+<p>⚪◯◯◯◯</p>
+<!--TODO: Page not found-->
+<h1 id="grasshopper-getting-started">Grasshopper Getting Started</h1>
+<p>Follow these tutorials of 3a and 3b:</p>
+<blockquote>
+<p><strong>LINK</strong> <a href="https://vimeopro.com/rhino/grasshopper-getting-started-by-david-rutten/video/79844992">https://vimeopro.com/rhino/grasshopper-getting-started-by-david-rutten/video/79844992</a></p>
+</blockquote>
+<blockquote>
+<p><strong>LINK</strong> <a href="https://gramaziokohler.github.io/teaching_materials/grasshopper">https://gramaziokohler.github.io/teaching_materials/grasshopper</a></p>
+</blockquote>
+<p>⚪◯◯◯◯</p>
+<ul>
+<li>A Data Tree is essentially a list of lists.</li>
+</ul>
+<h1 id="python-for-rhinoceros">Python for Rhinoceros</h1>
+<blockquote>
+<p><strong>LINK</strong> <a href="https://developer.rhino3d.com/guides/rhinopython/">https://developer.rhino3d.com/guides/rhinopython/</a></p>
+</blockquote>
+<p>⚪⚪⚪◯◯</p>
+<ul>
+<li>
+<p>Python is sometimes called a scripting language or a glue language. This means python is used often to run a series of commands as a script or used to create links between two other technologies as a glue.</p>
+</li>
+<li>
+<p>Rhino uses Python version 2.7. To be more specific Rhino uses IronPython which brings together the Python language and Microsoft’s .NET framework.</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>LINK</strong> (Python Basic Syntax) <a href="https://developer.rhino3d.com/guides/rhinopython/python-statements/">https://developer.rhino3d.com/guides/rhinopython/python-statements/</a></p>
+</blockquote>
+<ul>
+<li>
+<p>In general, the lack of a required statement termination character simplifies script writing in Python.</p>
+</li>
+<li>
+<p>You cannot split a statement into multiple lines in Python by pressing . Instead, use the backslash () to indicate that a statement is continued on the next line.</p>
+</li>
+<li>
+<p>Sometimes, more than one statement may be put on a single line. In Python a semicolon ( ; ) can be used to separate multiple statements on the same line. For instance three statements can be written:</p>
+<pre><code class="language-Python"><div>y = <span class="hljs-number">3</span>; x = <span class="hljs-number">5</span>; <span class="hljs-built_in">print</span>(x+y)
+<span class="hljs-comment">#Above is the same as below.</span>
+y = <span class="hljs-number">3</span>
+x = <span class="hljs-number">5</span>
+<span class="hljs-built_in">print</span>(x+y)
+</div></code></pre>
+</li>
+</ul>
+<blockquote>
+<p><strong>LINK</strong> (Style Guide for Python Code) <a href="https://peps.python.org/pep-0008/">https://peps.python.org/pep-0008/</a></p>
+</blockquote>
+<h1 id="what-is-rhino-python-and-python-basics">What is Rhino Python and Python Basics</h1>
+<blockquote>
+<p><strong>LINK</strong> <a href="https://developer.rhino3d.com/guides/rhinopython/what-is-rhinopython/">https://developer.rhino3d.com/guides/rhinopython/what-is-rhinopython/</a> &gt; <strong>LINK</strong> <a href="https://gramaziokohler.github.io/teaching_materials/python/">https://gramaziokohler.github.io/teaching_materials/python/</a></p>
+</blockquote>
+<h1 id="ghpython-component-and-python-script">GhPython Component and Python Script</h1>
+<blockquote>
+<p><strong>LINK</strong> <a href="https://developer.rhino3d.com/guides/rhinopython/ghpython-component/">https://developer.rhino3d.com/guides/rhinopython/ghpython-component/</a> &gt; <strong>LINK</strong> <a href="https://developer.rhino3d.com/guides/rhinopython/your-first-python-script-in-grasshopper">https://developer.rhino3d.com/guides/rhinopython/your-first-python-script-in-grasshopper</a></p>
+</blockquote>
+<blockquote>
+<p><strong>LINK</strong> (Additional Video tutorials by McNeel) <a href="https://youtu.be/l4_vIRtRUaU">https://youtu.be/l4_vIRtRUaU</a> / <a href="https://youtu.be/qSysanmDKtI">https://youtu.be/qSysanmDKtI</a> / <a href="https://youtu.be/ZGIA-fBuCV8">https://youtu.be/ZGIA-fBuCV8</a></p>
+</blockquote>
+<blockquote>
+<p><strong>LINK</strong> (Additional Video tutorials) <a href="https://youtu.be/Ln-ByMyfDy8">https://youtu.be/Ln-ByMyfDy8</a></p>
+</blockquote>
+<ul>
+<li>
+<p>Changing the name of the inputs/outputs: case sensitive; must begin with a letter or _ .</p>
+</li>
+<li>
+<p>The input/output in python component, do NOT add any SPACE since this will create errors(C# won't have the problem).</p>
+</li>
+<li>
+<p>Type Hints: assigning types to inputs.</p>
+</li>
+<li>
+<p>Import modules:</p>
+<pre><code class="language-Python"><div><span class="hljs-keyword">import</span> math
+<span class="hljs-built_in">print</span> math.pi
+<span class="hljs-built_in">print</span> math.<span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span>,<span class="hljs-number">2</span>)
+<span class="hljs-built_in">print</span> <span class="hljs-number">2</span>**<span class="hljs-number">8</span>
+ <span class="hljs-built_in">print</span> (math.degrees(math.pi))
+<span class="hljs-built_in">print</span> (math.radians(math.pi))
+</div></code></pre>
+</li>
+<li>
+<p>Using randoms:</p>
+<pre><code class="language-Python"><div><span class="hljs-keyword">import</span> random
+random_int = random.randint(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>)
+<span class="hljs-built_in">print</span> random_int
+random_float = random.uniform(<span class="hljs-number">10</span>,<span class="hljs-number">20</span>)
+<span class="hljs-built_in">print</span> random_float
+</div></code></pre>
+</li>
+<li>
+<p>Accessing item(s)</p>
+<pre><code class="language-Python"><div>first_num = num[<span class="hljs-number">0</span>] <span class="hljs-comment">#Get the first one</span>
+last_num = num[-<span class="hljs-number">1</span>] <span class="hljs-comment">#Get the last one</span>
+num[<span class="hljs-number">0</span>] = <span class="hljs-number">10</span> <span class="hljs-comment">#Change the value of an item in the list</span>
+num.append(<span class="hljs-number">10</span>) <span class="hljs-comment">#Add an item</span>
+num.insert(a,b) <span class="hljs-comment">#Insert an item b at No.a</span>
+</div></code></pre>
+</li>
+<li>
+<p>Help and prompts: the component proved help when you input &quot;(&quot;
+<img src="file:///c:\Zac\GitHub\Notes\Rhino-GrassHopper-PythonStudies\2022-09-04-14-30-05.png" alt="image"></p>
+</li>
+<li>
+<p>Range function</p>
+<pre><code class="language-Python"><div>sequence = <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>) <span class="hljs-comment">#Crate a list [0]</span>
+sequence = <span class="hljs-built_in">range</span>(<span class="hljs-number">5</span>) <span class="hljs-comment">#Crate a list from 0 to 4</span>
+sequence = <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>,<span class="hljs-number">7</span>) <span class="hljs-comment">#Crate a list from 3 to 6</span>
+oddSequence = <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>,<span class="hljs-number">2</span>) <span class="hljs-comment">#Crate a list [1,3,5,7,9] #range(start, stop, step)</span>
+</div></code></pre>
+</li>
+<li>
+<p>Slicing feature:</p>
+<pre><code class="language-Python"><div><span class="hljs-built_in">print</span> names[:<span class="hljs-number">2</span>] <span class="hljs-comment">#Print the items No1 to No2</span>
+<span class="hljs-built_in">print</span> names[<span class="hljs-number">2</span>:] <span class="hljs-comment">#Print items No2 to the last</span>
+<span class="hljs-built_in">print</span> names[<span class="hljs-number">1</span>:<span class="hljs-number">3</span>] <span class="hljs-comment">#Print items No1 to No3</span>
+newNames = names[:] <span class="hljs-comment">#Copy a list (NOT reference)</span>
+</div></code></pre>
+</li>
+<li>
+<p>Nested list</p>
+<pre><code class="language-Python"><div><span class="hljs-keyword">import</span> ghpythonlib.treehelper <span class="hljs-keyword">as</span> th
+list_of_list = [names, nums, chars]
+a = th.list_to_tree(list_of_list)
+</div></code></pre>
+</li>
+<li>
+<p>Other list functions</p>
+<pre><code class="language-Python"><div><span class="hljs-built_in">print</span> <span class="hljs-built_in">len</span>(myList) <span class="hljs-comment">#Length of a list</span>
+<span class="hljs-built_in">print</span> <span class="hljs-built_in">sum</span>(myList) <span class="hljs-comment">#Sum of all items of the num list</span>
+minNum = <span class="hljs-built_in">min</span>(nums) <span class="hljs-comment">#min of the num list</span>
+maxNum = <span class="hljs-built_in">max</span>(nums) <span class="hljs-comment">#max of the num list</span>
+names.pop(<span class="hljs-number">0</span>) <span class="hljs-comment">#Remove the first item of the list</span>
+names.remove(<span class="hljs-string">&quot;1&quot;</span>) <span class="hljs-comment">#Remove a specific item</span>
+names.reverse() <span class="hljs-comment">#Reverse a list</span>
+names.sort() <span class="hljs-comment">#Sort the list numerically or alphabetically</span>
+</div></code></pre>
+</li>
+<li>
+<p>Outer indentation level:</p>
+<pre><code class="language-Python"><div><span class="hljs-comment">#Python uses indentation</span>
+<span class="hljs-comment"># Example 1</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> x:
+    <span class="hljs-built_in">print</span> i
+    <span class="hljs-built_in">print</span> <span class="hljs-string">&quot;done!&quot;</span>
+<span class="hljs-comment"># Example 2</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> x:
+    <span class="hljs-built_in">print</span> i
+<span class="hljs-built_in">print</span> <span class="hljs-string">&quot;done!&quot;</span>
+</div></code></pre>
+</li>
+<li>
+<p>Traversal (for loop)</p>
+<pre><code class="language-Python"><div><span class="hljs-comment">#Below is like &#x27;foreach loop&#x27; in C#</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> list_num
+    <span class="hljs-built_in">print</span> i
+<span class="hljs-comment"># Below is like &#x27;for loop&#x27; in C#</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(list_num))
+    <span class="hljs-built_in">print</span> list_num[i]
+</div></code></pre>
+</li>
+</ul>
+<h1 id="ghpython-exercise-snake-game">GhPython Exercise Snake Game</h1>
+<pre><code class="language-Python"><div>    <span class="hljs-keyword">import</span> scriptcontext <span class="hljs-keyword">as</span> sc
+    <span class="hljs-keyword">import</span> rhinoscriptsyntax <span class="hljs-keyword">as</span> rs
+    <span class="hljs-keyword">import</span> random
+    <span class="hljs-keyword">import</span> Rhino.Geometry <span class="hljs-keyword">as</span> rg
+    <span class="hljs-keyword">import</span> copy
+    <span class="hljs-keyword">import</span> math
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">UnitizePoint</span>(<span class="hljs-params">point</span>):</span>
+        point = rg.Vector3d(point.X,point.Y,<span class="hljs-number">0</span>)
+        rg.Vector3d.Unitize(point)
+        point = rg.Point3d(point.X,point.Y,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">return</span> point
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">DirectionalMove</span> (<span class="hljs-params">Direction</span>):</span>
+        DirectionVec = rg.Vector3d(Direction.X-<span class="hljs-number">0.5</span>, Direction.Y-<span class="hljs-number">0.5</span>,<span class="hljs-number">0</span>)
+        rg.Vector3d.Unitize(DirectionVec)
+        VecX = rg.Vector3d.XAxis
+
+        <span class="hljs-keyword">if</span> DirectionVec.Y &gt;= <span class="hljs-number">0</span>:
+        <span class="hljs-keyword">if</span> DirectionVec*VecX &gt; math.cos(math.pi/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">3</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">3</span>/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">5</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">5</span>/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">7</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">7</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">if</span> DirectionVec*VecX &gt; math.cos(math.pi/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">3</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">3</span>/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">5</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(<span class="hljs-number">0</span>,-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">5</span>/<span class="hljs-number">8</span>) <span class="hljs-keyword">and</span> DirectionVec*VecX &gt; math.cos(math.pi*<span class="hljs-number">7</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(-<span class="hljs-number">1</span>,-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>)
+        <span class="hljs-keyword">elif</span>  DirectionVec*VecX &lt;= math.cos(math.pi*<span class="hljs-number">7</span>/<span class="hljs-number">8</span>):
+            DirectionVec = rg.Vector3d(-<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
+
+        rg.Vector3d.Unitize(DirectionVec)
+        <span class="hljs-keyword">return</span> DirectionVec
+
+    scale = <span class="hljs-number">0.03</span>
+    tailLength = <span class="hljs-number">20</span>
+    dotRange = <span class="hljs-number">50</span>
+    Direction = DirectionalMove(Direction)
+    snakeCircles = []
+    tailCircles = []
+    dots = []
+
+    <span class="hljs-comment"># Add the variables to the sticky dict</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;snakeLocations&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> sc.sticky:
+        sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>] = []
+        sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>].append(rg.Point3d(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>))
+
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;foodLocation&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> sc.sticky:
+        sc.sticky[<span class="hljs-string">&quot;foodLocation&quot;</span>] = rg.Point3d(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
+
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;score&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> sc.sticky:
+        sc.sticky[<span class="hljs-string">&quot;score&quot;</span>] = <span class="hljs-number">0</span>
+
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;Tails&quot;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> sc.sticky:
+        sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>] = []
+
+    <span class="hljs-comment">#Die</span>
+    <span class="hljs-keyword">if</span> sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].X &gt; FoodRange <span class="hljs-keyword">or</span> sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].X &lt; -FoodRange <span class="hljs-keyword">or</span> sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].Y &gt; FoodRange <span class="hljs-keyword">or</span> sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].Y &lt; -FoodRange:
+        Run = <span class="hljs-literal">False</span>
+
+    <span class="hljs-comment"># Run</span>
+    <span class="hljs-keyword">if</span> Reset:
+        sc.sticky[<span class="hljs-string">&quot;score&quot;</span>] = <span class="hljs-number">0</span>
+        sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>] = []
+        sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>] = []
+        sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>].append(rg.Point3d(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>))
+        random.seed(<span class="hljs-number">1</span>)
+        sc.sticky[<span class="hljs-string">&quot;foodLocation&quot;</span>] = rg.Point3d(random.uniform(-FoodRange,FoodRange),random.uniform(-FoodRange,FoodRange),<span class="hljs-number">0</span>)
+
+    <span class="hljs-keyword">elif</span> <span class="hljs-keyword">not</span> Run:
+        <span class="hljs-built_in">print</span> <span class="hljs-string">&#x27;NOT Running&#x27;</span>
+
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-comment">#With trigger</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>]) &lt;= <span class="hljs-number">1</span>:
+            sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].X += Direction.X
+            sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].Y += Direction.Y
+        <span class="hljs-keyword">else</span>:
+            tempSnake = copy.deepcopy(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>])
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>])):
+                sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][i].X = tempSnake[i-<span class="hljs-number">1</span>].X
+                sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][i].Y = tempSnake[i-<span class="hljs-number">1</span>].Y
+
+            sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>].append(copy.deepcopy(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>]))
+            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>]) &gt;= tailLength:
+                sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>].pop(<span class="hljs-number">0</span>)
+
+            sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].X = sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">1</span>].X+Direction.X
+            sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>].Y = sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">1</span>].Y+Direction.Y
+
+        <span class="hljs-keyword">if</span> rg.Point3d.DistanceTo(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][<span class="hljs-number">0</span>], sc.sticky[<span class="hljs-string">&quot;foodLocation&quot;</span>]) &lt; scale*FoodRange :
+            sc.sticky[<span class="hljs-string">&quot;score&quot;</span>] += <span class="hljs-number">1</span>
+            sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>].append(rg.Point3d(sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][-<span class="hljs-number">1</span>].X-Direction.X,sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>][-<span class="hljs-number">1</span>].Y-Direction.Y,<span class="hljs-number">0</span>))
+            sc.sticky[<span class="hljs-string">&quot;foodLocation&quot;</span>] = rg.Point3d(random.uniform(-FoodRange,FoodRange),random.uniform(-FoodRange,FoodRange),<span class="hljs-number">0</span>)
+
+    <span class="hljs-comment"># Return value</span>
+    <span class="hljs-keyword">for</span> snakeLocations <span class="hljs-keyword">in</span> sc.sticky[<span class="hljs-string">&quot;snakeLocations&quot;</span>]:
+        snakeCircles.append(rg.Circle(rg.Plane(snakeLocations,rg.Vector3d.ZAxis), <span class="hljs-number">1</span>))
+    Score = <span class="hljs-string">&#x27;Score: &#x27;</span> + <span class="hljs-built_in">str</span>(sc.sticky[<span class="hljs-string">&quot;score&quot;</span>])
+
+    Snake = snakeCircles
+    Foods = rg.Circle(rg.Plane(sc.sticky[<span class="hljs-string">&quot;foodLocation&quot;</span>],rg.Vector3d.ZAxis), scale*FoodRange)
+    Bound = rg.Rectangle3d(rg.Plane(rg.Point3d(-FoodRange,-FoodRange,<span class="hljs-number">0</span>),rg.Vector3d.ZAxis),<span class="hljs-number">2</span>*FoodRange,<span class="hljs-number">2</span>*FoodRange)
+
+    <span class="hljs-keyword">for</span> Tails <span class="hljs-keyword">in</span> sc.sticky[<span class="hljs-string">&quot;Tails&quot;</span>]:
+        tailCircles.append(rg.Circle(rg.Plane(Tails,rg.Vector3d.ZAxis), <span class="hljs-number">1</span>))
+    Tails = tailCircles
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(dotRange):
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(dotRange):
+            dots.append(rg.Point3d(FoodRange/dotRange+i*(<span class="hljs-number">2</span>*FoodRange/dotRange)-FoodRange, FoodRange/dotRange+j*(<span class="hljs-number">2</span>*FoodRange/dotRange)-FoodRange, <span class="hljs-number">0</span>))
+
+    Dots = dots
+</div></code></pre>
+<ul>
+<li>
+<p><img src="file:///c:\Zac\GitHub\Notes\Rhino-GrassHopper-PythonStudies\2022-09-11-12-46-33.png" alt="image"></p>
+</li>
+<li>
+<p><img src="file:///c:\Zac\GitHub\Notes\Rhino-GrassHopper-PythonStudies\2022-09-11_12-55-22.gif" alt="image"></p>
+</li>
+</ul>
+
+        
+        
+    </body>
+    </html>
