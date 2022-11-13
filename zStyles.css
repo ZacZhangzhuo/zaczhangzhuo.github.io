@@ -128,3 +128,8 @@ a.menuBar {
   font-size: 18px;
   font-style: italic;
 }
+a.menuBarLink{
+  color:rgb(127, 127, 127);
+  font-size: 15px;
+  font-style: italic;
+}
