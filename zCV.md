@@ -4,7 +4,9 @@
 
 
 **Hobbies:** Fitness / Photography / Painting / Guitar
+
 **Tel:** +86 177 9825 8389
+
 **Email:** zhuo.zhang@whu.edu.cn
 
 ---
@@ -33,7 +35,7 @@ Unreal Engine VR Designer (Intern), Z-1 Technology, Shanghai
 2022.08 – 2022.09
 
 
-unior Algorithm Designer (Intern), Xkool Technology, Shanghai
+Junior Algorithm Designer (Intern), Xkool Technology, Shanghai
 2021.08 - 2021.10
 
 

@@ -15,6 +15,8 @@ body {
   /* height: 100%; */
   /* width: 100%; */
 }
+
+
 ::selection {
   background-color: #c9caca4b;
   color: #80deea;
@@ -25,11 +27,13 @@ div.endnotes {
 }
 p.endnotes {
   color: rgb(127, 127, 127);
-  font-size: 16px;
+  font-size: 15px;
   font-style: italic;
   text-align: center;
 }
-
+strong {
+  font-weight: bold;
+}
 img {
   width: 100%;
 }
@@ -73,8 +77,7 @@ table {
 }
 
 hr {
-  background-color: white;
-
+  background-color: rgb(255, 255, 255);
   height: 1px;
   border-style: none;
 }
@@ -373,3 +376,63 @@ code.codehilite {
 .codehilite .il {
   color: #53828c;
 } /* Literal.Number.Integer.Long */
+
+
+/* Print */
+@media print {
+  @page {
+    size: portrait;
+    margin-top: 0;
+    margin-bottom: 0;
+    background: none;
+  }
+  @page :left {
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-right: 40px;
+  }
+  @page :right {
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-right: 40px;
+  }
+
+  div {
+    font-size: 12px;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong {
+    color: rgb(0, 0, 0);
+  }
+  body {
+    background: white;
+    color: black;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  /* /* .print-button-container {
+    display: none !important;
+  } */
+
+  p.endnotes {
+    color: rgb(137, 137, 137);
+    font-size: 5px;
+    font-style: italic;
+    text-align: center;
+  }
+  hr {
+    background-color: rgb(0, 0, 0);
+    height: 1px;
+    border-style: none;
+  } 
+}
