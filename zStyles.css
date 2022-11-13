@@ -9,6 +9,10 @@ body {
   width: 100%;
   /* overflow: hidden; */
 }
+::selection {
+  background-color: #c9caca4b;
+  color: #80deea;
+}
 
 p {
   font-family: Source Sans Pro;

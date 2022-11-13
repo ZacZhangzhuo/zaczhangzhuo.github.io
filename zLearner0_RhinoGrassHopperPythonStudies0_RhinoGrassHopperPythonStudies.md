@@ -1,5 +1,4 @@
 
-        <!DOCTYPE html>
     <html lang="en">
     <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -14,7 +13,8 @@
     />
     <link rel="icon" href="../../resources/LogoIcon.png" type="image/x-icon"/>
     </head>
-    <body><!-- Menu Bar --><div class="menuBar"><a href="..\..\zHome.html "class="menuBar"> <p>zHome</p></a><a href="..\..\zDesigner\zDesigner.html "class="menuBar"> <p>zDesigner</p></a><a href="..\zLearner.html "class="menuBar"> <p>zLearner</p></a><a href="..\..\zWriter\zWriter.html "class="menuBar"> <p>zWriter</p></a><a href="..\..\zPhotographer\zPhotographer.html "class="menuBar"> <p>zPhotographer</p></a><a href="..\..\zIndividualDeveloper\zIndividualDeveloper.html "class="menuBar"> <p>zIndividualDeveloper</p></a><a href="..\..\zCV.html "class="menuBar"> <p>zCV</p></a><a href="..\..\zSkills.html "class="menuBar"> <p>zSkills</p></a><a href="..\..\zContact.html "class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
+    <body><!-- Menu Bar -->
+<!-- End of Menu Bar -->
     <h1 id="rhino-grasshopper-python-studies-notes">Rhino - GrassHopper - Python Studies - Notes</h1>
 <p><em>ETH MAS dfab | Zac Zhuo Zhang</em></p>
 <hr />
@@ -42,28 +42,24 @@
 <ul>
 <li>A unit vector is a vector whose length is equal to one unit</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="c1">// In GH C#, unit vector can be assigned in this way:</span>
-<span class="w">      </span><span class="n">Vector3d</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vector3d</span><span class="w"> </span><span class="p">();</span><span class="w"></span>
-<span class="w">      </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Vector3d</span><span class="p">.</span><span class="n">XAxis</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Vector3d</span><span class="p">.</span><span class="n">YAxis</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Vector3d</span><span class="p">.</span><span class="n">ZAxis</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="c1">// In addition, zero vector is in this way:</span>
-<span class="w">      </span><span class="n">a</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Vector3d</span><span class="p">.</span><span class="n">Zero</span><span class="p">;</span><span class="w"></span>
-</code></pre></div>
-
+<p><code>Csharp
+      // In GH C#, unit vector can be assigned in this way:
+      Vector3d a = new Vector3d ();
+      a = Vector3d.XAxis;
+      a = Vector3d.YAxis;
+      a = Vector3d.ZAxis;
+      // In addition, zero vector is in this way:
+      a = Vector3d.Zero;</code></p>
 <ul>
 <li>Dot Product and Cross Product: The dot product of two non-zero unit vectors equals the cosine of the angle between them. The cross product takes two vectors and produces a third vector that is orthogonal to both.</li>
 </ul>
 <p><img alt="image" src="Rhino-GrassHopper-PythonStudies/2022-09-11-13-00-14.png" /></p>
 <p><img alt="image" src="Rhino-GrassHopper-PythonStudies/2022-09-11-13-00-33.png" /></p>
-<div class="codehilite"><pre><span></span><code><span class="err">```</span><span class="nt">Csharp</span><span class="w"></span>
-<span class="o">//</span><span class="w"> </span><span class="nt">In</span><span class="w"> </span><span class="nt">Csharp</span><span class="o">,</span><span class="w"> </span><span class="nt">it</span><span class="w"> </span><span class="nt">is</span><span class="w"> </span><span class="nt">like</span><span class="o">:</span><span class="w"></span>
-<span class="nt">Vector3d</span><span class="w"> </span><span class="nt">a</span><span class="o">,</span><span class="nt">b</span><span class="o">;</span><span class="w"></span>
-<span class="nt">c</span><span class="o">=</span><span class="w"> </span><span class="nt">a</span><span class="o">*</span><span class="nt">b</span><span class="o">;</span><span class="w"> </span><span class="o">//</span><span class="nt">Dot</span><span class="w"> </span><span class="nt">Production</span><span class="o">;</span><span class="w"></span>
-<span class="nt">c</span><span class="o">=</span><span class="nt">a</span><span class="err">×</span><span class="nt">b</span><span class="o">;</span><span class="w"> </span><span class="o">//</span><span class="nt">Cross</span><span class="w"> </span><span class="nt">Production</span><span class="o">;</span><span class="w"></span>
-<span class="err">```</span><span class="w"></span>
-</code></pre></div>
-
+<p><code>Csharp
+  // In Csharp, it is like:
+  Vector3d a,b;
+  c= a*b; //Dot Production;
+  c=a×b; //Cross Production;</code></p>
 <ul>
 <li>
 <blockquote>
@@ -161,16 +157,15 @@
 <p>You cannot split a statement into multiple lines in Python by pressing . Instead, use the backslash () to indicate that a statement is continued on the next line.</p>
 </li>
 <li>
-<p>Sometimes, more than one statement may be put on a single line. In Python a semicolon ( ; ) can be used to separate multiple statements on the same line. For instance three statements can be written:</p>
+<p>Sometimes, more than one statement may be put on a single line. In Python a semicolon ( ; ) can be used to separate multiple statements on the same line. For instance three statements can be written:
+  <code>Python
+  y = 3; x = 5; print(x+y)
+  #Above is the same as below.
+  y = 3
+  x = 5
+  print(x+y)</code></p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code>  <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
-  <span class="c1">#Above is the same as below.</span>
-  <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span>
-  <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
-</code></pre></div>
-
 <blockquote>
 <p><strong>LINK</strong> (Style Guide for Python Code) https://peps.python.org/pep-0008/</p>
 </blockquote>
@@ -198,34 +193,31 @@
 <p>Import modules:</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code>  <span class="kn">import</span> <span class="nn">math</span>
-  <span class="nb">print</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
-  <span class="nb">print</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-  <span class="nb">print</span> <span class="mi">2</span><span class="o">**</span><span class="mi">8</span>
-   <span class="nb">print</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-  <span class="nb">print</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-</code></pre></div>
-
+<p><code>Python
+  import math
+  print math.pi
+  print math.pow(2,2)
+  print 2**8
+   print (math.degrees(math.pi))
+  print (math.radians(math.pi))</code></p>
 <ul>
 <li>Using randoms:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>  <span class="kn">import</span> <span class="nn">random</span>
-  <span class="n">random_int</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-  <span class="nb">print</span> <span class="n">random_int</span>
-  <span class="n">random_float</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
-  <span class="nb">print</span> <span class="n">random_float</span>
-</code></pre></div>
-
+<p><code>Python
+  import random
+  random_int = random.randint(10,20)
+  print random_int
+  random_float = random.uniform(10,20)
+  print random_float</code></p>
 <ul>
 <li>Accessing item(s)</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>  <span class="n">first_num</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">#Get the first one</span>
-  <span class="n">last_num</span> <span class="o">=</span> <span class="n">num</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#Get the last one</span>
-  <span class="n">num</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1">#Change the value of an item in the list</span>
-  <span class="n">num</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1">#Add an item</span>
-  <span class="n">num</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="c1">#Insert an item b at No.a</span>
-</code></pre></div>
-
+<p><code>Python
+  first_num = num[0] #Get the first one
+  last_num = num[-1] #Get the last one
+  num[0] = 10 #Change the value of an item in the list
+  num.append(10) #Add an item
+  num.insert(a,b) #Insert an item b at No.a</code></p>
 <ul>
 <li>
 <p>Help and prompts: the component proved help when you input "("
@@ -235,67 +227,61 @@
 <p>Range function</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code>  <span class="n">sequence</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#Crate a list [0]</span>
-  <span class="n">sequence</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1">#Crate a list from 0 to 4</span>
-  <span class="n">sequence</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span> <span class="c1">#Crate a list from 3 to 6</span>
-  <span class="n">oddSequence</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1">#Crate a list [1,3,5,7,9] #range(start, stop, step)</span>
-</code></pre></div>
-
+<p><code>Python
+  sequence = range(1) #Crate a list [0]
+  sequence = range(5) #Crate a list from 0 to 4
+  sequence = range(3,7) #Crate a list from 3 to 6
+  oddSequence = range(1,10,2) #Crate a list [1,3,5,7,9] #range(start, stop, step)</code></p>
 <ul>
 <li>Slicing feature:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>  <span class="nb">print</span> <span class="n">names</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="c1">#Print the items No1 to No2</span>
-  <span class="nb">print</span> <span class="n">names</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="c1">#Print items No2 to the last</span>
-  <span class="nb">print</span> <span class="n">names</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="c1">#Print items No1 to No3</span>
-  <span class="n">newNames</span> <span class="o">=</span> <span class="n">names</span><span class="p">[:]</span> <span class="c1">#Copy a list (NOT reference)</span>
-</code></pre></div>
-
+<p><code>Python
+  print names[:2] #Print the items No1 to No2
+  print names[2:] #Print items No2 to the last
+  print names[1:3] #Print items No1 to No3
+  newNames = names[:] #Copy a list (NOT reference)</code></p>
 <ul>
 <li>Nested list</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>  <span class="kn">import</span> <span class="nn">ghpythonlib.treehelper</span> <span class="k">as</span> <span class="nn">th</span>
-  <span class="n">list_of_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">names</span><span class="p">,</span> <span class="n">nums</span><span class="p">,</span> <span class="n">chars</span><span class="p">]</span>
-  <span class="n">a</span> <span class="o">=</span> <span class="n">th</span><span class="o">.</span><span class="n">list_to_tree</span><span class="p">(</span><span class="n">list_of_list</span><span class="p">)</span>
-</code></pre></div>
-
+<p><code>Python
+  import ghpythonlib.treehelper as th
+  list_of_list = [names, nums, chars]
+  a = th.list_to_tree(list_of_list)</code></p>
 <ul>
 <li>Other list functions</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>      <span class="nb">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="c1">#Length of a list</span>
-      <span class="nb">print</span> <span class="nb">sum</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span> <span class="c1">#Sum of all items of the num list</span>
-      <span class="n">minNum</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="c1">#min of the num list</span>
-      <span class="n">maxNum</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span> <span class="c1">#max of the num list</span>
-      <span class="n">names</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="c1">#Remove the first item of the list</span>
-      <span class="n">names</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span> <span class="c1">#Remove a specific item</span>
-      <span class="n">names</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span> <span class="c1">#Reverse a list</span>
-      <span class="n">names</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span> <span class="c1">#Sort the list numerically or alphabetically</span>
-</code></pre></div>
-
+<p><code>Python
+  print len(myList) #Length of a list
+  print sum(myList) #Sum of all items of the num list
+  minNum = min(nums) #min of the num list
+  maxNum = max(nums) #max of the num list
+  names.pop(0) #Remove the first item of the list
+  names.remove("1") #Remove a specific item
+  names.reverse() #Reverse a list
+  names.sort() #Sort the list numerically or alphabetically</code></p>
 <ul>
 <li>Outer indentation level:</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>  <span class="c1">#Python uses indentation</span>
-  <span class="c1"># Example 1</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
-      <span class="nb">print</span> <span class="n">i</span>
-      <span class="nb">print</span> <span class="s2">&quot;done!&quot;</span>
-  <span class="c1"># Example 2</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
-      <span class="nb">print</span> <span class="n">i</span>
-  <span class="nb">print</span> <span class="s2">&quot;done!&quot;</span>
-</code></pre></div>
-
+<p><code>Python
+  #Python uses indentation
+  # Example 1
+  for i in x:
+      print i
+      print "done!"
+  # Example 2
+  for i in x:
+      print i
+  print "done!"</code></p>
 <ul>
-<li>Traversal (for loop)</li>
+<li>Traversal (for loop)
+  <code>Python
+    #Below is like 'foreach loop' in C#
+    for i in list_num
+        print i
+    # Below is like 'for loop' in C#
+    for i in range(len(list_num))
+        print list_num[i]</code></li>
 </ul>
-<div class="codehilite"><pre><span></span><code>    <span class="c1">#Below is like &#39;foreach loop&#39; in C#</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_num</span>
-        <span class="nb">print</span> <span class="n">i</span>
-    <span class="c1"># Below is like &#39;for loop&#39; in C#</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list_num</span><span class="p">))</span>
-        <span class="nb">print</span> <span class="n">list_num</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-</code></pre></div>
-
 <h1 id="ghpython-exercise-snake-game">GhPython Exercise Snake Game</h1>
 <div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">scriptcontext</span> <span class="k">as</span> <span class="nn">sc</span>
     <span class="kn">import</span> <span class="nn">rhinoscriptsyntax</span> <span class="k">as</span> <span class="nn">rs</span>
