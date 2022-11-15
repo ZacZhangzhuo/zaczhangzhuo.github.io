@@ -16,7 +16,6 @@ body {
   /* width: 100%; */
 }
 
-
 ::selection {
   background-color: #c9caca4b;
   color: #80deea;
@@ -121,11 +120,12 @@ a.menuBar {
 pre {
   display: block;
   white-space: pre-wrap;
+  font-style: normal;
 }
 code {
   font-family: "source sans pro", Arial;
   color: #0e8da1;
-  font-style: italic;
+
 }
 pre code.codehilite {
   display: block;
@@ -144,7 +144,7 @@ code.codehilite {
   font-style: italic;
 } /* Comment */
 .codehilite .err {
-  color: #3e0000;
+  color: rgb(11, 40, 91);
 } /* Error */
 .codehilite .g {
   color: #0e8da1;
@@ -203,17 +203,17 @@ code.codehilite {
   color: #16c1d9;
 } /* Generic.Error */
 .codehilite .gh {
-  color: #3e0000;
+  color: rgb(11, 40, 91);
 } /* Generic.Heading */
 .codehilite .gi {
-  color: #3e0000;
+  color: rgb(11, 40, 91);
 } /* Generic.Inserted */
 .codehilite .go {
-  color: #3e0000;
+  color: rgb(11, 40, 91);
   font-style: italic;
 } /* Generic.Output */
 .codehilite .gp {
-  color: #3e0000;
+  color: rgb(11, 40, 91);
 } /* Generic.Prompt */
 .codehilite .gs {
   color: #80deea;
@@ -287,7 +287,7 @@ code.codehilite {
 .codehilite .py {
   color: #6ca9b1;
 } /* Name.Property */
-.codehilite .nt {
+.codehilite .nt {font-style: italic;
   color: #16c1d9;
 } /* Name.Tag */
 .codehilite .nv {
@@ -378,6 +378,8 @@ code.codehilite {
 } /* Literal.Number.Integer.Long */
 
 
+p{color: #ededed;}
+
 /* Print */
 @media print {
   @page {
@@ -408,7 +410,7 @@ code.codehilite {
   h4,
   h5,
   h6,
-  strong {
+  strong,a {
     color: rgb(0, 0, 0);
   }
   body {
@@ -434,5 +436,9 @@ code.codehilite {
     background-color: rgb(0, 0, 0);
     height: 1px;
     border-style: none;
-  } 
+  }
+
+  div.menuBar {
+    visibility: hidden;
+  }
 }

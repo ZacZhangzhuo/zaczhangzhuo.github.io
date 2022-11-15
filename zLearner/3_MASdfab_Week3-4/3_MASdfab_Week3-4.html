@@ -1,0 +1,311 @@
+
+        <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="..\..\zMarkdownStyles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+    3_MASdfab_Week3-4.md
+    </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="icon" href="../../resources/LogoIcon.png" type="image/x-icon"/>
+    </head>
+    <body><!-- Menu Bar --><div class="menuBar"><a href="..\..\zHome.html "class="menuBar"> <p>zHome</p></a><a href="..\..\zDesigner\zDesigner.html "class="menuBar"> <p>zDesigner</p></a><a href="..\zLearner.html "class="menuBar"> <p>zLearner</p></a><a href="..\..\zWriter\zWriter.html "class="menuBar"> <p>zWriter</p></a><a href="..\..\zPhotographer\zPhotographer.html "class="menuBar"> <p>zPhotographer</p></a><a href="..\..\zIndividualDeveloper\zIndividualDeveloper.html "class="menuBar"> <p>zIndividualDeveloper</p></a><a href="..\..\zCV.html "class="menuBar"> <p>zCV</p></a><a href="..\..\zSkills.html "class="menuBar"> <p>zSkills</p></a><a href="..\..\zContact.html "class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
+    <h1 id="mas-dfab-week-3-4-robotic-dancing-robotic-drawing-generative-city">MAS dfab - Week 3-4 - Robotic Dancing, Robotic Drawing, Generative City</h1>
+<hr />
+<ul>
+<li><a href="#l-system">L-System</a></li>
+<li><a href="#mola-face">Mola face</a></li>
+<li><a href="#mola-color">Mola color</a></li>
+<li><a href="#mola-subdivision">Mola subdivision</a></li>
+<li><a href="#mola-extrude">Mola extrude</a></li>
+<li><a href="#mola-offset">Mola offset</a></li>
+<li><a href="#mola-exercise-1">Mola exercise 1</a></li>
+<li><a href="#mola-exercise-2">Mola exercise 2</a></li>
+<li><a href="#mola-group">Mola group</a></li>
+<li><a href="#mola-exercise-3">Mola exercise 3</a></li>
+</ul>
+<hr />
+<h2 id="l-system">L-System</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">Rhino.Geometry</span> <span class="k">as</span> <span class="nn">rg</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+
+
+    <span class="n">rule1_predecessor</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span>
+    <span class="n">rule1_successor</span> <span class="o">=</span> <span class="s2">&quot;F+[[X]-X]-F[-FX]+X&quot;</span>
+    <span class="n">rule2_predecessor</span> <span class="o">=</span> <span class="s2">&quot;F&quot;</span>
+    <span class="n">rule2_successor</span> <span class="o">=</span> <span class="s2">&quot;FF&quot;</span>
+
+
+    <span class="n">genotype</span> <span class="o">=</span> <span class="s2">&quot;X&quot;</span>
+
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">iterations</span><span class="p">):</span>
+        <span class="n">genotype</span> <span class="o">=</span> <span class="n">genotype</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">rule1_predecessor</span><span class="p">,</span> <span class="n">rule1_successor</span><span class="p">)</span>
+        <span class="n">genotype</span> <span class="o">=</span> <span class="n">genotype</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">rule2_predecessor</span><span class="p">,</span> <span class="n">rule2_successor</span><span class="p">)</span>
+
+    <span class="n">vt</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">Point3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">vertices</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">genotype</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span><span class="p">:</span>
+            <span class="c1"># Turn right</span>
+            <span class="n">angle</span> <span class="o">-=</span> <span class="n">rotation</span>
+        <span class="k">elif</span> <span class="n">c</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+            <span class="c1"># Turn left</span>
+            <span class="n">angle</span> <span class="o">+=</span> <span class="n">rotation</span>
+        <span class="k">elif</span> <span class="n">c</span> <span class="o">==</span> <span class="s2">&quot;F&quot;</span><span class="p">:</span>
+            <span class="c1"># Forward</span>
+            <span class="n">rad</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+            <span class="n">next_vt</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">Point3d</span><span class="p">(</span><span class="n">length</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">rad</span><span class="p">)</span> <span class="o">+</span> <span class="n">vt</span><span class="o">.</span><span class="n">X</span><span class="p">,</span> <span class="n">length</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">rad</span><span class="p">)</span> <span class="o">+</span> <span class="n">vt</span><span class="o">.</span><span class="n">Y</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rg</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><span class="n">vt</span><span class="p">,</span> <span class="n">next_vt</span><span class="p">))</span>
+
+            <span class="n">vt</span> <span class="o">=</span> <span class="n">next_vt</span>
+
+        <span class="k">elif</span> <span class="n">c</span> <span class="o">==</span> <span class="s2">&quot;[&quot;</span><span class="p">:</span>
+            <span class="c1"># Save position</span>
+            <span class="n">vertices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vt</span><span class="p">)</span>
+            <span class="n">angles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">c</span> <span class="o">==</span> <span class="s2">&quot;]&quot;</span><span class="p">:</span>
+            <span class="c1"># Restore position</span>
+            <span class="n">vt</span> <span class="o">=</span> <span class="n">vertices</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">angle</span> <span class="o">=</span> <span class="n">angles</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+
+
+    <span class="n">L_system</span> <span class="o">=</span> <span class="n">lines</span>
+</code></pre></div>
+
+<h2 id="mola-face">Mola face</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">mola</span>
+    <span class="kn">from</span> <span class="nn">mola</span> <span class="kn">import</span> <span class="n">module_rhino</span>
+
+    <span class="c1"># Create an empty mesh</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">Mesh</span><span class="p">()</span>
+
+    <span class="c1"># Define vertices</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">Vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">Vertex</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">Vertex</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">Vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1"># Add vertices to mesh</span>
+    <span class="n">vertices</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">]</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="n">vertices</span>
+
+    <span class="c1"># print(m.vertices)</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">Face</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">])</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">m</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="n">Mesh</span> <span class="o">=</span> <span class="n">module_rhino</span><span class="o">.</span><span class="n">display_mesh</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="mola-color">Mola color</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">mola</span>
+
+    <span class="c1"># m = mola.construct_icosahedron(Radius)</span>
+    <span class="c1"># Mesh = module_rhino.display_mesh(m)</span>
+
+
+    <span class="n">torus</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">construct_torus</span><span class="p">(</span><span class="n">Radius</span><span class="p">,</span> <span class="n">Radius2</span><span class="p">)</span>
+
+    <span class="n">mola</span><span class="o">.</span><span class="n">color_faces_by_curvature</span><span class="p">(</span><span class="n">torus</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
+    <span class="c1"># mola.color_faces_by_compactness(torus.faces)</span>
+    <span class="c1"># mola.color_faces_by_area(torus.faces)</span>
+
+    <span class="n">Mesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">module_rhino</span><span class="o">.</span><span class="n">display_mesh</span><span class="p">(</span><span class="n">torus</span><span class="p">)</span>
+
+    <span class="n">spheres</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">torus</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+        <span class="n">radius</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">math_map</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">construct_sphere</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">module_rhino</span><span class="o">.</span><span class="n">display_mesh</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+        <span class="n">spheres</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+
+    <span class="n">Spheres</span> <span class="o">=</span> <span class="n">spheres</span>
+</code></pre></div>
+
+<h2 id="mola-subdivision">Mola subdivision</h2>
+<p>https://en.wikipedia.org/wiki/Catmull%E2%80%93Clark_subdivision_surface</p>
+<div class="codehilite"><pre><span></span><code>    <span class="n">molaMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_mesh_catmull</span><span class="p">(</span><span class="n">molaMesh</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="mola-extrude">Mola extrude</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="n">molaMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_mesh_extrude_tapered</span><span class="p">(</span><span class="n">molaMesh</span><span class="p">,</span> <span class="n">faceAngles</span><span class="p">,</span> <span class="n">fractions</span><span class="p">,</span> <span class="n">doCaps</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="mola-offset">Mola offset</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="n">molaMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">mesh_offset</span><span class="p">(</span><span class="n">molaMesh</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="mola-exercise-1">Mola exercise 1</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">mola</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="kn">import</span> <span class="nn">Rhino.Geometry</span> <span class="k">as</span> <span class="nn">rg</span>
+
+    <span class="n">molaMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">construct_sphere</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">u_res</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">v_res</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">molaMesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">z</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">v</span><span class="o">.</span><span class="n">z</span> <span class="o">*=</span> <span class="mf">1.8</span>
+
+    <span class="n">molaMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_mesh_catmull</span><span class="p">(</span><span class="n">molaMesh</span><span class="p">)</span>
+
+    <span class="c1"># Get height value</span>
+    <span class="n">faceAngles</span> <span class="o">=</span> <span class="n">molaMesh</span><span class="o">.</span><span class="n">face_properties</span><span class="p">(</span><span class="n">mola</span><span class="o">.</span><span class="n">face_angle_vertical</span><span class="p">)</span>
+    <span class="c1"># print (faceAngles)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">faceAngles</span><span class="p">)):</span>
+        <span class="n">faceAngles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">-</span> <span class="nb">abs</span><span class="p">(</span><span class="n">faceAngles</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    <span class="n">faceAngles</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">math_map_list</span><span class="p">(</span><span class="n">faceAngles</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+    <span class="c1"># Get fractions</span>
+    <span class="n">zPositions</span> <span class="o">=</span> <span class="n">molaMesh</span><span class="o">.</span><span class="n">face_properties</span><span class="p">(</span><span class="n">mola</span><span class="o">.</span><span class="n">face_center_z</span><span class="p">)</span>
+    <span class="n">fractions</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">math_map_list</span><span class="p">(</span><span class="n">zPositions</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+    <span class="n">doCaps</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">molaMesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">zPositions</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="n">zPositions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.2</span><span class="p">:</span>
+            <span class="n">doCaps</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">molaMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_mesh_extrude_tapered</span><span class="p">(</span><span class="n">molaMesh</span><span class="p">,</span> <span class="n">faceAngles</span><span class="p">,</span> <span class="n">fractions</span><span class="p">,</span> <span class="n">doCaps</span><span class="p">)</span>
+
+    <span class="n">molaMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_mesh_catmull</span><span class="p">(</span><span class="n">molaMesh</span><span class="p">)</span>
+    <span class="n">molaMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_mesh_catmull</span><span class="p">(</span><span class="n">molaMesh</span><span class="p">)</span>
+
+    <span class="n">molaMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">mesh_offset</span><span class="p">(</span><span class="n">molaMesh</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+    <span class="n">mola</span><span class="o">.</span><span class="n">color_faces_by_horizontal_angle</span><span class="p">(</span><span class="n">molaMesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
+
+    <span class="n">Mesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">module_rhino</span><span class="o">.</span><span class="n">display_mesh</span><span class="p">(</span><span class="n">molaMesh</span><span class="p">)</span>
+
+    <span class="c1"># outTemp = []</span>
+    <span class="c1"># for face in molaMesh.faces:</span>
+    <span class="c1"># outTemp.append(rg.Point3d(mola.face_center(face).x, mola.face_center(face).y, mola.face_center(face).z))</span>
+</code></pre></div>
+
+<h2 id="mola-exercise-2">Mola exercise 2</h2>
+<p><img alt="image" src="MASdfab-Week3-4/MASdfab-Week3-4_2022-10-11-14-31-58.png" /></p>
+<div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">Rhino.Geometry</span> <span class="k">as</span> <span class="nn">rg</span>
+    <span class="kn">import</span> <span class="nn">mola</span>
+
+    <span class="n">mMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">construct_box</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+
+    <span class="n">dividedMeshes</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_face_split_grid</span><span class="p">(</span><span class="n">mMesh</span><span class="o">.</span><span class="n">faces</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+    <span class="n">dividedMeshes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_face_extrude_tapered</span><span class="p">(</span><span class="n">dividedMeshes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">dividedMeshes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_face_extrude_tapered</span><span class="p">(</span><span class="n">dividedMeshes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">dividedMeshes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_face_extrude_tapered</span><span class="p">(</span><span class="n">dividedMeshes</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">dividedMeshes</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_face_extrude_tapered</span><span class="p">(</span><span class="n">dividedMeshes</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="mi">10</span><span class="p">))</span>
+
+    <span class="n">dividedMeshes</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">dividedMeshes</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">dividedMeshes</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">dividedMeshes</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+    <span class="n">mMesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">mMesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">dividedMeshes</span><span class="p">)</span>
+
+    <span class="n">Faces</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">module_rhino</span><span class="o">.</span><span class="n">display_faces</span><span class="p">([</span><span class="n">mMesh</span><span class="o">.</span><span class="n">faces</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="n">Mesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">module_rhino</span><span class="o">.</span><span class="n">display_mesh</span><span class="p">(</span><span class="n">mMesh</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="mola-group">Mola group</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">mMesh</span><span class="o">.</span><span class="n">faces</span><span class="p">:</span>
+        <span class="n">face</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;plot&quot;</span>
+</code></pre></div>
+
+<h2 id="mola-exercise-3">Mola exercise 3</h2>
+<p><img alt="image" src="MASdfab-Week3-4/MASdfab-Week3-4_2022-10-11-16-54-33.png" /></p>
+<div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">mola</span>
+    <span class="kn">import</span> <span class="nn">random</span>
+    <span class="kn">import</span> <span class="nn">Rhino.Geometry</span> <span class="k">as</span> <span class="nn">rg</span>
+
+    <span class="n">mMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">construct_single_face</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">mola</span><span class="o">.</span><span class="n">Vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">mola</span><span class="o">.</span><span class="n">Vertex</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">mola</span><span class="o">.</span><span class="n">Vertex</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">mola</span><span class="o">.</span><span class="n">Vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
+    <span class="p">)</span>
+
+    <span class="n">newMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">Mesh</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">mMesh</span><span class="o">.</span><span class="n">faces</span><span class="p">:</span>
+        <span class="n">newFaces</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_face_extrude_to_point_center</span><span class="p">(</span><span class="n">face</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">newMesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">newFaces</span><span class="p">)</span>
+
+    <span class="n">mMesh</span> <span class="o">=</span> <span class="n">newMesh</span>
+    <span class="n">mMesh</span><span class="o">.</span><span class="n">update_topology</span><span class="p">()</span>
+    <span class="n">mMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_mesh_catmull</span><span class="p">(</span><span class="n">mMesh</span><span class="p">)</span>
+
+    <span class="n">newMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">Mesh</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">mMesh</span><span class="o">.</span><span class="n">faces</span><span class="p">:</span>
+        <span class="n">newFaces</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_face_split_grid</span><span class="p">(</span><span class="n">face</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">newMesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">newFaces</span><span class="p">)</span>
+
+    <span class="n">mMesh</span> <span class="o">=</span> <span class="n">newMesh</span>
+
+
+    <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">mMesh</span><span class="o">.</span><span class="n">faces</span><span class="p">:</span>
+        <span class="n">face</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;plot&quot;</span>
+
+    <span class="n">newMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">Mesh</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">mMesh</span><span class="o">.</span><span class="n">faces</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="s2">&quot;plot&quot;</span><span class="p">:</span>
+            <span class="n">new_faces</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_face_extrude_tapered</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">nf</span> <span class="ow">in</span> <span class="n">new_faces</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">nf</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;circulation&quot;</span>
+                <span class="n">nf</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="c1"># [-1] is take the last element [:-1] is for taking all elements</span>
+            <span class="n">new_faces</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;construction&quot;</span>
+            <span class="n">new_faces</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">newMesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">new_faces</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">newMesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+
+    <span class="n">mMesh</span> <span class="o">=</span> <span class="n">newMesh</span>
+
+    <span class="c1">########################################################################</span>
+
+
+    <span class="n">newMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">Mesh</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">mMesh</span><span class="o">.</span><span class="n">faces</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">face</span><span class="o">.</span><span class="n">group</span> <span class="o">==</span> <span class="s2">&quot;construction&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.2</span><span class="p">:</span>
+                <span class="n">newFaces</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_face_extrude_to_point_center</span><span class="p">(</span><span class="n">face</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">newFace</span> <span class="ow">in</span> <span class="n">newFaces</span><span class="p">:</span>
+                    <span class="n">newFace</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;park&quot;</span>
+                    <span class="n">newFace</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">newMesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">newFaces</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">floorNumber</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+                <span class="n">buildingSurface</span> <span class="o">=</span> <span class="p">[</span><span class="n">face</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">floorNumber</span><span class="p">):</span>
+                    <span class="n">buildingSurface</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">mola</span><span class="o">.</span><span class="n">subdivide_face_extrude</span><span class="p">(</span><span class="n">buildingSurface</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mf">0.1</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+                    <span class="n">buildingSurface</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">newFace</span> <span class="ow">in</span> <span class="n">buildingSurface</span><span class="p">:</span>
+                    <span class="n">newFace</span><span class="o">.</span><span class="n">group</span> <span class="o">=</span> <span class="s2">&quot;building&quot;</span>
+                    <span class="n">newFace</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">newMesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">buildingSurface</span><span class="p">)</span>
+
+
+        <span class="n">newMesh</span><span class="o">.</span><span class="n">faces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">face</span><span class="p">)</span>
+
+    <span class="n">newMesh</span><span class="o">.</span><span class="n">update_topology</span><span class="p">()</span>
+    <span class="n">newMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_mesh_catmull</span><span class="p">(</span><span class="n">newMesh</span><span class="p">)</span>
+    <span class="n">newMesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">subdivide_mesh_catmull</span><span class="p">(</span><span class="n">newMesh</span><span class="p">)</span>
+
+    <span class="n">mMesh</span> <span class="o">=</span> <span class="n">newMesh</span>
+
+    <span class="n">Mesh</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">module_rhino</span><span class="o">.</span><span class="n">display_mesh</span><span class="p">(</span><span class="n">mMesh</span><span class="p">)</span>
+</code></pre></div>
+    <p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p></body>
+    </html>
+    

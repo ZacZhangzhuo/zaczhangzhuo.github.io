@@ -1,0 +1,422 @@
+
+        <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="..\..\zMarkdownStyles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+    5_MASdfab_Week5.md
+    </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="icon" href="../../resources/LogoIcon.png" type="image/x-icon"/>
+    </head>
+    <body><!-- Menu Bar --><div class="menuBar"><a href="..\..\zHome.html "class="menuBar"> <p>zHome</p></a><a href="..\..\zDesigner\zDesigner.html "class="menuBar"> <p>zDesigner</p></a><a href="..\zLearner.html "class="menuBar"> <p>zLearner</p></a><a href="..\..\zWriter\zWriter.html "class="menuBar"> <p>zWriter</p></a><a href="..\..\zPhotographer\zPhotographer.html "class="menuBar"> <p>zPhotographer</p></a><a href="..\..\zIndividualDeveloper\zIndividualDeveloper.html "class="menuBar"> <p>zIndividualDeveloper</p></a><a href="..\..\zCV.html "class="menuBar"> <p>zCV</p></a><a href="..\..\zSkills.html "class="menuBar"> <p>zSkills</p></a><a href="..\..\zContact.html "class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
+    <h1 id="mas-dfab-week-5-generative-city">MAS dfab - Week 5 - Generative City</h1>
+<hr />
+<p>Content</p>
+<ul>
+<li><a href="#axolotl-subtract">Axolotl Subtract</a></li>
+<li><a href="#axolotl-addition">Axolotl Addition</a></li>
+<li><a href="#axolotl-blend">Axolotl Blend</a></li>
+<li><a href="#axolotl-practice">Axolotl Practice</a></li>
+<li><a href="#an-interesting-note">An interesting note</a></li>
+<li><a href="#processing-mandelbrot-set">Processing mandelbrot set</a></li>
+<li><a href="#from-processing-do-mandelbrot-set-in-rhino">From processing, do mandelbrot set in Rhino</a></li>
+<li><a href="#marching-cubes">Marching cubes</a></li>
+<li><a href="#fractal-facade">Fractal Facade</a></li>
+<li><a href="#python-readwrite">Python read/write</a></li>
+</ul>
+<hr />
+<h2 id="axolotl-subtract">Axolotl Subtract</h2>
+<p><img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-17-11-01-13.png" /></p>
+<h2 id="axolotl-addition">Axolotl Addition</h2>
+<p><img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-17-11-12-59.png" /></p>
+<p><img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-17-11-13-40.png" /></p>
+<p><img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-17-11-14-19.png" /></p>
+<h2 id="axolotl-blend">Axolotl Blend</h2>
+<p><img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-17-13-17-04.png" /></p>
+<h2 id="axolotl-practice">Axolotl Practice</h2>
+<p><img alt="image" src="MASdfab-Week5/final.png" />
+<img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-17-14-19-23.png" /></p>
+<h2 id="an-interesting-note">An interesting note</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span> <span class="c1">#-0.988031624093</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="mf">18.849556</span><span class="p">))</span>
+    <span class="c1"># Python: The outcome is -7.846124032502473e-08</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Sin</span><span class="p">(</span><span class="m">30</span><span class="p">);</span><span class="c1">//-0.988032</span>
+<span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Math</span><span class="p">.</span><span class="n">Sin</span><span class="p">(-</span><span class="m">18.849556</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Csharp: The outcome is -7.8461e-8</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="mi">30</span><span class="p">));</span><span class="w"> </span><span class="c1">//-0.9880316</span><span class="w"></span>
+<span class="w">    </span><span class="n">println</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="mf">18.849556</span><span class="p">));</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Java: The outcome is -4.7699523E-8</span><span class="w"></span>
+</code></pre></div>
+
+<h2 id="processing-mandelbrot-set">Processing mandelbrot set</h2>
+<p><img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-10-14-35.png" />
+<img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-10-14-46.png" />
+<img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-09-47-21.png" />
+<img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-09-48-32.png" />
+<img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-09-46-53.png" />
+<img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-09-49-14.png" />
+<img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-18-17-19-19.png" /></p>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="kn">import</span><span class="w"> </span><span class="nn">peasy.*</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">DIM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">PeasyCam</span><span class="w"> </span><span class="n">cam</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">PrintWriter</span><span class="w"> </span><span class="n">output</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">PVector</span><span class="o">&gt;</span><span class="w"> </span><span class="n">mandelbrot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">PVector</span><span class="o">&gt;</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ArrayList&lt;PVector&gt; outMandelbrot = new ArrayList&lt;PVector&gt;();</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">outData</span><span class="o">[</span><span class="n">image</span><span class="o">][</span><span class="n">image</span><span class="o">][</span><span class="n">image</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">DIM</span><span class="o">][</span><span class="n">DIM</span><span class="o">][</span><span class="n">DIM</span><span class="o">]</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kd">class</span> <span class="nc">Spherical</span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">theta</span><span class="p">,</span><span class="w"> </span><span class="n">phi</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">Spherical</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">theta</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">phi</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theta</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="na">phi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">phi</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">Spherical</span><span class="w"> </span><span class="nf">spherical</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">z</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atan2</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">),</span><span class="w"> </span><span class="n">z</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="kt">float</span><span class="w"> </span><span class="n">phi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Spherical</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">theta</span><span class="p">,</span><span class="w"> </span><span class="n">phi</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setup</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">size</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w"> </span><span class="n">P3D</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">        </span><span class="n">cam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PeasyCam</span><span class="p">(</span><span class="k">this</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// !output</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// output = createWriter(&quot;C:/Users/Zac/Desktop/positions.txt&quot;);</span><span class="w"></span>
+
+<span class="w">        </span><span class="c1">// Ball</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DIM</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DIM</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="kt">boolean</span><span class="w"> </span><span class="n">edge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">                </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">DIM</span><span class="p">;</span><span class="w"> </span><span class="n">k</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="n">DIM</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">                    </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="n">DIM</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">                    </span><span class="kt">float</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">map</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="n">DIM</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">                    </span><span class="n">PVector</span><span class="w"> </span><span class="n">zeta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PVector</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+
+<span class="w">                    </span><span class="kt">int</span><span class="w"> </span><span class="n">interation</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">                    </span><span class="kt">int</span><span class="w"> </span><span class="n">maxInteration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                    </span><span class="k">while</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">                        </span><span class="n">Spherical</span><span class="w"> </span><span class="n">sphericalZ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spherical</span><span class="p">(</span><span class="n">zeta</span><span class="p">.</span><span class="na">x</span><span class="p">,</span><span class="n">zeta</span><span class="p">.</span><span class="na">y</span><span class="p">,</span><span class="n">zeta</span><span class="p">.</span><span class="na">z</span><span class="p">);</span><span class="w"></span>
+<span class="w">                        </span><span class="kt">float</span><span class="w"> </span><span class="n">newx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="n">sphericalZ</span><span class="p">.</span><span class="na">r</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">sphericalZ</span><span class="p">.</span><span class="na">theta</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cos</span><span class="p">(</span><span class="n">sphericalZ</span><span class="p">.</span><span class="na">phi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">                        </span><span class="kt">float</span><span class="w"> </span><span class="n">newy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="n">sphericalZ</span><span class="p">.</span><span class="na">r</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">sphericalZ</span><span class="p">.</span><span class="na">theta</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">sphericalZ</span><span class="p">.</span><span class="na">phi</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+<span class="w">                        </span><span class="kt">float</span><span class="w"> </span><span class="n">newz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pow</span><span class="p">(</span><span class="n">sphericalZ</span><span class="p">.</span><span class="na">r</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">cos</span><span class="p">(</span><span class="n">sphericalZ</span><span class="p">.</span><span class="na">theta</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">n</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">                        </span><span class="n">zeta</span><span class="p">.</span><span class="na">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="n">zeta</span><span class="p">.</span><span class="na">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newy</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="n">zeta</span><span class="p">.</span><span class="na">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newz</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                        </span><span class="n">interation</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">sphericalZ</span><span class="p">.</span><span class="na">r</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">edge</span><span class="p">)</span><span class="n">edge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"></span>
+<span class="w">                            </span><span class="c1">// println (i+&quot;x&quot;+j+&quot;x&quot;+k);</span><span class="w"></span>
+<span class="w">                            </span><span class="c1">// outMandelbrot.add(new PVector(100 * x, 100 * y, 100 * z));</span><span class="w"></span>
+<span class="w">                            </span><span class="n">outData</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">][</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">                            </span><span class="c1">// output.println(outData[i][j][k]);</span><span class="w"></span>
+<span class="w">                            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">interation</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">maxInteration</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                            </span><span class="c1">//println (i+&quot;x&quot;+j+&quot;x&quot;+k);</span><span class="w"></span>
+<span class="w">                            </span><span class="c1">// if (!edge)</span><span class="w"></span>
+<span class="w">                            </span><span class="c1">// {</span><span class="w"></span>
+<span class="w">                            </span><span class="c1">// edge = true;</span><span class="w"></span>
+
+<span class="w">                            </span><span class="c1">// println(new PVector(100 * x, 100 * y, 100 * z));</span><span class="w"></span>
+<span class="w">                        </span><span class="c1">// }</span><span class="w"></span>
+<span class="w">                            </span><span class="c1">// stroke(255, 255, 255);</span><span class="w"></span>
+<span class="w">                            </span><span class="n">mandelbrot</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">PVector</span><span class="p">(</span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">z</span><span class="p">));</span><span class="w"></span>
+<span class="w">                            </span><span class="n">outData</span><span class="o">[</span><span class="n">i</span><span class="o">][</span><span class="n">j</span><span class="o">][</span><span class="n">k</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">                            </span><span class="c1">// output.println(outData[i][j][k]);</span><span class="w"></span>
+<span class="w">                            </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+<span class="w">                        </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">                    </span><span class="p">}</span><span class="w"></span>
+<span class="w">                </span><span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+
+
+<span class="w">        </span><span class="c1">// println(t);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// println ( DIM*DIM*DIM);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// println (mandelbrot.size()+outMandelbrot.size());</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">draw</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">background</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">stroke</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="w"> </span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">PVector</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">mandelbrot</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="n">point</span><span class="p">(</span><span class="n">v</span><span class="p">.</span><span class="na">x</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="na">y</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">.</span><span class="na">z</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// void keyPressed() {</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//     output.flush(); // Writes the remaining data to the file</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//     output.close(); // Finishes the file</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//     exit(); // Stops the program</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// }</span><span class="w"></span>
+</code></pre></div>
+
+<h2 id="from-processing-do-mandelbrot-set-in-rhino">From processing, do mandelbrot set in Rhino</h2>
+<p><img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-18-17-20-01.png" /></p>
+<div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">mola</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="kn">from</span> <span class="nn">mola</span> <span class="kn">import</span> <span class="n">module_rhino</span>
+    <span class="kn">from</span> <span class="nn">ghpythonlib</span> <span class="kn">import</span> <span class="n">treehelpers</span>
+
+    <span class="n">dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Values</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="p">))</span>
+
+
+    <span class="c1"># ! Too tree</span>
+    <span class="n">facesArray</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
+    <span class="n">lineArray</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+        <span class="n">facesArray</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Values</span><span class="p">[</span><span class="n">dim</span><span class="o">*</span><span class="n">dim</span> <span class="o">*</span> <span class="n">i</span> <span class="p">:</span> <span class="n">dim</span><span class="o">*</span><span class="n">dim</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
+
+    <span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">facesArray</span><span class="p">:</span>
+        <span class="n">tempArray</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+            <span class="n">tempArray</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">face</span><span class="p">[</span><span class="n">dim</span> <span class="o">*</span> <span class="n">i</span> <span class="p">:</span> <span class="n">dim</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
+        <span class="n">lineArray</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tempArray</span><span class="p">)</span>
+    <span class="c1"># ! End to tree</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+                <span class="n">lineArray</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+                <span class="n">lineArray</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span><span class="mi">0</span>
+                <span class="n">lineArray</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">k</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+                <span class="n">lineArray</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span><span class="mi">0</span>
+                <span class="n">lineArray</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+                <span class="n">lineArray</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span><span class="mi">0</span>
+
+
+    <span class="c1"># ! Too list</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+                <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lineArray</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="p">)</span>
+    <span class="c1"># x = treehelpers.list_to_tree(lineArray)</span>
+
+    <span class="c1"># print (len(values))</span>
+    <span class="n">cubes</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">mesh_marching_cubes</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">cubes</span><span class="o">.</span><span class="n">update_topology</span><span class="p">()</span>
+    <span class="n">mola</span><span class="o">.</span><span class="n">color_faces_by_vertical_angle</span><span class="p">(</span><span class="n">cubes</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
+
+    <span class="n">outTemp</span> <span class="o">=</span> <span class="n">module_rhino</span><span class="o">.</span><span class="n">display_mesh</span><span class="p">(</span><span class="n">cubes</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="marching-cubes">Marching cubes</h2>
+<p><img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-10-18-03.png" />
+<img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-10-18-18.png" />
+<img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-10-18-32.png" /></p>
+<h2 id="fractal-facade">Fractal Facade</h2>
+<p><img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-17-56-16.png" />
+<img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-17-56-31.png" />
+<img alt="image" src="MASdfab-Week5/MASdfab-Week5_2022-10-19-20-29-38.png" /></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mola</span>
+<span class="kn">from</span> <span class="nn">mola</span> <span class="kn">import</span> <span class="n">module_rhino</span>
+<span class="kn">import</span> <span class="nn">Rhino.Geometry</span> <span class="k">as</span> <span class="nn">rg</span>
+<span class="kn">import</span> <span class="nn">Rhino.Geometry.Intersect</span> <span class="k">as</span> <span class="nn">intersection</span>
+<span class="kn">import</span> <span class="nn">zorse</span>
+
+<span class="n">theMesh</span> <span class="o">=</span> <span class="n">module_rhino</span><span class="o">.</span><span class="n">mesh_from_rhino_mesh</span><span class="p">(</span><span class="n">inTemp</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">theMesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+    <span class="n">ray</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">Ray3d</span><span class="p">(</span><span class="n">rg</span><span class="o">.</span><span class="n">Point3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">rg</span><span class="o">.</span><span class="n">Vector3d</span><span class="p">(</span><span class="n">vertex</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">vertex</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">vertex</span><span class="o">.</span><span class="n">z</span><span class="p">))</span>
+    <span class="n">intersectionPoint</span> <span class="o">=</span> <span class="n">intersection</span><span class="o">.</span><span class="n">Intersection</span><span class="o">.</span><span class="n">MeshRay</span><span class="p">(</span><span class="n">inTempMesh</span><span class="p">,</span> <span class="n">ray</span><span class="p">)</span>
+    <span class="c1"># print(type(intersectionPoint))</span>
+
+    <span class="n">intersectionPoint</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">PointAt</span><span class="p">(</span><span class="n">intersectionPoint</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">intersectionPoint</span><span class="o">.</span><span class="n">X</span> <span class="o">+</span> <span class="n">vertex</span><span class="o">.</span><span class="n">x</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">intersectionPoint</span><span class="o">.</span><span class="n">Y</span> <span class="o">+</span> <span class="n">vertex</span><span class="o">.</span><span class="n">y</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">intersectionPoint</span><span class="o">.</span><span class="n">Z</span> <span class="o">+</span> <span class="n">vertex</span><span class="o">.</span><span class="n">z</span>
+    <span class="c1"># print(intersectionPoint)</span>
+
+
+<span class="n">theMesh</span><span class="o">.</span><span class="n">update_topology</span><span class="p">()</span>
+<span class="n">mola</span><span class="o">.</span><span class="n">color_faces_by_vertical_angle</span><span class="p">(</span><span class="n">theMesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
+
+<span class="n">outTemp</span> <span class="o">=</span> <span class="n">module_rhino</span><span class="o">.</span><span class="n">display_mesh</span><span class="p">(</span><span class="n">theMesh</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="python-readwrite">Python read/write</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="n">htmlTexts</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="n">html</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="n">html</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">htmlTexts</span><span class="p">)</span>
+
+<span class="n">DIM32</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Zac\19 Github\Notes\MASdfab-Week5\DIM32.csv&quot;</span>
+<span class="n">DIM64</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Zac\19 Github\Notes\MASdfab-Week5\DIM64.csv&quot;</span>
+<span class="n">DIM128</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Zac\19 Github\Notes\MASdfab-Week5\DIM128.csv&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DIM32</span><span class="p">)</span><span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="c1"># headers = next(reader)</span>
+    <span class="c1"># print(headers)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="" src="MASdfab-Week5/MASdfab-Week5_2022-10-20-11-59-58.png" />
+<img alt="" src="MASdfab-Week5/MASdfab-Week5_2022-10-20-13-28-38.png" /></p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mola</span>
+<span class="kn">from</span> <span class="nn">mola</span> <span class="kn">import</span> <span class="n">module_rhino</span>
+<span class="kn">import</span> <span class="nn">Rhino.Geometry</span> <span class="k">as</span> <span class="nn">rg</span>
+<span class="kn">import</span> <span class="nn">Rhino.Geometry.Intersect</span> <span class="k">as</span> <span class="nn">intersection</span>
+<span class="kn">import</span> <span class="nn">zorse</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+
+<span class="k">def</span> <span class="nf">Distance</span><span class="p">(</span><span class="n">vertex1</span><span class="p">,</span> <span class="n">vertex2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span>
+        <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">vertex1</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">vertex2</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">vertex1</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">vertex2</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">vertex1</span><span class="o">.</span><span class="n">z</span> <span class="o">-</span> <span class="n">vertex2</span><span class="o">.</span><span class="n">z</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="mf">0.5</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="n">DIM32</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Zac\19 Github\Notes\MASdfab-Week5\DIM32.csv&quot;</span>
+<span class="n">DIM64</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Zac\19 Github\Notes\MASdfab-Week5\DIM64.csv&quot;</span>
+<span class="n">DIM128</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Zac\19 Github\Notes\MASdfab-Week5\DIM128.csv&quot;</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">DIM32</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="c1"># headers = next(reader)</span>
+    <span class="c1"># print(headers)</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+
+<span class="n">dim</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="c1"># print (dim)</span>
+<span class="c1"># print (len(data)** (1 / 3))</span>
+
+<span class="c1"># ! Too tree</span>
+<span class="n">facesArray</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">lineArray</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+    <span class="n">facesArray</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">dim</span> <span class="o">*</span> <span class="n">dim</span> <span class="o">*</span> <span class="n">i</span> <span class="p">:</span> <span class="n">dim</span> <span class="o">*</span> <span class="n">dim</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
+
+<span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">facesArray</span><span class="p">:</span>
+    <span class="n">tempArray</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+        <span class="n">tempArray</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">face</span><span class="p">[</span><span class="n">dim</span> <span class="o">*</span> <span class="n">i</span> <span class="p">:</span> <span class="n">dim</span> <span class="o">*</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
+    <span class="n">lineArray</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tempArray</span><span class="p">)</span>
+<span class="c1"># ! End to tree</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+            <span class="n">lineArray</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">lineArray</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">lineArray</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">lineArray</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">lineArray</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">lineArray</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+
+<span class="c1"># ! Too list</span>
+<span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dim</span><span class="p">):</span>
+            <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">lineArray</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]))</span>
+
+<span class="n">cubes</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">mesh_marching_cubes</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+
+<span class="c1"># Marching cubes mesh to the center</span>
+<span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">cubes</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">vertex</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">dim</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">vertex</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">dim</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">vertex</span><span class="o">.</span><span class="n">z</span> <span class="o">-</span> <span class="n">dim</span> <span class="o">/</span> <span class="mi">2</span>
+
+
+<span class="c1"># Get the minimal distance</span>
+<span class="n">Center</span> <span class="o">=</span> <span class="n">mola</span><span class="o">.</span><span class="n">Vertex</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="n">Distance</span><span class="p">(</span><span class="n">Center</span><span class="p">,</span> <span class="n">cubes</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">cubes</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">Distance</span><span class="p">(</span><span class="n">Center</span><span class="p">,</span> <span class="n">vertex</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">distance</span><span class="p">:</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">Distance</span><span class="p">(</span><span class="n">Center</span><span class="p">,</span> <span class="n">vertex</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">cubes</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+    <span class="n">vec</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">Vector3d</span><span class="p">(</span><span class="n">vertex</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">vertex</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">vertex</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">vec</span><span class="o">.</span><span class="n">Unitize</span><span class="p">()</span>
+    <span class="n">ray</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">Ray3d</span><span class="p">(</span><span class="n">rg</span><span class="o">.</span><span class="n">Point3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">vec</span><span class="p">)</span>
+    <span class="n">intersectionPoint</span> <span class="o">=</span> <span class="n">intersection</span><span class="o">.</span><span class="n">Intersection</span><span class="o">.</span><span class="n">MeshRay</span><span class="p">(</span><span class="n">inTemp</span><span class="p">,</span> <span class="n">ray</span><span class="p">)</span>
+
+    <span class="n">intersectionPoint</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">PointAt</span><span class="p">(</span><span class="n">intersectionPoint</span> <span class="o">-</span> <span class="n">distance</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">intersectionPoint</span><span class="o">.</span><span class="n">X</span> <span class="o">+</span> <span class="n">vertex</span><span class="o">.</span><span class="n">x</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">intersectionPoint</span><span class="o">.</span><span class="n">Y</span> <span class="o">+</span> <span class="n">vertex</span><span class="o">.</span><span class="n">y</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="n">intersectionPoint</span><span class="o">.</span><span class="n">Z</span> <span class="o">+</span> <span class="n">vertex</span><span class="o">.</span><span class="n">z</span>
+
+<span class="c1"># Roughness</span>
+<span class="k">for</span> <span class="n">vertex</span> <span class="ow">in</span> <span class="n">cubes</span><span class="o">.</span><span class="n">vertices</span><span class="p">:</span>
+    <span class="n">vec</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">Vector3d</span><span class="p">(</span><span class="n">vertex</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">vertex</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">vertex</span><span class="o">.</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">vec</span><span class="o">.</span><span class="n">Unitize</span><span class="p">()</span>
+    <span class="n">ray</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">Ray3d</span><span class="p">(</span><span class="n">rg</span><span class="o">.</span><span class="n">Point3d</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">vec</span><span class="p">)</span>
+    <span class="n">intersectionPoint</span> <span class="o">=</span> <span class="n">intersection</span><span class="o">.</span><span class="n">Intersection</span><span class="o">.</span><span class="n">MeshRay</span><span class="p">(</span><span class="n">inTemp</span><span class="p">,</span> <span class="n">ray</span><span class="p">)</span>
+    <span class="n">intersectionPoint</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">PointAt</span><span class="p">(</span><span class="n">intersectionPoint</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">x</span> <span class="o">+=</span> <span class="p">(</span><span class="n">vertex</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">intersectionPoint</span><span class="o">.</span><span class="n">X</span><span class="p">)</span> <span class="o">*</span> <span class="n">xRoughness</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">y</span> <span class="o">+=</span> <span class="p">(</span><span class="n">vertex</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">intersectionPoint</span><span class="o">.</span><span class="n">Y</span><span class="p">)</span> <span class="o">*</span> <span class="n">yRoughness</span>
+    <span class="n">vertex</span><span class="o">.</span><span class="n">z</span> <span class="o">+=</span> <span class="p">(</span><span class="n">vertex</span><span class="o">.</span><span class="n">z</span> <span class="o">-</span> <span class="n">intersectionPoint</span><span class="o">.</span><span class="n">Z</span><span class="p">)</span> <span class="o">*</span> <span class="n">zRoughness</span>
+
+<span class="n">cubes</span><span class="o">.</span><span class="n">update_topology</span><span class="p">()</span>
+
+<span class="c1"># Color code</span>
+<span class="n">colorPara</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">greatestNumber</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">smallestNumber</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">10</span>
+<span class="k">for</span> <span class="n">face</span> <span class="ow">in</span> <span class="n">cubes</span><span class="o">.</span><span class="n">faces</span><span class="p">:</span>
+    <span class="n">para</span> <span class="o">=</span> <span class="n">Distance</span><span class="p">(</span><span class="n">face</span><span class="o">.</span><span class="n">center</span><span class="p">(),</span> <span class="n">Center</span><span class="p">)</span>
+    <span class="n">colorPara</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">para</span> <span class="o">&gt;</span> <span class="n">greatestNumber</span><span class="p">:</span>
+        <span class="n">greatestNumber</span> <span class="o">=</span> <span class="n">para</span>
+    <span class="k">if</span> <span class="n">para</span> <span class="o">&lt;</span> <span class="n">smallestNumber</span><span class="p">:</span>
+        <span class="n">smallestNumber</span> <span class="o">=</span> <span class="n">para</span>
+
+<span class="n">colors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">colorPara</span><span class="p">)):</span>
+    <span class="n">para</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">colorPara</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">smallestNumber</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">greatestNumber</span> <span class="o">-</span> <span class="n">smallestNumber</span><span class="p">)</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+    <span class="n">colors</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">Colors</span><span class="p">[</span><span class="n">para</span><span class="p">]</span><span class="o">.</span><span class="n">R</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="n">Colors</span><span class="p">[</span><span class="n">para</span><span class="p">]</span><span class="o">.</span><span class="n">G</span><span class="o">/</span><span class="mi">255</span><span class="p">,</span> <span class="n">Colors</span><span class="p">[</span><span class="n">para</span><span class="p">]</span><span class="o">.</span><span class="n">B</span><span class="o">/</span><span class="mi">255</span><span class="p">])</span>
+    <span class="n">cubes</span><span class="o">.</span><span class="n">faces</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span><span class="n">colors</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+
+<span class="n">outTemp</span> <span class="o">=</span> <span class="n">module_rhino</span><span class="o">.</span><span class="n">display_mesh</span><span class="p">(</span><span class="n">cubes</span><span class="p">)</span>
+</code></pre></div>
+
+<p><img alt="" src="MASdfab-Week5/MASdfab-Week5_2022-10-21-10-22-57.png" />
+<img alt="" src="MASdfab-Week5/MASdfab-Week5_2022-10-21-11-51-28.png" />
+<img alt="" src="MASdfab-Week5/MASdfab-Week5_2022-10-21-14-18-30.png" />
+<img alt="" src="MASdfab-Week5/MASdfab-Week5_2022-10-21-14-22-32.png" /></p>
+    <p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p></body>
+    </html>
+    

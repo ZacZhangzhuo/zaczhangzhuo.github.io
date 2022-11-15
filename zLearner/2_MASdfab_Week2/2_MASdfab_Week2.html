@@ -1,0 +1,102 @@
+
+        <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="..\..\zMarkdownStyles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+    2_MASdfab_Week2.md
+    </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="icon" href="../../resources/LogoIcon.png" type="image/x-icon"/>
+    </head>
+    <body><!-- Menu Bar --><div class="menuBar"><a href="..\..\zHome.html "class="menuBar"> <p>zHome</p></a><a href="..\..\zDesigner\zDesigner.html "class="menuBar"> <p>zDesigner</p></a><a href="..\zLearner.html "class="menuBar"> <p>zLearner</p></a><a href="..\..\zWriter\zWriter.html "class="menuBar"> <p>zWriter</p></a><a href="..\..\zPhotographer\zPhotographer.html "class="menuBar"> <p>zPhotographer</p></a><a href="..\..\zIndividualDeveloper\zIndividualDeveloper.html "class="menuBar"> <p>zIndividualDeveloper</p></a><a href="..\..\zCV.html "class="menuBar"> <p>zCV</p></a><a href="..\..\zSkills.html "class="menuBar"> <p>zSkills</p></a><a href="..\..\zContact.html "class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
+    <h1 id="mas-dfab-week-2-computational-art">MAS dfab - Week 2 - Computational Art</h1>
+<hr />
+<p>Contents
+- <a href="#enumeration">Enumeration</a>
+- <a href="#interval">Interval</a>
+- <a href="#read-images">Read images</a>
+- <a href="#remap-function">Remap function</a>
+- <a href="#ask-the-colour-of-the-pixie">Ask the colour of the pixie</a>
+- <a href="#mesh-colour-colour-is-stored-in-the-vertex-data">Mesh Colour (Colour is stored in the vertex data)</a>
+- <a href="#one-reason-why-autocompletion-does-not-work-on-my-pc">One reason why AutoCompletion does not work on my PC</a></p>
+<h2 id="enumeration">Enumeration</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">rectangle</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">geo</span><span class="p">):</span> <span class="c1">#!</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">rectangle</span><span class="p">)</span>
+        <span class="n">degree</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="n">rectangle</span><span class="p">,</span> <span class="n">Corner</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">Y</span><span class="p">))</span>
+
+        <span class="c1"># The for loop is the same as below</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">geo</span><span class="p">)):</span>  <span class="c1">#!</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">rectangle</span><span class="p">)</span>
+        <span class="n">degree</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="n">rectangle</span><span class="p">,</span> <span class="n">Corner</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">Y</span><span class="p">))</span>
+</code></pre></div>
+
+<h2 id="interval">Interval</h2>
+<ul>
+<li>Represents an interval in one-dimensional space, that is defined as two extrema or bounds.</li>
+<li>https://developer.rhino3d.com/api/RhinoCommon/html/T_Rhino_Geometry_Interval.htm</li>
+</ul>
+<h2 id="read-images">Read images</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">System</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+
+    <span class="n">HERE</span> <span class="o">=</span> <span class="n">ghenv</span><span class="o">.</span><span class="n">LocalScope</span><span class="o">.</span><span class="n">ghdoc</span><span class="o">.</span><span class="n">Path</span>
+    <span class="n">dir_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">HERE</span><span class="p">)</span>
+    <span class="n">bitmap</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">Drawing</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">FromFile</span><span class="p">(</span><span class="n">dir_path</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">inTemp</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span><span class="p">)</span>
+
+    <span class="n">deltaPixelX</span> <span class="o">=</span> <span class="n">bitmap</span><span class="o">.</span><span class="n">Width</span> <span class="o">/</span> <span class="n">nx</span>
+    <span class="n">deltaPixelT</span> <span class="o">=</span> <span class="n">bitmap</span><span class="o">.</span><span class="n">Height</span> <span class="o">/</span> <span class="n">ny</span>
+
+    <span class="c1"># Ask the colour of the pixie</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">Drawing</span><span class="o">.</span><span class="n">Bitmap</span><span class="o">.</span><span class="n">GetPixel</span><span class="p">(</span><span class="n">bitmap</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="remap-function">Remap function</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="k">def</span> <span class="nf">remap</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">low1</span><span class="p">,</span> <span class="n">high1</span><span class="p">,</span> <span class="n">low2</span><span class="p">,</span> <span class="n">high2</span><span class="p">):</span>
+        <span class="n">new_value</span> <span class="o">=</span> <span class="n">low2</span> <span class="o">+</span> <span class="p">(</span><span class="n">value</span><span class="o">-</span><span class="n">low1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">high2</span><span class="o">-</span><span class="n">low2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">high1</span><span class="o">-</span><span class="n">low1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_value</span>
+</code></pre></div>
+
+<h2 id="ask-the-colour-of-the-pixie">Ask the colour of the pixie</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">System</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+
+    <span class="n">HERE</span> <span class="o">=</span> <span class="n">ghenv</span><span class="o">.</span><span class="n">LocalScope</span><span class="o">.</span><span class="n">ghdoc</span><span class="o">.</span><span class="n">Path</span>
+    <span class="n">dir_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">HERE</span><span class="p">)</span>
+    <span class="n">bitmap</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">Drawing</span><span class="o">.</span><span class="n">Image</span><span class="o">.</span><span class="n">FromFile</span><span class="p">(</span><span class="n">dir_path</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\\</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">inTemp</span> <span class="o">+</span> <span class="s2">&quot;.png&quot;</span><span class="p">)</span>
+
+    <span class="n">deltaPixelX</span> <span class="o">=</span> <span class="n">bitmap</span><span class="o">.</span><span class="n">Width</span> <span class="o">/</span> <span class="n">nx</span>
+    <span class="n">deltaPixelT</span> <span class="o">=</span> <span class="n">bitmap</span><span class="o">.</span><span class="n">Height</span> <span class="o">/</span> <span class="n">ny</span>
+
+    <span class="c1"># Ask the colour of the pixie</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="n">System</span><span class="o">.</span><span class="n">Drawing</span><span class="o">.</span><span class="n">Bitmap</span><span class="o">.</span><span class="n">GetPixel</span><span class="p">(</span><span class="n">bitmap</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="mesh-colour-colour-is-stored-in-the-vertex-data">Mesh Colour (Colour is stored in the vertex data)</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="n">box_mesh</span><span class="o">.</span><span class="n">VertexColors</span><span class="o">.</span><span class="n">CreateMonotoneMesh</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="one-reason-why-autocompletion-does-not-work-on-my-pc">One reason why AutoCompletion does not work on my PC</h2>
+<ul>
+<li>Some other paths occupied the AutoCompletion but cannot do that well. So we have to clear every extra path, and don't let the useless things exist.</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="nt">&quot;python.autoComplete.extraPaths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+
+<span class="w">    </span><span class="s2">&quot;C:\\Users\\Zac\\AppData\\Roaming\\McNeel\\Rhinoceros\\7.0\\Plug-ins\\IronPython (814d908a-e25c-493d-97e9-ee3861957f49)\\settings\\lib&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;C:\\Users\\Zac\\AppData\\Roaming\\McNeel\\Rhinoceros\\7.0\\scripts&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;C:\\Users\\Zac\\AppData\\Roaming\\McNeel\\Rhinoceros\\7.0\\Plug-ins\\IronPython (814d908a-e25c-493d-97e9-ee3861957f49)\\settings\\lib&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;C:\\Applications\\Rhino 7\\Plug-ins\\IronPython\\Lib&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;C:\\Users\\Zac\\AppData\\Roaming\\McNeel\\Rhinoceros\\7.0\\Plug-ins\\IronPython (814d908a-e25c-493d-97e9-ee3861957f49)\\settings\\lib&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// There is a &quot;C:\Program Files\Common Files\McNeel\Rhinoceros\7.0\Plug-ins\CodeListener&quot; very annoying and occupied the autoCompletion when scripting GHPython. Delete this one then autoCompletion is fine.</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;C:\\Users\\Zac\\AppData\\Roaming\\McNeel\\Rhinoceros\\7.0\\Plug-ins\\IronPython (814d908a-e25c-493d-97e9-ee3861957f49)\\settings\\lib\\ghpythonlib&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">],</span><span class="w"></span>
+</code></pre></div>
+    <p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p></body>
+    </html>
+    
