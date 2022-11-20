@@ -43,6 +43,11 @@ img {
   width: 100%;
   
 }
+img.media {
+  text-align: center;
+  width: 25px;
+  margin: 10px 10px 10px 10px;
+}
 
 h1,
 h2,
