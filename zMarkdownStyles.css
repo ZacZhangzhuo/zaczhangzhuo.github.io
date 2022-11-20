@@ -15,12 +15,27 @@ body {
   /* height: 100%; */
   /* width: 100%; */
 }
+td {
+  width: 33.3333333%;
+  
+  border-bottom: dashed;
+  border-bottom-width:1px ;
+  border-color: rgb(79, 79, 79);
+}
+th{
+    width: 33.3333333%;
+  border-bottom: solid;
+  border-bottom-width:1px ;
+  border-top: solid;
+  border-top-width:1px ;
+  border-color: rgb(119, 119, 119);
+}
 
 iframe {
-    display: block;
-    border-style:none;
-    align:"absmiddle";
-    margin:0 auto;
+  display: block;
+  border-style: none;
+  align: "absmiddle";
+  margin: 0 auto;
 }
 ::selection {
   background-color: #c9caca4b;
@@ -41,7 +56,6 @@ strong {
 }
 img {
   width: 100%;
-  
 }
 img.media {
   text-align: center;
@@ -137,7 +151,6 @@ pre {
 code {
   font-family: "source sans pro", Arial;
   color: #0e8da1;
-
 }
 pre code.codehilite {
   display: block;
@@ -299,7 +312,8 @@ code.codehilite {
 .codehilite .py {
   color: #6ca9b1;
 } /* Name.Property */
-.codehilite .nt {font-style: italic;
+.codehilite .nt {
+  font-style: italic;
   color: #16c1d9;
 } /* Name.Tag */
 .codehilite .nv {
@@ -389,8 +403,9 @@ code.codehilite {
   color: #53828c;
 } /* Literal.Number.Integer.Long */
 
-
-p{color: #ededed;}
+p {
+  color: #ededed;
+}
 
 /* Print */
 @media print {
@@ -412,7 +427,9 @@ p{color: #ededed;}
     margin-bottom: 40px;
     margin-right: 40px;
   }
-
+p{
+  color: #000000;
+}
   div {
     font-size: 12px;
   }
@@ -422,7 +439,8 @@ p{color: #ededed;}
   h4,
   h5,
   h6,
-  strong,a {
+  strong,
+  a {
     color: rgb(0, 0, 0);
   }
   body {
