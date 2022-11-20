@@ -163,6 +163,7 @@ German, Beginner (No test score)
 
 Blender - Python
 
+Arduino
 
 Professional Skills
 

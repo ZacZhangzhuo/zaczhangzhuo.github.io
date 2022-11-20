@@ -16,6 +16,12 @@ body {
   /* width: 100%; */
 }
 
+iframe {
+    display: block;
+    border-style:none;
+    align:"absmiddle";
+    margin:0 auto;
+}
 ::selection {
   background-color: #c9caca4b;
   color: #80deea;
@@ -35,6 +41,7 @@ strong {
 }
 img {
   width: 100%;
+  
 }
 
 h1,
