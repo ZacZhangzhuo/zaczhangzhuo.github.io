@@ -154,7 +154,7 @@ German, Beginner (No test score)
 | Laser Cutting | CNC              | /////  | 2017  |
 | 3D Printing   | 3D Printer/PrusaSlicer | ////\_ | 2019  |
 | Robotics      | UR/KUKA/ABB      | ////\_ | 2021  |
-| Robotics      | UR/KUKA/ABB      | ////\_ | 2020  |
+| Material explorations      | Martials      | /____ | 2020  |
 
 
 
