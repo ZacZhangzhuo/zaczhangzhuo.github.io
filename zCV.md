@@ -133,39 +133,36 @@ German, Beginner (No test score)
 
 **Professional Skills**
 
-| Computation         | Platform    | Level    | Since |
-| ------------------- | ----------- | -------- | ----- |
-| C#                  | Grasshopper | /////    | 2018  |
-| C#                  | Unity       | //\_\_\_ | 2022  |
-| Python              | Grasshopper | ////\_   | 2022  |
-| C++                 | Arduino     | //\_\_\_ | 2022  |
-| Python              | Grasshopper | ////\_   | 2022  |
-| Java                | Processing  | ////\_   | 2019  |
-| CG (ShaderLab)      | Grasshopper | ////\_   | 2022  |
-| HTML/CSS/JavaScript | Web2.0      | ////\_   | 2022  |
-| Markdown            | Any         | /////    | 2022  |
-| Python            | DiscoDiffusion-CoLab         | /____    | 2022  |
-| Scripting           | VScode/VS   | ////\_   | 2019  |
+| Computation         | Platform             | Level     | Since |
+| ------------------- | -------------------- | --------- | ----- |
+| C#                  | Grasshopper          | ////\_    | 2018  |
+| C#                  | Unity                | //\_\_\_  | 2022  |
+| Python              | Grasshopper          | ////\_    | 2022  |
+| C++                 | Arduino              | //\_\_\_  | 2022  |
+| Python              | Grasshopper          | ////\_    | 2022  |
+| Java                | Processing           | ////\_    | 2019  |
+| CG (ShaderLab)      | Grasshopper          | ////\_    | 2022  |
+| HTML/CSS/JavaScript | Web2.0               | ////\_    | 2022  |
+| Markdown            | Any                  | /////     | 2022  |
+| Python              | DiscoDiffusion-CoLab | /\_\_\_\_ | 2022  |
+| Scripting           | VScode/VS            | ////\_    | 2019  |
 
+| Fabrication           | Platform               | Level     | Since |
+| --------------------- | ---------------------- | --------- | ----- |
+| Carpentry series      | Carpentry tools        | ///\_\_   | 2017  |
+| Laser Cutting         | CNC                    | ////\_     | 2017  |
+| 3D Printing           | 3D Printer/PrusaSlicer | ////\_    | 2019  |
+| Robotics              | UR/KUKA/ABB            | ////\_    | 2021  |
+| Material explorations | Materials              | /\_\_\_\_ | 2020  |
 
-| Fabrication   | Platform         | Level  | Since |
-| ------------- | ---------------- | ------ | ----- |
-| Carpentry series | Carpentry tools              | ///__  | 2017  |
-| Laser Cutting | CNC              | /////  | 2017  |
-| 3D Printing   | 3D Printer/PrusaSlicer | ////\_ | 2019  |
-| Robotics      | UR/KUKA/ABB      | ////\_ | 2021  |
-| Material explorations      | Martials      | /____ | 2020  |
-
-
-
-| Design      | Platform                   | Level     | Since |
-| ----------- | -------------------------- | --------- | ----- |
-| Graphics    | Adobe Suits/Hands          | /////     | 2011  |
-| CAD         | AutoCAD                    | /////     | 2017  |
-| BIM         | Revit                      | /\_\_\_\_ | 2019  |
+| Design      | Platform                  | Level     | Since |
+| ----------- | ------------------------- | --------- | ----- |
+| Graphics    | Adobe Suits/Hands         | /////     | 2011  |
+| CAD         | AutoCAD                   | /////     | 2017  |
+| BIM         | Revit                     | /\_\_\_\_ | 2019  |
 | Modeling    | Rhino/Blender/MAYA/3DsMax | ////\_    | 2017  |
-| Interactive | Touch Designer             | ///\_\_   | 2021  |
-| Rendering   | Vray/Enscape/Lumion        | ///\_\_   | 2021  |
-| Animation   | Grasshopper                | /////     | 2017  |
-| Gaming      | Unity/Unreal Engine        | ///\_\_   | 2022  |
-| Photography      | My love Sony A7M2        | ////_   | 2017  |
+| Interactive | Touch Designer            | ///\_\_   | 2021  |
+| Rendering   | Vray/Enscape/Lumion       | ///\_\_   | 2021  |
+| Animation   | Grasshopper               | /////     | 2017  |
+| Gaming      | Unity/Unreal Engine       | ///\_\_   | 2022  |
+| Photography | My love Sony A7M2         | ////\_    | 2017  |
