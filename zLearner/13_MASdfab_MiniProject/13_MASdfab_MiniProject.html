@@ -1,0 +1,48 @@
+
+        <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="..\..\zMarkdownStyles.css" />
+    <script type="text/javascript" src="..\..\zFunctions.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+    13_MASdfab_MiniProject.md
+    </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="icon" href="../../resources/LogoIcon.png" type="image/x-icon"/>
+    </head>
+    <body><!-- Menu Bar --><div class="menuBar"><a href="..\..\zHome.html "class="menuBar"> <p>zHome</p></a><a href="..\..\zDesigner\zDesigner.html "class="menuBar"> <p>zDesigner</p></a><a href="..\zLearner.html "class="menuBar"> <p>zLearner</p></a><a href="..\..\zWriter\zWriter.html "class="menuBar"> <p>zWriter</p></a><a href="..\..\zPhotographer\zPhotographer.html "class="menuBar"> <p>zPhotographer</p></a><a href="..\..\zIndividualDeveloper\zIndividualDeveloper.html "class="menuBar"> <p>zIndividualDeveloper</p></a><a href="..\..\zCV.html "class="menuBar"> <p>zCV</p></a><a href="..\..\zSkills.html "class="menuBar"> <p>zSkills</p></a><a href="..\..\zContact.html "class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
+    <h1 id="mas-dfab-mini-project">MAS dfab - Mini Project</h1>
+<h2 id="new-orientation-function">New orientation function</h2>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">OrientPlane</span><span class="p">(</span><span class="n">plane</span><span class="p">):</span>
+    <span class="n">zAxis</span> <span class="o">=</span> <span class="n">plane</span><span class="o">.</span><span class="n">ZAxis</span>
+    <span class="k">if</span> <span class="n">zAxis</span><span class="o">.</span><span class="n">Z</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span> <span class="n">zAxis</span> <span class="o">=</span> <span class="o">-</span><span class="n">zAxis</span>
+    <span class="n">outPlane</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">Plane</span><span class="p">(</span><span class="n">plane</span><span class="o">.</span><span class="n">Origin</span><span class="p">,</span> <span class="n">zAxis</span><span class="p">)</span>
+    <span class="n">xAxis</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">outPlane</span><span class="o">.</span><span class="n">XAxis</span><span class="p">)</span>
+    <span class="n">xAxis</span><span class="o">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">rg</span><span class="o">.</span><span class="n">Transform</span><span class="o">.</span><span class="n">ProjectAlong</span><span class="p">(</span><span class="n">rg</span><span class="o">.</span><span class="n">Plane</span><span class="o">.</span><span class="n">WorldXY</span><span class="p">,</span> <span class="n">outPlane</span><span class="o">.</span><span class="n">YAxis</span><span class="p">))</span>
+    <span class="n">outPlane</span><span class="o">.</span><span class="n">Transform</span><span class="p">(</span><span class="n">rg</span><span class="o">.</span><span class="n">Transform</span><span class="o">.</span><span class="n">Rotation</span><span class="p">(</span><span class="n">outPlane</span><span class="o">.</span><span class="n">XAxis</span><span class="p">,</span> <span class="n">xAxis</span><span class="p">,</span> <span class="n">outPlane</span><span class="o">.</span><span class="n">Origin</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">outPlane</span><span class="o">.</span><span class="n">YAxis</span><span class="o">.</span><span class="n">Z</span> <span class="o">&lt;</span><span class="mi">0</span> <span class="p">:</span> <span class="n">outPlane</span> <span class="o">=</span> <span class="n">rg</span><span class="o">.</span><span class="n">Plane</span><span class="p">(</span><span class="n">outPlane</span><span class="o">.</span><span class="n">Origin</span><span class="p">,</span> <span class="o">-</span><span class="n">outPlane</span><span class="o">.</span><span class="n">XAxis</span><span class="p">,</span> <span class="o">-</span><span class="n">outPlane</span><span class="o">.</span><span class="n">YAxis</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">outPlane</span>
+</code></pre></div>
+
+<h2 id="an-interesting-qa">An interesting Q&amp;A</h2>
+<p><img alt="" src="13_MASdfab_MiniProject/13_MASdfab_MiniProject_2022-12-07-09-54-22.png" /></p>
+<h2 id="gitignore">gitignore</h2>
+<ul>
+<li>bin/: 忽略当前路径下的bin文件夹，该文件夹下的所有内容都会被忽略，不忽略 bin 文件</li>
+<li>/bin: 忽略根目录下的bin文件</li>
+<li>/*.c: 忽略 cat.c，不忽略 build/cat.c</li>
+<li>debug/*.obj: 忽略 debug/io.obj，不忽略 debug/common/io.obj 和 tools/debug/io.obj</li>
+<li>**/foo: 忽略/foo, a/foo, a/b/foo等</li>
+<li>a/**/b: 忽略a/b, a/x/b, a/x/y/b等</li>
+<li>!/bin/run.sh: 不忽略 bin 目录下的 run.sh 文件</li>
+<li>*.log: 忽略所有 .log 文件</li>
+<li>config.php: 忽略当前路径的 config.php 文件</li>
+</ul>
+    <p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p></body>
+    </html>
+    
