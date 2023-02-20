@@ -135,14 +135,13 @@ German, Beginner (No test score)
 
 | Computation         | Platform             | Level     | Since |
 | ------------------- | -------------------- | --------- | ----- |
-| C#                  | Grasshopper          | ////\_    | 2018  |
+| C#                  | Grasshopper          | /////    | 2018  |
 | C#                  | Unity                | //\_\_\_  | 2022  |
 | Python              | Grasshopper          | ////\_    | 2022  |
 | C++                 | Arduino              | //\_\_\_  | 2022  |
-| Python              | Grasshopper          | ////\_    | 2022  |
 | Java                | Processing           | ////\_    | 2019  |
-| CG (ShaderLab)      | Grasshopper          | ////\_    | 2022  |
-| HTML/CSS/JavaScript | Web2.0               | ////\_    | 2022  |
+| CG (ShaderLab)      | Unity          | /\_\_\_\_    | 2022  |
+| HTML/CSS/JavaScript | Any               | ////\_    | 2022  |
 | Markdown            | Any                  | /////     | 2022  |
 | Python              | DiscoDiffusion-CoLab | /\_\_\_\_ | 2022  |
 | Scripting           | VScode/VS            | ////\_    | 2019  |
@@ -152,12 +151,12 @@ German, Beginner (No test score)
 | Carpentry series      | Carpentry tools        | ///\_\_   | 2017  |
 | Laser Cutting         | CNC                    | ////\_     | 2017  |
 | 3D Printing           | 3D Printer/PrusaSlicer | ////\_    | 2019  |
-| Robotics              | UR/KUKA/ABB            | ////\_    | 2021  |
-| Material explorations | Materials              | /\_\_\_\_ | 2020  |
+| Robotics              | UR/KUKA/ABB            | ///\_\_    | 2021  |
+| Material Explorations | Any              | /\_\_\_\_ | 2020  |
 
 | Design      | Platform                  | Level     | Since |
 | ----------- | ------------------------- | --------- | ----- |
-| Graphics    | Adobe Suits/Hands         | /////     | 2011  |
+| 2D Graphics    | Adobe Suits/Hands         | /////     | 2011  |
 | CAD         | AutoCAD                   | /////     | 2017  |
 | BIM         | Revit                     | /\_\_\_\_ | 2019  |
 | Modeling    | Rhino/Blender/MAYA/3DsMax | ////\_    | 2017  |
