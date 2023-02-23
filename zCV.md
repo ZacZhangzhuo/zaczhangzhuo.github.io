@@ -133,7 +133,7 @@ German, Beginner (No test score)
 
 **Professional Skills**
 
-| Computation         | Platform             | Level     | Since |
+| Computation         | Scenario             | Level     | Since |
 | ------------------- | -------------------- | --------- | ----- |
 | C#                  | Grasshopper          | /////     | 2018  |
 | C#                  | Unity                | //\_\_\_  | 2022  |
@@ -147,7 +147,7 @@ German, Beginner (No test score)
 | Python              | DiscoDiffusion-CoLab | /\_\_\_\_ | 2022  |
 | Scripting           | VScode/VS            | ////\_    | 2019  |
 
-| Fabrication           | Platform               | Level     | Since |
+| Fabrication           | Scenario               | Level     | Since |
 | --------------------- | ---------------------- | --------- | ----- |
 | Carpentry series      | Carpentry tools        | ///\_\_   | 2017  |
 | Laser Cutting         | CNC                    | ////\_    | 2017  |
@@ -155,7 +155,7 @@ German, Beginner (No test score)
 | Robotics              | UR/KUKA/ABB            | ///\_\_   | 2021  |
 | Material Explorations | Any                    | /\_\_\_\_ | 2020  |
 
-| Design      | Platform                  | Level     | Since |
+| Design      | Scenario                  | Level     | Since |
 | ----------- | ------------------------- | --------- | ----- |
 | 2D Graphics | Adobe Suits/Hands         | /////     | 2011  |
 | CAD         | AutoCAD                   | /////     | 2017  |

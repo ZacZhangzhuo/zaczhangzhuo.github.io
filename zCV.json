@@ -1,0 +1,129 @@
+[
+  {
+    "Computation": "C#",
+    "Scenario": "Grasshopper",
+    "Level": "/////",
+    "Since": "2018"
+  },
+  {
+    "Computation": "C#",
+    "Scenario": "Unity",
+    "Level": "//\\_\\_\\_",
+    "Since": "2022"
+  },
+  {
+    "Computation": "Python",
+    "Scenario": "Grasshopper",
+    "Level": "////\\_",
+    "Since": "2022"
+  },
+  {
+    "Computation": "C++",
+    "Scenario": "Arduino",
+    "Level": "//\\_\\_\\_",
+    "Since": "2022"
+  },
+  {
+    "Computation": "Java",
+    "Scenario": "Processing",
+    "Level": "////\\_",
+    "Since": "2019"
+  },
+  {
+    "Computation": "JavaScript",
+    "Scenario": "three.js",
+    "Level": "//\\_\\_\\_",
+    "Since": "2023"
+  },
+  {
+    "Computation": "CG (ShaderLab)",
+    "Scenario": "Unity",
+    "Level": "/\\_\\_\\_\\_",
+    "Since": "2022"
+  },
+  {
+    "Computation": "HTML/CSS/JavaScript",
+    "Scenario": "Any",
+    "Level": "////\\_",
+    "Since": "2022"
+  },
+  {
+    "Computation": "Markdown",
+    "Scenario": "Any",
+    "Level": "/////",
+    "Since": "2022"
+  },
+  {
+    "Computation": "Python",
+    "Scenario": "DiscoDiffusion-CoLab",
+    "Level": "/\\_\\_\\_\\_",
+    "Since": "2022"
+  },
+  {
+    "Fabrication": "Carpentry series",
+    "Scenario": "Carpentry tools",
+    "Level": "///\\_\\_",
+    "Since": "2017"
+  },
+  {
+    "Fabrication": "Laser Cutting",
+    "Scenario": "CNC",
+    "Level": "////\\_",
+    "Since": "2017"
+  },
+  {
+    "Fabrication": "3D Printing",
+    "Scenario": "3D Printer/PrusaSlicer",
+    "Level": "////\\_",
+    "Since": "2019"
+  },
+  {
+    "Fabrication": "Robotics",
+    "Scenario": "UR/KUKA/ABB",
+    "Level": "///\\_\\_",
+    "Since": "2021"
+  },
+  {
+    "Design": "2D Graphics",
+    "Scenario": "Adobe Suits/Hands",
+    "Level": "/////",
+    "Since": "2011"
+  },
+  { "Design": "CAD", "Scenario": "AutoCAD", "Level": "/////", "Since": "2017" },
+  {
+    "Design": "BIM",
+    "Scenario": "Revit",
+    "Level": "/\\_\\_\\_\\_",
+    "Since": "2019"
+  },
+  {
+    "Design": "Modeling",
+    "Scenario": "Rhino/Blender/MAYA/3DsMax",
+    "Level": "////\\_",
+    "Since": "2017"
+  },
+  {
+    "Design": "Interactive",
+    "Scenario": "Touch Designer",
+    "Level": "///\\_\\_",
+    "Since": "2021"
+  },
+  {
+    "Design": "Rendering",
+    "Scenario": "Vray/Enscape/Lumion",
+    "Level": "///\\_\\_",
+    "Since": "2021"
+  },
+  {
+    "Design": "Animation",
+    "Scenario": "Grasshopper",
+    "Level": "/////",
+    "Since": "2017"
+  },
+  {
+    "Design": "Gaming",
+    "Scenario": "Unity/Unreal Engine",
+    "Level": "///\\_\\_",
+    "Since": "2022"
+  }
+]

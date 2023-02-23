@@ -1,48 +1,95 @@
-import numpy as np
-from compas.data import json_dump
-def ball_and_stick_model(names, links, sizes):
-    """
-    Generates a ball-and-stick model of a molecule based on the names, links and sizes of its elements.
+UpdateSkillPage = True
 
-    Args:
-        names (list): List of names of the elements.
-        links (list): List of tuples containing the indices of elements that are linked to each other.
-        sizes (list): List of sizes of the elements.
+from compas import json_dump
+import re
 
-    Returns:
-        numpy.ndarray: Array of shape (n, 3) containing the locations of the elements.
-    """
-    n = len(names)
-    locations = np.zeros((n, 3))
+def markdown_to_dict(markdown_string):
+    # split the input string into tables
+    tables = re.split(r"\n\s*\n", markdown_string.strip())
 
-    # Compute the locations of the elements based on their sizes and links
-    for i in range(n):
-        locations[i][0] = sizes[i] * np.cos(i * 2 * np.pi / n)
-        locations[i][1] = sizes[i] * np.sin(i * 2 * np.pi / n)
-        locations[i][2] = 0
+    # iterate over the tables and convert each one to a list of dictionaries
+    result = []
+    for table in tables:
+        rows = table.split('\n')
+        headers = [header.strip() for header in rows[0].split('|')[1:-1]]
+        for row in rows[2:-1]:
+            values = [value.strip() for value in row.split('|')[1:-1]]
+            result.append(dict(zip(headers, values)))
 
-    for link in links:
-        p1 = locations[link[0]]
-        p2 = locations[link[1]]
-        midpoint = (p1 + p2) / 2
-        direction = p2 - p1
-        length = np.linalg.norm(direction)
-        direction /= length
-        stick_length = 0.1 * min(sizes[link[0]], sizes[link[1]])
-        locations[link[0]] += direction * (stick_length / 2)
-        locations[link[1]] -= direction * (stick_length / 2)
-
-    return locations
+    return result
 
 
-names = ["O", "H", "H", "H", "H","C","H"]
-links = [(0, 1), (0, 2), (0, 3), (0, 4), (0, 5),(5,6)]
-sizes = [5.0, 0.8,0.8,0.8,0.8,3,0.8]
 
-locations = ball_and_stick_model(names, links, sizes)
-# print(locations)
+if UpdateSkillPage:
+
+    #! Change
+    location = "zCV.md"
+    #! Get the text from the md file
+    md = open(location, "r", encoding="utf-8")
+    mdTexts = md.read()
+    mdTexts = mdTexts.split("**Professional Skills**")
+    mdDic = markdown_to_dict(mdTexts[1])
+    md.close()
+    
+    # json_dump(mdDic, "zCV.json")
 
 
-data = {"names": names, "links": links, "sizes": sizes, "locations": locations.tolist()}
-json_dump(data, "ball_and_stick.json")
+
+##! Convert string data to points part
+
+##! Point Generator Part
+maxIteration = 1000
+def Distance(point1, point2):
+    x = (point1[0] - point2[0])**2
+    y = (point1[1] - point2[1])**2
+    z = (point1[2] - point2[2])**2
+    return (x +y+ z)**0.5
+def Add(point1, point2):
+    return [point1[0] + point2[0], point1[1] + point2[1], point1[2] + point2[2]]
+def Minus(point1, point2):
+    return [point1[0] - point2[0], point1[1] - point2[1], point1[2] - point2[2]]
+def Unitize(vector):
+    length = (vector[0]**2 + vector[1]**2 + vector[2]**2)**0.5
+    if length > 0:
+        return [vector[0]/length, vector[1]/length, vector[2]/length]
+    else: return [0,0,0]
+def Multiply(vector, number):
+    return [vector[0]*number, vector[1]*number, vector[2]*number]
+
+
+for iteration in range(maxIteration):
+    totalVector = []
+    counts = []
+
+    for p in range(len(Points)):
+        totalVector.append([0,0,0])
+        counts.append(0)
+    
+    for i in range(len(Points)):
+        for j in range(i+1, len(Points)):
+
+            distance = Distance(Points[i], Points[j])
+            subVector = Minus(Points[i], Points[j])
+            subVector = Unitize(subVector)
+
+            subVector =Multiply( subVector, (Radiuses[i] + Radiuses[j] - distance))
+            totalVector[i] = Add(totalVector[i],subVector)
+            totalVector[j] =Minus(  totalVector[j],subVector)
+            counts[i] += 1
+            counts[j] += 1
+    
+    isContinue = True
+    for k in range(len(Points)):
+        if counts[k] != 0:
+            move =Multiply( totalVector[k], 1/((float)(counts[k])))
+
+            if Distance(move,[0,0,0]) > 0.01:isContinue = False
+
+            Points[k] = Add(Points[k], move)
+
+    if isContinue:
+        print ("Iteration: " + str(iteration))
+        break
+
+
 
