@@ -2,26 +2,27 @@ UpdateSkillPage = True
 
 import re
 import math
+import random
 
 def markdown_to_dict(markdown_string):
     # split the input string into tables
     tables = re.split(r"\n\s*\n", markdown_string.strip())
     CategoryNumber = 0
     # iterate over the tables and convert each one to a list of dictionaries
-    result = []
+    sonDict = []
+    fatherDict = []
     for table in tables:
         rows = table.split('\n')
         headers = [header.strip() for header in rows[0].split('|')[2:-1]]
         headers.insert(0, "Skill")
         headers.insert(0, "Category")
         Category = rows[0].split('|')[1].strip()
-        CategoryNumber += 1
+        fatherDict.append({"Category": Category})
         for row in rows[2:-1]:
             values = [value.strip() for value in row.split('|')[1:-1]]
             values.insert(0, Category)
-            result.append(dict(zip(headers, values)))
-
-    return result, CategoryNumber
+            sonDict.append(dict(zip(headers, values)))
+    return sonDict, fatherDict
 
 
 
@@ -33,7 +34,7 @@ if UpdateSkillPage:
     md = open(location, "r", encoding="utf-8")
     mdTexts = md.read()
     mdTexts = mdTexts.split("**Professional Skills**")
-    mdDic, CategoryNumber  = markdown_to_dict(mdTexts[1])
+    sonDict, fatherDict  = markdown_to_dict(mdTexts[1])
     md.close()
     # json_dump(mdDic, "zCV.json")
 
@@ -50,72 +51,114 @@ def evenly_distributed_points_on_sphere(center, radius, n_points):
         x = math.cos(phi_increment) * radius_at_height
         z = math.sin(phi_increment) * radius_at_height
         points.append([x+center[0], y+center[1], z+center[2]])
+    
     return points
 
 
-CenterPoints = evenly_distributed_points_on_sphere([0,0,0], 1, CategoryNumber)
-relationships = []
-sizes = [1 for i in range(CategoryNumber)]
+coreRadius = 3
+fatherRadius = 2
+sonRadius = 1
+##! Shape data
+performanceScale = 0.8
 
-for d in mdDic:
+
+for i,p in enumerate(evenly_distributed_points_on_sphere([0,0,0],coreRadius, len(fatherDict))):
+    fatherDict[i]["Point"] = p
+    fatherDict[i]["Scale"] = performanceScale
+    fatherDict[i]["Radius"] = fatherRadius
+    links = []
+    for j in range(len(sonDict)):
+        if sonDict[j]["Category"] == fatherDict[i]["Category"]:
+            links.append(j)
+    fatherDict[i]["Links"] = links
+    points = evenly_distributed_points_on_sphere(p,fatherRadius, len(fatherDict[i]["Links"]))
     
-
     
+    for j in sonDict:
+        if j["Category"] == fatherDict[i]["Category"]:
+            j["Point"] = points[0]
+            j["Scale"] = performanceScale
+            j["Radius"] = sonRadius
+            points.pop(0)
+
+
+##! Pass data
+p1 = []
+r1 = []
+for i in fatherDict:
+    p1.append(i["Point"])
+    r1.append(i["Radius"])
+p2 = []
+r2 = []
+for i in sonDict:
+    p2.append(i["Point"])
+    r2.append(i["Radius"])
+Points = p1 + p2
+Radiuses = r1 + r2
 
 
 
+##! Point Generator Part
+maxIteration = 1000
+def Distance(point1, point2):
+    x = (point1[0] - point2[0])**2
+    y = (point1[1] - point2[1])**2
+    z = (point1[2] - point2[2])**2
+    return (x +y+ z)**0.5
+def Add(point1, point2):
+    return [point1[0] + point2[0], point1[1] + point2[1], point1[2] + point2[2]]
+def Minus(point1, point2):
+    return [point1[0] - point2[0], point1[1] - point2[1], point1[2] - point2[2]]
+def Unitize(vector):
+    length = (vector[0]**2 + vector[1]**2 + vector[2]**2)**0.5
+    if length > 0:
+        return [vector[0]/length, vector[1]/length, vector[2]/length]
+    else: return [0,0,0]
+def Multiply(vector, number):
+    return [vector[0]*number, vector[1]*number, vector[2]*number]
 
+for iteration in range(maxIteration):
+    totalVector = []
+    counts = []
 
-# ##! Point Generator Part
-# maxIteration = 1000
-# def Distance(point1, point2):
-#     x = (point1[0] - point2[0])**2
-#     y = (point1[1] - point2[1])**2
-#     z = (point1[2] - point2[2])**2
-#     return (x +y+ z)**0.5
-# def Add(point1, point2):
-#     return [point1[0] + point2[0], point1[1] + point2[1], point1[2] + point2[2]]
-# def Minus(point1, point2):
-#     return [point1[0] - point2[0], point1[1] - point2[1], point1[2] - point2[2]]
-# def Unitize(vector):
-#     length = (vector[0]**2 + vector[1]**2 + vector[2]**2)**0.5
-#     if length > 0:
-#         return [vector[0]/length, vector[1]/length, vector[2]/length]
-#     else: return [0,0,0]
-# def Multiply(vector, number):
-#     return [vector[0]*number, vector[1]*number, vector[2]*number]
-
-# for iteration in range(maxIteration):
-#     totalVector = []
-#     counts = []
-
-#     for p in range(len(Points)):
-#         totalVector.append([0,0,0])
-#         counts.append(0)
+    for p in range(len(Points)):
+        totalVector.append([0,0,0])
+        counts.append(0)
     
-#     for i in range(len(Points)):
-#         for j in range(i+1, len(Points)):
+    for i in range(len(Points)):
+        for j in range(i+1, len(Points)):
 
-#             distance = Distance(Points[i], Points[j])
-#             subVector = Minus(Points[i], Points[j])
-#             subVector = Unitize(subVector)
+            distance = Distance(Points[i], Points[j])
+            subVector = Minus(Points[i], Points[j])
+            subVector = Unitize(subVector)
 
-#             subVector =Multiply( subVector, (Radiuses[i] + Radiuses[j] - distance))
-#             totalVector[i] = Add(totalVector[i],subVector)
-#             totalVector[j] =Minus(  totalVector[j],subVector)
-#             counts[i] += 1
-#             counts[j] += 1
-#     isContinue = True
-#     for k in range(len(Points)):
-#         if counts[k] != 0:
-#             move =Multiply( totalVector[k], 1/((float)(counts[k])))
+            subVector =Multiply( subVector, (Radiuses[i] + Radiuses[j] - distance))
+            if Radiuses[i] + Radiuses[j] - distance > 0:
+                totalVector[i] = Add(totalVector[i],subVector)
+                totalVector[j] =Minus(  totalVector[j],subVector)
+                counts[i] += 1
+                counts[j] += 1
+    isContinue = True
+    for k in range(len(Points)):
+        if counts[k] != 0:
+            move =Multiply( totalVector[k], 1/((float)(counts[k])))
 
-#             if Distance(move,[0,0,0]) > 0.01:isContinue = False
+            if Distance(move,[0,0,0]) > 0.01:isContinue = False
 
-#             Points[k] = Add(Points[k], move)
-#     if isContinue:
-#         print ("Iteration: " + str(iteration))
-#         break
+            Points[k] = Add(Points[k], move)
+    if isContinue:
+        print ("Iteration: " + str(iteration))
+        break
 
+##! Back data
+for i in range(len(fatherDict)):
+    fatherDict[i]["Point"] = Points[i]
+for j in range(len(sonDict)):
+    sonDict[j]["Point"] = Points[j+len(fatherDict)]
+
+##! Output
+from compas import json_dump
+json_dump([fatherDict+ sonDict], "data.json")
+# json_dump(, "son.json")
 
 
