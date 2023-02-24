@@ -1,127 +1,155 @@
 [
   {
-    "Computation": "C#",
+    "Category": "Computation",
+    "Skill": "C#",
     "Scenario": "Grasshopper",
     "Level": "/////",
     "Since": "2018"
   },
   {
-    "Computation": "C#",
+    "Category": "Computation",
+    "Skill": "C#",
     "Scenario": "Unity",
     "Level": "//\\_\\_\\_",
     "Since": "2022"
   },
   {
-    "Computation": "Python",
+    "Category": "Computation",
+    "Skill": "Python",
     "Scenario": "Grasshopper",
     "Level": "////\\_",
     "Since": "2022"
   },
   {
-    "Computation": "C++",
+    "Category": "Computation",
+    "Skill": "C++",
     "Scenario": "Arduino",
     "Level": "//\\_\\_\\_",
     "Since": "2022"
   },
   {
-    "Computation": "Java",
+    "Category": "Computation",
+    "Skill": "Java",
     "Scenario": "Processing",
     "Level": "////\\_",
     "Since": "2019"
   },
   {
-    "Computation": "JavaScript",
+    "Category": "Computation",
+    "Skill": "JavaScript",
     "Scenario": "three.js",
     "Level": "//\\_\\_\\_",
     "Since": "2023"
   },
   {
-    "Computation": "CG (ShaderLab)",
+    "Category": "Computation",
+    "Skill": "CG (ShaderLab)",
     "Scenario": "Unity",
     "Level": "/\\_\\_\\_\\_",
     "Since": "2022"
   },
   {
-    "Computation": "HTML/CSS/JavaScript",
+    "Category": "Computation",
+    "Skill": "HTML/CSS/JavaScript",
     "Scenario": "Any",
     "Level": "////\\_",
     "Since": "2022"
   },
   {
-    "Computation": "Markdown",
+    "Category": "Computation",
+    "Skill": "Markdown",
     "Scenario": "Any",
     "Level": "/////",
     "Since": "2022"
   },
   {
-    "Computation": "Python",
+    "Category": "Computation",
+    "Skill": "Python",
     "Scenario": "DiscoDiffusion-CoLab",
     "Level": "/\\_\\_\\_\\_",
     "Since": "2022"
   },
   {
-    "Fabrication": "Carpentry series",
+    "Category": "Fabrication",
+    "Skill": "Carpentry series",
     "Scenario": "Carpentry tools",
     "Level": "///\\_\\_",
     "Since": "2017"
   },
   {
-    "Fabrication": "Laser Cutting",
+    "Category": "Fabrication",
+    "Skill": "Laser Cutting",
     "Scenario": "CNC",
     "Level": "////\\_",
     "Since": "2017"
   },
   {
-    "Fabrication": "3D Printing",
+    "Category": "Fabrication",
+    "Skill": "3D Printing",
     "Scenario": "3D Printer/PrusaSlicer",
     "Level": "////\\_",
     "Since": "2019"
   },
   {
-    "Fabrication": "Robotics",
+    "Category": "Fabrication",
+    "Skill": "Robotics",
     "Scenario": "UR/KUKA/ABB",
     "Level": "///\\_\\_",
     "Since": "2021"
   },
   {
-    "Design": "2D Graphics",
+    "Category": "Design",
+    "Skill": "2D Graphics",
     "Scenario": "Adobe Suits/Hands",
     "Level": "/////",
     "Since": "2011"
   },
-  { "Design": "CAD", "Scenario": "AutoCAD", "Level": "/////", "Since": "2017" },
   {
-    "Design": "BIM",
+    "Category": "Design",
+    "Skill": "CAD",
+    "Scenario": "AutoCAD",
+    "Level": "/////",
+    "Since": "2017"
+  },
+  {
+    "Category": "Design",
+    "Skill": "BIM",
     "Scenario": "Revit",
     "Level": "/\\_\\_\\_\\_",
     "Since": "2019"
   },
   {
-    "Design": "Modeling",
+    "Category": "Design",
+    "Skill": "Modeling",
     "Scenario": "Rhino/Blender/MAYA/3DsMax",
     "Level": "////\\_",
     "Since": "2017"
   },
   {
-    "Design": "Interactive",
+    "Category": "Design",
+    "Skill": "Interactive",
     "Scenario": "Touch Designer",
     "Level": "///\\_\\_",
     "Since": "2021"
   },
   {
-    "Design": "Rendering",
+    "Category": "Design",
+    "Skill": "Rendering",
     "Scenario": "Vray/Enscape/Lumion",
     "Level": "///\\_\\_",
     "Since": "2021"
   },
   {
-    "Design": "Animation",
+    "Category": "Design",
+    "Skill": "Animation",
     "Scenario": "Grasshopper",
     "Level": "/////",
     "Since": "2017"
+    
   },
   {
-    "Design": "Gaming",
+    "Category": "Design",
+    "Skill": "Gaming",
     "Scenario": "Unity/Unreal Engine",
     "Level": "///\\_\\_",
     "Since": "2022"
