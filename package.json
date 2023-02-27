@@ -1,0 +1,23 @@
+{
+  "name": "zaczhangzhuo.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "zSkillMain.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "gh-pages -d"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZacZhangzhuo/ZacZhangzhuo.github.io.git"
+  },
+  "author": "Zac Zhuo Zhang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZacZhangzhuo/ZacZhangzhuo.github.io/issues"
+  },
+  "homepage": "https://github.com/ZacZhangzhuo/ZacZhangzhuo.github.io#readme",
+  "dependencies": {
+    "gh-pages": "^5.0.0"
+  }
+}
