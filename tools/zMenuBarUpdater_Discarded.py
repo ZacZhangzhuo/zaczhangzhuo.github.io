@@ -50,7 +50,7 @@ for htmlPath in allHtmlPaths:
             barText
             + '<a href="'
             + os.path.relpath(MenuBar, htmlPath)[3:]
-            + ' "class="menuBar"> <p>'
+            + ' " class="menuBar"> <p>'
             + MenuBar.split("\\")[-1].replace(".html", "")
             + "</p></a>"
         )

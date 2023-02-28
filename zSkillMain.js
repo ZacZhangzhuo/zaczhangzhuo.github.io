@@ -1,6 +1,6 @@
 import * as THREE from "three";
 // import { Light } from "three";
-import "zStyles.css";
+// import "/zStyles.css";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 //Scene

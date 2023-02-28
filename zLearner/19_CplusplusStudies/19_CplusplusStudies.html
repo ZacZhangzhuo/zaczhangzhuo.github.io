@@ -2,6 +2,7 @@
         <!DOCTYPE html>
     <html lang="en">
     <head>
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link rel="stylesheet" href="..\..\zMarkdownStyles.css" />
     <script type="text/javascript" src="..\..\zFunctions.js"></script>
@@ -15,7 +16,7 @@
     />
     <link rel="icon" href="../../resources/LogoIcon.png" type="image/x-icon"/>
     </head>
-    <body><!-- Menu Bar --><div class="menuBar"><a href="..\..\zHome.html "class="menuBar"> <p>zHome</p></a><a href="..\..\zDesigner\zDesigner.html "class="menuBar"> <p>zDesigner</p></a><a href="..\zLearner.html "class="menuBar"> <p>zLearner</p></a><a href="..\..\zWriter\zWriter.html "class="menuBar"> <p>zWriter</p></a><a href="..\..\zPhotographer\zPhotographer.html "class="menuBar"> <p>zPhotographer</p></a><a href="..\..\zIndividualDeveloper\zIndividualDeveloper.html "class="menuBar"> <p>zIndividualDeveloper</p></a><a href="..\..\zCV.html "class="menuBar"> <p>zCV</p></a><a href="..\..\zSkills.html "class="menuBar"> <p>zSkills</p></a><a href="..\..\zContact.html "class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
+    <body><!-- Menu Bar --><div class="menuBar"><a href="..\..\zHome.html " class="menuBar"> <p>zHome</p></a><a href="..\..\zDesigner\zDesigner.html " class="menuBar"> <p>zDesigner</p></a><a href="..\zLearner.html " class="menuBar"> <p>zLearner</p></a><a href="..\..\zWriter\zWriter.html " class="menuBar"> <p>zWriter</p></a><a href="..\..\zPhotographer\zPhotographer.html " class="menuBar"> <p>zPhotographer</p></a><a href="..\..\zIndividualDeveloper\zIndividualDeveloper.html " class="menuBar"> <p>zIndividualDeveloper</p></a><a href="..\..\zCV.html " class="menuBar"> <p>zCV</p></a><a href="..\..\zSkills.html " class="menuBar"> <p>zSkills</p></a><a href="..\..\zContact.html " class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
     <h1 id="c-plus-plus-studies">C plus plus Studies</h1>
 <hr />
 <ul>
@@ -58,7 +59,7 @@
 <span class="p">{</span><span class="w"></span>
 <span class="w">    </span><span class="c1">//Write your code HERE</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// if return any value that is not 0, whatever positive or negative, it tells the computer to that this program is not correctly run.</span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="mathematical-expressions">Mathematical expressions</h2>
@@ -70,50 +71,53 @@
 <span class="w">    </span><span class="c1">//OR</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="o">++</span><span class="w"> </span><span class="c1">// Now a = 11, b = 10</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="output-and-input">Output and input</h2>
 <ul>
-<li>Print one variable
-  <code>C++
-  int main()
-  {
-      int x = 10;
-      std ::cout &lt;&lt; "x = " &lt;&lt;x;
-      //above is the same as the two below:
-      std ::cout &lt;&lt; "x = " ;
-      std ::cout &lt;&lt; x;
-      return 0;
-  }</code></li>
+<li>Print one variable</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;x = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//above is the same as the two below:</span>
+<span class="w">    </span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;x = &quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
+<ul>
 <li>Print variables</li>
 </ul>
-<p><code>C++
-  int main()
-  {
-      int x = 10;
-      int y = 10;
-      std ::cout &lt;&lt; "x = " &lt;&lt; x &lt;&lt; std::endl&lt;&lt; "y = " &lt;&lt; y &lt;&lt; std::endl;
-      return 0;
-  }</code></p>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">std</span><span class="w"> </span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;x = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;y = &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
 <ul>
 <li>Input value</li>
 </ul>
-<p>```C++
-  int main()
-  {
-      int x = 10;
-      int y = 10;</p>
-<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="nv">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot;tell me what you like&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nv">endl</span><span class="c1">;</span><span class="w"></span>
-<span class="w">  </span><span class="nv">int</span><span class="w"> </span><span class="nv">value</span><span class="c1">;</span><span class="w"></span>
-<span class="w">  </span><span class="nv">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="nv">value</span><span class="c1">;</span><span class="w"></span>
-<span class="w">  </span><span class="nv">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nv">endl</span><span class="c1">;</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
 
-<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="c1">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;tell me what you like&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cin</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">value</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
-<p>}
-  ```</p>
 <h2 id="fundamental-data-types">Fundamental data types</h2>
 <p><img alt="" src="19_CplusplusStudies/19_CplusplusStudies_2023-02-15-18-16-08.png" /></p>
 <h2 id="what-is-include">What is #include</h2>
@@ -124,140 +128,147 @@
 <ul>
 <li>'#define x y' simply replace x as y.</li>
 </ul>
-<p><code>C++
-  #define PI 3.14159
-  int main ()
-  {
-      cout &lt;&lt; "Value of PI :" &lt;&lt; PI &lt;&lt; endl;
-      return 0;
-  }</code></p>
+<div class="codehilite"><pre><span></span><code><span class="cp">#define PI 3.14159</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="w"> </span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Value of PI :&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">PI</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
 <h2 id="c">C++ 中的预定义宏</h2>
 <p><img alt="" src="19_CplusplusStudies/19_CplusplusStudies_2023-02-16-10-56-22.png" /></p>
 <h2 id="head">Head</h2>
 <ul>
-<li>&lt; and "
-  <code>C++
-  #include "iostream"
-  //below is almost the same as above
-  //"" means a specific location (relative location), &lt;&gt; means a file that exists in the folder, no matter the location.
-  #include &lt;iostream&gt;</code></li>
+<li>&lt; and "</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;iostream&quot;</span><span class="cp"></span>
+<span class="c1">//below is almost the same as above</span>
+<span class="c1">//&quot;&quot; means a specific location (relative location), &lt;&gt; means a file that exists in the folder, no matter the location.</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+</code></pre></div>
+
+<ul>
 <li>Why some files like 'iostream' does have a '.h'? - C++ stand library has no extension, but C stand library has '.h' extension.</li>
 </ul>
 <h2 id="pointer">Pointer (指针)</h2>
 <ul>
 <li>A pointer is a variable that stores the address of another variable.</li>
-<li>My first pointer
-  <code>C++
-  int main()
-  {
-    int* ptr = &amp;var;
-    cout &lt;&lt; ptr &lt;&lt; endl;
-    cin.get();
-  }</code></li>
-<li>int &amp;b=a;//the &amp; in this declaration statement is a reference</li>
-<li>*p=&b;//the &amp; in this pointer initialization statement is an address operator</li>
-<li>int* is a pointer to an integer</li>
+<li>My first pointer</li>
 </ul>
-<p>```C++
-    int main()
-    {
-        int var = 8;
-        int * ptr = &var;
-        *ptr = 10;
-        cout &lt;&lt; var &lt;&lt; endl;
-        cin.get();</p>
-<div class="codehilite"><pre><span></span><code>}
+<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">var</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
-<p>```</p>
+<ul>
+<li>"int &amp;b=a" is the &amp; in this declaration statement is a reference</li>
+<li>"*p=&amp;b" is the &amp; in this pointer initialization statement is an address operator</li>
+<li>"int*" is a pointer to an integer</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">var</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="o">*</span><span class="n">ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
 <div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addOne</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"></span>
 <span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">     </span><span class="p">(</span><span class="o">*</span><span class="n">value</span><span class="p">)</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="p">};</span><span class="w"></span>
 
 <span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 <span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">     </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
 <span class="w">     </span><span class="n">addOne</span><span class="p">(</span><span class="o">&amp;</span><span class="n">a</span><span class="p">);</span><span class="w"></span>
 <span class="w">     </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w"> </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="reference">Reference (引用)</h2>
 <ul>
 <li>A reference is an alias for another variable.</li>
 </ul>
-<p><code>C++
-  int x = 10;   // x is an integer
-  int &amp;y = x; // y is a reference to x</code></p>
+<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">   </span><span class="c1">// x is an integer</span>
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// y is a reference to x</span>
+</code></pre></div>
+
 <ul>
 <li>example</li>
 </ul>
-<p>```C++
-    int main()
-    {
-        int var = 0;
-        int&amp; ref = var;
-        ref = 10;
-        cout &lt;&lt; var &lt;&lt; endl;
-        cin.get();</p>
-<div class="codehilite"><pre><span></span><code>}
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">int</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">var</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ref</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
-<p>```</p>
-<p>```C++
-  void addOne(int &amp;value)
-  {
-      value++;
-  }</p>
-<p>int main()
-  {
-      int var = 0;
-      // int &amp;ref = var;
-      addOne(var);
-      cout &lt;&lt; var &lt;&lt; endl;
-      cin.get();
-  }
-  ```</p>
+<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">addOne</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">&amp;</span><span class="n">value</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">value</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// int &amp;ref = var;</span>
+<span class="w">      </span><span class="n">addOne</span><span class="p">(</span><span class="n">var</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">var</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+</code></pre></div>
+
 <h2 id="class">Class (类)</h2>
 <ul>
 <li>A class is a user-defined data type, which holds its own data members and member functions, which can be accessed and used by creating an instance of that class.</li>
 </ul>
-<p>```C++
-   class Player
-   {
-   public:
-       int x, y;
-       int speed;
-   };</p>
-<p>int main()
-   {
-       Player x;
-       x.x = 10;</p>
-<div class="codehilite"><pre><span></span><code>   cin.get();
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="k">class</span><span class="w"> </span><span class="nc">Player</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">       </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="kt">int</span><span class="w"> </span><span class="n">speed</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="n">Player</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">       </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+<span class="w">   </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
-<p>}
-  ```</p>
 <h2 id="struct">Struct (结构体)</h2>
 <ul>
 <li>A struct is a user-defined data type, which holds its own data members and member functions, which can be accessed and used by creating an instance of that struct.</li>
 </ul>
-<p>```C++
-   struct Player
-   {
-       int x, y;
-       int speed;
-   };</p>
-<p>int main()
-   {
-       Player x;
-       x.x = 10;</p>
-<div class="codehilite"><pre><span></span><code>   cin.get();
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="k">struct</span><span class="w"> </span><span class="nc">Player</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="kt">int</span><span class="w"> </span><span class="n">speed</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="p">};</span><span class="w"></span>
+
+<span class="w">   </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="n">Player</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">       </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+<span class="w">   </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
-<p>}
-  ```</p>
 <ul>
 <li>technically, the only difference between a class and a struct is that members of a struct are public by default, and members of a class are private by default. It means you can write '#define struct class' in the beginning of the code to switch between class and struct.</li>
 </ul>
@@ -296,6 +307,7 @@
 <span class="w">        </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">speed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">speed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="c1">/// Outcome would be  456 456</span>
 <span class="w">        </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="extern">Extern (外部)</h2>
@@ -321,9 +333,9 @@
 <span class="w">      </span><span class="n">Player</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">==</span><span class="mi">1</span><span class="p">){</span><span class="w"></span>
 <span class="w">          </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;x is A&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">};</span><span class="w"></span>
 <span class="w">      </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="constructor">Constructor (构造函数)</h2>
@@ -345,7 +357,7 @@
 <span class="w">          </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thex</span><span class="p">;</span><span class="w"></span>
 <span class="w">          </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">they</span><span class="p">;</span><span class="w"></span>
 <span class="w">          </span><span class="n">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">thes</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">};</span><span class="w"></span>
 <span class="w">  </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
@@ -353,7 +365,7 @@
 <span class="w">      </span><span class="n">Player</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Player</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
 <span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;X is&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">X</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Y is&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">X</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Z is&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">X</span><span class="p">.</span><span class="n">speed</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="polymorphism">Polymorphism (多态)</h2>
@@ -366,7 +378,7 @@
 <span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Entity</span><span class="w"></span>
 <span class="w">  </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">      </span><span class="k">virtual</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">GetName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Entity&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="k">virtual</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">GetName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Entity&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 <span class="w">  </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Player</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Entity</span><span class="w"></span>
@@ -375,15 +387,15 @@
 <span class="w">      </span><span class="n">string</span><span class="w"> </span><span class="n">m_Name</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">      </span><span class="n">Player</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"></span>
-<span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">m_Name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">m_Name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
-<span class="w">      </span><span class="n">string</span><span class="w"> </span><span class="n">GetName</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_Name</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="n">string</span><span class="w"> </span><span class="nf">GetName</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_Name</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 <span class="w">  </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">PrintName</span><span class="p">(</span><span class="n">Entity</span><span class="o">*</span><span class="w"> </span><span class="n">entity</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">entity</span><span class="o">-&gt;</span><span class="n">GetName</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 <span class="w">  </span><span class="p">{</span><span class="w"></span>
@@ -394,7 +406,7 @@
 <span class="w">      </span><span class="n">PrintName</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">      </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="new">new (动态内存分配)</h2>
@@ -407,7 +419,7 @@
 <span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Entity</span><span class="w"></span>
 <span class="w">  </span><span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">      </span><span class="k">virtual</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">GetName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Entity&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="k">virtual</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">GetName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;Entity&quot;</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 <span class="w">  </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">Player</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Entity</span><span class="w"></span>
@@ -416,15 +428,15 @@
 <span class="w">      </span><span class="n">string</span><span class="w"> </span><span class="n">m_Name</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">      </span><span class="n">Player</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"></span>
-<span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">m_Name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"></span>
+<span class="w">          </span><span class="o">:</span><span class="w"> </span><span class="n">m_Name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
 
-<span class="w">      </span><span class="n">string</span><span class="w"> </span><span class="n">GetName</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_Name</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="n">string</span><span class="w"> </span><span class="nf">GetName</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">m_Name</span><span class="p">;</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
 <span class="w">  </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">PrintName</span><span class="p">(</span><span class="n">Entity</span><span class="o">*</span><span class="w"> </span><span class="n">entity</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">entity</span><span class="o">-&gt;</span><span class="n">GetName</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 <span class="w">  </span><span class="p">{</span><span class="w"></span>
@@ -435,7 +447,7 @@
 <span class="w">      </span><span class="n">PrintName</span><span class="p">(</span><span class="n">p</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">      </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="this">this (指针)</h2>
@@ -453,7 +465,7 @@
 <span class="w">      </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
 <span class="w">          </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">};</span><span class="w"></span>
 <span class="w">  </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
@@ -469,7 +481,7 @@
 <span class="w">  </span><span class="p">{</span><span class="w"></span>
 <span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello from thread&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="mi">1</span><span class="n">s</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
 <span class="w">  </span><span class="p">{</span><span class="w"></span>
@@ -477,7 +489,7 @@
 <span class="w">      </span><span class="n">t</span><span class="p">.</span><span class="n">join</span><span class="p">();</span><span class="w"></span>
 <span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello from main&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="this-note-is-mainly-produced-by-github-copilot-copilot-thinks-himself">This note is mainly produced by GitHub copilot. copilot thinks himself</h2>
@@ -497,12 +509,12 @@
 <span class="w">      </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"></span>
 <span class="w">          </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">};</span><span class="w"></span>
 <span class="w">      </span><span class="c1">//! Important below</span>
 <span class="w">      </span><span class="n">Entity</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Entity</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
 <span class="w">      </span><span class="p">{</span><span class="w"></span>
 <span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="n">Entity</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">      </span><span class="p">};</span><span class="w"></span>
 <span class="w">  </span><span class="p">};</span><span class="w"></span>
 
 <span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"></span>
@@ -512,7 +524,7 @@
 <span class="w">      </span><span class="n">Entity</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="n">cin</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
 </code></pre></div>
 
 <h2 id="tip-ienumerable">Tip: IEnumerable</h2>
