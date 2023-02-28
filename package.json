@@ -26,6 +26,7 @@
   "dependencies": {
     "gh-pages": "^5.0.0",
     "gsap": "^3.11.4",
+    "jquery": "^3.6.3",
     "three": "^0.150.1"
   }
 }

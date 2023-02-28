@@ -3,6 +3,20 @@ import * as THREE from "/node_modules/three/build/three.module.js";
 // import "/zStyles.css";
 import { OrbitControls } from "/node_modules/three/examples/jsm/controls/OrbitControls.js";
 
+
+
+$.ajax({
+  url: "zCV.json",
+  type: "GET",
+  dataType: "json",
+  success: function (data) {
+    console.log(data);
+  },
+});
+
+
+
+
 //Scene
 const scene = new THREE.Scene();
 
@@ -44,11 +58,11 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.render(scene, camera);
 
 // Controls
-const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
 // controls.enablePan = false
 // controls.enableZoom = false
-controls.autoRotate = true
+controls.autoRotate = true;
 // controls.autoRotateSpeed = 0.5
 
 //Resize
@@ -64,10 +78,9 @@ window.addEventListener("resize", () => {
 });
 
 const loop = () => {
-  controls.update()
-//  Live update
+  controls.update();
+  //  Live update
   renderer.render(scene, camera);
   window.requestAnimationFrame(loop);
-
 };
 loop();
