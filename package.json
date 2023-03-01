@@ -11,6 +11,7 @@
     "deploy": "gh-pages "
   },
   "devDependencies": {
+    "deploy-to-git": "^0.4.1",
     "vite": "^4.1.0"
   },
   "repository": {
