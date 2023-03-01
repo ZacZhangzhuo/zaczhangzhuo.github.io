@@ -1,26 +1,43 @@
-import * as THREE from "/node_modules/three/build/three.module.js";
+
+import * as THREE from "node_modules/three/build/three.module.js";
 // import { Light } from "three";
 // import "/zStyles.css";
-import { OrbitControls } from "/node_modules/three/examples/jsm/controls/OrbitControls.js";
+import { OrbitControls } from "node_modules/three/examples/jsm/controls/OrbitControls.js";
 
-
-
+//Get the data
+var theData = [];
+var displayData = function (data) {
+  theData = Object.assign({}, data);
+};
 $.ajax({
   url: "zCV.json",
   type: "GET",
   dataType: "json",
+  async: false,
   success: function (data) {
-    console.log(data);
+    displayData(data);
   },
 });
-
-
-
 
 //Scene
 const scene = new THREE.Scene();
 
 //Create a sphere
+let spheres = [];
+for (let i = 0; i < theData.length; i++) {
+  for (let j = 0; j < theData[i].length; j++) {
+    var sphere;
+      sphere = new THREE.SphereGeometry(
+      theData[0][0]["Radius"] * theData[0][0]["Scale"],
+      64,
+      64
+    );
+    // sphere.position.set(theData[i][j]["Point"][0], theData[i][j]["Point"][1], theData[i][j]["Point"][2]);
+    spheres.push(sphere);
+  }
+}
+console.log(spheres.length);
+
 const geometry = new THREE.SphereGeometry(1, 64, 64);
 
 //Color the sphere
