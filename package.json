@@ -30,5 +30,8 @@
     "gsap": "^3.11.4",
     "jquery": "^3.6.3",
     "three": "^0.150.1"
+  },
+  "hints": {
+    "x-content-type-options": "error"
   }
 }
