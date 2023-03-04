@@ -1,68 +1,62 @@
-
+import { AmbientLight } from "three";
 import * as THREE from "/node_modules/three/build/three.module.js";
 import { OrbitControls } from "/node_modules/three/examples/jsm/controls/OrbitControls.js";
-
+import data from "/zCV.json";
 // Get the data
-var theData = [];
-var displayData = function (data) {
-  theData = Object.assign({}, data);
-};
-$.ajax({
-  url: "zCV.json",
-  type: "GET",
-  dataType: "json",
-  async: false,
-  success: function (data) {
-    displayData(data);
-  },
-});
+// var theData = [];
+// var displayData = function (data) {
+//	 theData = Object.assign({}, data);
+// };
+// $.ajax({
+//	 url: "zCV.json",
+//	 type: "GET",
+//	 dataType: "json",
+//	 async: false,
+//	 success: function (data) {
+//		 displayData(data);
+//	 },
+// });
 
 //Scene
 const scene = new THREE.Scene();
 
-// Create a sphere
-let spheres = [];
-for (let i = 0; i < theData.length; i++) {
-  for (let j = 0; j < theData[i].length; j++) {
-    var sphere;
-      sphere = new THREE.SphereGeometry(
-      theData[0][0]["Radius"] * theData[0][0]["Scale"],
-      64,
-      64
-    );
-    // sphere.position.set(theData[i][j]["Point"][0], theData[i][j]["Point"][1], theData[i][j]["Point"][2]);
-    spheres.push(sphere);
-  }
-}
-console.log(spheres.length);
-
-const geometry = new THREE.SphereGeometry(1, 64, 64);
-
 //Color the sphere
-const material = new THREE.MeshStandardMaterial({ color: "#00ff83" });
+const fatherMaterial = new THREE.MeshStandardMaterial({ color: "#00ff83" });
+const sonMaterial = new THREE.MeshStandardMaterial({ color: "#ff0000" });
 
-//Mesh
-const mesh = new THREE.Mesh(geometry, material);
+//! Create a sphere for	the fathers
+for (let j = 0; j < data[0].length; j++) {
+	var sphere = new THREE.SphereGeometry(data[0][j]["Radius"] * data[0][j]["Scale"], 64, 64);
 
-//Add mesh to scene
-scene.add(mesh);
+	var mesh = new THREE.Mesh(sphere, fatherMaterial);
 
+	mesh.position.set(data[0][j]["Point"][0], data[0][j]["Point"][1], data[0][j]["Point"][2]);
+	scene.add(mesh);
+	// spheres.push(sphere);
+}
+
+//! Create a sphere for	the sons
+for (let j = 0; j < data[1].length; j++) {
+	var sphere = new THREE.SphereGeometry(data[1][j]["Radius"] * data[1][j]["Scale"], 64, 64);
+	var mesh = new THREE.Mesh(sphere, sonMaterial);
+	mesh.position.set(data[1][j]["Point"][0], data[1][j]["Point"][1], data[1][j]["Point"][2]);
+	scene.add(mesh);
+}
+
+//TODO
 //Light
 const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
 pointLight.position.set(-10, 10, 10);
 scene.add(pointLight);
+scene.add(ambientLight);
 
 //Size
 const sizes = { width: window.innerWidth, height: window.innerHeight };
 
 //Camera
-const camera = new THREE.PerspectiveCamera(
-  45,
-  sizes.width / sizes.height,
-  0.1,
-  100
-);
-camera.position.z = 3;
+const camera = new THREE.PerspectiveCamera(45, sizes.width / sizes.height, 0.1, 100);
+camera.position.z = 20;
 scene.add(camera);
 
 //Renderer
@@ -82,20 +76,20 @@ controls.autoRotate = true;
 
 //Resize
 window.addEventListener("resize", () => {
-  //update sizes
-  // console.log(window.innterWidth)
-  sizes.width = window.innerWidth;
-  sizes.height = window.innerHeight;
-  //Updte camera
-  camera.updateProjectionMatrix();
-  camera.aspect = sizes.width / sizes.height;
-  renderer.setSize(sizes.width, sizes.height);
+	//update sizes
+	// console.log(window.innterWidth)
+	sizes.width = window.innerWidth;
+	sizes.height = window.innerHeight;
+	//Updte camera
+	camera.updateProjectionMatrix();
+	camera.aspect = sizes.width / sizes.height;
+	renderer.setSize(sizes.width, sizes.height);
 });
 
 const loop = () => {
-  controls.update();
-  //  Live update
-  renderer.render(scene, camera);
-  window.requestAnimationFrame(loop);
+	controls.update();
+	//	Live update
+	renderer.render(scene, camera);
+	window.requestAnimationFrame(loop);
 };
 loop();
