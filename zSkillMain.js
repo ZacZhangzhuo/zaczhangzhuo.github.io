@@ -1,21 +1,24 @@
-// import { AmbientLight } from "three";
+
+
 import * as THREE from "/node_modules/three/build/three.module.js";
 import { OrbitControls } from "/node_modules/three/examples/jsm/controls/OrbitControls.js";
-import data from "/zCV.json";
+
 // Get the data
-// var theData = [];
-// var displayData = function (data) {
-//	 theData = Object.assign({}, data);
-// };
-// $.ajax({
-//	 url: "zCV.json",
-//	 type: "GET",
-//	 dataType: "json",
-//	 async: false,
-//	 success: function (data) {
-//		 displayData(data);
-//	 },
-// });
+var theData = [];
+var displayData = function (data) {
+	theData = Object.assign({}, data);
+};
+$.ajax({
+	url: "zCV.json",
+	type: "GET",
+	dataType: "json",
+	async: false,
+	success: function (data) {
+		displayData(data);
+	},
+});
+
+const data = theData;
 
 //Scene
 const scene = new THREE.Scene();
@@ -26,7 +29,7 @@ const sonMaterial = new THREE.MeshStandardMaterial({ color: "#ff0000" });
 
 //! Create a sphere for	the fathers
 for (let j = 0; j < data[0].length; j++) {
-	var sphere = new THREE.SphereGeometry(data[0][j]["Radius"] * data[0][j]["Scale"], 64, 64);
+	var sphere = new THREE.SphereGeometry(data[0][j]["Radius"] * data[0][j]["Scale"]*0.5, 64, 64);
 
 	var mesh = new THREE.Mesh(sphere, fatherMaterial);
 
@@ -37,7 +40,7 @@ for (let j = 0; j < data[0].length; j++) {
 
 //! Create a sphere for	the sons
 for (let j = 0; j < data[1].length; j++) {
-	var sphere = new THREE.SphereGeometry(data[1][j]["Radius"] * data[1][j]["Scale"], 64, 64);
+	var sphere = new THREE.SphereGeometry(data[1][j]["Radius"] * data[1][j]["Scale"] * 0.5, 64, 64);
 	var mesh = new THREE.Mesh(sphere, sonMaterial);
 	mesh.position.set(data[1][j]["Point"][0], data[1][j]["Point"][1], data[1][j]["Point"][2]);
 	scene.add(mesh);
@@ -70,7 +73,7 @@ renderer.render(scene, camera);
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 // controls.enablePan = false
-// controls.enableZoom = false
+// controls.enableZoom = falses
 controls.autoRotate = true;
 // controls.autoRotateSpeed = 0.5
 
@@ -87,7 +90,7 @@ window.addEventListener("resize", () => {
 });
 
 const loop = () => {
-	controls.update();
+	 controls.update();
 	//	Live update
 	renderer.render(scene, camera);
 	window.requestAnimationFrame(loop);
