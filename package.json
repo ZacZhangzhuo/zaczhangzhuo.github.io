@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "gh-pages "
+    "deploy": "gh-pages -d ."
   },
   "devDependencies": {
     "deploy-to-git": "^0.4.1",

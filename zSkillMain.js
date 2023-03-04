@@ -1,40 +1,40 @@
 
-import * as THREE from "https://unpkg.com/three@0.127.0/build/three.module.js";
-// import { OrbitControls } from "https://unpkg.com/three@0.127.0/build/OrbitControls.js";
+import * as THREE from "/node_modules/three/build/three.module.js";
+import { OrbitControls } from "/node_modules/three/examples/jsm/controls/OrbitControls.js";
 
-//Get the data
-// var theData = [];
-// var displayData = function (data) {
-//   theData = Object.assign({}, data);
-// };
-// $.ajax({
-//   url: "zCV.json",
-//   type: "GET",
-//   dataType: "json",
-//   async: false,
-//   success: function (data) {
-//     displayData(data);
-//   },
-// });
+// Get the data
+var theData = [];
+var displayData = function (data) {
+  theData = Object.assign({}, data);
+};
+$.ajax({
+  url: "zCV.json",
+  type: "GET",
+  dataType: "json",
+  async: false,
+  success: function (data) {
+    displayData(data);
+  },
+});
 
 //Scene
 const scene = new THREE.Scene();
 
-//Create a sphere
-// let spheres = [];
-// for (let i = 0; i < theData.length; i++) {
-//   for (let j = 0; j < theData[i].length; j++) {
-//     var sphere;
-//       sphere = new THREE.SphereGeometry(
-//       theData[0][0]["Radius"] * theData[0][0]["Scale"],
-//       64,
-//       64
-//     );
-//     // sphere.position.set(theData[i][j]["Point"][0], theData[i][j]["Point"][1], theData[i][j]["Point"][2]);
-//     spheres.push(sphere);
-//   }
-// }
-// console.log(spheres.length);
+// Create a sphere
+let spheres = [];
+for (let i = 0; i < theData.length; i++) {
+  for (let j = 0; j < theData[i].length; j++) {
+    var sphere;
+      sphere = new THREE.SphereGeometry(
+      theData[0][0]["Radius"] * theData[0][0]["Scale"],
+      64,
+      64
+    );
+    // sphere.position.set(theData[i][j]["Point"][0], theData[i][j]["Point"][1], theData[i][j]["Point"][2]);
+    spheres.push(sphere);
+  }
+}
+console.log(spheres.length);
 
 const geometry = new THREE.SphereGeometry(1, 64, 64);
 
@@ -73,11 +73,11 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.render(scene, camera);
 
 // Controls
-// const controls = new OrbitControls(camera, canvas);
-// controls.enableDamping = true;
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
 // controls.enablePan = false
 // controls.enableZoom = false
-// controls.autoRotate = true;
+controls.autoRotate = true;
 // controls.autoRotateSpeed = 0.5
 
 //Resize
@@ -93,7 +93,7 @@ window.addEventListener("resize", () => {
 });
 
 const loop = () => {
-  // controls.update();
+  controls.update();
   //  Live update
   renderer.render(scene, camera);
   window.requestAnimationFrame(loop);
