@@ -1,10 +1,7 @@
 
-
-// import * as THREE from "https://unpkg.com/three/build/three.module.js";
-import * as THREE from "https://unpkg.com/three/build/three.module.js";
-
-import { OrbitControls } from "https://unpkg.com/three/examples/jsm/controls/OrbitControls.js";
-
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import "/zStyles.css";
 // Get the data
 var theData = [];
 var displayData = function (data) {
