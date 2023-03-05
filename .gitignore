@@ -1,4 +1,4 @@
-*.ipynb_checkpoints
+/ipynb_checkpoints
 *.vscode
-*.cache
-*.node_modules
+
+/node_modules
