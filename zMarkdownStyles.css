@@ -15,9 +15,9 @@ body {
   /* height: 100%; */
   /* width: 100%; */
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 td {
   width: 33.3333333%;
   
