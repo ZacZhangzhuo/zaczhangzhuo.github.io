@@ -10,9 +10,9 @@ body {
   width: 100%;
   overflow: auto;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 ::selection {
   background-color: #c9caca4b;
   color: #80deea;
