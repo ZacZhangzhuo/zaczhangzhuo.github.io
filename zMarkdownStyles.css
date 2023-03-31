@@ -1,6 +1,8 @@
+
+@media screen and (orientation: landscape){body{  margin-left: 25%;
+  margin-right: 25%;}}
+
 body {
-  margin-left: 25%;
-  margin-right: 25%;
   font-family: "source sans pro", Arial;
   font-style: italic;
   background-color: black;
