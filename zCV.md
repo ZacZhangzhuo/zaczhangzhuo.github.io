@@ -6,7 +6,7 @@
 
 **Tel:** +86 177 9825 8389
 
-**Email:** zhuo.zhang@whu.edu.cn
+**Email:** zhuzhang@student.ethz.ch
 
 ---
 
