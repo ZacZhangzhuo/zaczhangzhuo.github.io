@@ -1,11 +1,9 @@
 html {
-
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	height: 100%;
 	width: 100%;
 	overflow: visible;
-	
 }
 body {
 	font-family: "source sans pro", Arial;
@@ -97,7 +95,7 @@ h6 {
 }
 
 h1 {
-	padding-top: 1em;
+	padding-top: 2em;
 	font-size: 2.25em;
 }
 h2 {
@@ -133,7 +131,6 @@ a {
 	color: white;
 	text-decoration: underline;
 }
-
 
 img.portraits {
 	width: 60%;
@@ -478,7 +475,6 @@ p {
 	}
 }
 /* Menu Bar */
-
 div.menuBar {
 	font-family: Source Sans Pro;
 	color: white;
@@ -495,9 +491,16 @@ div.menuBar {
 	align-items: center;
 	column-gap: 10px;
 
+	overflow-x: auto;
+	scrollbar-width: none; /* firefox */
+	-ms-overflow-style: none; /* IE 10+ */
+
 	/* border-style: solid;
   border-width: 5px;
   border-color: red; */
+}
+div.menuBar::-webkit-scrollbar {
+	display: none; /* Chrome Safari */
 }
 @media screen and (orientation: landscape) {
 	div.menuBar {
@@ -516,7 +519,6 @@ a.menuBar {
 	font-style: italic;
 	flex: 1;
 	text-align: center;
-
 
 	border-width: 1px;
 	border-style: dotted;
