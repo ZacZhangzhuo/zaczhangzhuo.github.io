@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/ZacZhangzhuo/ZacZhangzhuo.github.io#readme",
   "dependencies": {
+    "fontloader": "^1.2.7",
     "gsap": "^3.11.4",
     "jquery": "^3.6.3",
     "three": "^0.150.1"
