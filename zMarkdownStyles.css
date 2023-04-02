@@ -95,7 +95,7 @@ h6 {
 }
 
 h1 {
-	padding-top: 2em;
+	padding-top: 3em;
 	font-size: 2.25em;
 }
 h2 {
@@ -520,9 +520,9 @@ a.menuBar {
 	flex: 1;
 	text-align: center;
 
-	border-width: 1px;
-	border-style: dotted;
-	border-color: gray;
+	/* border-width: 1px; */
+	/* border-style: dotted; */
+	/* border-color: gray; */
 }
 @media screen and (orientation: landscape) {
 	a.menuBar {
