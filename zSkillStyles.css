@@ -1,17 +1,21 @@
+@font-face {
+    font-family: Source Sans Pro; 
+    src: url(resources\fonts\SourceSansPro-Regular.ttf)
+}
+
 h1 {
 	color: white;
 	scroll-behavior: smooth;
 
 	font-family: Source Sans Pro;
 	font-style: italic;
-	font-size: 2.25em;
+	font-size: 1.5em;
 
 	position: absolute;
 
-        left: 50%;
-        top: 80%;
-        transform: translate(-50%, -50%);
-
+	left: 50%;
+	top: 80%;
+	transform: translate(-50%, -50%);
 }
 
 body {

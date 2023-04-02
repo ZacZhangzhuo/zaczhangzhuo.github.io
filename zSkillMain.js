@@ -1,6 +1,8 @@
-
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
+import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
+import { Vector3 } from "three";
 // import "/zStyles.css";
 
 // Get the data
@@ -23,42 +25,122 @@ const data = theData;
 //Scene
 const scene = new THREE.Scene();
 
-//Color the sphere
-const fatherMaterial = new THREE.MeshStandardMaterial({ color: "#00ff83" });
-const sonMaterial = new THREE.MeshStandardMaterial({ color: "#ff0000" });
+const textMeshes = [];
+const fontLoader = new FontLoader();
+fontLoader.load("node_modules/three/examples/fonts/Source Sans Pro_Italic.json", (font) => {
+	//! Create texts for the fathers
+	const fatherTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff" });
+	for (let j = 0; j < data[0].length; j++) {
+		var textMesh = new THREE.Mesh();
 
-//! Create a sphere for	the fathers
+		const textGeometry = new TextGeometry(data[0][j]["Category"], {
+			height: 0.01,
+			size: 0.3,
+			font: font,
+			bevelEnabled: false,
+		});
+
+		textMesh.geometry = textGeometry;
+		textMesh.material = fatherTextMaterial;
+		textMesh.position.set(data[0][j]["Point"][0], data[0][j]["Point"][1], data[0][j]["Point"][2]);
+		textMeshes.push(textMesh);
+		scene.add(textMesh);
+	}
+
+	//! Create texts for the sons
+	var rise = 0.1;
+	const sonTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff" });
+	for (let j = 0; j < data[1].length; j++) {
+		var textMesh = new THREE.Mesh();
+		const textGeometry = new TextGeometry(
+			data[1][j]["Skill"] +
+				"\n" +
+				"Scenario: " +
+				data[1][j]["Scenario"] +
+				"\n" +
+				"Level: " +
+				data[1][j]["Level"] +
+				"\n" +
+				"Since: " +
+				data[1][j]["Since"],
+			{
+				height: 0.01,
+				size: 0.2,
+				font: font,
+				bevelEnabled: false,
+			}
+		);
+
+		textMesh.geometry = textGeometry;
+
+		textMesh.material = sonTextMaterial;
+		textMesh.position.set(data[1][j]["Point"][0], data[1][j]["Point"][1] + rise, data[1][j]["Point"][2]);
+		textMeshes.push(textMesh);
+		scene.add(textMesh);
+	}
+});
+
+//! Draw lines between fathers
+const Lines = [];
+const Center = [];
+const fatherLineMaterial = new THREE.LineBasicMaterial({ color: "#ffffff" });
+
 for (let j = 0; j < data[0].length; j++) {
-	var sphere = new THREE.SphereGeometry(data[0][j]["Radius"] * data[0][j]["Scale"]*0.5, 64, 64);
+	var p0 = new Vector3(data[0][j]["Point"][0], data[0][j]["Point"][1], data[0][j]["Point"][2]);
+	if (j == data[0].length - 1) {
+		var p1 = new Vector3(data[0][0]["Point"][0], data[0][0]["Point"][1], data[0][0]["Point"][2]);
+	} else var p1 = new Vector3(data[0][j + 1]["Point"][0], data[0][j + 1]["Point"][1], data[0][j + 1]["Point"][2]);
 
-	var mesh = new THREE.Mesh(sphere, fatherMaterial);
+	var Points = [p0, p1];
+	var geometry = new THREE.BufferGeometry().setFromPoints(Points);
 
-	mesh.position.set(data[0][j]["Point"][0], data[0][j]["Point"][1], data[0][j]["Point"][2]);
-	scene.add(mesh);
-	// spheres.push(sphere);
+	var line = new THREE.Line(geometry, fatherLineMaterial);
+	// Lines.push(line);
+	scene.add(line);
 }
 
-//! Create a sphere for	the sons
+//! Draw lines between fathers and sons
+for (let j = 0; j < data[0].length; j++) {
+	for (let k = 0; k < data[0][j]["Links"].length; k++) {
+		var v1 = new Vector3(data[0][j]["Point"][0], data[0][j]["Point"][1], data[0][j]["Point"][2]);
+		var v2 = new Vector3(
+			data[1][data[0][j]["Links"][k]]["Point"][0],
+			data[1][data[0][j]["Links"][k]]["Point"][1],
+			data[1][data[0][j]["Links"][k]]["Point"][2]
+		);
+		var Points = [v1, v2];
+		var geometry = new THREE.BufferGeometry().setFromPoints(Points);
+		var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: "#ffffff", transparent: true }));
+		Center.push(v1);
+		// console.log(Center);
+		Lines.push(line);
+		scene.add(line);
+	}
+}
+
+//! Draw beauty lines
+var length = 1.5;
+var DecLines = [];
 for (let j = 0; j < data[1].length; j++) {
-	var sphere = new THREE.SphereGeometry(data[1][j]["Radius"] * data[1][j]["Scale"] * 0.5, 64, 64);
-	var mesh = new THREE.Mesh(sphere, sonMaterial);
-	mesh.position.set(data[1][j]["Point"][0], data[1][j]["Point"][1], data[1][j]["Point"][2]);
-	scene.add(mesh);
+	var v1 = new Vector3(data[1][j]["Point"][0], data[1][j]["Point"][1], data[1][j]["Point"][2]);
+	var v2 = new Vector3(data[1][j]["Point"][0], data[1][j]["Point"][1], data[1][j]["Point"][2] + length);
+	var Points = [v1, v2];
+	var geometry = new THREE.BufferGeometry().setFromPoints(Points);
+	var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: "#7b7b7b", transparent: true }));
+	Center.push(v1);
+	// console.log(Center);
+	DecLines.push(line);
+	Lines.push(line);
+	// scene.add(line);
 }
 
-// //test only
-// const geometry = new THREE.SphereGeometry(1, 64, 64);
-// const material = new THREE.MeshStandardMaterial({ color: "#00ff83" });
-// const mesh = new THREE.Mesh(geometry, material);
-// scene.add(mesh);
-
-//TODO
-//Light
-const pointLight = new THREE.PointLight(0xffffff, 1, 100);
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
-pointLight.position.set(-10, 10, 10);
+//! Light
+// const ambientLight = new THREE.AmbientLight("#ffffff", 1);
+// const pointLight = new THREE.PointLight({ color: "#ffffff", intensity: 0.0001, distance: 0.0001 });
+const pointLight = new THREE.PointLight("#ffffff", 30, 30, 5);
+// pointLight.position.set(0, 0, 0);
+// scene.add(ambientLight);
 scene.add(pointLight);
-scene.add(ambientLight);
 
 //Size
 const sizes = { width: window.innerWidth, height: window.innerHeight };
@@ -78,10 +160,14 @@ renderer.render(scene, camera);
 // Controls
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
-// controls.enablePan = false
-// controls.enableZoom = falses
+controls.enableDrag = false;
+// controls.enableRotate = false;
+controls.maxPolarAngle = Math.PI / 2;
+controls.minPolarAngle = Math.PI / 2;
+controls.enablePan = false;
+controls.enableZoom = false;
 controls.autoRotate = true;
-// controls.autoRotateSpeed = 0.5
+controls.autoRotateSpeed = 1;
 
 //Resize
 window.addEventListener("resize", () => {
@@ -95,11 +181,35 @@ window.addEventListener("resize", () => {
 	renderer.setSize(sizes.width, sizes.height);
 });
 
+var maxDistance = 0;
+var minDistance = 10000000;
 const loop = () => {
 	controls.update();
 	//	Live update
 	renderer.render(scene, camera);
 	window.requestAnimationFrame(loop);
+
+	for (let i = 0; i < textMeshes.length; i++) {
+		textMeshes[i].lookAt(camera.position);
+	}
+
+	// textMesh.lookAt(camera.position);
+	pointLight.position.set(camera.position.x, camera.position.y, camera.position.z);
+
+	for (let i = 0; i < Lines.length; i++) {
+		var dis = camera.position.distanceTo(Center[i]);
+
+		if (dis > maxDistance) maxDistance = dis;
+		if (dis < minDistance) minDistance = dis;
+		// console.log(Center[i]);
+
+		Lines[i].material.opacity = (1 - (dis - minDistance) / (maxDistance - minDistance)) * 0.8;
+	}
+
+// TODO Declines and making the category texts more beautiful 
+	// for (let i = 0; i < DecLines.length; i++) {
+	// DecLines[i].lookAt(camera.position);
+	// }
+	
 };
 loop();
-
