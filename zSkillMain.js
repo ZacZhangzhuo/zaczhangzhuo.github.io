@@ -27,7 +27,7 @@ const scene = new THREE.Scene();
 
 const textMeshes = [];
 const fontLoader = new FontLoader();
-fontLoader.load("node_modules/three/examples/fonts/Source Sans Pro_Italic.json", (font) => {
+fontLoader.load("resources/fonts/Source Sans Pro_Italic.json", (font) => {
 	//! Create texts for the fathers
 	const fatherTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff" });
 	for (let j = 0; j < data[0].length; j++) {
