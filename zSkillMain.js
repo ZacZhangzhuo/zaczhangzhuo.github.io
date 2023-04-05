@@ -1,9 +1,8 @@
 import * as THREE from "three";
-import { OrbitControls } from "OrbitControls";
-import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
-import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { FontLoader } from "three/addons/loaders/FontLoader.js";
 import { Vector3 } from "three";
-// import "/zStyles.css";
+import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
 
 // Get the data
 var theData = [];
@@ -206,10 +205,9 @@ const loop = () => {
 		Lines[i].material.opacity = (1 - (dis - minDistance) / (maxDistance - minDistance)) * 0.8;
 	}
 
-// TODO Declines and making the category texts more beautiful 
+	// TODO Declines and making the category texts more beautiful
 	// for (let i = 0; i < DecLines.length; i++) {
 	// DecLines[i].lookAt(camera.position);
 	// }
-	
 };
 loop();
