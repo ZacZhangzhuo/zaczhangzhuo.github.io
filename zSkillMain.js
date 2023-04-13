@@ -1,9 +1,9 @@
-import * as THREE from "/resources/three.js";
-import $ from "/resources/three.js/jquery-3.6.4.min.js";
-import { Vector3 } from "/resources/three.js";
-import { OrbitControls } from "/resources/three.js/examples/jsm/controls/OrbitControls.js";
-import { FontLoader } from "/resources/three.js/examples/jsm/loaders/FontLoader.js";
-import { TextGeometry } from "/resources/three.js/examples/jsm/geometries/TextGeometry.js";
+
+import * as THREE from "three";
+import { Vector3 } from "three";
+import { OrbitControls } from "jsm/controls/OrbitControls.js";
+import { FontLoader } from "jsm/loaders/FontLoader.js";
+import { TextGeometry } from "jsm/geometries/TextGeometry.js";
 
 // Get the data
 var theData = [];
@@ -229,3 +229,24 @@ const loop = () => {
 	}
 };
 loop();
+
+
+
+function rotateAroundPoint(object, point, axis, angle) {
+	// Create a translation vector to move the object so that the point
+	// around which it will rotate becomes the origin
+	const translation = new THREE.Vector3().subVectors(point, object.position);
+
+	// Apply the translation to the object's position
+	object.position.add(translation);
+
+	// Create a rotation matrix to rotate the object around the specified axis
+	const rotation = new THREE.Matrix4().makeRotationAxis(axis.normalize(), angle);
+
+	// Apply the rotation to the object's position and rotation
+	object.position.applyMatrix4(rotation);
+	object.rotation.applyMatrix4(rotation);
+
+	// Reverse the initial translation to move the object back to its original position
+	object.position.sub(translation);
+}
