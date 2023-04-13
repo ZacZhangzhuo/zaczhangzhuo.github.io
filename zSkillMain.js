@@ -30,7 +30,8 @@ const fontLoader = new FontLoader();
 fontLoader.load("resources/fonts/Source Sans Pro_Italic.json", (font) => {
 	//! Create texts for the fathers
 	// const fatherTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff", emissive: "#c7c7c7" });
-	const fatherTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff" });
+	// const fatherTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff",transparent : true });
+
 	for (let j = 0; j < data[0].length; j++) {
 		var textMesh = new THREE.Mesh();
 		const textGeometry = new TextGeometry(data[0][j]["Category"], {
@@ -41,7 +42,7 @@ fontLoader.load("resources/fonts/Source Sans Pro_Italic.json", (font) => {
 		});
 
 		textMesh.geometry = textGeometry;
-		textMesh.material = fatherTextMaterial;
+		textMesh.material = new THREE.MeshStandardMaterial({ color: "#ffffff", transparent: true });;
 		textMesh.position.set(data[0][j]["Point"][0], data[0][j]["Point"][1], data[0][j]["Point"][2]);
 		textMeshes.push(textMesh);
 		scene.add(textMesh);
@@ -49,7 +50,8 @@ fontLoader.load("resources/fonts/Source Sans Pro_Italic.json", (font) => {
 
 	//! Create texts for the sons
 	var rise = 0.1;
-	const sonTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff" });
+	// const sonTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff", transparent: true });
+
 	for (let j = 0; j < data[1].length; j++) {
 		var textMesh = new THREE.Mesh();
 		const textGeometry = new TextGeometry(
@@ -73,7 +75,7 @@ fontLoader.load("resources/fonts/Source Sans Pro_Italic.json", (font) => {
 
 		textMesh.geometry = textGeometry;
 
-		textMesh.material = sonTextMaterial;
+		textMesh.material = new THREE.MeshStandardMaterial({ color: "#ffffff", transparent: true });;
 		textMesh.position.set(data[1][j]["Point"][0], data[1][j]["Point"][1] + rise, data[1][j]["Point"][2]);
 		textMeshes.push(textMesh);
 		scene.add(textMesh);
@@ -210,8 +212,8 @@ const loop = () => {
 	}
 
 	for (let i = 0; i < textMeshes.length; i++) {
-
-		textMeshes[i].material = new THREE.MeshStandardMaterial({ color: "#ba3636" });
+		var dis = camera.position.distanceTo(Center[i]);
+		textMeshes[i].material.opacity = (1 - (dis - minDistance) / (maxDistance - minDistance)) * 0.8;
 	}
 
 	// TODO Declines and making the category texts more beautiful
