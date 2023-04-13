@@ -1,8 +1,9 @@
-import * as THREE from "three";
-import { Vector3 } from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { FontLoader } from "three/addons/loaders/FontLoader.js";
-import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
+import * as THREE from "/resources/three.js";
+import $ from "/resources/three.js/jquery-3.6.4.min.js";
+import { Vector3 } from "/resources/three.js";
+import { OrbitControls } from "/resources/three.js/examples/jsm/controls/OrbitControls.js";
+import { FontLoader } from "/resources/three.js/examples/jsm/loaders/FontLoader.js";
+import { TextGeometry } from "/resources/three.js/examples/jsm/geometries/TextGeometry.js";
 
 // Get the data
 var theData = [];

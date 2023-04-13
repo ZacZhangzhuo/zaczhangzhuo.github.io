@@ -1,6 +1,2 @@
-/ipynb_checkpoints
-*.vscode
-# /node_modules
-/node_modules/.cache
-/node_modules/.bin
-/node_modules/.vite
+/.ipynb_checkpoints
+/.vscode
