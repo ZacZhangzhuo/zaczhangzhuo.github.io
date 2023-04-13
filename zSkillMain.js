@@ -29,10 +29,10 @@ const textMeshes = [];
 const fontLoader = new FontLoader();
 fontLoader.load("resources/fonts/Source Sans Pro_Italic.json", (font) => {
 	//! Create texts for the fathers
+	// const fatherTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff", emissive: "#c7c7c7" });
 	const fatherTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff" });
 	for (let j = 0; j < data[0].length; j++) {
 		var textMesh = new THREE.Mesh();
-
 		const textGeometry = new TextGeometry(data[0][j]["Category"], {
 			height: 0.01,
 			size: 0.3,
@@ -137,7 +137,8 @@ for (let j = 0; j < data[1].length; j++) {
 //! Light
 // const ambientLight = new THREE.AmbientLight("#ffffff", 1);
 // const pointLight = new THREE.PointLight({ color: "#ffffff", intensity: 0.0001, distance: 0.0001 });
-const pointLight = new THREE.PointLight("#ffffff", 30, 30, 5);
+// const pointLight = new THREE.PointLight("#ffffff", 30, 30, 5);
+const pointLight = new THREE.PointLight("#ffffff", 30, 0, 0);
 // pointLight.position.set(0, 0, 0);
 // scene.add(ambientLight);
 scene.add(pointLight);
@@ -183,6 +184,8 @@ window.addEventListener("resize", () => {
 
 var maxDistance = 0;
 var minDistance = 10000000;
+
+
 const loop = () => {
 	controls.update();
 	//	Live update
@@ -204,6 +207,11 @@ const loop = () => {
 		// console.log(Center[i]);
 
 		Lines[i].material.opacity = (1 - (dis - minDistance) / (maxDistance - minDistance)) * 0.8;
+	}
+
+	for (let i = 0; i < textMeshes.length; i++) {
+
+		textMeshes[i].material = new THREE.MeshStandardMaterial({ color: "#ba3636" });
 	}
 
 	// TODO Declines and making the category texts more beautiful
