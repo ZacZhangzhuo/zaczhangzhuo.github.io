@@ -1,9 +1,8 @@
-import * as THREE from "/node_modules/three";
-import { Vector3 } from "/node_modules/three";
-import { OrbitControls } from "/node_modules/three/examples/jsm/controls/OrbitControls.js";
-import { FontLoader } from "/node_modules/three/examples/jsm/loaders/FontLoader.js";
-import { TextGeometry } from "/node_modules/three/examples/jsm/geometries/TextGeometry.js";
-
+import * as THREE from "three";
+import { Vector3 } from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { FontLoader } from "three/addons/loaders/FontLoader.js";
+import { TextGeometry } from "three/addons/geometries/TextGeometry.js";
 
 // Get the data
 var theData = [];
@@ -26,7 +25,10 @@ const data = theData;
 const scene = new THREE.Scene();
 
 const textMeshes = [];
+const textCenters = [];
+
 const fontLoader = new FontLoader();
+var rise = 0.1;
 fontLoader.load("resources/fonts/Source Sans Pro_Italic.json", (font) => {
 	//! Create texts for the fathers
 	// const fatherTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff", emissive: "#c7c7c7" });
@@ -42,16 +44,18 @@ fontLoader.load("resources/fonts/Source Sans Pro_Italic.json", (font) => {
 		});
 
 		textMesh.geometry = textGeometry;
-		textMesh.material = new THREE.MeshStandardMaterial({ color: "#ffffff", transparent: true });;
+		textMesh.material = new THREE.MeshStandardMaterial({ color: "#ffffff21" });
 		textMesh.position.set(data[0][j]["Point"][0], data[0][j]["Point"][1], data[0][j]["Point"][2]);
 		textMeshes.push(textMesh);
+		textCenters.push(new Vector3(data[0][j]["Point"][0], data[0][j]["Point"][1], data[0][j]["Point"][2]));
+
 		scene.add(textMesh);
 	}
 
 	//! Create texts for the sons
-	var rise = 0.1;
-	// const sonTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff", transparent: true });
 
+	// const sonTextMaterial = new THREE.MeshStandardMaterial({ color: "#ffffff", transparent: true });
+	const axises = [];
 	for (let j = 0; j < data[1].length; j++) {
 		var textMesh = new THREE.Mesh();
 		const textGeometry = new TextGeometry(
@@ -75,16 +79,18 @@ fontLoader.load("resources/fonts/Source Sans Pro_Italic.json", (font) => {
 
 		textMesh.geometry = textGeometry;
 
-		textMesh.material = new THREE.MeshStandardMaterial({ color: "#ffffff", transparent: true });;
+		textMesh.material = new THREE.MeshStandardMaterial({ color: "#ffffff", transparent: true });
 		textMesh.position.set(data[1][j]["Point"][0], data[1][j]["Point"][1] + rise, data[1][j]["Point"][2]);
 		textMeshes.push(textMesh);
+		textCenters.push(new Vector3(data[1][j]["Point"][0], data[1][j]["Point"][1] + rise, data[1][j]["Point"][2]));
+
 		scene.add(textMesh);
 	}
 });
 
 //! Draw lines between fathers
 const Lines = [];
-const Center = [];
+const LineCenters = [];
 const fatherLineMaterial = new THREE.LineBasicMaterial({ color: "#ffffff" });
 
 for (let j = 0; j < data[0].length; j++) {
@@ -113,28 +119,29 @@ for (let j = 0; j < data[0].length; j++) {
 		var Points = [v1, v2];
 		var geometry = new THREE.BufferGeometry().setFromPoints(Points);
 		var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: "#ffffff", transparent: true }));
-		Center.push(v1);
-		// console.log(Center);
+		LineCenters.push(v2);
 		Lines.push(line);
 		scene.add(line);
 	}
 }
 
+/*
 //! Draw beauty lines
-var length = 1.5;
+var length = 1;
 var DecLines = [];
 for (let j = 0; j < data[1].length; j++) {
-	var v1 = new Vector3(data[1][j]["Point"][0], data[1][j]["Point"][1], data[1][j]["Point"][2]);
-	var v2 = new Vector3(data[1][j]["Point"][0], data[1][j]["Point"][1], data[1][j]["Point"][2] + length);
+	var v1 = new Vector3(data[1][j]["Point"][0], data[1][j]["Point"][1]+rise, data[1][j]["Point"][2]);
+	var v2 = new Vector3(data[1][j]["Point"][0], data[1][j]["Point"][1] - length, data[1][j]["Point"][2]);
 	var Points = [v1, v2];
 	var geometry = new THREE.BufferGeometry().setFromPoints(Points);
 	var line = new THREE.Line(geometry, new THREE.LineBasicMaterial({ color: "#7b7b7b", transparent: true }));
-	Center.push(v1);
-	// console.log(Center);
+	LineCenters.push(v2);
+	// console.log(LineCenters);
 	DecLines.push(line);
 	Lines.push(line);
-	// scene.add(line);
+	scene.add(line);
 }
+*/
 
 //! Light
 // const ambientLight = new THREE.AmbientLight("#ffffff", 1);
@@ -186,9 +193,18 @@ window.addEventListener("resize", () => {
 
 var maxDistance = 0;
 var minDistance = 10000000;
+for (let i = 0; i < Lines.length; i++) {
+	var dis = camera.position.distanceTo(LineCenters[i]);
+	if (dis > maxDistance) maxDistance = dis;
+	if (dis < minDistance) minDistance = dis;
+}
 
+//
 
+//! Loop
+var f = 0;
 const loop = () => {
+	f++;
 	controls.update();
 	//	Live update
 	renderer.render(scene, camera);
@@ -202,23 +218,13 @@ const loop = () => {
 	pointLight.position.set(camera.position.x, camera.position.y, camera.position.z);
 
 	for (let i = 0; i < Lines.length; i++) {
-		var dis = camera.position.distanceTo(Center[i]);
-
-		if (dis > maxDistance) maxDistance = dis;
-		if (dis < minDistance) minDistance = dis;
-		// console.log(Center[i]);
-
-		Lines[i].material.opacity = (1 - (dis - minDistance) / (maxDistance - minDistance)) * 0.8;
+		var dis = camera.position.distanceTo(LineCenters[i]);
+		Lines[i].material.opacity = 1 - ((dis - minDistance) / (maxDistance - minDistance)) * 2.5;
 	}
 
 	for (let i = 0; i < textMeshes.length; i++) {
-		var dis = camera.position.distanceTo(Center[i]);
-		textMeshes[i].material.opacity = (1 - (dis - minDistance) / (maxDistance - minDistance)) * 0.8;
+		var dis = camera.position.distanceTo(textCenters[i]);
+		textMeshes[i].material.opacity = 1 - ((dis - minDistance) / (maxDistance - minDistance)) * 2.5;
 	}
-
-	// TODO Declines and making the category texts more beautiful
-	// for (let i = 0; i < DecLines.length; i++) {
-	// DecLines[i].lookAt(camera.position);
-	// }
 };
 loop();
