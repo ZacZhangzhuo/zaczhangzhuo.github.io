@@ -59,7 +59,7 @@ fontLoader.load("resources/fonts/Source Sans Pro_Italic.json", (font) => {
 				data[1][j]["Scenario"] +
 				"\n" +
 				"Level: " +
-				data[1][j]["Level"] +
+				removeBackslash(data[1][j]["Level"]) +
 				"\n" +
 				"Since: " +
 				data[1][j]["Since"],
@@ -167,11 +167,13 @@ window.addEventListener("resize", () => {
 
 var maxDistance = 0;
 var minDistance = 10000000;
-for (let i = 0; i < sonLines.length; i++) {
-	var dis = camera.position.distanceTo(LineEnds[i][0]);
+for (let i = 0; i < LineEnds.length; i++) {
+	var dis = camera.position.distanceTo(LineEnds[i][1]);
 	if (dis > maxDistance) maxDistance = dis;
 	if (dis < minDistance) minDistance = dis;
 }
+console.log(maxDistance);
+console.log(minDistance);
 
 //! Loop
 var f = 0;
@@ -195,15 +197,20 @@ const loop = () => {
 			return;
 		}
 
-		// rotateAroundPoint(sonTextMeshes[i], LineEnds[i][0], new Vector3(0, 1, 0), 0.1);
-		// rotateAroundPoint(sonLines[i], LineEnds[i][0], new Vector3(0, 1, 0), 0.1);
-		
-		
-		var dis = camera.position.distanceTo(LineEnds[i][1]);
-		sonLines[i].material.opacity = 1 - ((dis - minDistance) / (maxDistance - minDistance)) * 2.5;
-		sonTextMeshes[i].material.opacity = 1 - ((dis - minDistance) / (maxDistance - minDistance)) * 2.5;
-	}
+		rotateAroundPoint(sonTextMeshes[i], LineEnds[i][0], new Vector3(0, 1, 0), 0.1);
+		rotateAroundPoint(sonLines[i], LineEnds[i][0], new Vector3(0, 1, 0), 0.1);
+		rotateAroundPoint(LineEnds[i][0], LineEnds[i][0], new Vector3(0, 1, 0), 0.1);
+		rotateAroundPoint(LineEnds[i][1], LineEnds[i][0], new Vector3(0, 1, 0), 0.1);
 
+		var dis = camera.position.distanceTo(LineEnds[i][1]);
+
+		var opacity = 1 - ((dis - minDistance) / (maxDistance - minDistance)) * 2.5;
+
+		// console.log(opacity);
+
+		sonLines[i].material.opacity = opacity;
+		sonTextMeshes[i].material.opacity = opacity;
+	}
 };
 loop();
 
@@ -215,4 +222,10 @@ function rotateAroundPoint(object, point, axis, anglePerFrame) {
 	const inverseTranslationMatrix = new THREE.Matrix4().makeTranslation(-point.x, -point.y, -point.z);
 	const finalMatrix = translationMatrix.multiply(rotationMatrix).multiply(inverseTranslationMatrix);
 	object.applyMatrix4(finalMatrix);
+
+	// Update the position of the object after the rotation
+	// object.position.applyMatrix4(finalMatrix);
+}
+function removeBackslash(str) {
+	return str.replace(/\\/g, "");
 }
