@@ -2,7 +2,10 @@
 /* @media screen and (orientation: portrait) { */
 
 /* font */
-
+@font-face {
+	font-family: "Source Sans Pro";
+	src: url("/resources/fonts/SourceSansPro.ttf") format("truetype");
+}
 
 html {
 	margin: 0 0 0 0;
@@ -218,7 +221,7 @@ img.item_image {
 
 p.item_name {
 	margin-block-start: 0;
-	
+
 	position: absolute;
 	opacity: 0;
 	z-index: 1;
@@ -227,13 +230,13 @@ p.item_name {
 	overflow: hidden;
 	top: 0;
 	color: white;
-	word-wrap:break-word;
+	word-wrap: break-word;
 
 	/* border: red; */
 	/* border-style: solid; */
 	/* border-width: 1px; */
 }
 p.item_name:hover {
-    opacity: 1;
+	opacity: 1;
 	background-color: rgba(0, 0, 0, 0.825);
 }

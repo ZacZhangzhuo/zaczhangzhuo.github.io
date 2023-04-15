@@ -1,4 +1,8 @@
-
+/* font */
+@font-face {
+	font-family: "Source Sans Pro";
+	src: url("/resources/fonts/SourceSansPro.ttf") format("truetype");
+}
 h1 {
 	color: white;
 	scroll-behavior: smooth;
