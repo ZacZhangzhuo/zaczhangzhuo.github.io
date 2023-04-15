@@ -4,7 +4,7 @@
 /* font */
 @font-face {
 	font-family: "Source Sans Pro";
-	src: url("/resources/fonts/SourceSansPro.ttf") format("truetype");
+	src: url("/resources/fonts/SourceSansPro-Italic.otf") format("truetype");
 }
 
 html {
@@ -99,7 +99,7 @@ a.textWithLink {
 	margin-top: 25px;
 	margin-bottom: 25px;
 	text-decoration: underline;
-	font-family: Source Sans Pro;
+	/* font-family: Source Sans Pro; */
 	font-size: 25px;
 	color: white;
 	font-style: italic;

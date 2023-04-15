@@ -1,7 +1,7 @@
 /* font */
 @font-face {
 	font-family: "Source Sans Pro";
-	src: url("/resources/fonts/SourceSansPro.ttf") format("truetype");
+	src: url("/resources/fonts/SourceSansPro-Italic.otf") format("truetype");
 }
 
 html {
