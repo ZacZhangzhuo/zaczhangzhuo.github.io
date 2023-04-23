@@ -22,27 +22,29 @@ Bachelor of Architecture, School of Urban Design, Wuhan University (China's 985 
 
 **Internship Experiences**
 
-Unreal Engine VR Designer (Intern), Z-1 Technology, Shanghai | 2022.08 – 2022.09
+Unreal Engine VR Designer (Intern), Z-1 Technology, Shanghai | 08.2022 – 09.2022
 
-Junior Algorithm Designer (Intern), Xkool Technology, Shanghai | 2021.08 - 2021.10
+Junior Algorithm Designer (Intern), Xkool Technology, Shanghai | 08.2021 - 10.2021
 
-Architecture Intern, Zaha Hadid Architects, Beijing | 2021.01 - 2021.02
+Architecture Intern, Zaha Hadid Architects, Beijing | 01.2021 - 02.2021
 
-Assistant Architect (Intern), Archi-Union Architects, Shanghai | 2020.06 - 2020.09
+Assistant Architect (Intern), Archi-Union Architects, Shanghai | 06.2020 - 09.2020
 
 ---
 
 **Professional Experiences**
 
-Spatial Glulam Structures: Design Potentials of In-Situ Robotic Timber Construction, Digital FUTURES 2021 Workshop, Shanghai, China | 2021.06
+Performative Ai, Digital FUTURES 2022 Workshop, Online, China | 06.2022
 
-Wuhan University & Dundee University Co-workshop, Dundee, UK | 2019.08
+Spatial Glulam Structures: Design Potentials of In-Situ Robotic Timber Construction, Digital FUTURES 2021 Workshop, Shanghai, China | 06.2021
 
-Surveying and Mapping of Ancient Buildings, Online, China | 2020.07
+Wuhan University & Dundee University Co-workshop, Dundee, UK | 08.2019
 
-Watercolor Painting Workshop, Guizhou, China | 2019.06
+Surveying and Mapping of Ancient Buildings, Online, China | 07.2020
 
-Urban Cognition Field Trip, Zhejiang, China | 2018.09
+Watercolor Painting Workshop, Guizhou, China | 06.2019
+
+Urban Cognition Field Trip, Zhejiang, China | 09.2018
 
 ---
 
@@ -50,7 +52,7 @@ Urban Cognition Field Trip, Zhejiang, China | 2018.09
 
 Staff, Information Department, Association of Chinese Students and Scholars in Zurich | 2022 - now
 
-Volunteer, Youth Co:Lab, United Nations Development Programme | 2022.02
+Volunteer, Youth Co:Lab, United Nations Development Programme | 02.2022
 
 Volunteer Guider, Wan-Lin Museum | 2020 - 2021
 
