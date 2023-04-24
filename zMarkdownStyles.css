@@ -4,6 +4,7 @@
 	src: url("/resources/fonts/SourceSansPro-Italic.otf") format("truetype");
 }
 
+
 html {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
@@ -12,6 +13,7 @@ html {
 	overflow: visible;
 }
 body {
+
 	font-family: Source Sans Pro, Arial;
 	font-style: italic;
 	background-color: black;
@@ -19,6 +21,7 @@ body {
 	color: white;
 	font-size: 16px;
 	word-wrap: break-word;
+
 
 	/* !important */
 	white-space: normal;
@@ -157,7 +160,7 @@ img.portrait {
 div.first_div {
 	display: flex;
 	flex-direction: row;
-	margin-top: 20px;
+	padding-top: 20px;
 
 	/* border-width: 5px;
 	border-style: solid;
@@ -240,11 +243,10 @@ p.cv_text {
 	margin-top: 8px;
 	margin-bottom: 8px;
 }
-div.cv_languages{
-		display: grid;
+div.cv_languages {
+	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 }
-
 
 /*!  ---------------------------------------------------------------------------- */
 /* Code block below */
