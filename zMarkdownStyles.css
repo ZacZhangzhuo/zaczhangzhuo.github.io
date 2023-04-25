@@ -243,6 +243,11 @@ p.cv_text {
 	margin-top: 8px;
 	margin-bottom: 8px;
 }
+p.cv_text_2 {
+	margin-top: 8px;
+	margin-bottom: 8px;
+	color: #535353;
+}
 div.cv_languages {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
