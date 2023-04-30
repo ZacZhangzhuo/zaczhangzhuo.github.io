@@ -1,0 +1,112 @@
+
+        <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="..\..\zMarkdownStyles.css" />
+    <script type="text/javascript" src="..\..\zFunctions.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+    26_RobotDynamicsStudies_1.md
+    </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="icon" href="../../resources/LogoIcon.png" type="image/x-icon"/>
+    </head>
+    <body><!-- Menu Bar --><div class="menuBar"><a href="..\..\zHome.html " class="menuBar"> <p>zHome</p></a><a href="..\..\zDesigner\zDesigner.html " class="menuBar"> <p>zDesigner</p></a><a href="..\zLearner.html " class="menuBar"> <p>zLearner</p></a><a href="..\..\zWriter\zWriter.html " class="menuBar"> <p>zWriter</p></a><a href="..\..\zPhotographer\zPhotographer.html " class="menuBar"> <p>zPhotographer</p></a><a href="..\..\zIndividualDeveloper\zIndividualDeveloper.html " class="menuBar"> <p>zIndividualDeveloper</p></a><a href="..\..\zCV.html " class="menuBar"> <p>zCV</p></a><a href="..\..\zSkills.html " class="menuBar"> <p>zSkills</p></a><a href="..\..\zContact.html " class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
+    <h1 id="robotic-dynamics-studies-chapter-1-preview">Robotic Dynamics Studies - Chapter 1 - Preview</h1>
+<blockquote>
+<p><strong>What sets a robot apart from an automated machine is that it should be easily reprogrammable for different tasks. Different tasks require different motions, and it would be unreasonable to expect the user to specify the entire time-history of each joint for every task; clearly it would be desirable for the robot's control computer to "fill in the details" from a small set of task input data.</strong></p>
+</blockquote>
+<h2 id="fixed-base-and-floating-base">Fixed Base and Floating Base</h2>
+<p>The former category includes all kinds of robotic machines
+that are rigidly bolted to the ground. The classical example are industrial robot arms. The latter category encompasses mobile systems, i.e. robots that have a moving base.</p>
+<h2 id="degree-of-freedom-dof">Degree of Freedom (DOF)</h2>
+<p>In robotics, Degree of Freedom (DOF) refers to the number of independent variables that are required to determine the position and orientation of an object in space. It is a measure of the number of ways in which the object can move.</p>
+<h2 id="kinematics">Kinematics</h2>
+<p>Kinematics is the description of the motion of points, bodies, and systems of bodies. It does only describe how things are moving, but <strong>not</strong> why.</p>
+<h2 id="rotation">Rotation</h2>
+<p>While the configuration of a point is fully described by a position, bodies additionally require a rotation to define their <strong>pose</strong>.</p>
+<h2 id="actuation">Actuation</h2>
+<p>Actuation is the process of converting energy into motion. In robotics, this is usually done by electric motors.</p>
+<blockquote>
+<p>Actuation of the joints, typically by electric motors, then causes the robot to move and exert forces in desired ways.</p>
+<p>The links are moved by actuators, which typically are electrically driven (e.g., by DC or AC motors, stepper motors, or shape memory alloys) but can also be driven by pneumatic or hydraulic cylinders.</p>
+<p>In the case of rotating electric motors, these would ideally be lightweight, operate at relatively low rotational speeds (e.g., in the range of hundreds of RPM), and be able to generate large forces and torques.</p>
+</blockquote>
+<h2 id="backlash">Backlash</h2>
+<p>Backlash refers to the amount of play or clearance between two mechanical components in a robotic system. It is the amount by which a component can move before it contacts or engages with another component.</p>
+<h2 id="revolute-and-prismatic-joint">Revolute and prismatic joint</h2>
+<p>The most common joints are revolute and prismatic joints. Revolute joints are also called rotary joints or pin joints. Prismatic joints are also called translational joints.</p>
+<h2 id="potentiometer">Potentiometer</h2>
+<p>A potentiometer, also known as a pot, is an electronic component commonly used in robotics and other electronic systems. It is a variable resistor that can be used to control the voltage or current flowing through a circuit.</p>
+<h2 id="resolver">Resolver</h2>
+<p>A resolver is an electrical device commonly used in robotics and other motion control systems to provide position feedback for rotary motion. It is a type of rotary transformer that converts the mechanical motion of a shaft into electrical signals that can be used by a controller to accurately determine the position and orientation of the shaft.</p>
+<h2 id="tachometer">Tachometer</h2>
+<p>A tachometer, also known as a tach, is an electronic device used to measure the speed or rotational velocity of a mechanical component, such as a motor or shaft. It is commonly used in robotics and other motion control systems to provide feedback on the speed of a motor or other rotating component.</p>
+<h2 id="rgb-d-camera">RGB-D Camera</h2>
+<blockquote>
+<p>RGB-D cameras which measure the color (RGB) and depth (D) to each pixel</p>
+</blockquote>
+<h2 id="degrees-of-freedom-dof">Degrees of freedom (dof)</h2>
+<p>The number of degrees of freedom (dof) of a mechanical system is the number of independent parameters that define its configuration. It is the number of parameters that determine the state of a physical system and is important to the analysis of systems of bodies in mechanical engineering, aeronautical engineering, robotics, and structural engineering.</p>
+<h2 id="twist">Twist</h2>
+<p>Also known as spatial velocities.</p>
+<h2 id="wrench">Wrench (扳手)</h2>
+<p>Also known as spatial forces. 
+<img alt="" src="26_RobotDynamicsStudies/26_RobotDynamicsStudies_2023-04-30-20-37-18.png" /></p>
+<h2 id="constraints">Constraints</h2>
+<p>A constraint is a restriction on the degrees of freedom of a mechanical system.
+<img alt="" src="26_RobotDynamicsStudies/26_RobotDynamicsStudies_2023-04-30-18-33-10.png" /></p>
+<h2 id="orthogonality">Orthogonality</h2>
+<p><img alt="" src="26_RobotDynamicsStudies/26_RobotDynamicsStudies_2023-04-30-19-33-51.png" /></p>
+<h2 id="velocity-kinematics">Velocity kinematics</h2>
+<p>Velocity kinematics refers to the relationship between the joint linear and angular velocities and those of the end-effector frame.</p>
+<blockquote>
+<p>By multiplying the vector of joint-velocity rates by this configuration-dependent matrix, the twist of the end-effector frame can be obtained for any given robot configuration.</p>
+</blockquote>
+<h2 id="singularities">Singularities</h2>
+<p>Kinematic singularities, which are configurations in which the end-effector frame loses the ability to move or rotate in one or more directions, correspond to those configurations at which the Jacobian matrix fails to have maximal rank.</p>
+<h2 id="angular-velocity">Angular velocity</h2>
+<p><img alt="" src="26_RobotDynamicsStudies/26_RobotDynamicsStudies_2023-04-30-19-44-41.png" /></p>
+<h2 id="exponential-coordinates-of-rotation">Exponential coordinates of rotation</h2>
+<p>Exponential coordinates of rotation are a mathematical representation of a rotational movement that allows for easy computation of the resulting orientation. They are commonly used in robotics and computer graphics to represent the orientation of objects and to perform operations such as rotation, translation, and scaling.</p>
+<h2 id="inverse-kinematics">Inverse kinematics</h2>
+<p>The inverse kinematics problem is to determine the set of joint positions that achieves a desired end-effector configuration.</p>
+<blockquote>
+<p>For a given set of joint positions there usually exists a unique end-effector position and orientation but, for a particular end-effector position and orientation, there may exist multiple solutions to the joint positions, or no solution at all.</p>
+</blockquote>
+<h2 id="kinematically-redundant-pseudoinverse-of-the-jacobian">Kinematically redundant -&gt;<strong> pseudoinverse</strong> of the Jacobian</h2>
+<blockquote>
+<p>If the open-chain robot is kinematically redundant, meaning that it has more joints than the dimension of the task space, then we use the <strong>pseudoinverse</strong> of the Jacobian.</p>
+</blockquote>
+<h2 id="kinematics-of-closed-chains">Kinematics of closed chains</h2>
+<blockquote>
+<p><strong>While open chains have unique forward kinematics solutions, closed chains often have multiple forward kinematics solutions, and sometimes even multiple solutions for the inverse kinematics as well.</strong> Also, because closed chains possess both actuated and passive joints, the kinematic singularity analysis of closed chains presents subtleties not encountered in open chains.</p>
+</blockquote>
+<h2 id="dynamics">Dynamics</h2>
+<blockquote>
+<p>Dynamics is the study of motion taking into account the forces and torques that cause it. In analogy to the notions of a robot's forward and inverse kinematics, the forward dynamics problem is to determine the resulting joint accelerations for a given set of joint forces and torques. The inverse dynamics problem is to determine the input joint torques and forces needed for desired joint accelerations.</p>
+</blockquote>
+<p>The dynamics for an open-chain robot can be derived using one of two approaches:</p>
+<ul>
+<li>In the Lagrangian approach, first a set of coordinates - referred to as generalized coordinates in the classical dynamics literature - is chosen to parametrize the configuration space. The sum of the potential and kinetic energies of the robot's links are then expressed in terms of the generalized coordinates and their time derivatives. These are then substituted into the Euler-Lagrange equations, which then lead to a set of second-order differential equations for the dynamics, expressed in the chosen coordinates for the configuration space.</li>
+<li>The Newton-Euler approach builds on the generalization of f = ma, i.e., the equations governing the acceleration of a rigid body given the wrench acting on it. Given the joint variables and their time derivatives, the Newton-Euler approach to inverse dynamics is: to propagate the link velocities and accelerations outward from the proximal link to the distal link, in order to determine the velocity and acceleration of each link; to use the equations of motion for a rigid body to calculate the wrench (and therefore the joint force or torque) that must be acting on the outermost link; and to proceed along the links back toward the base of the robot, calculating the joint forces or torques needed to create the motion of each link and to support the wrench transmitted to the distal links. Because of the open-chain structure, the dynamics can be formulated recursively.</li>
+</ul>
+<h2 id="trajectory-generation">Trajectory generation</h2>
+<blockquote>
+<p><strong>What sets a robot apart from an automated machine is that it should be easily reprogrammable for different tasks.</strong> Different tasks require different motions, and it would be unreasonable to expect the user to specify the entire time-history of each joint for every task; clearly it would be desirable for the robot's control computer to "fill in the details" from a small set of task input data.</p>
+</blockquote>
+<h2 id="robot-control">Robot Control</h2>
+<blockquote>
+<p>A robot can act as a source of programmed motions for tasks. It can act as a source of forces</p>
+</blockquote>
+<h2 id="omniwheels-and-mecanum-wheels">Omniwheels and Mecanum wheels</h2>
+<p><img alt="" src="26_RobotDynamicsStudies/26_RobotDynamicsStudies_2023-04-30-21-01-34.png" />
+<img alt="" src="26_RobotDynamicsStudies/26_RobotDynamicsStudies_2023-04-30-21-01-47.png" /></p>
+    <p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p></body>
+    </html>
+    
