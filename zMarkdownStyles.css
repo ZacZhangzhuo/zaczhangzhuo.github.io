@@ -4,7 +4,6 @@
 	src: url("/resources/fonts/SourceSansPro-Italic.otf") format("truetype");
 }
 
-
 html {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
@@ -13,7 +12,6 @@ html {
 	overflow: visible;
 }
 body {
-
 	font-family: Source Sans Pro, Arial;
 	font-style: italic;
 	background-color: black;
@@ -21,7 +19,6 @@ body {
 	color: white;
 	font-size: 16px;
 	word-wrap: break-word;
-
 
 	/* !important */
 	white-space: normal;
@@ -565,9 +562,9 @@ p {
 		margin-top: 20px;
 		margin-bottom: 20px;
 	}
-	/* /* .print-button-container {
-    display: none !important;
-  } */
+	.print-button-container {
+		display: none !important;
+	}
 
 	p.endnotes {
 		color: rgb(137, 137, 137);
@@ -576,9 +573,12 @@ p {
 		text-align: center;
 	}
 	hr {
-		background-color: rgb(0, 0, 0);
+		display: block;
 		height: 1px;
-		border-style: none;
+		background: transparent;
+		border: none;
+		border-top: solid 1px rgb(0, 0, 0);
+
 	}
 
 	div.menuBar {
