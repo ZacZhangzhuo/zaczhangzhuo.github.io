@@ -24,8 +24,6 @@
 ## When I was in Iceland
 ![](images/6064ee04caf09cbaa21f3122c2f9e37.jpg)
 
-## I met my gf in 2021 and we are keeping the relationship
-![](images/902e32c57777898f27c5d83a92ab253.jpg)
 
 
 
