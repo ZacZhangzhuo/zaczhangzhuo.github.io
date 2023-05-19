@@ -4,7 +4,6 @@
         <img  class="items" src="2020-03-11 建筑思维与手机选择1/images/0001.jpg" alt="建筑思维与手机选择1">
       </a>
 """
-
 import sys
 import os
 
