@@ -116,7 +116,7 @@ German, Beginner (No test score)
 | JavaScript          | three.js             | ////\_  | 2023  |
 | CG (ShaderLab)      | Unity                | /\_\_\_\_ | 2022  |
 | HTML/CSS/JavaScript | Web Dev                  | ////\_    | 2022  |
-| Markdown            | Any                  | /////     | 2022  |
+|  data processing            | CV/Open3D                  | ///\_\_     | 2022  |
 | Python              | DiscoDiffusion-CoLab | //\_\_\_ | 2022  |
 | Scripting           | VScode/VS            | /////    | 2019  |
 
