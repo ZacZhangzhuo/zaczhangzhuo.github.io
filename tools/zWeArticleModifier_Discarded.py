@@ -28,7 +28,7 @@ for file_path in file_paths:
         <a href="../../zLearner/zLearner.html" class="menuBar"><p>zLearner</p></a>
         <a href="../../zWriter/zWriter.html" class="menuBar"><p>zWriter</p></a>
         <a href="../../zPhotographer/zPhotographer.html" class="menuBar"><p>zPhotographer</p></a>
-        <a href="../../zIndividualDeveloper/zIndividualDeveloper.html" class="menuBar"><p>zIndividualDeveloper</p></a>
+        <a href="../../zDeveloper/zDeveloper.html" class="menuBar"><p>zDeveloper</p></a>
         <a href="../../zCV.html" class="menuBar"><p>zCV</p></a>
         <a href="../../zSkills.html" class="menuBar"><p>zSkills</p></a>
         <a href="../../zContact.html" class="menuBar"><p>zContact</p></a>
@@ -42,8 +42,8 @@ for file_path in file_paths:
         menuBar = menuBar.replace("/../zWriter/", "/")
     elif file_path.find("zPhotographer") != -1:
         menuBar = menuBar.replace("/../zPhotographer/", "/")
-    elif file_path.find("zIndividualDeveloper") != -1:
-        menuBar = menuBar.replace("/../zIndividualDeveloper/", "/")
+    elif file_path.find("zDeveloper") != -1:
+        menuBar = menuBar.replace("/../zDeveloper/", "/")
     elif file_path.find("zCV") != -1:
         menuBar = menuBar.replace("/../zCV/", "/")
     elif file_path.find("zSkills") != -1:

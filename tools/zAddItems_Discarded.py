@@ -11,7 +11,7 @@ sys.path.append("C:/Zac/GitHub")  # For Zorse
 from Zorse import core_zHTML
 
 target1 = r"zDesigner"
-target2 = r"zIndividualDeveloper"
+target2 = r"zDeveloper"
 target3 = r"zLearner"
 target4 = r"zWriter"
 target5 = r"zPhotographer"

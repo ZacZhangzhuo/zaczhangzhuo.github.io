@@ -6,7 +6,7 @@ MenuBarDir = [
     "zLearner\zLearner.html",
     "zWriter\zWriter.html",
     "zPhotographer\zPhotographer.html",
-    "zIndividualDeveloper\zIndividualDeveloper.html",
+    "zDeveloper\zDeveloper.html",
     "zCV.html",
     "zSkills.html",
     "zContact.html",

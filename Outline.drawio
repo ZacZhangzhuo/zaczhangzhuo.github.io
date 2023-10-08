@@ -22,7 +22,7 @@
                 <mxCell id="19" value="Photographer" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="13" vertex="1">
                     <mxGeometry x="327" y="252" width="180" height="31" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="Individual Developer&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="13" vertex="1">
+                <mxCell id="20" value="Developer&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="13" vertex="1">
                     <mxGeometry x="327" y="297" width="180" height="31" as="geometry"/>
                 </mxCell>
                 <mxCell id="21" value="Video" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="13" vertex="1">
@@ -40,7 +40,7 @@
                 <mxCell id="26" value="Writter" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="22" vertex="1">
                     <mxGeometry x="441.5" y="274" width="50" height="31" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" value="Individual Developer&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="22" vertex="1">
+                <mxCell id="28" value="Developer&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="22" vertex="1">
                     <mxGeometry x="441.5" y="227" width="50" height="31" as="geometry"/>
                 </mxCell>
                 <mxCell id="2" value="ArchZ" style="rounded=0;whiteSpace=wrap;html=1;fontSize=15;" parent="22" vertex="1">
