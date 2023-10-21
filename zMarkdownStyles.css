@@ -568,7 +568,7 @@ p {
 
 	p.endnotes {
 		color: rgb(137, 137, 137);
-		font-size: 5px;
+		font-size: 15px;
 		font-style: italic;
 		text-align: center;
 	}
@@ -584,6 +584,9 @@ p {
 	div.menuBar {
 		visibility: hidden;
 	}
+	p.cv_text_2 {
+	color: #ababab;
+}
 }
 /* Menu Bar */
 div.menuBar {
