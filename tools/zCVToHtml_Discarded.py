@@ -18,7 +18,7 @@ def md2html(mdstr):
     <link rel="icon" href="/resources/LogoIcon.png" type="image/x-icon"/>
     </head>
     <body>
-    <img class="portrait" src="resources/Zac_5.jpg" alt="portrait">
+    <img class="portrait" src="resources/Zac_6.jpg" alt="portrait">
     %s
     </body>
     </html>
