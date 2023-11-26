@@ -6,7 +6,7 @@
 		"expandGroups": true,
 		"listViewWidth": 200,
 		"menuViewWidth": null,
-		"tagsViewHeight": 0,
+		"tagsViewHeight": 55,
 		"autoUpdate": "install",
 		"clipboardSeconds": 0,
 		"autoSave": true,
