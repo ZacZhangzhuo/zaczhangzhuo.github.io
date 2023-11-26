@@ -1,0 +1,258 @@
+
+        <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4214SLX26K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4214SLX26K');
+</script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="..\..\zMarkdownStyles.css" />
+    <script type="text/javascript" src="..\..\zFunctions.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+    15_ROSStudies.md
+    </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="icon" href="../../resources/LogoIcon.png" type="image/x-icon"/>
+    </head>
+    <body><!-- Menu Bar --><div class="menuBar"><a href="..\..\zHome.html " class="menuBar"> <p>zHome</p></a><a href="..\..\zDesigner\zDesigner.html " class="menuBar"> <p>zDesigner</p></a><a href="..\zLearner.html " class="menuBar"> <p>zLearner</p></a><a href="..\..\zWriter\zWriter.html " class="menuBar"> <p>zWriter</p></a><a href="..\..\zPhotographer\zPhotographer.html " class="menuBar"> <p>zPhotographer</p></a><a href="..\..\zDeveloper\zDeveloper.html " class="menuBar"> <p>zDeveloper</p></a><a href="..\..\zCV.html " class="menuBar"> <p>zCV</p></a><a href="..\..\zSkills.html " class="menuBar"> <p>zSkills</p></a><a href="..\..\zContact.html " class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
+    <h1 id="ros-studies">ROS Studies</h1>
+<hr />
+<ul>
+<li><a href="#what-is-ros">What is ROS</a></li>
+<li><a href="#ros-concepts">ROS concepts</a></li>
+<li><a href="#my-first-ros-program">My first ROS program</a></li>
+<li><a href="#create-a-node">Create a node</a></li>
+<li><a href="#node-with-a-timer">Node with a timer</a></li>
+<li><a href="#ros-node-information-display">ROS node information display</a></li>
+<li><a href="#ros-talker-information">ROS talker information</a></li>
+<li><a href="#ros-interface-information">ROS interface information</a></li>
+<li><a href="#ros-topic-echo">ROS topic echo</a></li>
+<li><a href="#ros-turtle-circle">ROS turtle circle</a></li>
+<li><a href="#ros-subscriber-and-publisher">ROS subscriber and publisher</a></li>
+<li><a href="#moveit">Moveit</a></li>
+</ul>
+<hr />
+<h2 id="what-is-ros">What is ROS</h2>
+<ul>
+<li>ROS is a <strong>middleware</strong></li>
+<li>Plumbing + Tools + Capabilities + Ecosystem</li>
+<li><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-15-15-35-11.png" /></li>
+<li><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-15-15-35-52.png" /></li>
+<li>Run by open source robotic function</li>
+<li>ROS philosophy</li>
+<li>Peer to peer</li>
+<li>Distributed</li>
+<li>Multi-lingual</li>
+<li>Light-weight</li>
+<li>Free and open-source</li>
+</ul>
+<h2 id="ros-concepts">ROS concepts</h2>
+<ul>
+<li><strong>ROS Master</strong> is the manager that communicates the nodes</li>
+<li>Every nodes registers at startup with the master</li>
+<li>start a ROS master with <strong>roscore</strong></li>
+<li><strong>ROS Nodes</strong> is single purpose and executable program. It is managed in packages.</li>
+<li><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-15-15-46-09.png" /></li>
+<li><strong>ROS Topic</strong> is a string of message</li>
+<li><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-15-15-46-51.png" /></li>
+<li><strong>ROS Messages</strong> is data structure defining the type of a topic (in .msg file)</li>
+<li><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-15-15-49-14.png" /></li>
+<li><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-15-15-53-30.png" /></li>
+</ul>
+<h2 id="my-first-ros-program">My first ROS program</h2>
+<ul>
+<li>
+<p><img alt="" src="15_ROSStudies/2023-01-25.png" /></p>
+</li>
+<li>
+<p>Basic commands</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>ros2 run demo_nodes_cpp talker  
+ros2 run demo_nodes_cpp listener
+rqt_graph #representation of all the nodes
+ros2 run turtlesim turtlesim_node
+ros2 run turtlesim turtle_teleop_key
+</code></pre></div>
+
+<p><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-29-21-12-52.png" /></p>
+<h2 id="create-a-node">Create a node</h2>
+<ul>
+<li>create package</li>
+</ul>
+<div class="codehilite"><pre><span></span><code>  ros2 pkg create my_robot_controller --build-type ament_python --dependencies rclpy 
+  colcon build
+  chmod +x my_frist_node.py 
+  source ~/.bashrc 
+  colcon build --symlink-install
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>  <span class="c1"># !/usr/bin/env python3</span>
+
+  <span class="kn">import</span> <span class="nn">rclpy</span>
+  <span class="kn">from</span> <span class="nn">rclpy.node</span> <span class="kn">import</span> <span class="n">Node</span>
+
+  <span class="k">class</span> <span class="nc">MyNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+
+      <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;first_node&quot;</span><span class="p">)</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hello from ROS2&quot;</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+      <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+
+      <span class="n">node</span> <span class="o">=</span> <span class="n">MyNode</span><span class="p">()</span>
+      <span class="c1"># rclpy.spin(node)</span>
+      <span class="c1"># node.destroy_node()</span>
+      <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+
+
+  <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+      <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<h2 id="node-with-a-timer">Node with a timer</h2>
+<div class="codehilite"><pre><span></span><code>  <span class="c1"># !/usr/bin/env python3</span>
+
+  <span class="kn">import</span> <span class="nn">rclpy</span>
+  <span class="kn">from</span> <span class="nn">rclpy.node</span> <span class="kn">import</span> <span class="n">Node</span>
+
+  <span class="k">class</span> <span class="nc">MyNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+
+      <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s2">&quot;first_node_d2&quot;</span><span class="p">)</span>
+          <span class="c1"># self.get_logger().info(&quot;Hello from ROS.&quot;)</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">Counter</span> <span class="o">=</span> <span class="mi">0</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timer_callback</span><span class="p">)</span>
+
+      <span class="k">def</span> <span class="nf">timer_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Counter</span><span class="p">))</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">Counter</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+      <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+      <span class="n">node</span> <span class="o">=</span> <span class="n">MyNode</span><span class="p">()</span>
+
+      <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="c1">#spin will be alive until you kill it</span>
+      <span class="c1"># node.destroy_node()</span>
+      <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+
+
+  <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+      <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<p><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-29-20-45-07.png" /></p>
+<h2 id="ros-node-information-display">ROS node information display</h2>
+<div class="codehilite"><pre><span></span><code>  ros2 node list
+  ros2 node info /first_node_d2
+</code></pre></div>
+
+<p><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-29-20-47-49.png" /></p>
+<h2 id="ros-talker-information">ROS talker information</h2>
+<div class="codehilite"><pre><span></span><code>ros2 topic info /chatter
+</code></pre></div>
+
+<p><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-29-20-57-50.png" /></p>
+<h2 id="ros-interface-information">ROS interface information</h2>
+<div class="codehilite"><pre><span></span><code><span class="nv">ros2</span><span class="w"> </span><span class="nv">interface</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="nv">std_msgs</span><span class="o">/</span><span class="nv">msg</span><span class="o">/</span><span class="nv">String</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nv">ros2</span><span class="w"> </span><span class="nv">interface</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="o">+</span><span class="nv">TYPE</span><span class="w"></span>
+</code></pre></div>
+
+<p><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-29-21-00-05.png" /></p>
+<h2 id="ros-topic-echo">ROS topic echo</h2>
+<div class="codehilite"><pre><span></span><code>ros2 topic echo /chatter
+</code></pre></div>
+
+<p><img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-29-21-03-54.png" />
+<img alt="" src="15_ROSStudies/15_ROSStudies_2023-01-29-21-06-06.png" /></p>
+<h2 id="ros-turtle-circle">ROS turtle circle</h2>
+<ul>
+<li><img alt="" src="15_ROSStudies/15_ROSStudies_2023-02-01-20-14-00.png" /></li>
+</ul>
+<div class="codehilite"><pre><span></span><code>  <span class="kn">import</span> <span class="nn">rclpy</span>
+  <span class="kn">from</span> <span class="nn">rclpy.node</span> <span class="kn">import</span> <span class="n">Node</span>
+  <span class="kn">from</span> <span class="nn">geometry_msgs.msg</span> <span class="kn">import</span> <span class="n">Twist</span>
+
+  <span class="k">class</span> <span class="nc">DrawCircleNode</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+      <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;draw_circle&#39;</span><span class="p">)</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">cmd_vel_pub_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">Twist</span><span class="p">,</span> <span class="s2">&quot;/turtle1/cmd_vel&quot;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> 
+          <span class="bp">self</span><span class="o">.</span><span class="n">timer_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_timer</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">send_velocity_command</span><span class="p">)</span>  
+
+          <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Draw circle node has been started&#39;</span><span class="p">)</span> 
+
+      <span class="k">def</span> <span class="nf">send_velocity_command</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+          <span class="n">msg</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
+          <span class="n">msg</span><span class="o">.</span><span class="n">linear</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="mf">2.0</span>
+          <span class="n">msg</span><span class="o">.</span><span class="n">angular</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="mf">1.0</span>
+          <span class="bp">self</span><span class="o">.</span><span class="n">cmd_vel_pub_</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+
+  <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span> <span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+      <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">)</span>
+      <span class="n">node</span> <span class="o">=</span> <span class="n">DrawCircleNode</span><span class="p">()</span>
+      <span class="n">rclpy</span><span class="o">.</span><span class="n">spin</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+      <span class="n">rclpy</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+
+
+
+
+
+  <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+      <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<h2 id="ros-subscriber-and-publisher">ROS subscriber and publisher</h2>
+<p><img alt="" src="15_ROSStudies/15_ROSStudies_2023-02-01-20-45-34.png" />
+<img alt="" src="15_ROSStudies/15_ROSStudies_2023-02-01-20-51-19.png" /></p>
+<h1 id="ros-server">ROS Server</h1>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="nv">ros2</span><span class="w"> </span><span class="nv">run</span><span class="w"> </span><span class="nv">demo_nodes_cpp</span><span class="w"> </span><span class="nv">add_two_ints_server</span><span class="w"></span>
+<span class="w">    </span><span class="nv">ros2</span><span class="w"> </span><span class="nv">service</span><span class="w"> </span><span class="nv">list</span><span class="w"> </span>
+<span class="w">    </span><span class="nv">ros2</span><span class="w"> </span><span class="nv">service</span><span class="w"> </span><span class="nv">type</span><span class="w"> </span><span class="o">/</span><span class="nv">add_two_ints</span><span class="w"></span>
+<span class="w">    </span><span class="nv">ros2</span><span class="w"> </span><span class="nv">interface</span><span class="w"> </span><span class="k">show</span><span class="w"> </span><span class="nv">example_interfaces</span><span class="o">/</span><span class="nv">srv</span><span class="o">/</span><span class="nv">AddTwoInts</span><span class="w"></span>
+
+<span class="w">    </span><span class="nv">ros2</span><span class="w"> </span><span class="nv">topic</span><span class="w"> </span><span class="nv">hz</span><span class="w"> </span><span class="o">/</span><span class="nv">turtle1</span><span class="o">/</span><span class="nv">pose</span><span class="w"></span>
+<span class="w">    </span><span class="nv">average</span><span class="w"> </span><span class="nv">rate</span>:<span class="w"> </span><span class="mi">62</span>.<span class="mi">490</span><span class="w"></span>
+<span class="w">    </span><span class="nv">min</span>:<span class="w"> </span><span class="mi">0</span>.<span class="mi">015</span><span class="nv">s</span><span class="w"> </span><span class="nv">max</span>:<span class="w"> </span><span class="mi">0</span>.<span class="mi">017</span><span class="nv">s</span><span class="w"> </span><span class="nv">std</span><span class="w"> </span><span class="nv">dev</span>:<span class="w"> </span><span class="mi">0</span>.<span class="mi">00053</span><span class="nv">s</span><span class="w"> </span><span class="nv">window</span>:<span class="w"> </span><span class="mi">64</span><span class="w"></span>
+<span class="nv">average</span><span class="w"> </span><span class="nv">rate</span>:<span class="w"> </span><span class="mi">62</span>.<span class="mi">513</span><span class="w"></span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="ch">#! Create a service client</span>
+    <span class="k">def</span> <span class="nf">call_set_pen_service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="n">off</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_client</span><span class="p">(</span><span class="n">SetPen</span><span class="p">,</span> <span class="s2">&quot;/turtle1/set_pen&quot;</span><span class="p">)</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">client</span><span class="o">.</span><span class="n">wait_for_service</span><span class="p">(</span><span class="n">timeout_sec</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Waiting for service...&quot;</span><span class="p">)</span>
+
+        <span class="n">request</span> <span class="o">=</span> <span class="n">SetPen</span><span class="o">.</span><span class="n">Request</span><span class="p">()</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">r</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">g</span> <span class="o">=</span> <span class="n">g</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">width</span> <span class="o">=</span> <span class="n">width</span>
+        <span class="n">request</span><span class="o">.</span><span class="n">off</span> <span class="o">=</span> <span class="n">off</span>   
+
+        <span class="n">future</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">call_async</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+        <span class="n">future</span><span class="o">.</span><span class="n">add_done_callback</span><span class="p">(</span><span class="n">partial</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">callback_set_pen</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">callback_set_pen</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">future</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">Exception</span>   <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Service call failed: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</code></pre></div>
+
+<p><img alt="" src="15_ROSStudies/15_ROSStudies_2023-02-11-14-00-56.png" /></p>
+<h2 id="moveit">Moveit</h2>
+    <p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p></body>
+    </html>
+    
