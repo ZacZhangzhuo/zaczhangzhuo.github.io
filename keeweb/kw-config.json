@@ -1,0 +1,11 @@
+{
+	"files": [
+		{
+			"storage": "webdav",
+			"name": "zac_keys.kdbx",
+			"path": "https://zaczhangzhuo.github.io/keeweb/zac_keys.kdbx",
+			"options": { "user": "", "password": "" }
+		}
+	],
+	"showOnlyFilesFromConfig": true
+}
