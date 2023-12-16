@@ -12,7 +12,7 @@
 		"autoSave": false,
 		"autoSaveInterval": 0,
 
-		"rememberKeyFiles": "path",
+		"rememberKeyFiles": "data",
 		"idleMinutes": 360,
 
 		"minimizeOnClose": false,
