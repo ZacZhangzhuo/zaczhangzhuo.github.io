@@ -12,7 +12,7 @@
 		"autoSave": false,
 		"autoSaveInterval": 0,
 
-		"rememberKeyFiles": "data",
+		"rememberKeyFiles": "path",
 		"idleMinutes": 360,
 
 		"minimizeOnClose": false,
@@ -59,10 +59,10 @@
 		"yubiKeyShowChalResp": true,
 		"yubiKeyRememberChalResp": false,
 		"yubiKeyStuckWorkaround": false,
-		"canOpen": true,
+		"canOpen": false,
 		"canOpenDemo": false,
 		"canOpenSettings": true,
-		"canCreate": true,
+		"canCreate": false,
 		"canImportXml": true,
 		"canImportCsv": true,
 		"canRemoveLatest": true,
@@ -94,6 +94,7 @@
 	"files": [
 		{
 			"storage": "webdav",
+            "key_file": "C:/Zac/GitHub/zac_personal_data/Apps/KeeWeb/zac_key.keyx",
 			"name": "zac_keys.kdbx",
 			"path": "https://zaczhangzhuo.github.io/zKeys/zac_keys.kdbx",
 			"options": { "user": "", "password": "" }
