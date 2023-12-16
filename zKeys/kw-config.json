@@ -61,7 +61,7 @@
 		"yubiKeyStuckWorkaround": false,
 		"canOpen": false,
 		"canOpenDemo": false,
-		"canOpenSettings": true,
+		"canOpenSettings": false,
 		"canCreate": false,
 		"canImportXml": true,
 		"canImportCsv": true,
@@ -70,13 +70,13 @@
 		"canExportHtml": true,
 		"canSaveTo": true,
 		"canOpenStorage": true,
-		"canOpenGenerator": true,
+		"canOpenGenerator": false,
 		"canOpenOtpDevice": true,
 		"dropbox": false,
 		"dropboxFolder": null,
 		"dropboxAppKey": null,
 		"dropboxSecret": null,
-		"webdav": true,
+		"webdav": false,
 		"webdavSaveMethod": "move",
 		"webdavStatReload": false,
 		"gdrive": false,
@@ -94,10 +94,14 @@
 	"files": [
 		{
 			"storage": "webdav",
-            "key_file": "C:/Zac/GitHub/zac_personal_data/Apps/KeeWeb/zac_key.keyx",
 			"name": "zac_keys.kdbx",
 			"path": "https://zaczhangzhuo.github.io/zKeys/zac_keys.kdbx",
 			"options": { "user": "", "password": "" }
+		},
+        {
+			"storage": "file",
+			"name": "zac_keys.keyx",
+			"path": "C:/Zac/GitHub/zac_personal_data/Apps/KeeWeb/zac_key.keyx"
 		}
 	],
 	"showOnlyFilesFromConfig": true,
