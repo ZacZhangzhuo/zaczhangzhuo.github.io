@@ -97,11 +97,6 @@
 			"options": { "user": "", "password": "" }
 		}
 	],
-	"showOnlyFilesFromConfig": true,
+	"showOnlyFilesFromConfig": true
 
-	"plugins": [
-		{
-			"url": "https://plugins.keeweb.info/translations/index.html?lang=zh-CN"
-		}
-	]
 }
