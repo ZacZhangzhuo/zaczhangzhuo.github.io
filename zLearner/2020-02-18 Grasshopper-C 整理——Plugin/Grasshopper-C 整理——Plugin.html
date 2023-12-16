@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4214SLX26K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4214SLX26K');
+</script>
+	<meta http-equiv='Content-Type' content='text/html;charset=utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'>
+	<title>
+		Grasshopper-C 整理——Plugin
+	</title>
+	<script src='https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js'>
+	</script>
+	<link rel="stylesheet" href="../../zMarkdownStyles.css" />
+</head>
+<body><!-- Menu Bar --><div class="menuBar"><a href="..\..\zHome.html " class="menuBar"> <p>zHome</p></a><a href="..\..\zDesigner\zDesigner.html " class="menuBar"> <p>zDesigner</p></a><a href="..\zLearner.html " class="menuBar"> <p>zLearner</p></a><a href="..\..\zWriter\zWriter.html " class="menuBar"> <p>zWriter</p></a><a href="..\..\zPhotographer\zPhotographer.html " class="menuBar"> <p>zPhotographer</p></a><a href="..\..\zDeveloper\zDeveloper.html " class="menuBar"> <p>zDeveloper</p></a><a href="..\..\zCV.html " class="menuBar"> <p>zCV</p></a><a href="..\..\zSkills.html " class="menuBar"> <p>zSkills</p></a><a href="..\..\zContact.html " class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
+	<div class='rich_media_area_primary'>
+		<!--<div style='display:none;'>Designer by ArchZ</div>-->
+		<div id='js_article' class='rich_media'>
+			<div id="img-content" class="rich_media_wrp">
+          
+          <h1 class="rich_media_title " id="activity-name">
+            
+Grasshopper-C# 整理——Plugin
+          </h1>
+          <div id="meta_content" class="rich_media_meta_list">
+                                      <span id="copyright_logo" class="wx_tap_link js_wx_tap_highlight rich_media_meta icon_appmsg_tag appmsg_title_tag weui-wa-hotarea">原创</span>
+                                                      <span class="rich_media_meta rich_media_meta_text">
+                                      小zz
+                                  </span>
+                                      
+                        <span class="rich_media_meta rich_media_meta_nickname" id="profileBt"><a href="javascript:void(0);">Arch Z</a>
+              <div id="js_profile_qrcode" aria-hidden="true" class="profile_container" >
+                <div class="profile_inner">
+                  <strong class="profile_nickname">Arch Z</strong>
+                  <img class="profile_avatar" id="js_profile_qrcode_img" src="" alt="">
+
+                  <p class="profile_meta">
+                  <label class="profile_meta_label">微信号</label>
+                  <span class="profile_meta_value">Arch--Z</span>
+                  </p>
+
+                  <p class="profile_meta">
+                  <label class="profile_meta_label">功能介绍</label>
+                  <span class="profile_meta_value">小zz的建筑学习笔记，乐于与你分享。</span>
+                  </p>
+                </div>
+                <span class="profile_arrow_wrp" id="js_profile_arrow_wrp">
+                  <i class="profile_arrow arrow_out"></i>
+                  <i class="profile_arrow arrow_in"></i>
+                </span>
+              </div>
+            </span>
+            <span id="publish_time" class="rich_media_meta rich_media_meta_text">2020-02-18</span><span class="rich_media_meta rich_media_meta_text"><a href='https://mp.weixin.qq.com/s?__biz=MzA5MjQzMDc3NA==&amp;mid=2247483835&amp;idx=1&amp;sn=41c7d74804b34a5ed8421aa5592860b4&amp;chksm=906c0962a71b80747585e5fb3eff23a1e1c5aaee834e8155ae4acfee66a81876bab650014aac&amp;scene=27#wechat_redirect&cpage=20' target='_blank' >原文</a></span>
+            <em id="js_ip_wording_wrp" class="rich_media_meta rich_media_meta_text" role="option" >发表于<span id="js_ip_wording" ></span></em>
+
+          </div>
+
+          
+                              <div id="js_tags" class="article-tag__list"  data-len="0"
+                      >
+                          
+              <div class="article-tag-card__title">收录于合集</div>
+              <div class="article-tags">
+                              </div>
+                      </div>
+
+          
+                    
+                                        
+
+          
+                    
+
+          
+                              
+                                        
+                    
+                    
+          
+
+          
+          
+                                                  <div class="rich_media_content             "
+            id="js_content" ><p style="text-align: center;"><img class="rich_pages" data-ratio="1" data-s="300,640" src="images\0001.jpg" data-type="jpeg" data-w="1280"   /></p><p style="text-align: center;"><span >Brain Poster</span><br  /></p><p ><br  /></p><p ><span >刚学Visual Studio GH Plagin时练习的一个生长的面，看上去很像一个大脑，就随手做了这样一个海报。</span><br  /></p><p ><span ><br  /></span></p><hr   /><p ><br  /></p><p ><span >Grasshopper的Plugin主要是用VS（Visual Studio)做的。比较专业，相比之下Plugin也比直接在GH上的C#运算电池起来更快速。对于使用者也更加友好。关键是VR是专业的编程软件，在纠错、提醒、Debug上十分便捷，对于复杂的编程优势明显，所以应该了解涉及下。</span></p><p ><br  /></p><hr   /><p ><br  /></p><p ><span >首先要下载templates，也就是一种集成开发环境IDE（Integrated Development Enviroment)，这个是使用VS做电池必须的。下载好了VS后，可以在</span></p><p ><span >（</span><span ><em><span >https://marketplace.visualstudio.com/items?itemName=McNeel.GrasshopperAssemblyforv6</span></em></span><span >）</span></p><p ><span >中下载templates，安装完成后，创建新项目时就可以找到他了：</span></p><p ><br  /></p><p ><img class="rich_pages js_insertlocalimg" data-backh="144" data-backw="578" data-ratio="0.24871355060034306" data-s="300,640" src="images\0002.png" data-type="png" data-w="1166"   /></p><p style="text-align: center;"><span >新建项目中的GH&nbsp;template</span></p><p ><br  /></p><p ><span >在创建项目后，会有一个弹窗（弹窗内容在之后编程中也是可以更改的）：</span></p><p ><span ><br  /></span></p><p ><img class="rich_pages js_insertlocalimg" data-backh="529" data-backw="510" data-ratio="1.0372549019607844" data-s="300,640" src="images\0003.png" data-type="png" data-w="510"   /></p><p style="text-align: center;"><span >基本的设定</span></p><p style="text-align: center;"><span style="text-align: center;"><br  /></span></p><p ><span >这里的Name、Nickname等对应的是编写出来的电池，在GH中的UI显示文字（标记的颜色一一对应）：</span></p><p ><span ><br  /></span></p><p ><img class="rich_pages js_insertlocalimg" data-backh="149" data-backw="542" data-ratio="0.27490774907749077" data-s="300,640" src="images\0004.png" data-type="png" data-w="542"   /></p><p style="text-align: center;"><span >对应一</span></p><p><br  /></p><p ><img class="rich_pages js_insertlocalimg" data-backh="293" data-backw="567" data-ratio="0.5167548500881834" data-s="300,640" src="images\0005.png" data-type="png" data-w="567"   /></p><p style="text-align: center;"><span style="text-align: center;">对应二（名称的对应）</span></p><p style="text-align: center;"><span style="text-align: center;"><br  /></span></p><hr   /><p style="text-align: center;"><br  /></p><p ><span style="text-align: center;">进入之后就到coding界面了，除了有一些输入输出的语法要注意外，主体编程部分与在GH的c#电池里面编程几乎一样。</span></p><p ><span style="text-align: center;"><br  /></span></p><p ><span >输入：</span></p><p ><span ><br  /></span></p><p ><img class="rich_pages js_insertlocalimg" data-backh="64" data-backw="578" data-ratio="0.1109375" data-s="300,640" src="images\0006.png" data-type="png" data-w="1280"   /></p><p style="text-align: center;"><span >输&nbsp; 入</span></p><p ><span >输出（与输入相仿）：</span></p><p ><span ><br  /></span></p><p ><img class="rich_pages js_insertlocalimg" data-backh="55" data-backw="578" data-ratio="0.0953125" data-s="300,640" src="images\0007.png" data-type="png" data-w="1280"   /></p><p style="text-align: center;"><span >输&nbsp; 出</span></p><p style="text-align: center;"><span ><br  /></span></p><p ><span >主编程部分：</span></p><p ><span >主编程部分的代码和直接在GH的C#电池写的代码一样，但要注意用DA.GetData以及DA.SetData。同时RuntimeMessage也要记得加，能够清晰的给使用方提示和报错。</span></p><p ><span ><br  /></span></p><p ><img class="rich_pages js_insertlocalimg" data-backh="453" data-backw="578" data-ratio="0.7843971631205674" data-s="300,640" src="images\0008.png" data-type="png" data-w="705"   /></p><p style="text-align: center;"><span >主 编 程</span></p><p style="text-align: center;"><span ><br  /></span></p><p ><span >加图标：</span></p><p ><span >图标尺寸：24*24; DPI：96 pixel/inch; png/svg但最好不要用jpeg/jpg。</span></p><p ><span ><br  /></span></p><p ><img class="rich_pages js_insertlocalimg" data-backh="219" data-backw="578" data-ratio="0.37777777777777777" data-s="300,640" src="images\0009.png" data-type="png" data-w="765"   /></p><p style="text-align: center;"><span >在资源中导入icon图像</span></p><p ><br  /></p><p ><img class="rich_pages js_insertlocalimg" data-backh="143" data-backw="578" data-ratio="0.24757281553398058" data-s="300,640" src="images\0010.png" data-type="png" data-w="1030"   /></p><p style="text-align: center;"><span >在编程中调用资源</span><br  /></p><p style="text-align: center;"><br  /></p><hr   /><p style="text-align: center;"><br  /></p><p ><span >基础的入门大致就这些，真正学到Plugin的方法并且走向熟练，我个人认为还是要多看视频，多练习。</span><span >毕竟编程本就是一门独立的科目，里面包含类型、结构、属性、继承、数据结构等很多方面，需要的不仅是编程手法，还要数学思维等。</span><span >并且不同类型的建筑师相信对这方面的深度要求也不一样。</span><span >所以我在搬运知识的同时也希望我们一起交流进步，取长补短。</span></p><p ><br  /></p><p ><span >共勉！</span></p><p ><br  /></p><hr   /><p ><br  /></p><p style="text-align: center;"><img class="rich_pages" data-ratio="0.346875" data-s="300,640" src="images\0011.jpg" data-type="jpeg" data-w="1280"   /></p><p ><br  /></p></div>
+
+          
+        </div>
+			<p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p>
+		</div>
+		
+	</div>
+</body>
+<script>
+$(function(){
+    var wX_contentArray = document.getElementsByClassName('rich_media_content');
+    for(let i = 0; i < wX_contentArray.length;i++){
+       wX_contentArray[i].style.visibility = '';
+    }
+    if(document.getElementById('js_content')){
+        document.getElementById('js_content').style.visibility = '';
+    }
+})
+</script>
