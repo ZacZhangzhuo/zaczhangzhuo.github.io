@@ -97,11 +97,6 @@
 			"name": "zac_keys.kdbx",
 			"path": "https://zaczhangzhuo.github.io/zKeys/zac_keys.kdbx",
 			"options": { "user": "", "password": "" }
-		},
-        {
-			"storage": "file",
-			"name": "zac_keys.keyx",
-			"path": "C:/Zac/GitHub/zac_personal_data/Apps/KeeWeb/zac_key.keyx"
 		}
 	],
 	"showOnlyFilesFromConfig": true,
