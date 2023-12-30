@@ -2,7 +2,7 @@
 	"settings": {
 		"theme": "dark",
 		"autoSwitchTheme": false,
-		"locale": "zh-CN",
+		"locale": null,
 		"expandGroups": true,
 		"listViewWidth": null,
 		"menuViewWidth": null,
@@ -11,10 +11,8 @@
 		"clipboardSeconds": 0,
 		"autoSave": false,
 		"autoSaveInterval": 0,
-
 		"rememberKeyFiles": "path",
 		"idleMinutes": 360,
-
 		"minimizeOnClose": false,
 		"minimizeOnFieldCopy": false,
 		"tableView": false,
@@ -95,7 +93,7 @@
 		{
 			"storage": "webdav",
 			"name": "zac_keys.kdbx",
-			"path": "https://zaczhangzhuo.github.io/zKeys/zac_keys.kdbx",
+			"path": "zac_keys.kdbx",
 			"options": { "user": "", "password": "" }
 		}
 	],
