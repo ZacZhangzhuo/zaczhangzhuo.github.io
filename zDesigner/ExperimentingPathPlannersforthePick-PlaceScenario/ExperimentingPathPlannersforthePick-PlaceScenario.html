@@ -1,0 +1,193 @@
+
+        <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4214SLX26K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4214SLX26K');
+</script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="..\..\zMarkdownStyles.css" />
+    <script type="text/javascript" src="..\..\zFunctions.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>
+    ExperimentingPathPlannersforthePick-PlaceScenario.md
+    </title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="icon" href="../../resources/LogoIcon.png" type="image/x-icon"/>
+    </head>
+    <body><!-- Menu Bar --><div class="menuBar"><a href="..\..\zHome.html " class="menuBar"> <p>zHome</p></a><a href="..\..\zDesigner\zDesigner.html " class="menuBar"> <p>zDesigner</p></a><a href="..\zLearner.html " class="menuBar"> <p>zLearner</p></a><a href="..\..\zWriter\zWriter.html " class="menuBar"> <p>zWriter</p></a><a href="..\..\zPhotographer\zPhotographer.html " class="menuBar"> <p>zPhotographer</p></a><a href="..\..\zDeveloper\zDeveloper.html " class="menuBar"> <p>zDeveloper</p></a><a href="..\..\zCV.html " class="menuBar"> <p>zCV</p></a><a href="..\..\zSkills.html " class="menuBar"> <p>zSkills</p></a><a href="..\..\zContact.html " class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
+    <h1 id="experimenting-path-planners-for-the-pick-place-scenario">Experimenting Path Planners for the Pick-Place Scenario</h1>
+<hr />
+<p>It is a part of the COMPAS II assignment. Some trails to extend for exploring the path planning algorithms as personal interest and for the future work of the project.</p>
+<hr />
+<iframe id="iframe" onload="adjustIframe();" src="https://www.youtube.com/embed/bxeMlPWHJbk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<hr />
+<h2 id="calculating-the-trajectories">Calculating the trajectories</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate pickup of a part.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="kn">from</span> <span class="nn">compas.geometry</span> <span class="kn">import</span> <span class="n">Frame</span>
+    <span class="kn">from</span> <span class="nn">compas_fab.robots</span> <span class="kn">import</span> <span class="n">PlanningScene</span>
+    <span class="kn">from</span> <span class="nn">compas.robots</span> <span class="kn">import</span> <span class="n">Configuration</span>
+    <span class="kn">import</span> <span class="nn">math</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+    <span class="kn">from</span> <span class="nn">compas</span> <span class="kn">import</span> <span class="n">json_dump</span><span class="p">,</span><span class="n">json_load</span>
+    <span class="kn">from</span> <span class="nn">compas_fab.backends</span> <span class="kn">import</span> <span class="n">RosClient</span>
+    <span class="kn">from</span> <span class="nn">compas_fab.robots</span> <span class="kn">import</span> <span class="n">Tool</span>
+
+    <span class="k">def</span> <span class="nf">reverse_trajectory</span><span class="p">(</span><span class="n">trajectory</span><span class="p">):</span>
+        <span class="n">out_trajectory</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">trajectory</span><span class="p">)</span>
+        <span class="n">out_trajectory</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">trajectory</span><span class="o">.</span><span class="n">points</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">out_trajectory</span>
+
+
+
+    <span class="k">with</span> <span class="n">RosClient</span><span class="p">(</span><span class="s2">&quot;localhost&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">robot</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">load_robot</span><span class="p">()</span>
+        <span class="n">scene</span> <span class="o">=</span> <span class="n">PlanningScene</span><span class="p">(</span><span class="n">robot</span><span class="p">)</span>
+        <span class="n">tolerance_above</span> <span class="o">=</span> <span class="mf">0.001</span>
+        <span class="n">tolerance_below</span> <span class="o">=</span> <span class="mf">0.001</span>
+        <span class="n">all_trajectories</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json_load</span><span class="p">(</span><span class="s1">&#39;data.json&#39;</span><span class="p">)</span>
+        <span class="n">group</span><span class="p">,</span> <span class="n">c_visual_mesh</span><span class="p">,</span> <span class="n">tcf_frame</span><span class="p">,</span> <span class="n">assembly</span><span class="p">,</span> <span class="n">pick_frame</span><span class="p">,</span> <span class="n">approach_distance</span><span class="p">,</span> <span class="n">planner_id</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;c_visual_mesh&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;tcf_frame&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;assembly&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;pick_frame&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;approach_distance&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;planner_id&#39;</span><span class="p">]</span>
+        <span class="n">tool</span> <span class="o">=</span> <span class="n">Tool</span><span class="p">(</span><span class="n">c_visual_mesh</span><span class="p">,</span> <span class="n">tcf_frame</span><span class="p">,</span> <span class="n">c_visual_mesh</span><span class="p">)</span>
+        <span class="n">robot</span><span class="o">.</span><span class="n">attach_tool</span><span class="p">(</span><span class="n">tool</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Pick trajectory</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">approach_pick_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">pick_frame</span><span class="o">.</span><span class="n">point</span> <span class="o">+</span><span class="p">(</span><span class="n">pick_frame</span><span class="o">.</span><span class="n">normal</span><span class="o">*</span><span class="n">approach_distance</span><span class="p">),</span> <span class="n">pick_frame</span><span class="o">.</span><span class="n">xaxis</span><span class="p">,</span> <span class="n">pick_frame</span><span class="o">.</span><span class="n">yaxis</span><span class="p">)</span>
+
+        <span class="n">start_configuration</span> <span class="o">=</span> <span class="n">Configuration</span><span class="o">.</span><span class="n">from_revolute_values</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">approach_pick_config</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">inverse_kinematics</span><span class="p">(</span><span class="n">approach_pick_frame</span><span class="p">,</span> <span class="n">start_configuration</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+        <span class="n">pick_config</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">inverse_kinematics</span><span class="p">(</span><span class="n">pick_frame</span><span class="p">,</span> <span class="n">approach_pick_config</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+
+        <span class="c1"># !</span>
+        <span class="n">goal_constraints</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">constraints_from_configuration</span><span class="p">(</span><span class="n">configuration</span><span class="o">=</span><span class="n">pick_config</span><span class="p">,</span> <span class="n">tolerances_above</span><span class="o">=</span><span class="p">[</span><span class="n">tolerance_above</span><span class="p">],</span> <span class="n">tolerances_below</span><span class="o">=</span><span class="p">[</span><span class="n">tolerance_below</span><span class="p">],</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
+        <span class="n">pick_trajectory</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">plan_motion</span><span class="p">(</span>
+            <span class="n">goal_constraints</span><span class="p">,</span>
+            <span class="n">start_configuration</span><span class="o">=</span><span class="n">approach_pick_config</span><span class="p">,</span>
+            <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+            <span class="n">options</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                <span class="n">planner_id</span><span class="o">=</span><span class="n">planner_id</span><span class="p">,</span>
+            <span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;start planning with &#39;</span> <span class="o">+</span> <span class="n">planner_id</span><span class="o">+</span><span class="s1">&#39;...&#39;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">assembly</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]):</span>
+        <span class="c1"># for i in range(0,18):</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Planning part </span><span class="si">%d</span><span class="s1"> successfully&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+
+            <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">            Place</span>
+<span class="sd">            &quot;&quot;&quot;</span>
+            <span class="n">part</span> <span class="o">=</span> <span class="n">assembly</span><span class="o">.</span><span class="n">find_by_key</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">place_frame</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">attributes</span><span class="p">[</span><span class="s1">&#39;place_frame&#39;</span><span class="p">]</span>
+            <span class="n">approach_place_frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">place_frame</span><span class="o">.</span><span class="n">point</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">approach_distance</span><span class="p">],</span> <span class="n">place_frame</span><span class="o">.</span><span class="n">xaxis</span><span class="p">,</span> <span class="n">place_frame</span><span class="o">.</span><span class="n">yaxis</span><span class="p">)</span>
+
+            <span class="n">approach_place_config</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">inverse_kinematics</span><span class="p">(</span><span class="n">approach_place_frame</span><span class="p">,</span> <span class="n">start_configuration</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+            <span class="n">place_config</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">inverse_kinematics</span><span class="p">(</span><span class="n">place_frame</span><span class="p">,</span> <span class="n">approach_place_config</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+
+            <span class="c1"># !</span>
+            <span class="n">goal_constraints</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">constraints_from_configuration</span><span class="p">(</span><span class="n">configuration</span><span class="o">=</span><span class="n">place_config</span><span class="p">,</span> <span class="n">tolerances_above</span><span class="o">=</span><span class="p">[</span><span class="n">tolerance_above</span><span class="p">],</span> <span class="n">tolerances_below</span><span class="o">=</span><span class="p">[</span><span class="n">tolerance_below</span><span class="p">],</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
+            <span class="n">place_trajectory</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">plan_motion</span><span class="p">(</span>
+                <span class="n">goal_constraints</span><span class="p">,</span>
+                <span class="n">start_configuration</span><span class="o">=</span><span class="n">approach_place_config</span><span class="p">,</span>
+                <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+                <span class="n">options</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                    <span class="n">planner_id</span><span class="o">=</span><span class="n">planner_id</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
+
+            <span class="sd">&#39;&#39;&#39; </span>
+<span class="sd">            Pick to place</span>
+<span class="sd">            &#39;&#39;&#39;</span>
+            <span class="n">goal_constraints</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">constraints_from_configuration</span><span class="p">(</span><span class="n">configuration</span><span class="o">=</span><span class="n">approach_place_config</span><span class="p">,</span> <span class="n">tolerances_above</span><span class="o">=</span><span class="p">[</span><span class="n">tolerance_above</span><span class="p">],</span> <span class="n">tolerances_below</span><span class="o">=</span><span class="p">[</span><span class="n">tolerance_below</span><span class="p">],</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
+            <span class="n">pick_to_place_trajectory</span> <span class="o">=</span> <span class="n">robot</span><span class="o">.</span><span class="n">plan_motion</span><span class="p">(</span>
+                <span class="n">goal_constraints</span><span class="p">,</span>
+                <span class="n">start_configuration</span><span class="o">=</span><span class="n">approach_pick_config</span><span class="p">,</span>
+                <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+                <span class="n">options</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+                    <span class="n">planner_id</span><span class="o">=</span><span class="n">planner_id</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
+
+            <span class="n">all_trajectories</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="p">[</span><span class="n">pick_trajectory</span><span class="p">,</span> <span class="n">reverse_trajectory</span><span class="p">(</span><span class="n">pick_trajectory</span><span class="p">),</span> <span class="n">pick_to_place_trajectory</span><span class="p">,</span> <span class="n">place_trajectory</span><span class="p">,</span> <span class="n">reverse_trajectory</span><span class="p">(</span><span class="n">place_trajectory</span><span class="p">),</span><span class="n">reverse_trajectory</span><span class="p">(</span><span class="n">pick_to_place_trajectory</span><span class="p">)])</span>
+            <span class="c1"># all_trajectories.extend( [ place_config])</span>
+
+
+    <span class="n">json_dump</span><span class="p">(</span><span class="n">all_trajectories</span><span class="p">,</span> <span class="s1">&#39;trajectories.json&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Trajectories saved successfully in trajectories.json&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+<hr />
+<h2 id="sending-the-trajectories-to-the-robot">Sending the trajectories to the robot</h2>
+<div class="codehilite"><pre><span></span><code>    <span class="kn">import</span> <span class="nn">compas_rrc</span> <span class="k">as</span> <span class="nn">rrc</span>
+    <span class="kn">from</span> <span class="nn">compas_fab.robots</span> <span class="kn">import</span> <span class="n">to_degrees</span>
+    <span class="kn">from</span> <span class="nn">compas</span> <span class="kn">import</span> <span class="n">json_load</span>
+    <span class="kn">from</span> <span class="nn">compas_fab.backends</span> <span class="kn">import</span> <span class="n">RosClient</span>
+    <span class="kn">from</span> <span class="nn">compas_fab.robots</span> <span class="kn">import</span> <span class="n">PlanningScene</span>
+    <span class="kn">from</span> <span class="nn">compas_fab.robots</span> <span class="kn">import</span> <span class="n">Tool</span>
+
+
+    <span class="n">io_signal</span> <span class="o">=</span> <span class="s1">&#39;doUnitC141Out16&#39;</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="mi">200</span>
+
+
+    <span class="k">def</span> <span class="nf">send_trajectory</span><span class="p">(</span><span class="n">abb</span><span class="p">,</span> <span class="n">robot</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">last_point_fine</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)):</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">points</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="n">joints</span> <span class="o">=</span> <span class="n">to_degrees</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">joint_values</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">zone</span> <span class="o">=</span> <span class="n">rrc</span><span class="o">.</span><span class="n">Zone</span><span class="o">.</span><span class="n">Z10</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">zone</span> <span class="o">=</span> <span class="n">rrc</span><span class="o">.</span><span class="n">Zone</span><span class="o">.</span><span class="n">FINE</span> <span class="k">if</span> <span class="n">last_point_fine</span> <span class="k">else</span> <span class="n">rrc</span><span class="o">.</span><span class="n">Zone</span><span class="o">.</span><span class="n">Z10</span>
+
+            <span class="n">abb</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">rrc</span><span class="o">.</span><span class="n">MoveToJoints</span><span class="p">(</span><span class="n">joints</span><span class="p">,</span> <span class="n">ext_axes</span><span class="o">=</span><span class="p">[],</span> <span class="n">speed</span><span class="o">=</span><span class="n">speed</span><span class="p">,</span> <span class="n">zone</span><span class="o">=</span><span class="n">zone</span><span class="p">))</span>
+
+
+    <span class="k">with</span> <span class="n">RosClient</span><span class="p">(</span><span class="s2">&quot;localhost&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">robot</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">load_robot</span><span class="p">()</span>
+        <span class="n">scene</span> <span class="o">=</span> <span class="n">PlanningScene</span><span class="p">(</span><span class="n">robot</span><span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json_load</span><span class="p">(</span><span class="s1">&#39;data.json&#39;</span><span class="p">)</span>
+        <span class="n">group</span><span class="p">,</span> <span class="n">c_visual_mesh</span><span class="p">,</span> <span class="n">tcf_frame</span><span class="p">,</span> <span class="n">assembly</span><span class="p">,</span> <span class="n">pick_frame</span><span class="p">,</span> <span class="n">approach_distance</span><span class="p">,</span> <span class="n">planner_id</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;c_visual_mesh&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;tcf_frame&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;assembly&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;pick_frame&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;approach_distance&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;planner_id&#39;</span><span class="p">]</span>
+        <span class="n">tool</span> <span class="o">=</span> <span class="n">Tool</span><span class="p">(</span><span class="n">c_visual_mesh</span><span class="p">,</span> <span class="n">tcf_frame</span><span class="p">,</span> <span class="n">c_visual_mesh</span><span class="p">)</span>
+        <span class="n">robot</span><span class="o">.</span><span class="n">attach_tool</span><span class="p">(</span><span class="n">tool</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
+
+        <span class="n">abb</span> <span class="o">=</span> <span class="n">rrc</span><span class="o">.</span><span class="n">AbbClient</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
+        <span class="n">trajectories</span> <span class="o">=</span> <span class="n">json_load</span><span class="p">(</span><span class="s1">&#39;trajectories.json&#39;</span><span class="p">)</span>
+
+        <span class="n">abb</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">rrc</span><span class="o">.</span><span class="n">PrintText</span><span class="p">(</span><span class="s2">&quot;Sending </span><span class="si">{}</span><span class="s2"> PnP points. Press play to move&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trajectories</span><span class="p">))))</span>
+        <span class="n">abb</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">rrc</span><span class="o">.</span><span class="n">Stop</span><span class="p">())</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trajectories</span><span class="p">)</span><span class="o">/</span><span class="mi">6</span><span class="p">)):</span>
+            <span class="n">send_trajectory</span><span class="p">(</span><span class="n">abb</span><span class="p">,</span> <span class="n">robot</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">trajectories</span><span class="p">[</span><span class="mi">6</span><span class="o">*</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+            <span class="c1"># abb.send(rrc.SetDigital(io_signal, 1))</span>
+            <span class="n">abb</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">rrc</span><span class="o">.</span><span class="n">WaitTime</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">send_trajectory</span><span class="p">(</span><span class="n">abb</span><span class="p">,</span> <span class="n">robot</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">trajectories</span><span class="p">[</span><span class="mi">6</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">last_point_fine</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">send_trajectory</span><span class="p">(</span><span class="n">abb</span><span class="p">,</span> <span class="n">robot</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">trajectories</span><span class="p">[</span><span class="mi">6</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">last_point_fine</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">send_trajectory</span><span class="p">(</span><span class="n">abb</span><span class="p">,</span> <span class="n">robot</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span><span class="n">trajectories</span><span class="p">[</span><span class="mi">6</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+            <span class="c1"># abb.send(rrc.SetDigital(io_signal, 0))</span>
+            <span class="n">abb</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">rrc</span><span class="o">.</span><span class="n">WaitTime</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">send_trajectory</span><span class="p">(</span><span class="n">abb</span><span class="p">,</span> <span class="n">robot</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">trajectories</span><span class="p">[</span><span class="mi">6</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">last_point_fine</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">send_trajectory</span><span class="p">(</span><span class="n">abb</span><span class="p">,</span> <span class="n">robot</span><span class="p">,</span> <span class="n">speed</span><span class="p">,</span> <span class="n">trajectories</span><span class="p">[</span><span class="mi">6</span><span class="o">*</span><span class="n">i</span><span class="o">+</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+</code></pre></div>
+    <p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p></body>
+    </html>
+    
