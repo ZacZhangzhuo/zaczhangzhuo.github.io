@@ -13,9 +13,8 @@ jobs:
         steps:
             - name: Checkout repo
               uses: actions/checkout@v3
-              env:
-                GH_TOKEN: ${{ secrets.STATIC_REPO_KEY }}
               with:
+                  ssh-key: ${{ secrets.STATIC_REPO_KEY }}
                   submodules: true
 
             - name: Setup Node
