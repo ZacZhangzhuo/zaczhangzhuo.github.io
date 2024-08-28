@@ -1,0 +1,3 @@
+[submodule "public/archz-static"] 
+  path = public/archz-static 
+  url = https://github.com/ZacZhangzhuo/archz-static.git
