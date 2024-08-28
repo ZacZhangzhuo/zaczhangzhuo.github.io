@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4214SLX26K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4214SLX26K');
+</script>
+	<meta http-equiv='Content-Type' content='text/html;charset=utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'>
+	<title>
+		Grasshopper-C 整理——Script
+	</title>
+	<script src='https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js'>
+	</script>
+	<link rel="stylesheet" href="/src/styles/zMarkdownStyles.css" />
+</head>
+
+
+<body><!-- Menu Bar --><div class="menuBar"><a href="../../zHome.html " class="menuBar"> <p>zHome</p></a><a href="../../zDesigner/zDesigner.html " class="menuBar"> <p>zDesigner</p></a><a href="../zLearner.html " class="menuBar"> <p>zLearner</p></a><a href="../../zWriter/zWriter.html " class="menuBar"> <p>zWriter</p></a><a href="../../zPhotographer/zPhotographer.html " class="menuBar"> <p>zPhotographer</p></a><a href="../../zDeveloper/zDeveloper.html " class="menuBar"> <p>zDeveloper</p></a><a href="../../zCV.html " class="menuBar"> <p>zCV</p></a><a href="../../zSkills.html " class="menuBar"> <p>zSkills</p></a><a href="../../zContact.html " class="menuBar"> <p>zContact</p></a></div><!-- End of Menu Bar -->
+	<div class='rich_media_area_primary'>
+		<!--<div style='display:none;'>Designer by ArchZ</div>-->
+		<div id='js_article' class='rich_media'>
+			<div id="img-content" class="rich_media_wrp">
+          
+          <h1 class="rich_media_title " id="activity-name">
+            
+Grasshopper-C# 整理——Script
+          </h1>
+          <div id="meta_content" class="rich_media_meta_list">
+                                      <span id="copyright_logo" class="wx_tap_link js_wx_tap_highlight rich_media_meta icon_appmsg_tag appmsg_title_tag weui-wa-hotarea">原创</span>
+                                                      <span class="rich_media_meta rich_media_meta_text">
+                                      小zz
+                                  </span>
+                                      
+                        <span class="rich_media_meta rich_media_meta_nickname" id="profileBt"><a href="javascript:void(0);">Arch Z</a>
+              <div id="js_profile_qrcode" aria-hidden="true" class="profile_container" >
+                <div class="profile_inner">
+                  <strong class="profile_nickname">Arch Z</strong>
+                  
+
+                  <p class="profile_meta">
+                  <label class="profile_meta_label">微信号</label>
+                  <span class="profile_meta_value">Arch--Z</span>
+                  </p>
+
+                  <p class="profile_meta">
+                  <label class="profile_meta_label">功能介绍</label>
+                  <span class="profile_meta_value">小zz的建筑学习笔记，乐于与你分享。</span>
+                  </p>
+                </div>
+                <span class="profile_arrow_wrp" id="js_profile_arrow_wrp">
+                  <i class="profile_arrow arrow_out"></i>
+                  <i class="profile_arrow arrow_in"></i>
+                </span>
+              </div>
+            </span>
+            <span id="publish_time" class="rich_media_meta rich_media_meta_text">2020-02-17</span><span class="rich_media_meta rich_media_meta_text"><a href='https://mp.weixin.qq.com/s?__biz=MzA5MjQzMDc3NA==&amp;mid=2247483816&amp;idx=1&amp;sn=008991cbae83eeda74b40450290d6a65&amp;chksm=906c0971a71b8067901c21efac221d5053f357ab4e37316a9ca28fbd3d5fe65eb124a2ea14dc&amp;scene=27#wechat_redirect&cpage=30' target='_blank' >原文</a></span>
+            <em id="js_ip_wording_wrp" class="rich_media_meta rich_media_meta_text" role="option" >发表于<span id="js_ip_wording" ></span></em>
+
+          </div>
+
+          
+                              <div id="js_tags" class="article-tag__list"  data-len="0"
+                      >
+                          
+              <div class="article-tag-card__title">收录于合集</div>
+              <div class="article-tags">
+                              </div>
+                      </div>
+
+          
+                    
+                                        
+
+          
+                    
+
+          
+                              
+                                        
+                    
+                    
+          
+
+          
+          
+                                                  <div class="rich_media_content             "
+            id="js_content" ><p ><br  /></p><p ><span >今年十月份学习的C#，主要用于Grasshopper的一些片段化的编程，编一些电池。所以学的也比较浅比较直接，能解决参数化设计中遇到的一些小问题就行。</span></p><p ><br  /></p><p ><span >我写一些自己容易混淆的概念和一些细节。系统的东西就不讲了，大家可以买一本C#的教程，或者参考Youtube上的一些教程，比如我参考了斯图加特大学Long的线上录屏教程</span></p><p ><span >（官网：</span><span ><em><span >https://www.icd.uni-stuttgart.de/teaching/workshops/workshop-live-streaming-c-scripting-and-plugin-development-for-grasshopper/</span></em></span><span >)。</span></p><p ><span >&nbsp;</span></p><p ><span >同时，Rhino的命名空间（Namespace)查阅网站：</span></p><p ><span ><em><span >https://developer.rhino3d.com/api/RhinoCommon/html/R_Project_RhinoCommon.htm</span></em></span><span >）这个是必备的。</span></p><p ><br  /></p><hr   /><p ><br  /></p><p ><strong><span >Function</span></strong></p><p ><span >&nbsp;</span></p><p ><span ><em><span >A way to package a piece of code so that we can conveniently re-useit many times (一个方法是把一些相关的语句组织在一起，用来执行一个任务的语句块。</span></em><em><span >)</span></em></span></p><p ><span >&nbsp;也就是我所理解的面包机（pakage)：将各种面包（reuse）放入机器中，得出产物。</span></p><p ><br  /></p><p ><img class="rich_pages js_insertlocalimg" data-ratio="0.516734693877551" data-s="300,640" src="images/0001.jpg" data-type="png" data-w="1225"   /></p><p style="text-align: center;"><span >例&nbsp; 子</span><span style="text-align: center;"></span></p><p style="text-align: center;"><span ><br  /></span></p><hr   /><p ><br  /></p><p ><strong><span >Class</span></strong><span ></span><br  /></p><p ><br  /></p><p ><span ><em><span >（user-defined data type)</span></em></span></p><p ><span >当你定义一个类时，你定义了一个数据类型的蓝图。这实际上并没有定义任何的数据，但它定义了类的名称意味着什么，也就是说，类的对象由什么组成及在这个对象上可执行什么操作。对象是类的实例。构成类的方法和变量成为类的成员。成类的方法和变量成为类的成员。</span></p><p ><span >&nbsp;</span></p><p ><img class="rich_pages js_insertlocalimg" data-backh="684" data-backw="448" data-ratio="1.5267857142857142" data-s="300,640" src="images/0002.png" data-type="png" data-w="448" style="text-align: center;"  /></p><p style="text-align: center;"><span >例&nbsp; &nbsp;子</span></p><p style="text-align: center;"><span ><br  /></span></p><hr   /><p ><br  /></p><p ><strong><span >细节Tips</span></strong><span ></span></p><p ><br  /></p><p ><strong><span >1</span></strong><span ></span></p><p ><span >RhinoApp.WriteLine("ArchZ");</span></p><p ><span >这个命令的作用是在Rhino软件界面上输入命令（ArchZ）</span></p><p ><span ><br  /></span></p><p ><strong><span >2</span></strong><span ></span></p><p ><span >Print(ArchZ.ToString());</span></p><p ><span >Print(ArchZ);</span></p><p ><span >两者的区别在于一个是以字符串的形式输出，一个则是以他本来的形式。</span><br  /></p><p ><span ><br  /></span></p><p ><strong><span >3</span></strong><span ></span></p><p ><span >Int x=1,y=2;</span></p><p ><span >同时赋值（更加方便）</span></p><p ><span ><br  /></span></p><p ><strong><span >4</span></strong><span ></span></p><p ><span >break</span><span >语句：立即终止循环；</span><span >continue</span><span >语句：终止当前循环到下一个循环；</span><span >go to</span><span >语句：跳出至标记位置；</span><span >return</span><span >语句：跳出循环以及包括的参数。</span></p><p ><br  /></p><hr   /><p ><br  /></p><p ><span >最后记录一下一位学长对我说的话，对我很有指导意义：</span><span >即使是ZAHA做一个真实的建造项目，也主要是用GH加插件就能做出来了，在Code上的使用还是比较小的。</span><span >比较重要的是思维逻辑，如何做出最适合的优化。</span></p><p ><span ><br  /></span></p><p ><span >共勉！</span></p><p ><span ><br  /></span></p><hr   /><p ><span ></span><br  /></p><p ><img class="rich_pages" data-ratio="0.346875" data-s="300,640" src="images/0003.jpg" data-type="jpeg" data-w="1280"   /></p><p ><br  /></p><p ><br  /></p></div>
+
+          
+        </div>
+			<p class="endnotes">--- Growing, Growing, Brighter Everyday ! ---</p>
+		</div>
+		
+	</div>
+</body>
+<script>
+$(function(){
+    var wX_contentArray = document.getElementsByClassName('rich_media_content');
+    for(let i = 0; i < wX_contentArray.length;i++){
+       wX_contentArray[i].style.visibility = '';
+    }
+    if(document.getElementById('js_content')){
+        document.getElementById('js_content').style.visibility = '';
+    }
+})
+</script>
