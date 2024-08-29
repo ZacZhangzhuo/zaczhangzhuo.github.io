@@ -9,273 +9,273 @@
 		{ "name": "email", "url": "mailto:Arch.Z@outlook.com", "icon": "/Email.png" }
 	],
 
-	"photographs": [
+	"zPhotographer": [
 		{
 			"name": "Geometry + Structure",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/C-YVbyru4Py/embed/"
+			"url": "https://www.instagram.com/p/C-YVbyru4Py/"
 		},
 		{
 			"name": "Greece",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/C9YUqYxsG92/embed/"
+			"url": "https://www.instagram.com/p/C9YUqYxsG92/"
 		},
 		{
 			"name": "Hungary",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/C9YUR5zswsg/embed/"
+			"url": "https://www.instagram.com/p/C9YUR5zswsg/"
 		},
 		{
 			"name": "Shanghai Pudong Airport",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/C30ur-MMtJq/embed/"
+			"url": "https://www.instagram.com/p/C30ur-MMtJq/"
 		},
 		{
 			"name": "Zurich ,Switzerland - 2",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CvcBx09M768/embed/"
+			"url": "https://www.instagram.com/p/CvcBx09M768/"
 		},
 		{
 			"name": "Zurich ,Switzerland",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CvcBpCFMiFy/embed/"
+			"url": "https://www.instagram.com/p/CvcBpCFMiFy/"
 		},
 		{
 			"name": "Florence, Italy 2",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CvcBY5Xs30A/embed/"
+			"url": "https://www.instagram.com/p/CvcBY5Xs30A/"
 		},
 		{
 			"name": "Florence, Italy 1",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CvcBOecMzbF/embed/"
+			"url": "https://www.instagram.com/p/CvcBOecMzbF/"
 		},
 		{
 			"name": "Vatican City, Rome, Italy - 2",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CvcA0EBMPWC/embed/"
+			"url": "https://www.instagram.com/p/CvcA0EBMPWC/"
 		},
 		{
 			"name": "Vatican City, Rome, Italy",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CvcAlBXM_5O/embed/"
+			"url": "https://www.instagram.com/p/CvcAlBXM_5O/"
 		},
 		{
 			"name": "Rome, Italy",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CvcAQcysA5d/embed/"
+			"url": "https://www.instagram.com/p/CvcAQcysA5d/"
 		},
 		{
 			"name": "Rome",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CvcADsDsP1i/embed/"
+			"url": "https://www.instagram.com/p/CvcADsDsP1i/"
 		},
 		{
 			"name": "from Madrid with Love",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CoaL7H_AFCH/embed/"
+			"url": "https://www.instagram.com/p/CoaL7H_AFCH/"
 		},
 		{
 			"name": "Peaceful Perfection",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CnHuGEVsgYW/embed/"
+			"url": "https://www.instagram.com/p/CnHuGEVsgYW/"
 		},
 		{
 			"name": "God is in the details",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CnHtc7lMBn1/embed/"
+			"url": "https://www.instagram.com/p/CnHtc7lMBn1/"
 		},
 		{
 			"name": "Reykjavík, Iceland 5",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CnFMTviMU3m/embed/"
+			"url": "https://www.instagram.com/p/CnFMTviMU3m/"
 		},
 		{
 			"name": "Reykjavík, Iceland 4",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CnEfvy9snpb/embed/"
+			"url": "https://www.instagram.com/p/CnEfvy9snpb/"
 		},
 		{
 			"name": "Reykjavík, Iceland 3",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CnEfmakMCH6/embed/"
+			"url": "https://www.instagram.com/p/CnEfmakMCH6/"
 		},
 		{
 			"name": "Reykjavík, Iceland 2",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/Cm_S_uvt61l/embed/"
+			"url": "https://www.instagram.com/p/Cm_S_uvt61l/"
 		},
 		{
 			"name": "Reykjavík, Iceland 1",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CmknnYQNi7P/embed/"
+			"url": "https://www.instagram.com/p/CmknnYQNi7P/"
 		},
 		{
 			"name": "Facade Tattooing",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/Cmc5i7FIk5-/embed/"
+			"url": "https://www.instagram.com/p/Cmc5i7FIk5-/"
 		},
 		{
 			"name": "Rapperswill",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/ClwOqFHs8vR/embed/"
+			"url": "https://www.instagram.com/p/ClwOqFHs8vR/"
 		},
 		{
 			"name": "Golden Zurich Opera House",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CjdqU7VsSJ3/embed/"
+			"url": "https://www.instagram.com/p/CjdqU7VsSJ3/"
 		},
 		{
 			"name": "Munich, Germany",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/Cjc5ymGsaUI/embed/"
+			"url": "https://www.instagram.com/p/Cjc5ymGsaUI/"
 		},
 		{
 			"name": "Oktoberfest-2",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CjSAs9-MFCu/embed/"
+			"url": "https://www.instagram.com/p/CjSAs9-MFCu/"
 		},
 		{
 			"name": "Oktoberfest",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CjRM0kFsDh3/embed/"
+			"url": "https://www.instagram.com/p/CjRM0kFsDh3/"
 		},
 		{
 			"name": "Very Swiss",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CiZpHNBoH-S/embed/"
+			"url": "https://www.instagram.com/p/CiZpHNBoH-S/"
 		},
 		{
 			"name": "ancients ",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/Cd0W2rBMJMC/embed/"
+			"url": "https://www.instagram.com/p/Cd0W2rBMJMC/"
 		},
 		{
 			"name": "Faces of Buddha",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/Cd0WLpoLyqN/embed/"
+			"url": "https://www.instagram.com/p/Cd0WLpoLyqN/"
 		},
 		{
 			"name": "Megatall",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CTjzKM7J1AS/embed/"
+			"url": "https://www.instagram.com/p/CTjzKM7J1AS/"
 		},
 		{
 			"name": "Close-up !",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CRJENsFss-N/embed/"
+			"url": "https://www.instagram.com/p/CRJENsFss-N/"
 		},
 		{
 			"name": "Digital FUTURES 2021",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CRIQrC7MTcw/embed/"
+			"url": "https://www.instagram.com/p/CRIQrC7MTcw/"
 		},
 		{
 			"name": "MegaChain",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CQAWufhsh1I/embed/"
+			"url": "https://www.instagram.com/p/CQAWufhsh1I/"
 		},
 		{
 			"name": "Still Life",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CN3l9fKsYbR/embed/"
+			"url": "https://www.instagram.com/p/CN3l9fKsYbR/"
 		},
 		{
 			"name": "Sakura",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CMRjdfoM5lv/embed/"
+			"url": "https://www.instagram.com/p/CMRjdfoM5lv/"
 		},
 		{
 			"name": "Under Pressure",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CMPb7Dys6Fp/embed/"
+			"url": "https://www.instagram.com/p/CMPb7Dys6Fp/"
 		},
 
 		{
 			"name": "hiding",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CLgorCtsVHR/embed/"
+			"url": "https://www.instagram.com/p/CLgorCtsVHR/"
 		},
 		{
 			"name": "Forbidden City",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CK1f_LcseTX/embed/"
+			"url": "https://www.instagram.com/p/CK1f_LcseTX/"
 		},
 		{
 			"name": "Temple of Earth",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CKy36f5sIVy/embed/"
+			"url": "https://www.instagram.com/p/CKy36f5sIVy/"
 		},
 		{
 			"name": "Days and nights",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CFMCwjCsMjP/embed/"
+			"url": "https://www.instagram.com/p/CFMCwjCsMjP/"
 		},
 		{
 			"name": "CloseUp",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CKsW4TAM2QN/embed/"
+			"url": "https://www.instagram.com/p/CKsW4TAM2QN/"
 		},
 		{
 			"name": "Beijing",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CKX0cIhM2Z2/embed/"
+			"url": "https://www.instagram.com/p/CKX0cIhM2Z2/"
 		},
 		{
 			"name": "Cats!",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CExik_qMgp7/embed/"
+			"url": "https://www.instagram.com/p/CExik_qMgp7/"
 		},
 		{
 			"name": "Arms",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CEBEW1NpehC/embed/"
+			"url": "https://www.instagram.com/p/CEBEW1NpehC/"
 		},
 		{
 			"name": "instagram",
 			"type": "Power Station of Art",
-			"url": "https://www.instagram.com/p/CDnoX-Wp0Rt/embed/"
+			"url": "https://www.instagram.com/p/CDnoX-Wp0Rt/"
 		},
 		{
 			"name": "Big buildings in Big city",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CDnpE08pXPR/embed/"
+			"url": "https://www.instagram.com/p/CDnpE08pXPR/"
 		},
 		{
 			"name": "Shanghai",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CDnnSw7p1Gy/embed/"
+			"url": "https://www.instagram.com/p/CDnnSw7p1Gy/"
 		},
 		{
 			"name": "Little town",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CAZ8xadJQT1/embed/"
+			"url": "https://www.instagram.com/p/CAZ8xadJQT1/"
 		},
 		{
 			"name": "IFS in Changsha",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/CAY9qSeJOlB/embed/"
+			"url": "https://www.instagram.com/p/CAY9qSeJOlB/"
 		},
 		{
 			"name": "XiezilongPhotography Museum / Changsha",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/B-WS-yWJgLS/embed/"
+			"url": "https://www.instagram.com/p/B-WS-yWJgLS/"
 		},
 		{
 			"name": "ProjectShowcase",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/B6Zx2K4JpIa/embed/"
+			"url": "https://www.instagram.com/p/B6Zx2K4JpIa/"
 		},
 		{
 			"name": "WuHan",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/B3-7ATegg6d/embed/"
+			"url": "https://www.instagram.com/p/B3-7ATegg6d/"
 		},
 
 		{
 			"name": "Scotland",
 			"type": "instagram",
-			"url": "https://www.instagram.com/p/B2B49OFgwJY/embed/"
+			"url": "https://www.instagram.com/p/B2B49OFgwJY/"
 		}
 	]
 }

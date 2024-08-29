@@ -131,8 +131,8 @@ function getLegacyBlogs() {
 
 function getPhotographBlogs() {
 	let blogs: Blog[] = [];
-	for (let i = 0; i < zConfig.photographs.length; i++) {
-		let blogInfo = zConfig.photographs[i];
+	for (let i = 0; i < zConfig.zPhotographer.length; i++) {
+		let blogInfo = zConfig.zPhotographer[i];
 		blogs.push(
 			new Blog({
 				name: blogInfo.name,
