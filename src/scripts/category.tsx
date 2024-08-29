@@ -2,14 +2,12 @@ import { Link } from "react-router-dom";
 import { Blog, blogs, Category } from "./config";
 import { navBar } from "./navBar";
 import { Page } from "./page";
-import { InstagramEmbed } from "react-social-media-embed";
 
 function getCategoryItem(blog: Blog) {
 	let content = <></>;
 	if (blog._category === "zPhotographer") {
 		if (blog._type === "instagram") {
-			// content = <iframe src={blog._path} />;
-			content = <InstagramEmbed url={blog._path} linkText={blog._name} />;
+			content = <iframe src={blog._path} scrolling="no" />;
 		} else {
 			console.error("Invalid type for zPhotographer");
 		}
