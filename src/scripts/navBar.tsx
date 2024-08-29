@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { categories, others } from "./config";
+import { cloneElement } from "react";
 
-function Navbar() {
-	let navBar: JSX.Element[] = [];
+export function Navbar(type: string) {
+	var navBar: JSX.Element[] = [];
 	let items = categories.concat(others);
+
 	navBar.push(
 		<Link key="Home" to="/" className="navBar">
 			<p>zHome</p>
@@ -18,7 +20,30 @@ function Navbar() {
 		);
 	}
 
+	// CV specific changes
+	navBar.pop();
+
+	if (type === "zCV") {
+		const lastLink = navBar[navBar.length - 1];
+		navBar[navBar.length - 1] = cloneElement(lastLink, {
+			children: (
+				<p>
+					<b>EN</b>·CN
+				</p>
+			),
+			to: "/CV_cn",
+		});
+	} else if (type === "zCV_CN") {
+		const lastLink = navBar[navBar.length - 1];
+		navBar[navBar.length - 1] = cloneElement(lastLink, {
+			children: (
+				<p>
+					EN·<b>CN</b>
+				</p>
+			),
+			to: "/CV_en",
+		});
+	}
+
 	return navBar;
 }
-
-export const navBar = Navbar();

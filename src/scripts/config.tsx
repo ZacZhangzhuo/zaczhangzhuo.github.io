@@ -1,7 +1,5 @@
 import zConfig from "../config/config.json";
 import legacyConfig from "../config/legacy_config.json";
-//! Legacy Pages
-// export const legacyConfig = await fetch("/archz-static/legacy_config.json").then((r) => r.json());
 
 // !Category
 export class Category {
@@ -85,8 +83,15 @@ function getOthers(): Blog[] {
 	others.push(
 		new Blog({
 			name: "zCV",
-			file: "/zCV/zCV.html",
-			path: "/zCV",
+			file: "/zCV/zCV_en.html",
+			path: "/CV_en",
+			image: "/archz-static/about.jpg",
+			category: "others",
+		}),
+		new Blog({
+			name: "zCV_CN",
+			file: "/zCV/zCV_cn.html",
+			path: "/CV_cn",
 			image: "/archz-static/about.jpg",
 			category: "others",
 		})

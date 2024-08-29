@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Blog, blogs, Category } from "./config";
-import { navBar } from "./navBar";
+import { Navbar } from "./navBar";
 import { Page } from "./page";
 
 function getCategoryItem(blog: Blog) {
@@ -41,7 +41,7 @@ export function CategoryPage({ category }: { category: Category }) {
 		<Page title={category._name}>
 			<>
 				{/* Menu bar */}
-				<div className="navBar">{navBar}</div>
+				<div className="navBar">{Navbar(category._name)}</div>
 				{/* Main content */}
 				<div className="mainGuid">
 					{blogs[category._name].map((i) => {

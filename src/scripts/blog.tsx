@@ -3,7 +3,7 @@ import { useState } from "react";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { Blog } from "./config";
-import { navBar } from "./navBar";
+import { Navbar } from "./navBar";
 import { Page } from "./page";
 
 export function BlogPage({ blog, props = {} }: { blog: Blog; props?: any }) {
@@ -26,7 +26,7 @@ export function BlogPage({ blog, props = {} }: { blog: Blog; props?: any }) {
 			<Page title={blog._name} {...props}>
 				<>
 					{/* Menu bar */}
-					<div className="navBar">{navBar}</div>
+					<div className="navBar">{Navbar(blog._name)}</div>
 					{/* Main content */}
 					<Markdown
 						rehypePlugins={[rehypeRaw]}
@@ -55,7 +55,13 @@ export function BlogPage({ blog, props = {} }: { blog: Blog; props?: any }) {
 			replace(domNode: any) {
 				if (domNode.name === "img") {
 					let props = attributesToProps(domNode.attribs);
-					return <img {...props} src={`${blog._path}/${props.src}`} alt={blog._name} />;
+					return (
+						<img
+							{...props}
+							src={blog._path.includes("CV") ? `zCV/${props.src}` : `${blog._path}/${props.src}`}
+							alt={blog._name}
+						/>
+					);
 				}
 			},
 		};
@@ -64,7 +70,7 @@ export function BlogPage({ blog, props = {} }: { blog: Blog; props?: any }) {
 			<Page title={blog._name} {...props}>
 				<>
 					{/* Menu bar */}
-					<div className="navBar">{navBar}</div>
+					<div className="navBar">{Navbar(blog._name)}</div>
 					{/* Main content */}
 					{parse(content, replace_options)}
 				</>
