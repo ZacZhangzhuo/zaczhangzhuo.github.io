@@ -4,7 +4,7 @@ Following the [official MoveIt tutorial](https://moveit.picknik.ai/humble/doc/tu
 
 ## Learning material
 
-<iframe id="iframe" onload="adjustIframe();" src="moveit1.pdf#view=fitH" title="PDF loader" frameborder="0" allowfullscreen></iframe>
+<iframe id="iframe" src="moveit1.pdf#view=fitH" title="PDF loader" frameborder="0" allowfullscreen></iframe>
 
 
 

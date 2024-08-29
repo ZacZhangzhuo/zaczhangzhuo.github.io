@@ -1,7 +1,7 @@
 # Robotic Dynamics Studies - Chapter 1 - Preview
 
 
-<iframe id="iframe" onload="adjustIframe();" src="ModernRobotics_Chapter1.pdf#view=fitH" title="PDF loader" frameborder="0" allowfullscreen></iframe>
+<iframe id="iframe" src="ModernRobotics_Chapter1.pdf#view=fitH" title="PDF loader" frameborder="0" allowfullscreen></iframe>
 
 
 > **What sets a robot apart from an automated machine is that it should be easily reprogrammable for different tasks. Different tasks require different motions, and it would be unreasonable to expect the user to specify the entire time-history of each joint for every task; clearly it would be desirable for the robot's control computer to "fill in the details" from a small set of task input data.**

@@ -1,6 +1,6 @@
 
 
-<iframe id="iframe" onload="adjustIframe();" src="https://www.youtube.com/embed//xQ79ysnrzUk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="iframe" src="https://www.youtube.com/embed//xQ79ysnrzUk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 

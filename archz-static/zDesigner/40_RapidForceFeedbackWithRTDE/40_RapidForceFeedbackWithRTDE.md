@@ -15,7 +15,7 @@ ___
 
 ---
 
-<iframe id="iframe" onload="adjustIframe();" src="https://www.youtube.com/embed/4uTbTt8Ii98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="iframe" src="https://www.youtube.com/embed/4uTbTt8Ii98" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
@@ -24,6 +24,6 @@ ___
 
 ---
 
-<iframe id="iframe" onload="adjustIframe();" src="https://www.youtube.com/embed/hgPDQPlE-vk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="iframe" src="https://www.youtube.com/embed/hgPDQPlE-vk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---

@@ -8,7 +8,7 @@ This is a part of MAS T1.
 
 ---
 
-<iframe id="iframe" onload="adjustIframe();" src="https://www.youtube.com/embed/DqFPPCkKF_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="iframe" src="https://www.youtube.com/embed/DqFPPCkKF_8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ---
@@ -16,7 +16,7 @@ This is a part of MAS T1.
 ## Modification of differential growth
 
 
-<iframe id="iframe" onload="adjustIframe();" src="https://www.youtube.com/embed/MRMPK74k7F4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="iframe" src="https://www.youtube.com/embed/MRMPK74k7F4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
@@ -31,9 +31,9 @@ This is a part of MAS T1.
 
 ## Practicing Non-planner Printing
 
-<iframe id="iframe" onload="adjustIframe();" src="https://www.youtube.com/embed/1BaN435G0_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="iframe" src="https://www.youtube.com/embed/1BaN435G0_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<iframe id="iframe" onload="adjustIframe();" src="https://www.youtube.com/embed/Vdd_kuITz8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="iframe" src="https://www.youtube.com/embed/Vdd_kuITz8M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ![img](31_3DPrinting/31_3DPrinting_2023-05-04-20-42-36.png)
@@ -43,7 +43,7 @@ This is a part of MAS T1.
 ---
 
 ## Simulation
-<iframe id="iframe" onload="adjustIframe();" src="https://www.youtube.com/embed/rNUwREm2UeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="iframe" src="https://www.youtube.com/embed/rNUwREm2UeI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 ## Outcome

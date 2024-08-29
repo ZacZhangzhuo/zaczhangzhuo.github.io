@@ -1,11 +1,11 @@
 # MAS dfab - Endless Wall - 2
 
 
-- [Infinite looping](#infinite-looping)
-- [Listen to the robot](#listen-to-the-robot)
-- [Robot position judgement](#robot-position-judgement)
-- [Sending codes to the robot](#sending-codes-to-the-robot)
-- [Simple command scripts](#simple-command-scripts)
+* [Infinite looping](#infinite-looping)
+* [Listen to the robot](#listen-to-the-robot)
+* [Robot position judgement](#robot-position-judgement)
+* [Sending codes to the robot](#sending-codes-to-the-robot)
+* [Simple command scripts](#simple-command-scripts)
 
 ## Infinite looping
 
@@ -376,6 +376,3 @@ def get_messages(bytes, chunks_info):
     chunks_info["time"]= time
 
 ```
-
-![](8_MASdfab_Endless%20Wall_2/8_MASdfab_Endless%20Wall_2_2022-11-14-16-54-04.png)
-![](8_MASdfab_Endless%20Wall_2/8_MASdfab_Endless%20Wall_2_2022-11-14-16-54-26.png)

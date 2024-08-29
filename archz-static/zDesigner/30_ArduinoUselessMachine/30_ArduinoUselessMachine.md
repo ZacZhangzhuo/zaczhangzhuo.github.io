@@ -6,7 +6,7 @@ We use arduino to make a useless machine, which makes the robot run as a 'cat' a
 
 ---
 
-<iframe id="iframe" onload="adjustIframe();" src="https://www.youtube.com/embed/efXK0X8KSxI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="iframe" src="https://www.youtube.com/embed/efXK0X8KSxI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 ---

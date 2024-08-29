@@ -6,7 +6,7 @@ It is a part of the COMPAS II assignment. Some trails to extend for exploring th
 
 ---
 
-<iframe id="iframe" onload="adjustIframe();" src="https://www.youtube.com/embed/bxeMlPWHJbk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe id="iframe" src="https://www.youtube.com/embed/bxeMlPWHJbk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
