@@ -54,6 +54,11 @@
 			"file": "z2023/z2023小事纪.md",
 			"image": "z2023/images/01月01日.jpg",
 			"name": "z2023小事纪"
+		},
+		{
+			"file": "ArchZ_3.0_announcement/ArchZ_3.0_announcement.md",
+			"image": "ArchZ_3.0_announcement/images/image.png",
+			"name": "ArchZ_3.0_announcement"
 		}
 	],
 	"zDesigner": [
