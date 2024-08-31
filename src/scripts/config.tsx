@@ -1,6 +1,6 @@
 import zConfig from "../config/config.json";
 
-// !Config
+// !Legacy Config
 export const legacyConfig = await fetch("/archz-static/legacy_config.json").then((r) => r.json());
 
 // !Category
