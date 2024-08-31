@@ -20,7 +20,7 @@ export function Navbar(type: string) {
 		);
 	}
 
-	// CV specific changes
+	// CV-specific changes
 	navBar.pop();
 
 	if (type === "zCV") {
