@@ -155,9 +155,9 @@
 			"name": "Zen Dark"
 		},
 		{
-			"file": "https://compas.dev/compas_view2/",
-			"image": "COMPAS_VIEW2/images/2023-10-10-08-13-22-42.jpg",
-			"name": "COMPAS VIEW2"
+			"file": "https://compas.dev/compas_viewer/",
+			"image": "COMPAS_VIEWER/images/compas_viewer.png",
+			"name": "COMPAS VIEWER"
 		},
 		{
 			"file": "https://gravisrobotics.com/",
