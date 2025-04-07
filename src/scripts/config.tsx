@@ -1,4 +1,5 @@
 import zConfig from "../config/config.json";
+import { getTimeCreatedFromPath } from "./util";
 
 // !Legacy Config
 export const legacyConfig = await fetch("/archz-static/legacy_config.json").then((r) => r.json());
@@ -54,6 +55,7 @@ export class Blog {
 	_image: string;
 	_category: string;
 	_type: string;
+	_timeCreated: Date | null;
 
 	constructor({
 		name,
@@ -62,6 +64,7 @@ export class Blog {
 		image,
 		category,
 		type = "",
+		timeCreated,
 	}: {
 		name: string;
 		file: string;
@@ -69,6 +72,7 @@ export class Blog {
 		image: string;
 		category: string;
 		type?: string;
+		timeCreated: Date | null;
 	}) {
 		this._name = name;
 		this._file = file;
@@ -76,6 +80,7 @@ export class Blog {
 		this._image = image;
 		this._category = category;
 		this._type = type;
+		this._timeCreated = timeCreated;
 	}
 }
 
@@ -89,6 +94,7 @@ function getOthers(): Blog[] {
 			path: "/CV_en",
 			image: "/archz-static/about.jpg",
 			category: "others",
+			timeCreated: new Date(),
 		}),
 		new Blog({
 			name: "zCV_CN",
@@ -96,6 +102,7 @@ function getOthers(): Blog[] {
 			path: "/CV_cn",
 			image: "/archz-static/about.jpg",
 			category: "others",
+			timeCreated: new Date(),
 		})
 	);
 	for (let i = 0; i < zConfig.others.length; i++) {}
@@ -105,10 +112,21 @@ function getOthers(): Blog[] {
 export const others = getOthers();
 
 class LegacyBlog extends Blog {
-	constructor({ blogInfo, category }: { blogInfo: { name: string; file: string; image: string }; category: string }) {
+	constructor({
+		blogInfo,
+		category,
+	}: {
+		blogInfo: { name: string; file: string; image: string; timeCreated: string };
+		category: string;
+	}) {
 		let _file = `/archz-static/${category}/${blogInfo.file}`;
 		if (blogInfo.file.startsWith("http")) {
 			_file = blogInfo.file;
+		}
+
+		let _timeCreated: Date | null = new Date(blogInfo.timeCreated);
+		if (isNaN(_timeCreated.valueOf())) {
+			_timeCreated = getTimeCreatedFromPath(blogInfo.file) || getTimeCreatedFromPath(blogInfo.image);
 		}
 
 		super({
@@ -117,6 +135,7 @@ class LegacyBlog extends Blog {
 			path: `/archz-static/${category}/${blogInfo.file.split("/")[0]}`,
 			image: `/archz-static/${category}/${blogInfo.image}`,
 			category,
+			timeCreated: _timeCreated,
 		});
 	}
 }
@@ -148,6 +167,7 @@ function getPhotographBlogs() {
 				image: "/",
 				category: "zPhotographer",
 				type: "instagram",
+				timeCreated: new Date(),
 			})
 		);
 	}

@@ -1,5 +1,4 @@
 export function beforePrint({ img_class_replace = undefined }: { img_class_replace: string | undefined }) {
-
 	console.log("beforePrint");
 	if (img_class_replace) {
 		var images = document.getElementsByClassName(img_class_replace) as HTMLCollectionOf<HTMLImageElement>;
@@ -12,7 +11,6 @@ export function beforePrint({ img_class_replace = undefined }: { img_class_repla
 }
 
 export function afterPrint({ img_class_replace = undefined }: { img_class_replace: string | undefined }) {
-
 	if (img_class_replace) {
 		var images = document.getElementsByClassName(img_class_replace) as HTMLCollectionOf<HTMLImageElement>;
 		for (var i = 0; i < images.length; i++) {
@@ -21,4 +19,22 @@ export function afterPrint({ img_class_replace = undefined }: { img_class_replac
 			images[i].src = newSrc;
 		}
 	}
+}
+
+export function getTimeCreatedFromPath(path: string): Date | null {
+	const parts = path.split(/[_\/.\s]/); // _, /, . and space
+
+	for (const part of parts) {
+		if (part.length < 10) {
+			continue; // Skip if part is too short to be a date
+		}
+		// in case of YYYY-MM-DD-HH-mm-ss format
+		const date = new Date(part.split("-").slice(0, 3).join("-"));
+
+		if (!isNaN(date.valueOf())) {
+			return date;
+		}
+	}
+
+	return null;
 }
