@@ -55,7 +55,7 @@ export class Blog {
 	_image: string;
 	_category: string;
 	_type: string;
-	_timeCreated: Date | null;
+	_timeCreated: Date;
 
 	constructor({
 		name,
@@ -72,7 +72,7 @@ export class Blog {
 		image: string;
 		category: string;
 		type?: string;
-		timeCreated: Date | null;
+		timeCreated: Date;
 	}) {
 		this._name = name;
 		this._file = file;
@@ -127,6 +127,11 @@ class LegacyBlog extends Blog {
 		let _timeCreated: Date | null = new Date(blogInfo.timeCreated);
 		if (isNaN(_timeCreated.valueOf())) {
 			_timeCreated = getTimeCreatedFromPath(blogInfo.file) || getTimeCreatedFromPath(blogInfo.image);
+		}
+
+		if (_timeCreated == null) {
+			console.error(`Error: ${blogInfo.file} has no timeCreated`);
+			_timeCreated = new Date();
 		}
 
 		super({
