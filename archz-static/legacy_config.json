@@ -48,17 +48,20 @@
 		{
 			"file": "22_RhinoUserMeeting/22_RhinoUserMeeting.md",
 			"image": "22_RhinoUserMeeting/images/641dfea3677887261ce7d435.jpg",
-			"name": "22_RhinoUserMeeting"
+			"name": "22_RhinoUserMeeting",
+			"timeCreated": "2023-03-17"
 		},
 		{
 			"file": "z2023/z2023小事纪.md",
 			"image": "z2023/images/01月01日.jpg",
-			"name": "z2023小事纪"
+			"name": "z2023小事纪",
+			"timeCreated": "2023-12-31"
 		},
 		{
 			"file": "ArchZ_3.0_announcement/ArchZ_3.0_announcement.md",
 			"image": "ArchZ_3.0_announcement/images/image.png",
-			"name": "ArchZ_3.0_announcement"
+			"name": "ArchZ_3.0_announcement",
+			"timeCreated": "2023-12-31"
 		}
 	],
 	"zDesigner": [
@@ -90,22 +93,26 @@
 		{
 			"file": "ProbingTower/ProbingTower.html",
 			"image": "ProbingTower/images/2023-03-11_21-09-11.jpg",
-			"name": "ProbingTower"
+			"name": "ProbingTower",
+			"timeCreated": "2022-03-01"
 		},
 		{
 			"file": "ListChecker/ListChecker.html",
 			"image": "ListChecker/images/2023-03-11_21-09-43.jpg",
-			"name": "ListChecker"
+			"name": "ListChecker",
+			"timeCreated": "2022-03-01"
 		},
 		{
 			"file": "RationalSketcher/RationalSketcher.html",
 			"image": "RationalSketcher/images/2023-03-11_21-10-10.jpg",
-			"name": "RationalSketcher"
+			"name": "RationalSketcher",
+			"timeCreated": "2022-03-01"
 		},
 		{
 			"file": "SpatialGlulamStructures/SpatialGlulamStructures.html",
 			"image": "SpatialGlulamStructures/images/timberCover.png",
-			"name": "SpatialGlulamStructures"
+			"name": "SpatialGlulamStructures",
+			"timeCreated": "2021-07-01"
 		},
 		{
 			"file": "PerformativeAi/PerformativeAi.html",
@@ -115,7 +122,8 @@
 		{
 			"file": "32_EndlessWall/32_EndlessWall.md",
 			"image": "32_EndlessWall/images/Further Explorations.jpg",
-			"name": "32_EndlessWall"
+			"name": "32_EndlessWall",
+			"timeCreated": "2022-11-04"
 		},
 		{
 			"file": "30_ArduinoUselessMachine/30_ArduinoUselessMachine.md",
@@ -130,7 +138,8 @@
 		{
 			"file": "ExperimentingPathPlannersforthePick-PlaceScenario/29_ExperimentingPathPlannersforthePick-PlaceScenario.md",
 			"image": "ExperimentingPathPlannersforthePick-PlaceScenario/images/img.jpg",
-			"name": "29_ExperimentingPathPlannersforthePick-PlaceScenario"
+			"name": "29_ExperimentingPathPlannersforthePick-PlaceScenario",
+			"timeCreated": "2023-05-22"
 		},
 		{
 			"file": "40_RapidForceFeedbackWithRTDE/40_RapidForceFeedbackWithRTDE.md",
@@ -138,7 +147,7 @@
 			"name": "40_RapidForceFeedbackWithRTDE"
 		},
 		{
-			"file": "https://www.masdfab.arch.ethz.ch/program/studentwork/2022-23-t3-work",
+			"file": "https://masdfab.arch.ethz.ch/projects/2022-23/thesis-projects.html",
 			"image": "ETHMASDFABT3Thesis/images/2023-09-09-20-14-03-16.jpg",
 			"name": "ETHMASDFABT3Thesis"
 		}
@@ -147,7 +156,8 @@
 		{
 			"file": "11_ScriptParasite/11_ScriptParasite.md",
 			"image": "11_ScriptParasite/images/2023-01-01-07-18-38-43.jpg",
-			"name": "11_ScriptParasite"
+			"name": "11_ScriptParasite",
+			"timeCreated": "2021-08-14"
 		},
 		{
 			"file": "https://marketplace.visualstudio.com/items?itemName=ZacZhuoZhang.zen-dark-z",
@@ -157,12 +167,14 @@
 		{
 			"file": "https://compas.dev/compas_viewer/",
 			"image": "COMPAS_VIEWER/images/compas_viewer.png",
-			"name": "COMPAS VIEWER"
+			"name": "COMPAS VIEWER",
+			"timeCreated": "2023-10-01"
 		},
 		{
 			"file": "https://gravisrobotics.com/",
 			"image": "GravisRobotics/images/2024-08-08-31-21-49-44.jpg",
-			"name": "GravisRobotics"
+			"name": "GravisRobotics",
+			"timeCreated": "2024-04-01"
 		}
 	],
 	"zLearner": [
@@ -236,7 +248,12 @@
 			"image": "1_MASdfab_Week1/MASdfab-Week1/2022-09-22_15-14-01.gif",
 			"name": "1_MASdfab_Week1"
 		},
-		{ "file": "2_MASdfab_Week2/2_MASdfab_Week2.md", "image": "../cover.jpg", "name": "2_MASdfab_Week2" },
+		{
+			"file": "2_MASdfab_Week2/2_MASdfab_Week2.md",
+			"image": "../cover.jpg",
+			"name": "2_MASdfab_Week2",
+			"timeCreated": "2022-09-29"
+		},
 		{
 			"file": "3_MASdfab_Week3-4/3_MASdfab_Week3-4.md",
 			"image": "3_MASdfab_Week3-4/MASdfab-Week3-4/MASdfab-Week3-4_2022-10-11-14-31-58.png",
@@ -245,12 +262,14 @@
 		{
 			"file": "4_HTMLAndCSSStudies/4_HTMLAndCSSStudies.md",
 			"image": "../cover.jpg",
-			"name": "4_HTMLAndCSSStudies"
+			"name": "4_HTMLAndCSSStudies",
+			"timeCreated": "2022-10-16"
 		},
 		{
 			"file": "5_MASdfab_Week5/5_MASdfab_Week5.md",
 			"image": "5_MASdfab_Week5/MASdfab-Week5/final.png",
-			"name": "5_MASdfab_Week5"
+			"name": "5_MASdfab_Week5",
+			"timeCreated": "2022-10-20"
 		},
 		{
 			"file": "6_MASdfab_Week6/6_MASdfab_Week6.md",
@@ -265,7 +284,8 @@
 		{
 			"file": "8_MASdfab_Endless Wall_2/8_MASdfab_Endless Wall_2.md",
 			"image": "../cover.jpg",
-			"name": "8_MASdfab_Endless Wall_2"
+			"name": "8_MASdfab_Endless Wall_2",
+			"timeCreated": "2022-11-06"
 		},
 		{
 			"file": "12_OneNoteTransmisions/12_OneNoteTransmisions.md",
@@ -300,7 +320,8 @@
 		{
 			"file": "24_AdvancedMotionPlanningStudies/24_AdvancedMotionPlanningStudies.md",
 			"image": "24_AdvancedMotionPlanningStudies/images/0.png",
-			"name": "24_AdvancedMotionPlanningStudies"
+			"name": "24_AdvancedMotionPlanningStudies",
+			"timeCreated": "2023-04-28"
 		},
 		{
 			"file": "26_RobotDynamicsStudies_1/26_RobotDynamicsStudies_1.md",
@@ -337,6 +358,11 @@
 			"image": "39_PybulletStudies/images/2023-06-06-11-13-08-20.gif",
 			"name": "39_PybulletStudies"
 		},
-		{ "file": "41_libiglStudies/41_libiglStudies.md", "image": "../cover.jpg", "name": "41_libiglStudies" }
+		{
+			"file": "41_libiglStudies/41_libiglStudies.md",
+			"image": "../cover.jpg",
+			"name": "41_libiglStudies",
+			"timeCreated": "2023-09-10"
+		}
 	]
 }
