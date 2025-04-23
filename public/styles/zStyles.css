@@ -22,8 +22,6 @@ body {
 	background-color: black;
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
-	/* height: 100%; */
-	/* width: 100%; */
 	overflow: auto;
 }
 
@@ -117,8 +115,12 @@ img.media {
 
 /* PAGES */
 
+div.topMargin {
+	height: 48px;
+	width: 100%;
+}
 /* @media screen and (orientation: portrait) { */
-div.mainGuid {
+div.mainGrid {
 	/* padding-top: 3em; */
 	display: grid;
 	grid-template-columns: 33% 33% 33%;
@@ -132,10 +134,15 @@ div.mainGuid {
 	/* border-color: red; */
 }
 
-@media screen and (orientation: portrait) {
-	div.mainGuid {
-		padding-top: 3em;
-	}
+div.timeline {
+	border-left: 3px solid rgba(14, 141, 161, 0.3);
+	clip-path: ellipse(60% 60% at 50% 50%);
+	width: 12px;
+}
+
+h3.year {
+	color: rgba(14, 141, 161, 0.5);
+	margin: 0 0 0 0;
 }
 
 div.endnotes {
