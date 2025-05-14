@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { categories, others } from "./config";
 import { cloneElement } from "react";
+import { authSection } from "./auth";
 
 export function Navbar(type: string) {
 	var navBar: JSX.Element[] = [];
@@ -44,6 +45,9 @@ export function Navbar(type: string) {
 			to: "/CV_en",
 		});
 	}
+
+	// auth section
+	navBar.push(authSection());
 
 	return navBar;
 }
