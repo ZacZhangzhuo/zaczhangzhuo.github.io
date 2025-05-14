@@ -36,18 +36,50 @@ function getCategoryItem(blog: Blog) {
 	);
 }
 
+function getCategoryGrid(items: Blog[]) {
+	var itemSortedByYear: { [key: string]: Blog[] } = {};
+
+	for (const item of items) {
+		const year = item._timeCreated.getFullYear();
+		if (!itemSortedByYear[year]) {
+			itemSortedByYear[year] = [];
+		}
+		itemSortedByYear[year].push(item);
+	}
+
+	return (
+		<div>
+			{Object.keys(itemSortedByYear)
+				.sort()
+				.reverse()
+				.map((year) => {
+					return (
+						<div key={year}>
+							<h3 className="year">{year}</h3>
+							<div style={{ display: "flex" }}>
+								<div className="timeline" />
+								<div className="mainGrid">
+									{itemSortedByYear[year].map((item) => {
+										return getCategoryItem(item);
+									})}
+								</div>
+							</div>
+						</div>
+					);
+				})}
+		</div>
+	);
+}
+
 export function CategoryPage({ category }: { category: Category }) {
 	return (
 		<Page title={category._name}>
 			<>
 				{/* Menu bar */}
 				<div className="navBar">{Navbar(category._name)}</div>
+				<div className="topMargin" />
 				{/* Main content */}
-				<div className="mainGuid">
-					{blogs[category._name].map((i) => {
-						return getCategoryItem(i);
-					})}
-				</div>
+				{getCategoryGrid(blogs[category._name])}
 			</>
 		</Page>
 	);
