@@ -1,5 +1,12 @@
 {
-	"categories": ["zDesigner", "zLearner", "zWriter", "zPhotographer", "zDeveloper"],
+	"categories": [
+		{ "name": "zDesigner", "displayLimitYear": -1 },
+		{ "name": "zLearner", "displayLimitYear": 2 },
+		{ "name": "zWriter", "displayLimitYear": 2 },
+		{ "name": "zPhotographer", "displayLimitYear": -1 },
+		{ "name": "zDeveloper", "displayLimitYear": 2 },
+		{ "name": "zCV", "displayLimitYear": -1 }
+	],
 	"others": ["zCV", "zSkills", "zContact"],
 	"medias": [
 		{ "name": "linkedin", "url": "https://www.linkedin.com/in/zac-zhuo-zhang/", "icon": "/LinkedIn.png" },

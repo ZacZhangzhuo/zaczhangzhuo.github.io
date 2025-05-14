@@ -7,18 +7,23 @@ export const legacyConfig = await fetch("/archz-static/legacy_config.json").then
 // !Category
 export class Category {
 	_name: string;
+	_displayLimitYear: number;
 	_path: string;
 
-	constructor({ name }: { name: string }) {
+	constructor({ name, displayLimitYear, path }: { name: string; displayLimitYear: number; path?: string }) {
 		this._name = name;
-		this._path = `/${name}`;
+		this._displayLimitYear = displayLimitYear;
+		this._path = path || `/${name}`;
 	}
 }
 
-function getCategories(): Category[] {
-	let categories: Category[] = [];
+function getCategories(): { [key: string]: Category } {
+	let categories: { [key: string]: Category } = {};
 	for (let i = 0; i < zConfig.categories.length; i++) {
-		categories.push(new Category({ name: zConfig.categories[i] }));
+		categories[zConfig.categories[i].name] = new Category({
+			name: zConfig.categories[i].name,
+			displayLimitYear: zConfig.categories[i].displayLimitYear,
+		});
 	}
 	return categories;
 }
@@ -53,7 +58,7 @@ export class Blog {
 	_file: string;
 	_path: string;
 	_image: string;
-	_category: string;
+	_category: Category;
 	_type: string;
 	_timeCreated: Date;
 
@@ -70,7 +75,7 @@ export class Blog {
 		file: string;
 		path: string;
 		image: string;
-		category: string;
+		category: Category;
 		type?: string;
 		timeCreated: Date;
 	}) {
@@ -93,7 +98,7 @@ function getOthers(): Blog[] {
 			file: "/zCV/zCV_en.html",
 			path: "/CV_en",
 			image: "/archz-static/about.jpg",
-			category: "others",
+			category: categories["others"],
 			timeCreated: new Date(),
 		}),
 		new Blog({
@@ -101,7 +106,7 @@ function getOthers(): Blog[] {
 			file: "/zCV/zCV_cn.html",
 			path: "/CV_cn",
 			image: "/archz-static/about.jpg",
-			category: "others",
+			category: categories["others"],
 			timeCreated: new Date(),
 		})
 	);
@@ -117,9 +122,9 @@ class LegacyBlog extends Blog {
 		category,
 	}: {
 		blogInfo: { name: string; file: string; image: string; timeCreated: string };
-		category: string;
+		category: Category;
 	}) {
-		let _file = `/archz-static/${category}/${blogInfo.file}`;
+		let _file = `/archz-static/${category._name}/${blogInfo.file}`;
 		if (blogInfo.file.startsWith("http")) {
 			_file = blogInfo.file;
 		}
@@ -137,8 +142,8 @@ class LegacyBlog extends Blog {
 		super({
 			name: blogInfo.name,
 			file: _file,
-			path: `/archz-static/${category}/${blogInfo.file.split("/")[0]}`,
-			image: `/archz-static/${category}/${blogInfo.image}`,
+			path: `/archz-static/${category._name}/${blogInfo.file.split("/")[0]}`,
+			image: `/archz-static/${category._name}/${blogInfo.image}`,
 			category,
 			timeCreated: _timeCreated,
 		});
@@ -153,7 +158,7 @@ function getLegacyBlogs() {
 		let _blogs = [];
 		for (let i = 0; i < blogInfos.length; i++) {
 			let blogInfo = blogInfos[i];
-			_blogs.push(new LegacyBlog({ blogInfo, category }));
+			_blogs.push(new LegacyBlog({ blogInfo, category: categories[category] }));
 		}
 		blogs[category] = _blogs.reverse();
 	}
@@ -170,7 +175,7 @@ function getPhotographBlogs() {
 				file: "/",
 				path: blogInfo.url,
 				image: "/",
-				category: "zPhotographer",
+				category: categories["zPhotographer"],
 				type: "instagram",
 				timeCreated: new Date(),
 			})

@@ -5,15 +5,14 @@ import { authSection } from "./auth";
 
 export function Navbar(type: string) {
 	var navBar: JSX.Element[] = [];
-	let items = categories.concat(others);
 
 	navBar.push(
 		<Link key="Home" to="/" className="navBar">
 			<p>zHome</p>
 		</Link>
 	);
-	for (let i = 0; i < items.length; i++) {
-		let category = items[i];
+	for (let i in categories) {
+		let category = categories[i];
 		navBar.push(
 			<Link key={category._name} to={category._path} className="navBar">
 				<p>{category._name}</p>

@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { Blog, blogs, Category } from "./config";
+import { Blog, blogs, Category, categories } from "./config";
 import { Navbar } from "./navBar";
 import { Page } from "./page";
 
 function getCategoryItem(blog: Blog) {
 	let content = <></>;
-	if (blog._category === "zPhotographer") {
+	if (blog._category === categories["zPhotographer"]) {
 		if (blog._type === "instagram") {
 			content = <iframe src={blog._path} scrolling="no" />;
 		} else {

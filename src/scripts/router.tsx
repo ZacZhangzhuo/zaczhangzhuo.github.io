@@ -25,9 +25,9 @@ function createBlogRouterInfo(blogs: { [key: string]: Blog[] }) {
 	return pageInfo;
 }
 
-function createCategoryRouterInfo(categories: Category[]) {
+function createCategoryRouterInfo(categories: { [key: string]: Category }) {
 	let pageInfo = [];
-	for (let i = 0; i < categories.length; i++) {
+	for (let i in categories) {
 		pageInfo.push({
 			path: categories[i]._path,
 			element: <CategoryPage category={categories[i]} />,

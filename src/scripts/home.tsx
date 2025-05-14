@@ -16,13 +16,11 @@ export function createHomePage() {
 					{/*I am a*/}
 					<p className="IAMA">I am a ...</p>
 					{/*Categories*/}
-					{categories.map((i) => {
-						return (
-							<Link key={i._name} className={"textWithLink"} to={i._path}>
-								{i._name}
-							</Link>
-						);
-					})}
+					{Object.entries(categories).map(([k, v]) => (
+						<Link key={v._name} className="textWithLink" to={v._path}>
+							{v._name}
+						</Link>
+					))}
 					{/*Media*/}
 					{medias.map((i) => {
 						return (
