@@ -1,3 +1,6 @@
+import { Blog } from "./config";
+import { useAuth } from "./auth";
+
 export function beforePrint({ img_class_replace = undefined }: { img_class_replace: string | undefined }) {
 	console.log("beforePrint");
 	if (img_class_replace) {
@@ -37,4 +40,16 @@ export function getTimeCreatedFromPath(path: string): Date | null {
 	}
 
 	return null;
+}
+
+export function contentVisible(blog: Blog) {
+	function isWithinYears(date: Date, numYears: number): boolean {
+		return new Date().getFullYear() - date.getFullYear() <= numYears;
+	}
+
+	return (
+		useAuth() != null ||
+		blog._category._displayLimitYear < 0 ||
+		isWithinYears(blog._timeCreated, blog._category._displayLimitYear)
+	);
 }
