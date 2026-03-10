@@ -16,7 +16,7 @@ export function createHomePage() {
 					{/*I am a*/}
 					<p className="IAMA">I am a ...</p>
 					{/*Categories*/}
-					{Object.entries(categories).map(([k, v]) => (
+					{Object.entries(categories).map(([_, v]) => (
 						<Link key={v._name} className="textWithLink" to={v._path}>
 							{v._name}
 						</Link>

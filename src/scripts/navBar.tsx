@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { categories, others } from "./config";
+import { categories } from "./config";
 import { cloneElement } from "react";
 import { authSection } from "./auth";
 
